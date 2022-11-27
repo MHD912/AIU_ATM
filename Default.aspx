@@ -1,42 +1,122 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AIU_ATM._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AIU_ATM.Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html>
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>AIU Bank | Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="source/css/all.min.css" />
+    <link rel="stylesheet" href="source/css/fontawesome.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .home {
+            background: url(source/wallpaper.png) no-repeat center;
+            color: #111;
+        }
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+        .btn {
+            font-family: 'Ubuntu', sans-serif;
+            width: 8em;
+            height: 3em;
+            border: 2px solid rgb(52, 205, 133);
+            background: rgb(52, 205, 133);
+            color: #fff;
+            font-size: 22px;
+            font-weight: 400;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-inline-end: 60px
+        }
 
-</asp:Content>
+            .btn:hover {
+                color: rgb(52, 205, 133);
+                background: none;
+            }
+
+        .navbar .logo a {
+            color: #333;
+        }
+
+            .navbar .logo a span {
+                color: rgb(52, 205, 133);
+            }
+
+        .navbar.sticky .logo a span {
+            color: #333;
+        }
+
+        .navbar .logo a:hover {
+            color: rgb(52, 205, 133);
+        }
+
+        .navbar.sticky .logo a:hover {
+            color: #333;
+        }
+
+        .navbar .logo a:hover span {
+            color: #333;
+        }
+
+        .navbar.sticky .logo a:hover span {
+            color: #333;
+        }
+
+        .typing {
+            color: rgb(52, 205, 133);
+        }
+    </style>
+    <script>
+        $('document').ready(function () {
+            var typed = new Typed(".typing", {
+                strings: [". . ."],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Navigation bar -->
+
+        <nav class="navbar">
+            <!-- Max-width class helps in responsiveness of the website -->
+            <div class="max-width">
+                <!-- Logo class returns the client to home page once clicked -->
+                <div class="logo">
+                    <a href="#home">AIU|<span> Bank</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home section start -->
+
+        <section class="home" id="home">
+            <!-- Max-width class helps in responsiveness of the website -->
+            <div class="max-width">
+                <div class="home-content">
+                    <div class="text-2">Welcome to AIU ATM System <span class="typing" style="color: #111;"></span></div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="text-1">-What do you want to do?</div>
+                    <br />
+                    <br />
+                    <asp:Button CssClass="btn" ID="ButtonAdmin" runat="server" Text="Admin Login" OnClick="ButtonAdmin_Click" />
+                    <asp:Button CssClass="btn" ID="ButtonCustomer" runat="server" Text="Insert Card" OnClick="ButtonCustomer_Click" />
+                </div>
+            </div>
+        </section>
+    </form>
+</body>
+</html>

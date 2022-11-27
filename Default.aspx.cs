@@ -7,9 +7,19 @@ using System.Web.UI.WebControls;
 
 namespace AIU_ATM
 {
-    public partial class _Default : Page
+    public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonCustomer_Click(object sender, EventArgs e)
         {
 
         }

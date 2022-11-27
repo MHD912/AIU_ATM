@@ -5,11 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AIU_ATM
+namespace Test
 {
-    public partial class Contact : Page
+    public partial class CustomerLogin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void LoginButton_Click(object sender, EventArgs e)
         {
 
         }
