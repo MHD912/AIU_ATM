@@ -165,6 +165,8 @@
     <Content Include="source\webfonts\fa-regular-400.svg" />
     <Content Include="source\webfonts\fa-solid-900.svg" />
     <Content Include="style.css" />
+    <Content Include="ViewCustomerDetail.aspx" />
+    <Content Include="ViewCustomers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -237,6 +239,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCustomerDetail.aspx.cs">
+      <DependentUpon>ViewCustomerDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCustomerDetail.aspx.designer.cs">
+      <DependentUpon>ViewCustomerDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCustomers.aspx.cs">
+      <DependentUpon>ViewCustomers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCustomers.aspx.designer.cs">
+      <DependentUpon>ViewCustomers.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
