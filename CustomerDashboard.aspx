@@ -63,10 +63,16 @@
         .typing {
             color: rgb(52, 205, 133);
         }
+
         .actions-list {
             margin-bottom: 1em;
         }
 
+        footer {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
     </style>
     <script>
         $('document').ready(function () {
@@ -107,7 +113,7 @@
 
         <!-- Home section start -->
 
-        <section class="home" id="home">
+        <section class="home" id="home" style="margin-bottom: -3em;">
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
@@ -115,21 +121,26 @@
                     <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
                     <div class="actions-list">
                         <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewCustomers" CssClass="btn" runat="server" Text="View Customers" OnClick="ButtonViewCustomers_Click" />
+                        <asp:Button ID="ButtonViewCustomers" CssClass="btn" runat="server" Text="View Customers" />
                     </div>
                     <br />
                     <div class="actions-list">
                         <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewTransactions" CssClass="btn" runat="server" Text="View Transactions" OnClick="ButtonViewTransactions_Click" />
+                        <asp:Button ID="ButtonViewTransactions" CssClass="btn" runat="server" Text="View Transactions" />
                     </div>
                     <br />
                     <div class="actions-list">
                         <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonCreateCustomer" CssClass="btn" runat="server" Text="Create Customer" OnClick="ButtonCreateCustomer_Click" /><br />
+                        <asp:Button ID="ButtonCreateCustomer" CssClass="btn" runat="server" Text="Create Customer" /><br />
                     </div>
                 </div>
             </div>
         </section>
+        <footer>
+            <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
+                2022 All rights reserved.
+            </span>
+        </footer>
     </form>
 </body>
 </html>

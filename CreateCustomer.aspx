@@ -112,8 +112,7 @@
 
         footer {
             width: 100%;
-            height: 100%;
-            position: fixed;
+            position: absolute;
         }
 
         .typing {
@@ -164,7 +163,7 @@
 
     <%-- Input form --%>
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" style="margin-bottom: 11em;">
         <div class="max-width">
             <h2 class="title"></h2>
             <form id="form1" runat="server">
@@ -310,6 +309,11 @@
             </form>
         </div>
     </section>
+    <footer>
+        <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
+            2022 All rights reserved.
+        </span>
+    </footer>
 </body>
 
 </html>

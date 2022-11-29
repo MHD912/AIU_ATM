@@ -63,10 +63,16 @@
         .typing {
             color: rgb(52, 205, 133);
         }
+
         .actions-list {
             margin-bottom: 1em;
         }
 
+        footer {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
     </style>
     <script>
         $('document').ready(function () {
@@ -107,7 +113,7 @@
 
         <!-- Home section start -->
 
-        <section class="home" id="home">
+        <section class="home" id="home" style="margin-bottom: -3em;">
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
@@ -130,6 +136,11 @@
                 </div>
             </div>
         </section>
+        <footer>
+            <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
+                2022 All rights reserved.
+            </span>
+        </footer>
     </form>
 </body>
 </html>

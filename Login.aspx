@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Admin Login</title>
+    <title>Login</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,25 +15,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
     <style>
-        .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+        .navbar.sticky .logo a {
+            color: #333;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
+            .navbar.sticky .logo a:hover {
+                color: #fff;
             }
 
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
+            .navbar.sticky .logo a span {
+                color: #fff;
+            }
 
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
+            .navbar.sticky .logo a:hover span {
+                color: #333;
+            }
 
         .contact .right form .field,
         .contact .right form .fields .field {
@@ -161,7 +157,7 @@
     </section>
 
     <footer>
-        <span>Created By <a href="#" style="color: rgb(219, 186, 36);">Hussein</a> | <span class="fas fa-copyright"></span>
+        <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
             2022 All rights reserved.
         </span>
     </footer>

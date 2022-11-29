@@ -104,7 +104,7 @@
                 <div class="logo">
                     <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
                         AIU|<span> Bank</span> 
-                </asp:HyperLink>
+                    </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
                 <ul class="menu" style="color: #333;">
@@ -122,8 +122,8 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="margin-bottom:2em">Welcome to AIU ATM System <span style="color: #111;"> . . .</span></div>
-                    <div class="text-1" style="margin-bottom:5em; color: rgb(52, 205, 133); font-weight:600;"><span class="typing" style="font-weight:300; color: #111;"></span></div>
+                    <div class="text-2" style="margin-bottom: 2em">Welcome to AIU ATM System <span style="color: #111;">. . .</span></div>
+                    <div class="text-1" style="margin-bottom: 5em; color: rgb(52, 205, 133); font-weight: 600;"><span class="typing" style="font-weight: 300; color: #111;"></span></div>
                     <asp:Button CssClass="btn" ID="ButtonLogin" runat="server" Text="Login" OnClick="ButtonLogin_Click" />
                 </div>
             </div>
