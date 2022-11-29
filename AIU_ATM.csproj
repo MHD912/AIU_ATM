@@ -106,14 +106,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminDashboard.aspx" />
-    <Content Include="AdminLogin.aspx" />
+    <Content Include="CustomerDashboard.aspx" />
+    <Content Include="EditCustomerDetails.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreateCustomer.aspx" />
-    <Content Include="CustomerLogin.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -165,9 +166,10 @@
     <Content Include="source\webfonts\fa-regular-400.svg" />
     <Content Include="source\webfonts\fa-solid-900.svg" />
     <Content Include="style.css" />
-    <Content Include="ViewCustomerDetail.aspx" />
+    <Content Include="ViewCustomerDetails.aspx" />
     <Content Include="ViewCustomers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="ViewTransactions.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -192,12 +194,26 @@
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    <Compile Include="CustomerDashboard.aspx.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    <Compile Include="CustomerDashboard.aspx.designer.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCustomerDetails.aspx.cs">
+      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditCustomerDetails.aspx.designer.cs">
+      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -207,13 +223,6 @@
     </Compile>
     <Compile Include="CreateCustomer.aspx.designer.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerLogin.aspx.cs">
-      <DependentUpon>CustomerLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerLogin.aspx.designer.cs">
-      <DependentUpon>CustomerLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -240,12 +249,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="ViewCustomerDetail.aspx.cs">
-      <DependentUpon>ViewCustomerDetail.aspx</DependentUpon>
+    <Compile Include="ViewCustomerDetails.aspx.cs">
+      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewCustomerDetail.aspx.designer.cs">
-      <DependentUpon>ViewCustomerDetail.aspx</DependentUpon>
+    <Compile Include="ViewCustomerDetails.aspx.designer.cs">
+      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCustomers.aspx.cs">
       <DependentUpon>ViewCustomers.aspx</DependentUpon>
@@ -260,6 +269,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTransactions.aspx.cs">
+      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTransactions.aspx.designer.cs">
+      <DependentUpon>ViewTransactions.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

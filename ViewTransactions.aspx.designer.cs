@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test
+namespace AIU_ATM
 {
 
 
-    public partial class ViewCustomerDetail
+    public partial class ViewTransactions
     {
 
         /// <summary>

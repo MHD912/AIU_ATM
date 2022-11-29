@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminLogin.aspx.cs" Inherits="Test.AdminLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Test.AdminLogin" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="source/css/all.min.css" />
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
     <style>
         .navbar.sticky {
@@ -88,6 +88,19 @@
             position: fixed;
         }
     </style>
+    <script>
+        $('document').ready(function () {
+            var typed = new Typed(".typing", {
+                strings: ["Bank", "Login"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                backDelay: 3600,
+                cursorChar: '_',
+                fadeOut: true,
+                loop: true
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -99,14 +112,14 @@
         <div class="max-width">
             <!-- Logo class returns the client to home page once clicked -->
             <div class="logo">
-                <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/index.aspx">
-                   AIU|<span> Bank</span> 
+                <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
+                   AIU|<span class="typing"></span> 
                 </asp:HyperLink>
             </div>
             <!-- Navigation bar menu -->
             <ul class="menu">
                 <li>
-                    <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/index.aspx" ForeColor="White">
+                    <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/Default.aspx" ForeColor="White">
                         <span class="fas fa-home" style="font-size: 25px;"/>
                     </asp:HyperLink>
                 </li>
@@ -117,9 +130,9 @@
 
     <!-- Login section -->
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" style="margin-bottom: 5em;">
         <div class="max-width">
-            <h2 class="title">Admin Login</h2>
+            <h2 class="title" style="margin-bottom: 3em;">Login</h2>
             <div class="contact-content">
                 <div class="column right">
                     <div class="text">Enter your information:</div>
@@ -147,12 +160,6 @@
         </div>
     </section>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <footer>
         <span>Created By <a href="#" style="color: rgb(219, 186, 36);">Hussein</a> | <span class="fas fa-copyright"></span>
             2022 All rights reserved.

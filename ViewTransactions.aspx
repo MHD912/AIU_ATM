@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCustomerDetail.aspx.cs" Inherits="Test.ViewCustomerDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewTransactions.aspx.cs" Inherits="AIU_ATM.ViewTransactions" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>View Transactions</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            dwd
+            Placeholder Text
         </div>
     </form>
 </body>

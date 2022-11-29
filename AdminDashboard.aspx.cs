@@ -13,5 +13,20 @@ namespace Test
         {
 
         }
+
+        protected void ButtonViewCustomers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewCustomers.aspx");
+        }
+
+        protected void ButtonCreateCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateCustomer.aspx");
+        }
+
+        protected void ButtonViewTransactions_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewTransactions.aspx");
+        }
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test
+namespace AIU_ATM
 {
 
 
-    public partial class CreateCustomer
+    public partial class ViewCustomerDetails
     {
 
         /// <summary>
@@ -123,24 +123,6 @@ namespace Test
         protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
 
         /// <summary>
-        /// LabelConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelConfirmPassword;
-
-        /// <summary>
-        /// TextBoxConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmPassword;
-
-        /// <summary>
         /// LabelEmail control.
         /// </summary>
         /// <remarks>
@@ -186,22 +168,13 @@ namespace Test
         protected global::System.Web.UI.WebControls.Label LabelGender;
 
         /// <summary>
-        /// RadioButtonMale control.
+        /// TextBoxGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonMale;
-
-        /// <summary>
-        /// RadioButtonFemale control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonFemale;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxGender;
 
         /// <summary>
         /// LabelContact control.
@@ -213,13 +186,13 @@ namespace Test
         protected global::System.Web.UI.WebControls.Label LabelContact;
 
         /// <summary>
-        /// DropDownListCountryCode control.
+        /// TextBoxCountryCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCountryCode;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCountryCode;
 
         /// <summary>
         /// TextBoxContact control.
@@ -303,48 +276,21 @@ namespace Test
         protected global::System.Web.UI.WebControls.TextBox TextBoxPin;
 
         /// <summary>
-        /// LabelConfirmPin control.
+        /// ButtonDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelConfirmPin;
+        protected global::System.Web.UI.WebControls.Button ButtonDelete;
 
         /// <summary>
-        /// TextBoxConfirmPin control.
+        /// ButtonEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmPin;
-
-        /// <summary>
-        /// CheckBoxUserType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxUserType;
-
-        /// <summary>
-        /// ButtonCreate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreate;
-
-        /// <summary>
-        /// ButtonReset control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonReset;
+        protected global::System.Web.UI.WebControls.Button ButtonEdit;
     }
 }

@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="script.js"></script>
     <style>
+        /*home styling */
+
         .home {
             background: url(source/wallpaper.png) no-repeat center;
             color: #111;
         }
+
+        /*button styling*/
 
         .btn {
             font-family: 'Ubuntu', sans-serif;
@@ -38,6 +41,8 @@
                 color: rgb(52, 205, 133);
                 background: none;
             }
+
+        /*navigation bar styling*/
 
         .navbar .logo a {
             color: #333;
@@ -67,6 +72,8 @@
             color: #333;
         }
 
+        /*typed script styling*/
+
         .typing {
             color: rgb(52, 205, 133);
         }
@@ -74,9 +81,12 @@
     <script>
         $('document').ready(function () {
             var typed = new Typed(".typing", {
-                strings: [". . ."],
-                typeSpeed: 100,
+                strings: ["Your first choice for monetary needs", "Reliable and trustworthy"],
+                typeSpeed: 30,
                 backSpeed: 60,
+                backDelay: 3600,
+                cursorChar: '_',
+                fadeOut: true,
                 loop: true
             });
         });
@@ -92,9 +102,17 @@
             <div class="max-width">
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
-                    <a href="#home">AIU|<span> Bank</span>
-                    </a>
+                    <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
+                        AIU|<span> Bank</span> 
+                </asp:HyperLink>
                 </div>
+                <!-- Navigation bar menu -->
+                <ul class="menu" style="color: #333;">
+                    <li><a href="#about" class="menu-btn">About</a></li>
+                    <li><a href="#services" class="menu-btn">Services</a></li>
+                    <li><a href="#teams" class="menu-btn">Teams</a></li>
+                    <li><a href="#contact" class="menu-btn">Contact</a></li>
+                </ul>
             </div>
         </nav>
 
@@ -104,16 +122,9 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2">Welcome to AIU ATM System <span class="typing" style="color: #111;"></span></div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div class="text-1">-What do you want to do?</div>
-                    <br />
-                    <br />
-                    <asp:Button CssClass="btn" ID="ButtonAdmin" runat="server" Text="Admin Login" OnClick="ButtonAdmin_Click" />
-                    <asp:Button CssClass="btn" ID="ButtonCustomer" runat="server" Text="Insert Card" OnClick="ButtonCustomer_Click" />
+                    <div class="text-2" style="margin-bottom:2em">Welcome to AIU ATM System <span style="color: #111;"> . . .</span></div>
+                    <div class="text-1" style="margin-bottom:5em; color: rgb(52, 205, 133); font-weight:600;"><span class="typing" style="font-weight:300; color: #111;"></span></div>
+                    <asp:Button CssClass="btn" ID="ButtonLogin" runat="server" Text="Login" OnClick="ButtonLogin_Click" />
                 </div>
             </div>
         </section>

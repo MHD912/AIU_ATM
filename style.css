@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
 html {
@@ -117,7 +119,7 @@ Navigation bar styling
     }
 
         .navbar .menu li a {
-            color: #fff;
+            color: #111;
             font-size: 18px;
             font-weight: 500;
             margin-left: 25px;
@@ -125,7 +127,7 @@ Navigation bar styling
         }
 
             .navbar .menu li a:hover {
-                color: rgb(219, 186, 36);
+                color: rgb(52, 205, 133);
             }
 
     .navbar.sticky .menu li a:hover {

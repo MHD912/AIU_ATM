@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test
+namespace AIU_ATM
 {
 
 
-    public partial class CreateCustomer
+    public partial class EditCustomerDetails
     {
 
         /// <summary>
@@ -330,21 +330,21 @@ namespace Test
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxUserType;
 
         /// <summary>
-        /// ButtonCreate control.
+        /// ButtonConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreate;
+        protected global::System.Web.UI.WebControls.Button ButtonConfirm;
 
         /// <summary>
-        /// ButtonReset control.
+        /// ButtonCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonReset;
+        protected global::System.Web.UI.WebControls.Button ButtonCancel;
     }
 }

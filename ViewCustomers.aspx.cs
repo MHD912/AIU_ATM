@@ -27,20 +27,5 @@ namespace Test
             Response.Redirect("CreateCustomer.aspx");
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-
-            Response.Redirect("ViewCustomerDetail.aspx");
-        }
-
-        protected void customersGridView_DataBound(object sender, EventArgs e)
-        {
-            //GridViewRow row = customersGridView.HeaderRow;
-            //row.Cells[0].ColumnSpan = 3;
-            //row.Cells[1].Visible = false;
-            //row.Cells[2].Visible = false;
-        }
-
-
     }
 }

@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateCustomer.aspx.cs" Inherits="Test.CreateCustomer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditCustomerDetails.aspx.cs" Inherits="AIU_ATM.EditCustomerDetails" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <title>Create Customer</title>
+    <title>Edit Customer Information</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -56,7 +56,7 @@
         }
 
         .contact .title::after {
-            content: "customer registration form";
+            content: "edit customer information";
             color: rgb(52, 205, 133);
         }
 
@@ -127,7 +127,7 @@
                 $("#TableRowPinCode").toggle(!this.checked);
             });
             var typed = new Typed(".typing", {
-                strings: ["Bank", "Create Customer"],
+                strings: ["Bank", "Edit Info."],
                 typeSpeed: 80,
                 backSpeed: 60,
                 backDelay: 3600,
@@ -299,10 +299,10 @@
                                 <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Create" CssClass="btn" />
+                                <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonReset" runat="server" type="reset" Text="Reset" CssClass="btn" />
+                                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" CssClass="btn" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -311,5 +311,4 @@
         </div>
     </section>
 </body>
-
 </html>
