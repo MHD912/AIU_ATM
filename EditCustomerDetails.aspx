@@ -310,7 +310,7 @@
         </div>
     </section>
     <footer>
-        <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
+        <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
             2022 All rights reserved.
         </span>
     </footer>

@@ -33,39 +33,30 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
-        /// HyperLinkLogout control.
+        /// ButtonWithdraw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
+        protected global::System.Web.UI.WebControls.Button ButtonWithdraw;
 
         /// <summary>
-        /// ButtonViewCustomers control.
+        /// ButtomDeposit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewCustomers;
+        protected global::System.Web.UI.WebControls.Button ButtomDeposit;
 
         /// <summary>
-        /// ButtonViewTransactions control.
+        /// ButtonTransfer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewTransactions;
-
-        /// <summary>
-        /// ButtonCreateCustomer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateCustomer;
+        protected global::System.Web.UI.WebControls.Button ButtonTransfer;
     }
 }
