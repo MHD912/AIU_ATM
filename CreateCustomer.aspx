@@ -274,6 +274,16 @@
                             <asp:TableCell runat="server">
                                 <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:Label ID="LabelAccountType" runat="server" Text="Account Type" CssClass="text"></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:DropDownList ID="DropDownListAccountType" runat="server" CssClass="input" Style="transform: translateX(-50%);">
+                                    <asp:ListItem>Current Account</asp:ListItem>
+                                    <asp:ListItem>Savings Account</asp:ListItem>
+                                    <asp:ListItem>Salary Account</asp:ListItem>
+                                </asp:DropDownList>
+                            </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
                             <asp:TableCell runat="server">
@@ -298,10 +308,10 @@
                                 <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Create" CssClass="btn" />
+                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Create" CssClass="btn" OnClick="createCustomer"/>
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonReset" runat="server" type="reset" Text="Reset" CssClass="btn" />
+                                <asp:Button ID="ButtonReset" runat="server" type="reset" Text="Reset" CssClass="btn" OnClick="resetTextBoxes"/>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -310,7 +320,7 @@
         </div>
     </section>
     <footer>
-        <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
+        <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
             2022 All rights reserved.
         </span>
     </footer>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AIU_ATM {
+namespace Test {
     
     
     public partial class Site_Mobile {

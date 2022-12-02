@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="AIU_ATM.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Test.Global" Language="C#" %>

@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerDashboard.aspx.cs" Inherits="AIU_ATM.CustomerDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customerDashboard.aspx.cs" Inherits="Test.customerDashboard" %>
+
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Customer Dashboard</title>
+    <title>Admin Dashboard</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="script.js"></script>
     <style>
         .home {
             background: url(source/wallpaper.png) no-repeat center;
@@ -20,24 +22,50 @@
 
         .btn {
             font-family: 'Ubuntu', sans-serif;
-            border: none;
-            background: none;
-            color: rgb(52, 205, 133);
+            width: 8em;
+            height: 3em;
+            border: 2px solid rgb(52, 205, 133);
+            background: rgb(52, 205, 133);
+            color: #fff;
+            font-size: 22px;
+            font-weight: 400;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-inline-end: 60px
+        }
+
+            .btn:hover {
+                color: rgb(52, 205, 133);
+                background: none;
+            }
+
+        .dropDownList {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            width: 8em;
+            height: 3em;
+            border: 2px solid rgb(52, 205, 133);
+            background: rgb(52, 205, 133);
+            color: #fff;
             font-size: 22px;
             font-weight: 400;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-inline-end: 60px;
-            text-decoration-line: underline;
-            text-decoration-style: dashed;
-            text-decoration-color: #111;
+            outline: none;
         }
 
-            .btn:hover {
-                /*text-decoration-style: solid;*/
-                text-decoration-color: rgb(52, 205, 133);
+            .dropDownList .listItem {
+                color: #222;
+                background: #fff;
             }
+
+                .dropDownList .listItem:hover {
+                    color: rgb(52, 205, 133);
+                    background: none;
+                }
 
         .navbar.sticky {
             background-color: rgb(52, 205, 133);
@@ -62,16 +90,6 @@
 
         .typing {
             color: rgb(52, 205, 133);
-        }
-
-        .actions-list {
-            margin-bottom: 1em;
-        }
-
-        footer {
-            width: 100%;
-            height: 100%;
-            position: fixed;
         }
     </style>
     <script>
@@ -98,49 +116,34 @@
             <div class="max-width">
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
-                    <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
-                    </asp:HyperLink>
+                    <a href="#home">AIU|<span class="typing"></span>
+                    </a>
                 </div>
-                <!-- Navigation bar menu -->
-                <ul class="menu">
-                    <li>
-                        <asp:HyperLink Style="color: #fff;" ID="HyperLinkLogout" runat="server">Logout</asp:HyperLink>
-                    </li>
-                </ul>
             </div>
         </nav>
 
         <!-- Home section start -->
 
-        <section class="home" id="home" style="margin-bottom: -3em;">
+        <section class="home" id="home">
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="color: #333;">Hi there Admin <span style="color: rgb(52, 205, 133);">; )</span></div>
-                    <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
-                    <div class="actions-list">
-                        <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewCustomers" CssClass="btn" runat="server" Text="View Customers" />
-                    </div>
+                    <div class="text-2" style="color: #333;"> <asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);">; )</span></div>
                     <br />
-                    <div class="actions-list">
-                        <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewTransactions" CssClass="btn" runat="server" Text="View Transactions" />
-                    </div>
                     <br />
-                    <div class="actions-list">
-                        <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonCreateCustomer" CssClass="btn" runat="server" Text="Create Customer" /><br />
+                    <br />
+                    <br />
+                    <div class="text-1" style="margin-bottom:40px;">- Your balance is: <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
+                        <asp:Button style="display:block; margin-bottom:30px; width:550px" class="btn" ID="withdraw" runat="server" Text="Withdraw money" OnClick="withdraw_Click" />
+                        <asp:Button style="display:block; margin-bottom:30px; width:550px" class="btn" ID="deposit" runat="server" Text="Deposit money" OnClick="deposit_Click" />
+                        <asp:Button style="display:block; margin-bottom:30px; width:550px" class="btn" ID="transfer" runat="server" Text="transfer money" OnClick="transfer_Click" />
+                    
+
+                    
                 </div>
             </div>
         </section>
-        <footer>
-            <span>Designed By <a href="#">Hussein912</a> | <span class="fas fa-copyright"></span>
-                2022 All rights reserved.
-            </span>
-        </footer>
     </form>
 </body>
 </html>

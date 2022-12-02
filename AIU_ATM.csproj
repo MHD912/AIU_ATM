@@ -8,16 +8,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B06135FC-16B2-40DD-8D3B-F7E10FE612F9}</ProjectGuid>
+    <ProjectGuid>{5C297D18-5626-404C-938C-71040AE50792}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AIU_ATM</RootNamespace>
-    <AssemblyName>AIU_ATM</AssemblyName>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44356</IISExpressSSLPort>
+    <IISExpressSSLPort>44323</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -105,17 +105,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
     <Content Include="AdminDashboard.aspx" />
-    <Content Include="CustomerDashboard.aspx" />
-    <Content Include="EditCustomerDetails.aspx" />
-    <Content Include="Login.aspx" />
+    <Content Include="CreateCustomer.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CreateCustomer.aspx" />
+    <Content Include="customerDashboard.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="depositMoney.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -127,8 +128,23 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="source\banner-5.jpg" />
+    <Content Include="source\css\all.min.css" />
+    <Content Include="source\css\fontawesome.min.css" />
+    <Content Include="source\default.jpg" />
+    <Content Include="source\Picsart_22-04-17_16-45-10-840.jpg" />
+    <Content Include="source\profile-1.jpg" />
     <Content Include="script.js" />
+    <Content Include="source\wallpaper.png" />
+    <Content Include="style.css" />
+    <Content Include="source\thx.html" />
+    <Content Include="source\webfonts\fa-brands-400.svg" />
+    <Content Include="source\webfonts\fa-regular-400.svg" />
+    <Content Include="source\webfonts\fa-solid-900.svg" />
+    <Content Include="AdminLogin.aspx" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="withdrawMoney.aspx" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -158,33 +174,12 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="source\css\all.min.css" />
-    <Content Include="source\css\fontawesome.min.css" />
-    <Content Include="source\default.jpg" />
-    <Content Include="source\wallpaper.png" />
-    <Content Include="source\webfonts\fa-brands-400.svg" />
-    <Content Include="source\webfonts\fa-regular-400.svg" />
-    <Content Include="source\webfonts\fa-solid-900.svg" />
-    <Content Include="style.css" />
-    <Content Include="ViewCustomerDetails.aspx" />
+    <Content Include="transferMoney.aspx" />
     <Content Include="ViewCustomers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="ViewTransactions.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="source\webfonts\fa-brands-400.eot" />
-    <Content Include="source\webfonts\fa-brands-400.ttf" />
-    <Content Include="source\webfonts\fa-brands-400.woff" />
-    <Content Include="source\webfonts\fa-brands-400.woff2" />
-    <Content Include="source\webfonts\fa-regular-400.eot" />
-    <Content Include="source\webfonts\fa-regular-400.ttf" />
-    <Content Include="source\webfonts\fa-regular-400.woff" />
-    <Content Include="source\webfonts\fa-regular-400.woff2" />
-    <Content Include="source\webfonts\fa-solid-900.eot" />
-    <Content Include="source\webfonts\fa-solid-900.ttf" />
-    <Content Include="source\webfonts\fa-solid-900.woff" />
-    <Content Include="source\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDashboard.aspx.cs">
@@ -194,29 +189,6 @@
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerDashboard.aspx.cs">
-      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerDashboard.aspx.designer.cs">
-      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditCustomerDetails.aspx.cs">
-      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditCustomerDetails.aspx.designer.cs">
-      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CreateCustomer.aspx.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,12 +196,42 @@
     <Compile Include="CreateCustomer.aspx.designer.cs">
       <DependentUpon>CreateCustomer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customerDashboard.aspx.cs">
+      <DependentUpon>customerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerDashboard.aspx.designer.cs">
+      <DependentUpon>customerDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="depositMoney.aspx.cs">
+      <DependentUpon>depositMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="depositMoney.aspx.designer.cs">
+      <DependentUpon>depositMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -249,12 +251,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="ViewCustomerDetails.aspx.cs">
-      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
+    <Compile Include="transferMoney.aspx.cs">
+      <DependentUpon>transferMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewCustomerDetails.aspx.designer.cs">
-      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
+    <Compile Include="transferMoney.aspx.designer.cs">
+      <DependentUpon>transferMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCustomers.aspx.cs">
       <DependentUpon>ViewCustomers.aspx</DependentUpon>
@@ -270,12 +272,19 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTransactions.aspx.cs">
-      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTransactions.aspx.designer.cs">
-      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="withdrawMoney.aspx.cs">
+      <DependentUpon>withdrawMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="withdrawMoney.aspx.designer.cs">
+      <DependentUpon>withdrawMoney.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +294,18 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="source\webfonts\fa-brands-400.eot" />
+    <Content Include="source\webfonts\fa-brands-400.ttf" />
+    <Content Include="source\webfonts\fa-brands-400.woff" />
+    <Content Include="source\webfonts\fa-brands-400.woff2" />
+    <Content Include="source\webfonts\fa-regular-400.eot" />
+    <Content Include="source\webfonts\fa-regular-400.ttf" />
+    <Content Include="source\webfonts\fa-regular-400.woff" />
+    <Content Include="source\webfonts\fa-regular-400.woff2" />
+    <Content Include="source\webfonts\fa-solid-900.eot" />
+    <Content Include="source\webfonts\fa-solid-900.ttf" />
+    <Content Include="source\webfonts\fa-solid-900.woff" />
+    <Content Include="source\webfonts\fa-solid-900.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -305,9 +326,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61388</DevelopmentServerPort>
+          <DevelopmentServerPort>53454</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44356/</IISUrl>
+          <IISUrl>https://localhost:44323/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

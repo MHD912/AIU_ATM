@@ -11,7 +11,7 @@ namespace Test
 {
 
 
-    public partial class customerDashboard
+    public partial class withdrawMoney
     {
 
         /// <summary>
@@ -42,6 +42,15 @@ namespace Test
         protected global::System.Web.UI.WebControls.Label cusBal;
 
         /// <summary>
+        /// Text1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Text1;
+
+        /// <summary>
         /// withdraw control.
         /// </summary>
         /// <remarks>
@@ -49,23 +58,5 @@ namespace Test
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button withdraw;
-
-        /// <summary>
-        /// deposit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button deposit;
-
-        /// <summary>
-        /// transfer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button transfer;
     }
 }

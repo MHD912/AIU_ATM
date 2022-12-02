@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
@@ -105,16 +104,8 @@
                 }
     </style>
     <script>
-        $('document').ready(function () {
-            var typed = new Typed(".typing", {
-                strings: ["Bank", "View Info."],
-                typeSpeed: 80,
-                backSpeed: 60,
-                backDelay: 3600,
-                cursorChar: '_',
-                fadeOut: true,
-                loop: true
-            });
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 </head>
@@ -126,9 +117,7 @@
         <div class="max-width">
             <!-- Logo class returns the client to home page once clicked -->
             <div class="logo">
-                <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
-                </asp:HyperLink>
+                <asp:HyperLink ID="logoHyperLink" runat="server" EnableTheming="True" NavigateUrl="~/index.aspx" ValidateRequestMode="Enabled"> AIU|<span> Bank</span> </asp:HyperLink>
             </div>
         </div>
     </nav>
@@ -143,20 +132,44 @@
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> Add New Customer</asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
+
                         <div style="margin: auto -100px 0 -60px;">
-                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="customersGridView" runat="server" DataSourceID="SqlDataSource1" Width="100%" AutoGenerateColumns="False">
+                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover"
+                                ID="customersGridView" runat="server" OnDataBound="customersGridView_DataBound" Width="100%" AutoGenerateColumns="False"
+                                DataKeyNames="AccountNo" DataSourceID="SqlDataSource1">
                                 <Columns>
-                                    <asp:CommandField ShowHeader="false" CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" EditText="&lt;span class=&quot;fa fa-pencil&quot;&gt;&lt;/span&gt;" ShowEditButton="True" UpdateText="&lt;span class=&quot;fa fa-check&quot;&gt;&lt;/span&gt;" SelectText="&lt;a href=&quot;ViewCustomerDetail.aspx&quot;&gt;&lt;span class=&quot;fa fa-eye&quot;&gt;&lt;/span&gt;&lt;/a&gt;" ShowDeleteButton="True" ShowSelectButton="True" HeaderText="Action">
-                                        <ItemStyle HorizontalAlign="Justify" Wrap="False" />
+                                    <asp:CommandField ShowHeader="false"
+                                        CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" 
+                                        DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;"
+                                        EditText="&lt;span class=&quot;fa fa-pencil&quot;&gt;&lt;/span&gt;"
+                                        UpdateText="&lt;span class=&quot;fa fa-check&quot;&gt;&lt;/span&gt;"
+                                        SelectText="&lt;span class=&quot;fa fa-eye&quot;&gt;&lt;/span&gt;"
+                                        ShowEditButton="True" 
+                                        ShowDeleteButton="True"
+                                        ShowSelectButton="True"
+                                        HeaderText="Action" >
+                                    <ItemStyle HorizontalAlign="Justify" Wrap="False" />
                                     </asp:CommandField>
                                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                                    <asp:BoundField DataField="Balance" HeaderText="Balance" InsertVisible="False" ReadOnly="True" SortExpression="Balance" />
+                                    <asp:BoundField DataField="AccountNo" HeaderText="AccountNo" SortExpression="AccountNo" InsertVisible="False" ReadOnly="True" />
+                                    <asp:BoundField DataField="Balance" HeaderText="Balance" SortExpression="Balance" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATMConnectionString %>" SelectCommand="SELECT [Name], [Email], [Balance] FROM [customers]"></asp:SqlDataSource>
+                            
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"                                
+                                SelectCommand="select ui.FirstName as Name,a.AccountNo,a.Balance
+                                                from Users as u join Accounts as a 
+                                                on u.ID=a.UserID 
+                                                join UsersInfo as ui on a.UserID=ui.ID 
+                                                where u.Privilege=2" 
+                                DeleteCommand="delete from UsersInfo
+                                where ID = (select userID from Accounts where AccountNo = @AccountNo)">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="AccountNo"  type="Int32"/>
+                                </DeleteParameters>    
+                            </asp:SqlDataSource>
+                            
                         </div>
-
                     </form>
                 </div>
             </div>
