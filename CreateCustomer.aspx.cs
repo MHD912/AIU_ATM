@@ -118,7 +118,9 @@ namespace Test
                         }
                         else
                         {
-                            
+                            cmd.CommandText = "Select * from users where username = '" + TextBoxUserName.Text + "'";
+                            da.Fill(dt);
+                            if (dt.Rows.Count != 0) { TextBoxUserName.Text = ""; return; }
 
                             string g = "Male";
                             if (RadioButtonFemale.Checked == true) { g = "FeMale"; }

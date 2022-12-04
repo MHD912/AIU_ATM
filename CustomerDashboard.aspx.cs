@@ -11,7 +11,7 @@ namespace Test
 {
     public partial class customerDashboard : System.Web.UI.Page
     {
-        string userID;
+        string userID = null;
         SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ORMHDR25;Initial Catalog=ATM-Bank;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
@@ -26,16 +26,18 @@ namespace Test
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            userID = Session["User"].ToString();
-            //userID = "35";          
+            if (Session["User"] != null)
+            {
+                userID = Session["User"].ToString();
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                da.Fill(dt);
+                string userName = dt.Rows[0]["username"].ToString();
+                string balance = dt.Rows[0]["Balance"].ToString();
 
-            cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";           
-            da.Fill(dt);
-            string userName = dt.Rows[0]["username"].ToString();
-            string balance = dt.Rows[0]["Balance"].ToString();
-
-            welS.Text = "Hi there " + userName;
-            cusBal.Text = balance + "$";
+                welS.Text = "Hi there " + userName;
+                cusBal.Text = balance + "$";
+            }
+            else { welS.Text = "Not Logged In"; }
         }
         
         protected void withdraw_Click(object sender, EventArgs e)

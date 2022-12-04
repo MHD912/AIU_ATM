@@ -27,23 +27,31 @@ namespace Test
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-
-            cmd.CommandText = "select * from Users where UserName='"+username.Text+"' and PassWord='"+password.Text+"'";
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            cmd.CommandText = "select * from Users where UserName='"+username.Text+"'";
             da.Fill(dt);
-            string userID = dt.Rows[0]["id"].ToString();
-            string privilege = dt.Rows[0]["privilege"].ToString();
-
-            Session["User"] = userID;
-
-            if(privilege == "1")
+            if (dt.Rows.Count > 0)
             {
-                Response.Redirect("AdminDashboard.aspx");
-            }else if (privilege == "2")
-            {
-                Response.Redirect("customerDashboard");
+                string userID = dt.Rows[0]["id"].ToString();
+                string privilege = dt.Rows[0]["privilege"].ToString();
+                string passWord = dt.Rows[0]["password"].ToString();
+                if (passWord == password.Text)
+                {
+                    Session["User"] = userID;
+                    if (privilege == "1")
+                    {
+                        Response.Redirect("AdminDashboard.aspx");
+                    }
+                    else if (privilege == "2")
+                    {
+                        Response.Redirect("customerDashboard");
+                    }
+                }
+                else { password.Text = ""; }
             }
+            else { username.Text = ""; password.Text = ""; }
         }
     }
 }
