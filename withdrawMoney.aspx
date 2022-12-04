@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="script.js"></script>
     <style>
         .home {
             background: url(source/wallpaper.png) no-repeat center;
@@ -39,32 +38,6 @@
                 background: none;
             }
 
-        .dropDownList {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            width: 8em;
-            height: 3em;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
-            font-size: 22px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-inline-end: 60px;
-            outline: none;
-        }
-
-            .dropDownList .listItem {
-                color: #222;
-                background: #fff;
-            }
-
-                .dropDownList .listItem:hover {
-                    color: rgb(52, 205, 133);
-                    background: none;
-                }
 
         .navbar.sticky {
             background-color: rgb(52, 205, 133);
@@ -127,19 +100,16 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="color: #333;">
+                    <div class="text-2" style="color: #333; margin-bottom: 3em;">
                         <asp:Label ID="welS" runat="server"></asp:Label>
-                        <span style="color: rgb(52, 205, 133);">; )</span></div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                        <span style="color: rgb(52, 205, 133);">; )</span>
+                    </div>
                     <div class="text-1" style="margin-bottom: 40px;">
                         - Your balance is:
                         <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
                     <div class="text-1">Withdraw: </div>
-                    <asp:TextBox runat="server" Style="width: 220px; margin-top: 10px; margin-right: 5px; height: 50px;" class="btn" ID="Text1" type="text"></asp:TextBox>$<br />
+                    <asp:TextBox runat="server" CssClass="input" Style="width: 220px; margin-top: 10px; margin-right: 5px; height: 50px;" ID="TextBoxWithdraw" type="text"></asp:TextBox>$<br />
                     <asp:Button Style="display: block; margin-top: 30px; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonWithdraw" runat="server" Text="Withdraw money" OnClick="ButtonWithdraw_Click" />
                 </div>
             </div>

@@ -39,7 +39,7 @@ namespace Test
 
         protected void ButtonWithdraw_Click(object sender, EventArgs e)
         {
-            if (Text1.Text != "")
+            if (TextBoxWithdraw.Text != "")
             {
                 if (con.State == ConnectionState.Open)
                 {
@@ -53,11 +53,11 @@ namespace Test
                 cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
                 da.Fill(dt);
                 double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                if (double.Parse(Text1.Text) < balance)
+                if (double.Parse(TextBoxWithdraw.Text) < balance)
                 {
-                    cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
+                    cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + TextBoxWithdraw.Text + "'";
                     cmd.ExecuteNonQuery();
-                    Text1.Text = "";
+                    TextBoxWithdraw.Text = "";
                     Page_Load(sender, e);
                 }
             }

@@ -42,13 +42,13 @@ namespace Test
         protected global::System.Web.UI.WebControls.Label cusBal;
 
         /// <summary>
-        /// Text1 control.
+        /// TextBoxWithdraw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Text1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxWithdraw;
 
         /// <summary>
         /// ButtonWithdraw control.
