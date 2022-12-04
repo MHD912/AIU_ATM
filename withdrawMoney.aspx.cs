@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Test
 {
-    public partial class withdrawMoney : System.Web.UI.Page
+    public partial class WithdrawMoney : System.Web.UI.Page
     {
         string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ORMHDR25;Initial Catalog=ATM-Bank;Integrated Security=True");
@@ -37,9 +37,9 @@ namespace Test
             cusBal.Text = balance + "$";
         }
 
-        protected void withdraw_Click(object sender, EventArgs e)
+        protected void ButtonWithdraw_Click(object sender, EventArgs e)
         {
-            if(Text1.Text != "")
+            if (Text1.Text != "")
             {
                 if (con.State == ConnectionState.Open)
                 {
@@ -52,8 +52,8 @@ namespace Test
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
                 da.Fill(dt);
-                double balance = double.Parse( dt.Rows[0]["Balance"].ToString() );
-                if(double.Parse(Text1.Text) < balance)
+                double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                if (double.Parse(Text1.Text) < balance)
                 {
                     cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
                     cmd.ExecuteNonQuery();
