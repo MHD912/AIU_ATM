@@ -25,16 +25,19 @@ namespace Test
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            userID = Session["User"].ToString();
-            //userID = "35";
+            if (Session["User"] != null)
+            {
+                userID = Session["User"].ToString();
 
-            cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
-            da.Fill(dt);
-            string userName = dt.Rows[0]["username"].ToString();
-            string balance = dt.Rows[0]["Balance"].ToString();
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                da.Fill(dt);
+                string userName = dt.Rows[0]["username"].ToString();
+                string balance = dt.Rows[0]["Balance"].ToString();
 
-            welS.Text = "Hi there " + userName;
-            cusBal.Text = balance + "$";
+                welS.Text = "Hi there " + userName;
+                cusBal.Text = balance + "$";
+            }
+            else { welS.Text = "Not Logged In"; }
         }
 
         protected void withdraw_Click(object sender, EventArgs e)
@@ -49,17 +52,20 @@ namespace Test
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
 
+                    double balance = 0 ;
                     cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
                     da.Fill(dt);
-                    double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
 
-                    if (amount < balance)
-                    {
-                        cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
-                        cmd.ExecuteNonQuery();
-                        Text1.Text = "";
-                        cusBal.Text = (balance - amount) + "$";
-                    }
+                    if (dt.Rows.Count > 0) { 
+                        balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                        if (amount < balance)
+                        {
+                            cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
+                            cmd.ExecuteNonQuery();
+                            Text1.Text = "";
+                            cusBal.Text = (balance - amount) + "$";
+                        }
+                    }                    
                 }
             }
         }
