@@ -276,6 +276,24 @@ namespace Test
         protected global::System.Web.UI.WebControls.TextBox TextBoxBalance;
 
         /// <summary>
+        /// LabelAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAccountType;
+
+        /// <summary>
+        /// DropDownListAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListAccountType;
+
+        /// <summary>
         /// TableRowPinCode control.
         /// </summary>
         /// <remarks>

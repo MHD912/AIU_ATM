@@ -154,7 +154,7 @@
                                     <asp:BoundField DataField="Balance" HeaderText="Balance" InsertVisible="False" ReadOnly="True" SortExpression="Balance" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATMConnectionString %>" SelectCommand="SELECT [Name], [Email], [Balance] FROM [customers]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>" SelectCommand="SELECT [ID], [MiddleName], [FirstName], [LastName], [Phone], [Gender] FROM [UsersInfo]"></asp:SqlDataSource>
                         </div>
 
                     </form>
