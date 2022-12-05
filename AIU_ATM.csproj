@@ -116,7 +116,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="customerDashboard.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="depositMoney.aspx" />
+    <Content Include="DepositMoney.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -143,7 +143,8 @@
     <Content Include="source\webfonts\fa-solid-900.svg" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="withdrawMoney.aspx" />
+    <Content Include="TransferMoney.aspx" />
+    <Content Include="WithdrawMoney.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -174,7 +175,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="transferMoney.aspx" />
     <Content Include="ViewCustomers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -226,12 +226,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="depositMoney.aspx.cs">
-      <DependentUpon>depositMoney.aspx</DependentUpon>
+    <Compile Include="DepositMoney.aspx.cs">
+      <DependentUpon>DepositMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="depositMoney.aspx.designer.cs">
-      <DependentUpon>depositMoney.aspx</DependentUpon>
+    <Compile Include="DepositMoney.aspx.designer.cs">
+      <DependentUpon>DepositMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -252,11 +252,11 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="transferMoney.aspx.cs">
-      <DependentUpon>transferMoney.aspx</DependentUpon>
+      <DependentUpon>TransferMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="transferMoney.aspx.designer.cs">
-      <DependentUpon>transferMoney.aspx</DependentUpon>
+      <DependentUpon>TransferMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCustomers.aspx.cs">
       <DependentUpon>ViewCustomers.aspx</DependentUpon>
@@ -279,12 +279,12 @@
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="withdrawMoney.aspx.cs">
-      <DependentUpon>withdrawMoney.aspx</DependentUpon>
+    <Compile Include="WithdrawMoney.aspx.cs">
+      <DependentUpon>WithdrawMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="withdrawMoney.aspx.designer.cs">
-      <DependentUpon>withdrawMoney.aspx</DependentUpon>
+    <Compile Include="WithdrawMoney.aspx.designer.cs">
+      <DependentUpon>WithdrawMoney.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

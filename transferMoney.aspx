@@ -133,11 +133,16 @@
                     <br />
                     <br />
                     <br />
-                    <div class="text-1" style="margin-bottom:40px;">-your balance is: 0 S.P
+                    <div class="text-1" style="margin-bottom:32px;">-your balance is: 0 S.P
                     </div>
+                    <div>
+
+                    <div class="text-1">TO: </div>
+                        <input style="width:285px; margin-top:10px; margin-right:5px;margin-bottom:10px ;height:50px" class="btn" id="Text2" type="text" /><br />
                     <div class="text-1">Transfer: </div>
-                        <input style="width:220px; margin-top:10px; margin-right:5px; height:50px" class="btn" id="Text1" type="text" /> S.P<br />
-                        <asp:Button style="display:block; margin-top:30px; margin-bottom:30px; width:550px" class="btn" ID="transfer" runat="server" Text="transfer money" OnClick="transfer_Click" />
+                        <input style="width:205px; margin-top:10px; margin-right:5px; height:50px" class="btn" id="Text1" type="text" /> S.P<br />
+                        <asp:Button style="display:block; margin-top:30px; margin-bottom:30px; width:400px;" class="btn" ID="transfer" runat="server" Text="transfer money" OnClick="transfer_Click" />
+                    </div>
                     
 
                     
