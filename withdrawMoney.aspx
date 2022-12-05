@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="withdrawMoney.aspx.cs" Inherits="Test.withdrawMoney" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WithdrawMoney.aspx.cs" Inherits="Test.WithdrawMoney" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Admin Dashboard</title>
+    <title>Withdraw Money</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -13,7 +12,6 @@
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="script.js"></script>
     <style>
         .home {
             background: url(source/wallpaper.png) no-repeat center;
@@ -40,32 +38,6 @@
                 background: none;
             }
 
-        .dropDownList {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            width: 8em;
-            height: 3em;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
-            font-size: 22px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-inline-end: 60px;
-            outline: none;
-        }
-
-            .dropDownList .listItem {
-                color: #222;
-                background: #fff;
-            }
-
-                .dropDownList .listItem:hover {
-                    color: rgb(52, 205, 133);
-                    background: none;
-                }
 
         .navbar.sticky {
             background-color: rgb(52, 205, 133);
@@ -95,7 +67,7 @@
     <script>
         $('document').ready(function () {
             var typed = new Typed(".typing", {
-                strings: ["Bank", "Dashboard"],
+                strings: ["Bank", "Withdraw"],
                 typeSpeed: 100,
                 backSpeed: 60,
                 backDelay: 3600,
@@ -128,20 +100,17 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="color: #333;"><asp:Label ID="welS" runat="server"></asp:Label> <span style="color: rgb(52, 205, 133);">; )</span></div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div class="text-1" style="margin-bottom:40px;">- Your balance is: <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
+                    <div class="text-2" style="color: #333; margin-bottom: 3em;">
+                        <asp:Label ID="welS" runat="server"></asp:Label>
+                        <span style="color: rgb(52, 205, 133);">; )</span>
+                    </div>
+                    <div class="text-1" style="margin-bottom: 40px;">
+                        - Your balance is:
+                        <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
                     <div class="text-1">Withdraw: </div>
-                        
-                        <asp:TextBox runat="server"  style="width:220px; margin-top:10px; margin-right:5px; height:50px;" class="btn" id="Text1" type="text" ></asp:TextBox>$<br />
-                        <asp:Button style="display:block; margin-top:30px; margin-bottom:30px; width:550px" class="btn" ID="withdraw" runat="server" Text="Withdraw money" OnClick="withdraw_Click" />
-                    
-
-                    
+                    <asp:TextBox runat="server" CssClass="input" Style="width: 220px; margin-top: 10px; margin-right: 5px; height: 50px;" ID="TextBoxWithdraw" type="text"></asp:TextBox>$<br />
+                    <asp:Button Style="display: block; margin-top: 30px; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonWithdraw" runat="server" Text="Withdraw money" OnClick="ButtonWithdraw_Click" />
                 </div>
             </div>
         </section>

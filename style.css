@@ -11,6 +11,44 @@ html {
     scroll-behavior: smooth;
 }
 
+.input {
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    outline: none;
+    padding: 4px 15px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropDownList {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    width: 8em;
+    height: 3em;
+    border: 2px solid rgb(52, 205, 133);
+    background: rgb(52, 205, 133);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-inline-end: 60px;
+    outline: none;
+}
+
+    .dropDownList .listItem {
+        color: #222;
+        background: #fff;
+    }
+
+        .dropDownList .listItem:hover {
+            color: rgb(52, 205, 133);
+            background: none;
+        }
+
 body.menu-open {
     overflow: hidden;
 }
@@ -842,10 +880,10 @@ Contact section styling
     }
 
 
-.contact .right form .button:hover button {
-    color: rgb(219, 186, 36);
-    background: none;
-}
+    .contact .right form .button:hover button {
+        color: rgb(219, 186, 36);
+        background: none;
+    }
 
 
 /* //////////////////////// 
@@ -912,7 +950,7 @@ footer {
     Navigation bar 
     ///////////////////*/
 
- /*   .menu-btn,
+    /*   .menu-btn,
     .menu-hamburger {
         display: flex;
         z-index: 101;
@@ -948,7 +986,7 @@ footer {
         Home section
 ///////////////////*/
 
-        
+
 
     .home .home-content a {
         font-size: 23px;

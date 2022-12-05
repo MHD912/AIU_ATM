@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Admin Dashboard</title>
+    <title>Deposit Money</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="script.js"></script>
     <style>
         .home {
             background: url(source/wallpaper.png) no-repeat center;

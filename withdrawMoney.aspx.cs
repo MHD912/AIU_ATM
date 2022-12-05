@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Test
 {
-    public partial class withdrawMoney : System.Web.UI.Page
+    public partial class WithdrawMoney : System.Web.UI.Page
     {
         string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ORMHDR25;Initial Catalog=ATM-Bank;Integrated Security=True");
@@ -25,47 +25,40 @@ namespace Test
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            if (Session["User"] != null)
-            {
-                userID = Session["User"].ToString();
+            userID = Session["User"].ToString();
+            //userID = "35";
 
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
-                da.Fill(dt);
-                string userName = dt.Rows[0]["username"].ToString();
-                string balance = dt.Rows[0]["Balance"].ToString();
+            cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+            da.Fill(dt);
+            string userName = dt.Rows[0]["username"].ToString();
+            string balance = dt.Rows[0]["Balance"].ToString();
 
-                welS.Text = "Hi there " + userName;
-                cusBal.Text = balance + "$";
-            }
-            else { welS.Text = "Not Logged In"; }
+            welS.Text = "Hi there " + userName;
+            cusBal.Text = balance + "$";
         }
 
-        protected void withdraw_Click(object sender, EventArgs e)
+        protected void ButtonWithdraw_Click(object sender, EventArgs e)
         {
-            if(Text1.Text != "")
+            if (TextBoxWithdraw.Text != "")
             {
-                double amount = double.Parse(Text1.Text);
-                if (amount > 0)
+                if (con.State == ConnectionState.Open)
                 {
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-                    double balance = 0 ;
-                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
-                    da.Fill(dt);
-
-                    if (dt.Rows.Count > 0) { 
-                        balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                        if (amount < balance)
-                        {
-                            cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
-                            cmd.ExecuteNonQuery();
-                            Text1.Text = "";
-                            cusBal.Text = (balance - amount) + "$";
-                        }
-                    }                    
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                da.Fill(dt);
+                double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                if (double.Parse(TextBoxWithdraw.Text) < balance)
+                {
+                    cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + TextBoxWithdraw.Text + "'";
+                    cmd.ExecuteNonQuery();
+                    TextBoxWithdraw.Text = "";
+                    Page_Load(sender, e);
                 }
             }
         }

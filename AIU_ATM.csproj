@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressSSLPort>44356</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -116,7 +116,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="customerDashboard.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DepositMoney.aspx" />
+    <Content Include="depositMoney.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -143,7 +143,6 @@
     <Content Include="source\webfonts\fa-solid-900.svg" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="TransferMoney.aspx" />
     <Content Include="WithdrawMoney.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -175,6 +174,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="transferMoney.aspx" />
     <Content Include="ViewCustomers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -226,12 +226,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DepositMoney.aspx.cs">
-      <DependentUpon>DepositMoney.aspx</DependentUpon>
+    <Compile Include="depositMoney.aspx.cs">
+      <DependentUpon>depositMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DepositMoney.aspx.designer.cs">
-      <DependentUpon>DepositMoney.aspx</DependentUpon>
+    <Compile Include="depositMoney.aspx.designer.cs">
+      <DependentUpon>depositMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -252,11 +252,11 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="transferMoney.aspx.cs">
-      <DependentUpon>TransferMoney.aspx</DependentUpon>
+      <DependentUpon>transferMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="transferMoney.aspx.designer.cs">
-      <DependentUpon>TransferMoney.aspx</DependentUpon>
+      <DependentUpon>transferMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCustomers.aspx.cs">
       <DependentUpon>ViewCustomers.aspx</DependentUpon>
