@@ -51,7 +51,7 @@ namespace Test
 
         protected void ButtonViewTransactions_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("ViewTransactions.aspx");
+            Response.Redirect("ViewTransactions.aspx");
         }
     }
 }

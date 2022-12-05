@@ -136,7 +136,7 @@
                         <div style="margin: auto -100px 0 -60px;">
                             <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover"
                                 ID="customersGridView" runat="server" OnDataBound="customersGridView_DataBound" Width="100%" AutoGenerateColumns="False"
-                                DataKeyNames="AccountNo" DataSourceID="SqlDataSource1">
+                                DataKeyNames="AccountNo" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="customersGridView_SelectedIndexChanged">
                                 <Columns>
                                     <asp:CommandField ShowHeader="false"
                                         CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" 

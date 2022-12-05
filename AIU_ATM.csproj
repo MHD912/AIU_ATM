@@ -117,6 +117,7 @@
     <Content Include="customerDashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="depositMoney.aspx" />
+    <Content Include="EditCustomerDetails.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -143,6 +144,7 @@
     <Content Include="source\webfonts\fa-solid-900.svg" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="ViewCustomerDetails.aspx" />
     <Content Include="ViewTransactions.aspx" />
     <Content Include="WithdrawMoney.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -233,6 +235,13 @@
     <Compile Include="depositMoney.aspx.designer.cs">
       <DependentUpon>depositMoney.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditCustomerDetails.aspx.cs">
+      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditCustomerDetails.aspx.designer.cs">
+      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,6 +259,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCustomerDetails.aspx.cs">
+      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCustomerDetails.aspx.designer.cs">
+      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCustomers.aspx.cs">
       <DependentUpon>ViewCustomers.aspx</DependentUpon>

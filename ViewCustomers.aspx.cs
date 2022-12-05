@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,9 +11,14 @@ namespace Test
 {
     public partial class ViewCustomers : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ORMHDR25;Initial Catalog=ATM-Bank;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
         }
 
         protected void LinkButtonDashboard_Click(object sender, EventArgs e)
@@ -33,30 +40,32 @@ namespace Test
 
         protected void customersGridView_DataBound(object sender, EventArgs e)
         {
-            //GridViewRow row = customersGridView.HeaderRow;
-            //row.Cells[0].ColumnSpan = 3;
-            //row.Cells[1].Visible = false;
-            //row.Cells[2].Visible = false;
+            
         }
 
-        protected void updateCus(object sender, EventArgs e)
-        {
-            Response.Redirect("CreateCustomer.aspx");
-        }
-
-        protected void delCus(object sender, GridViewDeleteEventArgs e)
-        {
-
-        }
-
-        protected void editCus(object sender, GridViewEditEventArgs e)
-        {
-
-        }
+        
 
         protected void selCus(object sender, EventArgs e)
         {
             //Response.Redirect("ViewCustomerDetails.aspx");
+        }
+
+        protected void customersGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int rowIndex = customersGridView.SelectedIndex;
+            string AccountNo = customersGridView.Rows[rowIndex].Cells[2].Text;
+
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            cmd.CommandText = "select u.ID as UID from Users as u join Accounts as a on u.ID = a.UserID where a.AccountNo='" + AccountNo + "'";
+            da.Fill(dt);
+            string userID = dt.Rows[0]["UID"].ToString();
+
+            Session["ViewUser"] = userID;
+            Response.Redirect("ViewCustomerDetails.aspx");
         }
     }
 }
