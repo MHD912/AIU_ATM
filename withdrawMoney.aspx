@@ -110,7 +110,7 @@
                     </div>
                     <div class="text-1">Withdraw: </div>
                     <asp:TextBox runat="server" CssClass="input" Style="width: 220px; margin-top: 10px; margin-right: 5px; height: 50px;" ID="TextBoxWithdraw" type="text"></asp:TextBox>$<br />
-                    <asp:Button Style="display: block; margin-top: 30px; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonWithdraw" runat="server" Text="Withdraw money" OnClick="ButtonWithdraw_Click" />
+                    <asp:Button Style="display: block; margin-top: 30px; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonWithdraw" runat="server" Text="Withdraw money" OnClick="withdraw_Click" />
                 </div>
             </div>
         </section>

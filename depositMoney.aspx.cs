@@ -36,26 +36,33 @@ namespace Test
                 welS.Text = "Hi there " + userName;
                 cusBal.Text = balance + "$";
             }
+            else { welS.Text = "Not Logged In"; }
         }
 
         protected void deposite_Click(object sender, EventArgs e)
         {
             if (Text1.Text != "")
             {
-                if (double.Parse(Text1.Text) > 0)
+                double amount = double.Parse(Text1.Text);
+                if (amount > 0)
                 {
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
 
+                    double Balance = 0;
                     cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
                     da.Fill(dt);
 
-                    cmd.CommandText = "EXEC deposit '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
-                    cmd.ExecuteNonQuery();
+                    if (dt.Rows.Count > 0)
+                    {
+                        Balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                        cmd.CommandText = "EXEC deposit '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
+                        cmd.ExecuteNonQuery();
+                    }
                     Text1.Text = "";
-                    Page_Load(sender, e);
+                    cusBal.Text = (amount + Balance) + "$";
                 }
             }
         }

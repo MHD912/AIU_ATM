@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -25,59 +25,49 @@ namespace Test
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            userID = Session["User"].ToString();
-            //userID = "35";
+            if (Session["User"] != null)
+            {
+                userID = Session["User"].ToString();
 
-            cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
-            da.Fill(dt);
-            string userName = dt.Rows[0]["username"].ToString();
-            string balance = dt.Rows[0]["Balance"].ToString();
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                da.Fill(dt);
+                string userName = dt.Rows[0]["username"].ToString();
+                string balance = dt.Rows[0]["Balance"].ToString();
 
-            welS.Text = "Hi there " + userName;
-            cusBal.Text = balance + "$";
+                welS.Text = "Hi there " + userName;
+                cusBal.Text = balance + "$";
+            }
+            else { welS.Text = "Not Logged In"; }
         }
 
-        protected void ButtonWithdraw_Click(object sender, EventArgs e)
+        protected void withdraw_Click(object sender, EventArgs e)
         {
             if (TextBoxWithdraw.Text != "")
             {
-                if (con.State == ConnectionState.Open)
+                double amount = double.Parse(TextBoxWithdraw.Text);
+                if (amount > 0)
                 {
-<<<<<<< HEAD
-                    con.Close();
-                }
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
-                da.Fill(dt);
-                double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                if (double.Parse(TextBoxWithdraw.Text) < balance)
-                {
-                    cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + TextBoxWithdraw.Text + "'";
-                    cmd.ExecuteNonQuery();
-                    TextBoxWithdraw.Text = "";
-                    Page_Load(sender, e);
-=======
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     DataTable dt = new DataTable();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
 
+                    double balance = 0;
                     cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
                     da.Fill(dt);
-                    double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
 
-                    if (amount < balance)
+                    if (dt.Rows.Count > 0)
                     {
-                        cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
-                        cmd.ExecuteNonQuery();
-                        Text1.Text = "";
-                        cusBal.Text = (balance - amount) + "$";
+                        balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                        if (amount < balance)
+                        {
+                            cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + TextBoxWithdraw.Text + "'";
+                            cmd.ExecuteNonQuery();
+                            TextBoxWithdraw.Text = "";
+                            cusBal.Text = (balance - amount) + "$";
+                        }
                     }
->>>>>>> parent of 05f56e3 (fix connections errors part 2 ;))
+                    else { TextBoxWithdraw.Text = ""; }
                 }
             }
         }
