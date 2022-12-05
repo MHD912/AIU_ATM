@@ -73,34 +73,58 @@ namespace Test
             DataTable dt = new DataTable();
             if (notEmpty())
             {
-                if (TextBoxConfirmPin.Text == TextBoxConfirmPin.Text)
-                {
+                if (TextBoxPin.Text == TextBoxConfirmPin.Text)
+                {                    
                     if (TextBoxPassword.Text == TextBoxConfirmPassword.Text)
                     {
-                        if (CheckBoxUserType.Checked == false)
+                        cmd.CommandText = "Select * from users where username = '" + TextBoxUserName.Text + "'";
+                        da.Fill(dt);
+                        if (dt.Rows.Count == 0)
                         {
-                            if (!(TextBoxBalance.Text == ""
-                                && TextBoxPin.Text == ""
-                                && TextBoxConfirmPin.Text == ""))
+                            if (CheckBoxUserType.Checked == false)
                             {
-                                cmd.CommandText = "Select * from users where username = '"+TextBoxUserName.Text+"'";                               
-                                da.Fill(dt);                               
-                                if(dt.Rows.Count != 0) {  TextBoxUserName.Text = ""; return; }
+                                if (!(TextBoxBalance.Text == "" && TextBoxPin.Text == "" && TextBoxConfirmPin.Text == ""))
+                                {
+                                    string g = "Male";
+                                    if (RadioButtonFemale.Checked == true) { g = "FeMale"; }
 
+                                    string p = DropDownListCountryCode.Text + "-" + TextBoxContact.Text;
+
+                                    int Acctype = 1;
+                                    if (DropDownListAccountType.SelectedIndex == 1) { Acctype = 2; }
+                                    else if (DropDownListAccountType.SelectedIndex == 2) { Acctype = 3; }
+
+                                    cmd.CommandText = "insert into Users(UserName,PassWord,Privilege)" +
+                                        " values('" + TextBoxUserName.Text + "','" + TextBoxPassword.Text + "',2)";
+                                    cmd.ExecuteNonQuery();
+
+                                    cmd.CommandText = "select max(ID) as id from Users";
+                                    da.Fill(dt);
+                                    string userID = dt.Rows[0]["id"].ToString();
+
+                                    cmd.CommandText = "insert into UsersInfo(ID,FirstName,MiddleName,LastName,BirthDate,Email,Phone,Address,Gender)" +
+                                        " values('" + userID + "' ,'" + TextBoxFirstName.Text + "','" + TextBoxMidName.Text + "','" + TextBoxLastName.Text + "','" + TextBoxBirthDate.Text + "','" + TextBoxEmail.Text + "','" + p + "','" + TextBoxAddress.Text + "','" + g + "')";
+                                    cmd.ExecuteNonQuery();
+
+                                    cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID)" +
+                                        " values('" + TextBoxBalance.Text + "','" + TextBoxPin.Text + "','" + Acctype + "', '" + userID + "')";
+                                    cmd.ExecuteNonQuery();
+
+                                    resetTextBoxes(sender, e);
+                                }
+
+                            }
+                            else
+                            {
                                 string g = "Male";
                                 if (RadioButtonFemale.Checked == true) { g = "FeMale"; }
-
                                 string p = DropDownListCountryCode.Text + "-" + TextBoxContact.Text;
 
-                                int Acctype = 1;
-                                if(DropDownListAccountType.SelectedIndex == 1) { Acctype = 2; }
-                                else if(DropDownListAccountType.SelectedIndex == 2) { Acctype = 3; }
-
                                 cmd.CommandText = "insert into Users(UserName,PassWord,Privilege)" +
-                                    " values('" + TextBoxUserName.Text + "','" + TextBoxPassword.Text + "',2)";
+                                    " values('" + TextBoxUserName.Text + "','" + TextBoxPassword.Text + "',1)";
                                 cmd.ExecuteNonQuery();
 
-                                cmd.CommandText = "select max(ID) as id from Users";                                                              
+                                cmd.CommandText = "select max(ID) as id from Users";
                                 da.Fill(dt);
                                 string userID = dt.Rows[0]["id"].ToString();
 
@@ -108,41 +132,14 @@ namespace Test
                                     " values('" + userID + "' ,'" + TextBoxFirstName.Text + "','" + TextBoxMidName.Text + "','" + TextBoxLastName.Text + "','" + TextBoxBirthDate.Text + "','" + TextBoxEmail.Text + "','" + p + "','" + TextBoxAddress.Text + "','" + g + "')";
                                 cmd.ExecuteNonQuery();
 
-                                cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID)" +
-                                    " values('" + TextBoxBalance.Text + "','" + TextBoxPin.Text + "','"+Acctype+"', '" + userID + "')";
-                                cmd.ExecuteNonQuery();
-
                                 resetTextBoxes(sender, e);
                             }
-
                         }
-                        else
-                        {
-                            cmd.CommandText = "Select * from users where username = '" + TextBoxUserName.Text + "'";
-                            da.Fill(dt);
-                            if (dt.Rows.Count != 0) { TextBoxUserName.Text = ""; return; }
-
-                            string g = "Male";
-                            if (RadioButtonFemale.Checked == true) { g = "FeMale"; }
-                            string p = DropDownListCountryCode.Text + "-" + TextBoxContact.Text;
-
-                            cmd.CommandText = "insert into Users(UserName,PassWord,Privilege)" +
-                                " values('" + TextBoxUserName.Text + "','" + TextBoxPassword.Text + "',1)";
-                            cmd.ExecuteNonQuery();
-
-                            cmd.CommandText = "select max(ID) as id from Users";                            
-                            da.Fill(dt);
-                            string userID = dt.Rows[0]["id"].ToString();
-
-                            cmd.CommandText = "insert into UsersInfo(ID,FirstName,MiddleName,LastName,BirthDate,Email,Phone,Address,Gender)" +
-                                " values('" + userID + "' ,'" + TextBoxFirstName.Text + "','" + TextBoxMidName.Text + "','" + TextBoxLastName.Text + "','" + TextBoxBirthDate.Text + "','" + TextBoxEmail.Text + "','" + p + "','" + TextBoxAddress.Text + "','" + g + "')";
-                            cmd.ExecuteNonQuery();
-
-                            resetTextBoxes(sender, e);
-                        }
+                        else { TextBoxUserName.Text = ""; }
                     }
+                    else { TextBoxConfirmPassword.Text = TextBoxPassword.Text = ""; }
                 }
-
+                else { TextBoxPin.Text = TextBoxConfirmPin.Text = ""; }
             }
         }
     }
