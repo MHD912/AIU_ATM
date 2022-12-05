@@ -43,19 +43,19 @@ namespace Test
         protected void withdraw_Click(object sender, EventArgs e)
         {
             Session["User"] = userID;            
-            Response.Redirect("withdrawMoney.aspx");
+            Response.Redirect("WithdrawMoney.aspx");
         }
 
         protected void deposit_Click(object sender, EventArgs e)
         {
             Session["User"] = userID;
-            Response.Redirect("depositMoney.aspx");
+            Response.Redirect("DepositMoney.aspx");
         }
 
         protected void transfer_Click(object sender, EventArgs e)
         {
             Session["User"] = userID;
-            Response.Redirect("transferMoney.aspx");
+            Response.Redirect("TransferMoney.aspx");
         }
     }
 }

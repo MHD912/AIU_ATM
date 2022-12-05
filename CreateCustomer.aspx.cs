@@ -73,15 +73,15 @@ namespace Test
             DataTable dt = new DataTable();
             if (notEmpty())
             {
-                if (TextBoxPin.Text == TextBoxConfirmPin.Text)
+                if (TextBoxConfirmPin.Text == TextBoxConfirmPin.Text)
                 {
-                    TextBoxConfirmPin.Text = TextBoxPin.Text = "";
                     if (TextBoxPassword.Text == TextBoxConfirmPassword.Text)
                     {
-                        TextBoxPassword.Text = TextBoxConfirmPassword.Text = "";
                         if (CheckBoxUserType.Checked == false)
                         {
-                            if (!(TextBoxBalance.Text == "" && TextBoxPin.Text == "" && TextBoxConfirmPin.Text == ""))
+                            if (!(TextBoxBalance.Text == ""
+                                && TextBoxPin.Text == ""
+                                && TextBoxConfirmPin.Text == ""))
                             {
                                 cmd.CommandText = "Select * from users where username = '"+TextBoxUserName.Text+"'";                               
                                 da.Fill(dt);                               
@@ -114,6 +114,7 @@ namespace Test
 
                                 resetTextBoxes(sender, e);
                             }
+
                         }
                         else
                         {
@@ -141,6 +142,7 @@ namespace Test
                         }
                     }
                 }
+
             }
         }
     }

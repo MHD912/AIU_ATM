@@ -43,6 +43,7 @@ namespace Test
             {
                 if (con.State == ConnectionState.Open)
                 {
+<<<<<<< HEAD
                     con.Close();
                 }
                 con.Open();
@@ -59,6 +60,24 @@ namespace Test
                     cmd.ExecuteNonQuery();
                     TextBoxWithdraw.Text = "";
                     Page_Load(sender, e);
+=======
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                    da.Fill(dt);
+                    double balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+
+                    if (amount < balance)
+                    {
+                        cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + Text1.Text + "'";
+                        cmd.ExecuteNonQuery();
+                        Text1.Text = "";
+                        cusBal.Text = (balance - amount) + "$";
+                    }
+>>>>>>> parent of 05f56e3 (fix connections errors part 2 ;))
                 }
             }
         }
