@@ -15,7 +15,7 @@
     <style>
         .home {
             background: url(source/wallpaper.png) no-repeat center;
-            color: #111;
+            color: #111;            
         }
 
         .btn {

@@ -27,9 +27,7 @@ namespace AIU_ATM
             if (Session["ViewUser"] != null)
             {
                 userID = Session["ViewUser"].ToString();
-                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.Balance as Bal,a.PIN as PIN" +
-                    "from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) " +
-                    "where u.id='"+userID+"'";
+                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= '" + userID + "'";
                 da.Fill(dt);
 
                 TextBoxFirstName.Text = dt.Rows[0]["FN"].ToString();

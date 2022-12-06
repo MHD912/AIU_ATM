@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Runtime.Remoting.Messaging;
+using Microsoft.Ajax.Utilities;
 
 namespace Test
 {
@@ -24,7 +26,7 @@ namespace Test
 
         protected bool notEmpty()
         {
-            return !(
+            return (!(
                 TextBoxFirstName.Text == ""
                 && TextBoxLastName.Text == ""
                 && TextBoxMidName.Text == ""
@@ -34,11 +36,12 @@ namespace Test
                 && TextBoxEmail.Text == ""
                 && TextBoxContact.Text == ""
                 && TextBoxAddress.Text == ""
-
+                && TextBoxPin.Text == ""
+                && TextBoxConfirmPin.Text == ""
                 && RadioButtonFemale.Checked == false
                 && RadioButtonMale.Checked == false
                 && TextBoxBirthDate.Text == ""
-                );
+                ));            
         }
 
         protected void resetTextBoxes(object sender, EventArgs e)
@@ -67,14 +70,14 @@ namespace Test
 
         protected void createCustomer(object sender, EventArgs e)
         {
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
             if (notEmpty())
             {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
                 if (TextBoxPin.Text == TextBoxConfirmPin.Text)
-                {                    
+                {
                     if (TextBoxPassword.Text == TextBoxConfirmPassword.Text)
                     {
                         cmd.CommandText = "Select * from users where username = '" + TextBoxUserName.Text + "'";
@@ -119,7 +122,7 @@ namespace Test
                                 string g = "Male";
                                 if (RadioButtonFemale.Checked == true) { g = "FeMale"; }
                                 string p = DropDownListCountryCode.Text + "-" + TextBoxContact.Text;
-
+                                                                
                                 cmd.CommandText = "insert into Users(UserName,PassWord,Privilege)" +
                                     " values('" + TextBoxUserName.Text + "','" + TextBoxPassword.Text + "',1)";
                                 cmd.ExecuteNonQuery();
@@ -141,6 +144,7 @@ namespace Test
                 }
                 else { TextBoxPin.Text = TextBoxConfirmPin.Text = ""; }
             }
+            else {return;}
         }
     }
 }

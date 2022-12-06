@@ -230,10 +230,9 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxCountryCode" CssClass="input" runat="server" Width="24%" ReadOnly="true" Style="padding: 4px 0 4px 0;"> +963</asp:TextBox>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" ReadOnly="true" CssClass="input" Width="75%" Style="transform: translateX(-109%);">
+                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-109%);">
                                 </asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>

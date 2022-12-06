@@ -135,6 +135,7 @@
                 loop: true
             });
         });
+        
     </script>
 </head>
 
@@ -244,7 +245,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListCountryCode" CssClass="input" runat="server" Width="24%" Style="padding: 4px 0 4px 0;">
+                                <asp:DropDownList ID="DropDownListCountryCode" CssClass="input" runat="server" Width="24%" Style="padding: 4px 0 4px 0; ">
                                     <asp:ListItem Selected="True">+963</asp:ListItem>
                                     <asp:ListItem>+966</asp:ListItem>
                                     <asp:ListItem>+1</asp:ListItem>
@@ -308,7 +309,7 @@
                                 <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Create" CssClass="btn" OnClick="createCustomer"/>
+                                <asp:Button ID="ButtonCreate" runat="server" Text="Create" CssClass="btn" OnClick="createCustomer"/>
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
                                 <asp:Button ID="ButtonReset" runat="server" type="reset" Text="Reset" CssClass="btn" OnClick="resetTextBoxes"/>
