@@ -9,10 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Content/Site.css" />
-    <link rel="stylesheet" href="source/css/all.min.css" />
+    <link rel="stylesheet" href="Content/font-face.css" />
+    <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script src="Scripts/typed.min.js"></script>
 
     <style>
         .navbar.sticky .logo a {
