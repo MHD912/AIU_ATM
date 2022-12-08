@@ -7,7 +7,7 @@
     <title>Customer Dashboard</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="source/css/all.min.css" />
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
