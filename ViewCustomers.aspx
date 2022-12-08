@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCustomers.aspx.cs" Inherits="Test.ViewCustomers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewCustomers.aspx.cs" Inherits="AIU_ATM.ViewCustomers" %>
 
 <!DOCTYPE html>
 

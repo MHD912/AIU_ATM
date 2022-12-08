@@ -108,6 +108,9 @@
     <Content Include="AdminDashboard.aspx" />
     <Content Include="CustomerDashboard.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
+    <Content Include="fonts\Poppins\OFL.txt" />
+    <Content Include="Content\font-face.css" />
+    <Content Include="fonts\Ubuntu\UFL.txt" />
     <Content Include="Login.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -121,9 +124,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="script.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\typed.min.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -150,8 +154,8 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="source\css\all.min.css" />
     <Content Include="source\css\fontawesome.min.css" />
-    <Content Include="source\default.jpg" />
-    <Content Include="source\wallpaper.png" />
+    <Content Include="Content\Images\default.jpg" />
+    <Content Include="Content\Images\wallpaper.png" />
     <Content Include="source\webfonts\fa-brands-400.svg" />
     <Content Include="source\webfonts\fa-regular-400.svg" />
     <Content Include="source\webfonts\fa-solid-900.svg" />
@@ -255,9 +259,29 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\Poppins\Poppins-Bold.ttf" />
+    <Content Include="fonts\Poppins\Poppins-Bold.woff" />
+    <Content Include="fonts\Poppins\Poppins-Bold.woff2" />
+    <Content Include="fonts\Poppins\Poppins-Medium.ttf" />
+    <Content Include="fonts\Poppins\Poppins-Medium.woff" />
+    <Content Include="fonts\Poppins\Poppins-Medium.woff2" />
+    <Content Include="fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="fonts\Poppins\Poppins-Regular.woff" />
+    <Content Include="fonts\Poppins\Poppins-Regular.woff2" />
+    <Content Include="fonts\Poppins\Poppins-SemiBold.ttf" />
+    <Content Include="fonts\Poppins\Poppins-SemiBold.woff" />
+    <Content Include="fonts\Poppins\Poppins-SemiBold.woff2" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Bold.woff" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Bold.woff2" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Medium.woff" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Medium.woff2" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Regular.woff" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Regular.woff2" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.6.1.min.map" />
     <None Include="Web.Debug.config">

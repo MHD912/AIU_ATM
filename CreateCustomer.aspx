@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateCustomer.aspx.cs" Inherits="Test.CreateCustomer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateCustomer.aspx.cs" Inherits="AIU_ATM.CreateCustomer" %>
 
 <!DOCTYPE html>
 

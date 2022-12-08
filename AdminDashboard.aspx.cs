@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Test
+namespace AIU_ATM
 {
     public partial class AdminDashboard : System.Web.UI.Page
     {
