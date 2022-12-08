@@ -13,15 +13,21 @@ namespace Test
 {
     public partial class CreateCustomer : System.Web.UI.Page
     {
+        string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ORMHDR25;Initial Catalog=ATM-Bank;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
             con.Open();
+
+            if (Session["User"] != null)
+            {
+                userID = Session["User"].ToString();
+            }
+            else { Response.Redirect("AdminLogin.aspx"); }
         }
 
         protected bool notEmpty()

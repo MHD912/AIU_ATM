@@ -36,7 +36,7 @@ namespace Test
 
                 welS.Text = "Hi there " + userName;
             }
-            else { welS.Text = "Not Logged In"; }
+            else { Response.Redirect("AdminLogin"); }
         }
 
         protected void ButtonViewCustomers_Click(object sender, EventArgs e)

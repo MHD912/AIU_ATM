@@ -37,7 +37,7 @@ namespace Test
                 welS.Text = "Hi there " + userName;
                 cusBal.Text = balance + "$";
             }
-            else { welS.Text = "Not Logged In"; }
+            else { Response.Redirect("AdminLogin.aspx"); }
         }
         
         protected void withdraw_Click(object sender, EventArgs e)

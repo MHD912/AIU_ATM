@@ -11,6 +11,7 @@ namespace Test
 {
     public partial class ViewCustomers : System.Web.UI.Page
     {
+        string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ORMHDR25;Initial Catalog=ATM-Bank;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,35 +20,29 @@ namespace Test
                 con.Close();
             }
             con.Open();
+
+            if (Session["User"] != null)
+            {
+                userID = Session["User"].ToString();
+            }
+            else { Response.Redirect("AdminLogin.aspx"); }
         }
 
         protected void LinkButtonDashboard_Click(object sender, EventArgs e)
         {
+            Session["User"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
 
         protected void LinkButtonCreate_Click(object sender, EventArgs e)
         {
-
+            Session["User"] = userID;
             Response.Redirect("CreateCustomer.aspx");
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-
-            Response.Redirect("ViewCustomerDetail.aspx");
-        }
+        }        
 
         protected void customersGridView_DataBound(object sender, EventArgs e)
         {
             
-        }
-
-        
-
-        protected void selCus(object sender, EventArgs e)
-        {
-            //Response.Redirect("ViewCustomerDetails.aspx");
         }
 
         protected void customersGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,9 +57,10 @@ namespace Test
 
             cmd.CommandText = "select u.ID as UID from Users as u join Accounts as a on u.ID = a.UserID where a.AccountNo='" + AccountNo + "'";
             da.Fill(dt);
-            string userID = dt.Rows[0]["UID"].ToString();
+            string cusID = dt.Rows[0]["UID"].ToString();
 
-            Session["ViewUser"] = userID;
+            Session["ViewUser"] = cusID;
+            Session["User"] = userID;
             Response.Redirect("ViewCustomerDetails.aspx");
         }
     }

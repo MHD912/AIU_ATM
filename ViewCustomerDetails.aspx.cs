@@ -44,10 +44,12 @@ namespace AIU_ATM
                 TextBoxPin.Text = dt.Rows[0]["PIN"].ToString();
 
             }
+            else { Response.Redirect("ViewCustomers.aspx"); }
         }
 
         protected void ButtonEdit_Click(object sender, EventArgs e)
         {
+            Session["EditUser"] = userID;
             Response.Redirect("EditCustomerDeatials.aspx");
         }
     }

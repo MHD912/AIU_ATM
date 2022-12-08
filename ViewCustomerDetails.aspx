@@ -232,7 +232,7 @@
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-109%);">
+                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-107%);">
                                 </asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
