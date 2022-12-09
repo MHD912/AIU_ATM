@@ -11,17 +11,8 @@ namespace AIU_ATM
 {
 
 
-    public partial class ViewCustomers
+    public partial class DepositMoney
     {
-
-        /// <summary>
-        /// logoHyperLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
         /// form1 control.
@@ -33,39 +24,39 @@ namespace AIU_ATM
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// LinkButtonCreate control.
+        /// welS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCreate;
+        protected global::System.Web.UI.WebControls.Label welS;
 
         /// <summary>
-        /// LinkButtonDashboard control.
+        /// cusBal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDashboard;
+        protected global::System.Web.UI.WebControls.Label cusBal;
 
         /// <summary>
-        /// customersGridView control.
+        /// TextBoxDepositAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView customersGridView;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDepositAmount;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// ButtonDeposite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Button ButtonDeposite;
     }
 }

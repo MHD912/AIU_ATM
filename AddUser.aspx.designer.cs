@@ -11,7 +11,7 @@ namespace AIU_ATM
 {
 
 
-    public partial class CreateCustomer
+    public partial class AddUser
     {
 
         /// <summary>

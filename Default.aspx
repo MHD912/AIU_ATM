@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
-    <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
@@ -82,7 +81,7 @@
     <script>
         $('document').ready(function () {
             var typed = new Typed(".typing", {
-                strings: ["Your first choice for monetary needs", "Reliable and trustworthy"],
+                strings: ["Your first choice for monetary needs", "Reliable and trustworthy", "Creating banking trust", "Let us help you invest in your future !!"],
                 typeSpeed: 30,
                 backSpeed: 60,
                 backDelay: 3600,

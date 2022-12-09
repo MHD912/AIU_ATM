@@ -11,17 +11,8 @@ namespace AIU_ATM
 {
 
 
-    public partial class AdminDashboard
+    public partial class ViewUsers
     {
-
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// logoHyperLink control.
@@ -33,48 +24,48 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
-        /// HyperLinkLogout control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// welS control.
+        /// LinkButtonCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label welS;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCreate;
 
         /// <summary>
-        /// ButtonViewUsers control.
+        /// LinkButtonDashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewUsers;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDashboard;
 
         /// <summary>
-        /// ButtonViewTransactions control.
+        /// usersGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewTransactions;
+        protected global::System.Web.UI.WebControls.GridView usersGridView;
 
         /// <summary>
-        /// ButtonAddUser control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUser;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

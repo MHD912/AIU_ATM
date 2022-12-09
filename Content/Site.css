@@ -126,9 +126,18 @@ Navigation bar styling
                 color: rgb(52, 205, 133);
             }
 
-    .navbar.sticky .menu li a:hover {
+    .navbar.sticky .menu li a {
         color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: 25px;
+        transition: color 0.3s ease;
     }
+
+        .navbar.sticky .menu li a:hover {
+            color: #111;
+        }
+
 
     .navbar .logo a {
         color: #fff;
@@ -840,10 +849,10 @@ Contact section styling
     }
 
 
-.contact .right form .button:hover button {
-    color: rgb(219, 186, 36);
-    background: none;
-}
+    .contact .right form .button:hover button {
+        color: rgb(219, 186, 36);
+        background: none;
+    }
 
 
 /* //////////////////////// 
@@ -910,7 +919,7 @@ footer {
     Navigation bar 
     ///////////////////*/
 
- /*   .menu-btn,
+    /*   .menu-btn,
     .menu-hamburger {
         display: flex;
         z-index: 101;
@@ -946,7 +955,7 @@ footer {
         Home section
 ///////////////////*/
 
-        
+
 
     .home .home-content a {
         font-size: 23px;

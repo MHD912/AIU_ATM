@@ -11,7 +11,7 @@ namespace AIU_ATM
 {
 
 
-    public partial class AdminDashboard
+    public partial class WithdrawMoney
     {
 
         /// <summary>
@@ -24,24 +24,6 @@ namespace AIU_ATM
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// logoHyperLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
-
-        /// <summary>
-        /// HyperLinkLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
-
-        /// <summary>
         /// welS control.
         /// </summary>
         /// <remarks>
@@ -51,30 +33,30 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label welS;
 
         /// <summary>
-        /// ButtonViewUsers control.
+        /// cusBal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewUsers;
+        protected global::System.Web.UI.WebControls.Label cusBal;
 
         /// <summary>
-        /// ButtonViewTransactions control.
+        /// TextBoxWithdrawAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewTransactions;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxWithdrawAmount;
 
         /// <summary>
-        /// ButtonAddUser control.
+        /// ButtonWithdraw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUser;
+        protected global::System.Web.UI.WebControls.Button ButtonWithdraw;
     }
 }

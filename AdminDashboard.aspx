@@ -10,11 +10,9 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
-    <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
-
         .btn {
             font-family: 'Ubuntu', sans-serif;
             border: none;
@@ -102,7 +100,7 @@
                 <!-- Navigation bar menu -->
                 <ul class="menu">
                     <li>
-                        <asp:HyperLink Style="color: #fff;" ID="HyperLinkLogout" runat="server">Logout</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLinkLogout" runat="server" NavigateUrl="~/Default.aspx">Logout</asp:HyperLink>
                     </li>
                 </ul>
             </div>
@@ -114,11 +112,13 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="color: #333;">Hi there Admin <span style="color: rgb(52, 205, 133);">; )</span></div>
+                    <div class="text-2" style="color: #333;">
+                        <asp:Label ID="welS" runat="server"></asp:Label> <span style="color: rgb(52, 205, 133);">; )</span>
+                    </div>
                     <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
                     <div class="actions-list">
                         <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewCustomers" CssClass="btn" runat="server" Text="View Customers" OnClick="ButtonViewCustomers_Click" />
+                        <asp:Button ID="ButtonViewUsers" CssClass="btn" runat="server" Text="View Users" OnClick="ButtonViewUsers_Click" />
                     </div>
                     <br />
                     <div class="actions-list">
@@ -128,7 +128,7 @@
                     <br />
                     <div class="actions-list">
                         <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonCreateCustomer" CssClass="btn" runat="server" Text="Create Customer" OnClick="ButtonCreateCustomer_Click" /><br />
+                        <asp:Button ID="ButtonAddUser" CssClass="btn" runat="server" Text="Add New User" OnClick="ButtonAddUser_Click" /><br />
                     </div>
                 </div>
             </div>
