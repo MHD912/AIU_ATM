@@ -106,35 +106,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminDashboard.aspx" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome-4.7.0.min.css" />
     <Content Include="CustomerDashboard.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\Poppins\OFL.txt" />
+    <Content Include="Content\font-face.css" />
+    <Content Include="fonts\Ubuntu\UFL.txt" />
     <Content Include="Login.aspx" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="CreateCustomer.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="script.js" />
-    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\typed.min.js" />
+    <Content Include="Scripts\jquery-3.6.1.js" />
+    <Content Include="Scripts\jquery-3.6.1.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -157,34 +147,31 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Site.Master" />
-    <Content Include="source\css\all.min.css" />
-    <Content Include="source\css\fontawesome.min.css" />
-    <Content Include="source\default.jpg" />
-    <Content Include="source\wallpaper.png" />
-    <Content Include="source\webfonts\fa-brands-400.svg" />
-    <Content Include="source\webfonts\fa-regular-400.svg" />
-    <Content Include="source\webfonts\fa-solid-900.svg" />
-    <Content Include="style.css" />
+    <Content Include="Content\font-awesome-5.15.4.min.css" />
+    <Content Include="Content\Images\default.jpg" />
+    <Content Include="Content\Images\wallpaper.png" />
+    <Content Include="fonts\fa-brands-400.svg" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="fonts\fa-solid-900.svg" />
+    <Content Include="Content\Site.css" />
     <Content Include="ViewCustomerDetails.aspx" />
     <Content Include="ViewCustomers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="ViewTransactions.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
-    <Content Include="Site.Mobile.Master" />
-    <Content Include="source\webfonts\fa-brands-400.eot" />
-    <Content Include="source\webfonts\fa-brands-400.ttf" />
-    <Content Include="source\webfonts\fa-brands-400.woff" />
-    <Content Include="source\webfonts\fa-brands-400.woff2" />
-    <Content Include="source\webfonts\fa-regular-400.eot" />
-    <Content Include="source\webfonts\fa-regular-400.ttf" />
-    <Content Include="source\webfonts\fa-regular-400.woff" />
-    <Content Include="source\webfonts\fa-regular-400.woff2" />
-    <Content Include="source\webfonts\fa-solid-900.eot" />
-    <Content Include="source\webfonts\fa-solid-900.ttf" />
-    <Content Include="source\webfonts\fa-solid-900.woff" />
-    <Content Include="source\webfonts\fa-solid-900.woff2" />
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fa-solid-900.eot" />
+    <Content Include="fonts\fa-solid-900.ttf" />
+    <Content Include="fonts\fa-solid-900.woff" />
+    <Content Include="fonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDashboard.aspx.cs">
@@ -235,20 +222,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
     <Compile Include="ViewCustomerDetails.aspx.cs">
       <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,9 +255,33 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\Poppins\Poppins-Bold.ttf" />
+    <Content Include="fonts\Poppins\Poppins-Bold.woff" />
+    <Content Include="fonts\Poppins\Poppins-Bold.woff2" />
+    <Content Include="fonts\Poppins\Poppins-Medium.ttf" />
+    <Content Include="fonts\Poppins\Poppins-Medium.woff" />
+    <Content Include="fonts\Poppins\Poppins-Medium.woff2" />
+    <Content Include="fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="fonts\Poppins\Poppins-Regular.woff" />
+    <Content Include="fonts\Poppins\Poppins-Regular.woff2" />
+    <Content Include="fonts\Poppins\Poppins-SemiBold.ttf" />
+    <Content Include="fonts\Poppins\Poppins-SemiBold.woff" />
+    <Content Include="fonts\Poppins\Poppins-SemiBold.woff2" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Bold.woff" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Bold.woff2" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Medium.woff" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Medium.woff2" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Regular.woff" />
+    <Content Include="fonts\Ubuntu\Ubuntu-Regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.6.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

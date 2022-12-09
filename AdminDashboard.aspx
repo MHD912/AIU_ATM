@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDashboard.aspx.cs" Inherits="Test.AdminDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDashboard.aspx.cs" Inherits="AIU_ATM.AdminDashboard" %>
 
 <!DOCTYPE html>
 
@@ -7,16 +7,13 @@
     <title>Admin Dashboard</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="source/css/all.min.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
+    <link rel="stylesheet" href="Content/font-face.css" />
+    <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
     <link rel="stylesheet" href="source/css/fontawesome.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script src="Scripts/typed.min.js"></script>
     <style>
-        .home {
-            background: url(source/wallpaper.png) no-repeat center;
-            color: #111;
-        }
 
         .btn {
             font-family: 'Ubuntu', sans-serif;
@@ -99,7 +96,7 @@
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
                     <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
+                        AIU| <span class="typing"></span> 
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
