@@ -109,13 +109,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome-4.7.0.min.css" />
     <Content Include="CustomerDashboard.aspx" />
-    <Content Include="EditCustomerDetails.aspx" />
+    <Content Include="DepositMoney.aspx" />
+    <Content Include="EditUserDetails.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\Poppins\OFL.txt" />
     <Content Include="Content\font-face.css" />
     <Content Include="fonts\Ubuntu\UFL.txt" />
     <Content Include="Login.aspx" />
-    <Content Include="CreateCustomer.aspx" />
+    <Content Include="AddUser.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -154,8 +155,9 @@
     <Content Include="fonts\fa-regular-400.svg" />
     <Content Include="fonts\fa-solid-900.svg" />
     <Content Include="Content\Site.css" />
-    <Content Include="ViewCustomerDetails.aspx" />
-    <Content Include="ViewCustomers.aspx" />
+    <Content Include="TransferMoney.aspx" />
+    <Content Include="ViewUserDetails.aspx" />
+    <Content Include="ViewUsers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="ViewTransactions.aspx" />
     <Content Include="Web.config" />
@@ -172,6 +174,7 @@
     <Content Include="fonts\fa-solid-900.ttf" />
     <Content Include="fonts\fa-solid-900.woff" />
     <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="WithdrawMoney.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDashboard.aspx.cs">
@@ -188,12 +191,19 @@
     <Compile Include="CustomerDashboard.aspx.designer.cs">
       <DependentUpon>CustomerDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditCustomerDetails.aspx.cs">
-      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+    <Compile Include="DepositMoney.aspx.cs">
+      <DependentUpon>DepositMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditCustomerDetails.aspx.designer.cs">
-      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+    <Compile Include="DepositMoney.aspx.designer.cs">
+      <DependentUpon>DepositMoney.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUserDetails.aspx.cs">
+      <DependentUpon>EditUserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUserDetails.aspx.designer.cs">
+      <DependentUpon>EditUserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -204,12 +214,12 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="CreateCustomer.aspx.cs">
-      <DependentUpon>CreateCustomer.aspx</DependentUpon>
+    <Compile Include="AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateCustomer.aspx.designer.cs">
-      <DependentUpon>CreateCustomer.aspx</DependentUpon>
+    <Compile Include="AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -222,19 +232,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewCustomerDetails.aspx.cs">
-      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
+    <Compile Include="TransferMoney.aspx.cs">
+      <DependentUpon>TransferMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewCustomerDetails.aspx.designer.cs">
-      <DependentUpon>ViewCustomerDetails.aspx</DependentUpon>
+    <Compile Include="TransferMoney.aspx.designer.cs">
+      <DependentUpon>TransferMoney.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewCustomers.aspx.cs">
-      <DependentUpon>ViewCustomers.aspx</DependentUpon>
+    <Compile Include="ViewUserDetails.aspx.cs">
+      <DependentUpon>ViewUserDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewCustomers.aspx.designer.cs">
-      <DependentUpon>ViewCustomers.aspx</DependentUpon>
+    <Compile Include="ViewUserDetails.aspx.designer.cs">
+      <DependentUpon>ViewUserDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUsers.aspx.cs">
+      <DependentUpon>ViewUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewUsers.aspx.designer.cs">
+      <DependentUpon>ViewUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -249,6 +266,13 @@
     </Compile>
     <Compile Include="ViewTransactions.aspx.designer.cs">
       <DependentUpon>ViewTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WithdrawMoney.aspx.cs">
+      <DependentUpon>WithdrawMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WithdrawMoney.aspx.designer.cs">
+      <DependentUpon>WithdrawMoney.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

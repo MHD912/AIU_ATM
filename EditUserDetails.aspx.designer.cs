@@ -11,7 +11,7 @@ namespace AIU_ATM
 {
 
 
-    public partial class EditCustomerDetails
+    public partial class EditUserDetails
     {
 
         /// <summary>

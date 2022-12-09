@@ -1,17 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateCustomer.aspx.cs" Inherits="AIU_ATM.CreateCustomer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewUserDetails.aspx.cs" Inherits="AIU_ATM.ViewUserDetails" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head runat="server">
-    <title>Create Customer</title>
+    <title>View User Information</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
-    <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
 
@@ -53,11 +51,11 @@
         }
 
         section .title::before {
-            width: 380px;
+            width: 270px;
         }
 
         .contact .title::after {
-            content: "customer registration form";
+            content: "user inforamtion";
             color: rgb(52, 205, 133);
         }
 
@@ -122,12 +120,8 @@
     </style>
     <script>
         $('document').ready(function () {
-            $('#CheckBoxUserType').click(function () {
-                $("#TableRowBalance").toggle(!this.checked);
-                $("#TableRowPinCode").toggle(!this.checked);
-            });
             var typed = new Typed(".typing", {
-                strings: ["Bank", "Create Customer"],
+                strings: ["Bank", "View Info."],
                 typeSpeed: 80,
                 backSpeed: 60,
                 backDelay: 3600,
@@ -148,7 +142,7 @@
             <!-- Logo class returns the client to home page once clicked -->
             <div class="logo">
                 <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
+                    AIU|<span class="typing"></span> 
                 </asp:HyperLink>
             </div>
             <!-- Navigation bar menu -->
@@ -176,13 +170,13 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxFirstName" placeholder="First" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxFirstName" placeholder="First" runat="server" CssClass="input" ReadOnly="true"></asp:TextBox>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxMidName" placeholder="Middle" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxMidName" placeholder="Middle" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxLastName" placeholder="Last" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxLastName" placeholder="Last" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -191,7 +185,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxUserName" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxUserName" placeholder="Username" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -200,13 +194,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxPassword" placeholder="Password" type="password" runat="server" CssClass="input"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:Label ID="LabelConfirmPassword" runat="server" Text="Confirm Password" CssClass="text"></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxConfirmPassword" placeholder="Confirm Password" runat="server" type="password" CssClass="input" Style="transform: translateX(-50%);"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxPassword" placeholder="Password" type="password" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -215,7 +203,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxEmail" placeholder="Email" type="email" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxEmail" placeholder="Email" type="email" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -224,7 +212,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxBirthDate" placeholder="dd/mm/yyyy" type="date" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxBirthDate" placeholder="dd/mm/yyyy" type="date" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -233,10 +221,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:RadioButton ID="RadioButtonMale" runat="server" GroupName="gender" Text=" Male" CssClass="text" />
-                            </asp:TableCell>
-                            <asp:TableCell runat="server" Style="transform: translateX(-75%);">
-                                <asp:RadioButton ID="RadioButtonFemale" runat="server" GroupName="gender" Text=" Female" CssClass="text" />
+                                <asp:TextBox ID="TextBoxGender" runat="server" placeholder="Gender" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -245,16 +230,9 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListCountryCode" CssClass="input" runat="server" Width="24%" Style="padding: 4px 0 4px 0;">
-                                    <asp:ListItem Selected="True">+963</asp:ListItem>
-                                    <asp:ListItem>+966</asp:ListItem>
-                                    <asp:ListItem>+1</asp:ListItem>
-                                    <asp:ListItem>+43</asp:ListItem>
-                                    <asp:ListItem>+56</asp:ListItem>
-                                </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="input" Width="75%" Style="transform: translateX(-109%);">
+                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-107%);">
                                 </asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
@@ -264,7 +242,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxAddress" placeholder="Mazzeh Damascus, Syria" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxAddress" placeholder="Mazzeh Damascus, Syria" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowBalance">
@@ -273,17 +251,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" CssClass="input"></asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:Label ID="LabelAccountType" runat="server" Text="Account Type" CssClass="text"></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListAccountType" runat="server" CssClass="input" Style="transform: translateX(-50%);">
-                                    <asp:ListItem>Current Account</asp:ListItem>
-                                    <asp:ListItem>Savings Account</asp:ListItem>
-                                    <asp:ListItem>Salary Account</asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
@@ -292,27 +260,19 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxPin" placeholder="####" runat="server" CssClass="input">
-                                </asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:Label ID="LabelConfirmPin" runat="server" Text="Confirm Pin" CssClass="text"></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxConfirmPin" placeholder="####" runat="server" CssClass="input" Style="transform: translateX(-50%);"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxPin" placeholder="####" runat="server" ReadOnly="true" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Create" CssClass="btn" />
+                                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" CssClass="btn" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonReset" runat="server" type="reset" Text="Reset" CssClass="btn" />
+                                <asp:Button ID="ButtonEdit" runat="server" Text="Edit" CssClass="btn" OnClick="ButtonEdit_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>

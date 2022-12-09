@@ -1,17 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditCustomerDetails.aspx.cs" Inherits="AIU_ATM.EditCustomerDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="AIU_ATM.AddUser" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <title>Edit Customer Information</title>
+    <title>Add new user</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
-    <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
 
@@ -57,7 +56,7 @@
         }
 
         .contact .title::after {
-            content: "edit customer information";
+            content: "user registration form";
             color: rgb(52, 205, 133);
         }
 
@@ -127,7 +126,7 @@
                 $("#TableRowPinCode").toggle(!this.checked);
             });
             var typed = new Typed(".typing", {
-                strings: ["Bank", "Edit Info."],
+                strings: ["Bank", "Create User"],
                 typeSpeed: 80,
                 backSpeed: 60,
                 backDelay: 3600,
@@ -275,6 +274,16 @@
                             <asp:TableCell runat="server">
                                 <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:Label ID="LabelAccountType" runat="server" Text="Account Type" CssClass="text"></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:DropDownList ID="DropDownListAccountType" runat="server" CssClass="input" Style="transform: translateX(-50%);">
+                                    <asp:ListItem>Current Account</asp:ListItem>
+                                    <asp:ListItem>Savings Account</asp:ListItem>
+                                    <asp:ListItem>Salary Account</asp:ListItem>
+                                </asp:DropDownList>
+                            </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
                             <asp:TableCell runat="server">
@@ -299,10 +308,10 @@
                                 <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" />
+                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Create" CssClass="btn" OnClick="ButtonCreate_Click" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" CssClass="btn" />
+                                <asp:Button ID="ButtonReset" runat="server" type="reset" Text="Reset" CssClass="btn" OnClick="ButtonReset_Click"/>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -316,4 +325,5 @@
         </span>
     </footer>
 </body>
+
 </html>

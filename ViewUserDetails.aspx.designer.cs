@@ -11,7 +11,7 @@ namespace AIU_ATM
 {
 
 
-    public partial class ViewCustomerDetails
+    public partial class ViewUserDetails
     {
 
         /// <summary>
@@ -184,15 +184,6 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelContact;
-
-        /// <summary>
-        /// TextBoxCountryCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCountryCode;
 
         /// <summary>
         /// TextBoxContact control.

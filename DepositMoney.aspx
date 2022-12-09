@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerDashboard.aspx.cs" Inherits="AIU_ATM.CustomerDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepositMoney.aspx.cs" Inherits="AIU_ATM.DepositMoney" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Customer Dashboard</title>
+    <title>Deposit Money</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Content/Site.css" />
@@ -13,6 +13,7 @@
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
+
         .btn {
             font-family: 'Ubuntu', sans-serif;
             width: 8em;
@@ -84,12 +85,6 @@
         .typing {
             color: rgb(52, 205, 133);
         }
-
-        footer {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-        }
     </style>
     <script>
         $('document').ready(function () {
@@ -115,9 +110,8 @@
             <div class="max-width">
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
-                    <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span>
-                    </asp:HyperLink>
+                    <a href="#home">AIU|<span class="typing"></span>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -128,24 +122,18 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="color: #333;">
+                    <div class="text-2" style="color: #333; margin-bottom: 3em;">
                         <asp:Label ID="welS" runat="server"></asp:Label> <span style="color: rgb(52, 205, 133);">; )</span>
                     </div>
-                    <div class="text-1" style="margin: 125px 0 40px;">
-                        -your balance is<span style="color: rgb(52, 205, 133);">:</span> <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
+                    <div class="text-1" style="margin-bottom: 40px;">
+                        - Your balance is: <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
-                    <asp:Button Style="display: block; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonWithdraw" runat="server" Text="Withdraw Money" OnClick="ButtonWithdraw_Click" />
-                    <asp:Button Style="display: block; margin-bottom: 30px; width: 550px" class="btn" ID="ButtomDeposit" runat="server" Text="Deposit Money" OnClick="ButtomDeposit_Click" />
-                    <asp:Button Style="display: block; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonTransfer" runat="server" Text="Transfer Money" OnClick="ButtonTransfer_Click" />
+                    <div class="text-1">Deposit: </div>
+                    <asp:TextBox runat="server" Style="width: 220px; margin-top: 10px; margin-right: 5px; height: 50px;" class="input" ID="TextBoxDepositAmount" type="text"></asp:TextBox>$<br />
+                    <asp:Button Style="display: block; margin-top: 30px; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonDeposite" runat="server" Text="Deposite money" OnClick="ButtonDeposite_Click" />
                 </div>
             </div>
         </section>
-        <footer>
-            <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
-                2022 All rights reserved.
-            </span>
-        </footer>
     </form>
 </body>
 </html>
-

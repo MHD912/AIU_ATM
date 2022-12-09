@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
-    <link rel="stylesheet" href="source/css/fontawesome.min.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
 
@@ -148,7 +147,7 @@
                         </div>
 
                         <div class="button" style="width: 100%; height: 80px; display: flex; align-items: center; justify-content: center;">
-                            <asp:Button CssClass="btn" ID="btnLogin" runat="server" Text="Login" Height="53px" Width="98px" />
+                            <asp:Button CssClass="btn" ID="btnLogin" runat="server" Text="Login" Height="53px" Width="98px" OnClick="btnLogin_Click" />
                         </div>
 
                     </form>

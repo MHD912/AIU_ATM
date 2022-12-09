@@ -108,7 +108,7 @@
     <script>
         $('document').ready(function () {
             var typed = new Typed(".typing", {
-                strings: ["Bank", "View Info."],
+                strings: ["Bank", "View Transactions"],
                 typeSpeed: 80,
                 backSpeed: 60,
                 backDelay: 3600,
@@ -140,22 +140,25 @@
                 <div class="col-md-12">
                     <form id="form1" runat="server">
                         <div class="mt-5 mb-3 clearfix">
-                            <h2 class="pull-left">Users Details</h2>
-                            <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> Add New Customer</asp:LinkButton>
+                            <h2 class="pull-left">Transactions Details</h2>
+                            <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> Add Transaction</asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
                         <div style="margin: auto -100px 0 -60px;">
-                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="customersGridView" runat="server" DataSourceID="SqlDataSource1" Width="100%" AutoGenerateColumns="False">
+                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="transactionsGridView" runat="server" DataSourceID="SqlDataSource1" Width="100%" AutoGenerateColumns="False">
                                 <Columns>
-                                    <asp:CommandField ShowHeader="false" CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" EditText="&lt;span class=&quot;fa fa-pencil&quot;&gt;&lt;/span&gt;" ShowEditButton="True" UpdateText="&lt;span class=&quot;fa fa-check&quot;&gt;&lt;/span&gt;" SelectText="&lt;a href=&quot;ViewCustomerDetail.aspx&quot;&gt;&lt;span class=&quot;fa fa-eye&quot;&gt;&lt;/span&gt;&lt;/a&gt;" ShowDeleteButton="True" ShowSelectButton="True" HeaderText="Action">
+                                    <asp:CommandField ShowHeader="false" CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" EditText="&lt;span class=&quot;fa fa-pencil&quot;&gt;&lt;/span&gt;" ShowEditButton="True" UpdateText="&lt;span class=&quot;fa fa-check&quot;&gt;&lt;/span&gt;" SelectText="&lt;a href=&quot;ViewUserDetail.aspx&quot;&gt;&lt;span class=&quot;fa fa-eye&quot;&gt;&lt;/span&gt;&lt;/a&gt;" ShowDeleteButton="True" ShowSelectButton="True" HeaderText="Action">
                                         <ItemStyle HorizontalAlign="Justify" Wrap="False" />
                                     </asp:CommandField>
-                                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                                    <asp:BoundField DataField="Balance" HeaderText="Balance" InsertVisible="False" ReadOnly="True" SortExpression="Balance" />
+                                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                    <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                                    <asp:BoundField DataField="FromAcc" HeaderText="FromAcc" SortExpression="FromAcc" />
+                                    <asp:BoundField DataField="ToAcc" HeaderText="ToAcc" SortExpression="ToAcc" />
+                                    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
+                                    <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATMConnectionString %>" SelectCommand="SELECT [Name], [Email], [Balance] FROM [customers]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>" SelectCommand="SELECT * FROM [Transactions]"></asp:SqlDataSource>
                         </div>
 
                     </form>
