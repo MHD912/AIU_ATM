@@ -14,10 +14,6 @@
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
-        .home {
-            background: url(source/wallpaper.png) no-repeat center;
-            color: #111;
-        }
 
         .btn {
             font-family: 'Ubuntu', sans-serif;

@@ -96,7 +96,7 @@
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
                     <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU| <span class="typing"></span> 
+                        AIU|<span class="typing"></span> 
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
