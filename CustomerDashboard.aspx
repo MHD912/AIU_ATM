@@ -33,33 +33,6 @@
                 background: none;
             }
 
-        .dropDownList {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            width: 8em;
-            height: 3em;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
-            font-size: 22px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-inline-end: 60px;
-            outline: none;
-        }
-
-            .dropDownList .listItem {
-                color: #222;
-                background: #fff;
-            }
-
-                .dropDownList .listItem:hover {
-                    color: rgb(52, 205, 133);
-                    background: none;
-                }
-
         .navbar.sticky {
             background-color: rgb(52, 205, 133);
         }

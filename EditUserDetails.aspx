@@ -141,32 +141,42 @@
 <body>
     <!-- Navigation bar -->
 
-    <nav class="navbar sticky">
-        <!-- Max-width class helps in responsiveness of the website -->
-        <div class="max-width">
-            <!-- Logo class returns the client to home page once clicked -->
-            <div class="logo">
-                <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
+    <form id="form1" runat="server">
+        <nav class="navbar sticky">
+            <!-- Max-width class helps in responsiveness of the website -->
+            <div class="max-width" style="margin: 0 50px; padding: 0;">
+                <!-- Logo class returns the client to home page once clicked -->
+                <div class="logo">
+                    <asp:LinkButton ID="LinkButtonBack" runat="server" CssClass="dropDownList">
+                            <span class="fas fa-arrow-left" style="font-size: 23px;" />
+                    </asp:LinkButton>
+                    <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
                         AIU|<span class="typing"></span> 
-                </asp:HyperLink>
-            </div>
-            <!-- Navigation bar menu -->
-            <ul class="menu">
-                <li>
-                    <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/AdminDashboard.aspx" ForeColor="White">
-                        <span class="fas fa-home" style="font-size: 25px;"/>
                     </asp:HyperLink>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                </div>
+                <!-- Navigation bar menu -->
+                <ul class="menu">
+                    <li>
+                        <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 75%; height: 40px; border: #fff; border-style: dashed; border-width: 2px;">
+                            <asp:ListItem Text="Current Account" />
+                            <asp:ListItem Text="Saving Account" />
+                            <asp:ListItem Text="Salary Account" />
+                        </asp:DropDownList>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButtonDashboard" runat="server" CssClass="dropDownList" Style="font-size: 18px; width: 75%; height: 40px; border: #fff; border-style: dashed; border-width: 2px; padding: 5.2px 12px; margin-inline-end: -34px;">
+                            Dashboard  <span class="fas fa-home" style="font-size: 18px;" />
+                        </asp:LinkButton>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <%-- Input form --%>
+        <%-- Input form --%>
 
-    <section class="contact" id="contact" style="margin-bottom: 11em;">
-        <div class="max-width">
-            <h2 class="title"></h2>
-            <form id="form1" runat="server">
+        <section class="contact" id="contact" style="margin-bottom: 11em;">
+            <div class="max-width">
+                <h2 class="title"></h2>
                 <div class="inputTable">
                     <asp:Table ID="Table1" runat="server" Height="100%" Width="100%" CellSpacing="20">
                         <asp:TableRow runat="server">
@@ -306,9 +316,9 @@
                         </asp:TableRow>
                     </asp:Table>
                 </div>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+    </form>
     <footer>
         <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
             2022 All rights reserved.

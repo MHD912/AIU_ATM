@@ -15,6 +15,24 @@ namespace AIU_ATM
     {
 
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// LinkButtonBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonBack;
+
+        /// <summary>
         /// logoHyperLink control.
         /// </summary>
         /// <remarks>
@@ -24,22 +42,22 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
-        /// homeHyperLink control.
+        /// DropDownListAccountType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink homeHyperLink;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListAccountType;
 
         /// <summary>
-        /// form1 control.
+        /// LinkButtonDashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDashboard;
 
         /// <summary>
         /// Table1 control.
