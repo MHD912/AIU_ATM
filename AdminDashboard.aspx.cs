@@ -53,5 +53,11 @@ namespace Test
         {
             Response.Redirect("ViewTransactions.aspx");
         }
+
+        protected void logOut(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Response.Redirect("AdminLogin.aspx");
+        }
     }
 }

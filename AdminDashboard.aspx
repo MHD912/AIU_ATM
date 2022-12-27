@@ -104,8 +104,9 @@
                 </div>
                 <!-- Navigation bar menu -->
                 <ul class="menu">
-                    <li>
-                        <asp:HyperLink Style="color: #fff;" ID="HyperLinkLogout" runat="server">Logout</asp:HyperLink>
+                    <li>                        
+                        <asp:HyperLink Style="color: #fff;" ID="HyperLinkLogout" runat="server" Text="Logout" OnClick="logOut">                          
+                        </asp:HyperLink>
                     </li>
                 </ul>
             </div>
