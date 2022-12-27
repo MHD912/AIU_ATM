@@ -155,7 +155,6 @@
     <Content Include="fonts\fa-regular-400.svg" />
     <Content Include="fonts\fa-solid-900.svg" />
     <Content Include="Content\Site.css" />
-    <Content Include="TestViewUser.aspx" />
     <Content Include="TransferMoney.aspx" />
     <Content Include="ViewUserDetails.aspx" />
     <Content Include="ViewUsers.aspx" />
@@ -233,13 +232,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestViewUser.aspx.cs">
-      <DependentUpon>TestViewUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestViewUser.aspx.designer.cs">
-      <DependentUpon>TestViewUser.aspx</DependentUpon>
-    </Compile>
     <Compile Include="TransferMoney.aspx.cs">
       <DependentUpon>TransferMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
