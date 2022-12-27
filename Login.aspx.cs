@@ -31,7 +31,9 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            cmd.CommandText = "select * from Users where UserName='" + username.Text + "'";
+            cmd.CommandText = "select * from Users where UserName=@UN";
+            cmd.Parameters.AddWithValue("@UN", username.Text);
+
             da.Fill(dt);
             if (dt.Rows.Count > 0)
             {

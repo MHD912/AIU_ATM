@@ -52,7 +52,9 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            cmd.CommandText = "select u.ID as UID from Users as u join Accounts as a on u.ID = a.UserID where a.AccountNo='" + AccountNo + "'";
+            cmd.CommandText = "select u.ID as UID from Users as u join Accounts as a on u.ID = a.UserID where a.AccountNo=@aNo";
+            cmd.Parameters.AddWithValue("@aNo", AccountNo);
+
             da.Fill(dt);
             string cusID = dt.Rows[0]["UID"].ToString();
 

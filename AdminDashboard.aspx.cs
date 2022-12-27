@@ -31,13 +31,15 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
-                cmd.CommandText = "select * from Users where id='" + userID + "'";
+                cmd.CommandText = "select * from Users where id=@uID";
+                cmd.Parameters.AddWithValue("@uID", userID);
+
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
 
                 welS.Text = "Hi there " + userName;
             }
-            else { Response.Redirect("AdminLogin.aspx"); }
+            else { Response.Redirect("Login.aspx"); }
         }
 
         protected void ButtonViewUsers_Click(object sender, EventArgs e)

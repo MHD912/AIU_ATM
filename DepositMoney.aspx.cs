@@ -29,7 +29,9 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                cmd.Parameters.AddWithValue("@uID", userID);
+
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
                 string balance = dt.Rows[0]["Balance"].ToString();
@@ -53,13 +55,17 @@ namespace AIU_ATM
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                     double Balance = 0;
-                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                    cmd.Parameters.AddWithValue("@uID", userID);
+
                     da.Fill(dt);
 
                     if (dt.Rows.Count > 0)
                     {
                         Balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                        cmd.CommandText = "EXEC deposit '" + dt.Rows[0]["AccountNo"] + "','" + TextBoxDepositAmount.Text + "'";
+                        cmd.CommandText = "EXEC deposit @aNo, @Amount";
+                        cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
+                        cmd.Parameters.AddWithValue("@Amount", TextBoxDepositAmount.Text);
                         cmd.ExecuteNonQuery();
                     }
                     TextBoxDepositAmount.Text = "";

@@ -83,20 +83,32 @@ namespace AIU_ATM
                                     if (DropDownListAccountType.SelectedIndex == 1) { Acctype = 2; }
                                     else if (DropDownListAccountType.SelectedIndex == 2) { Acctype = 3; }
 
-                                    cmd.CommandText = "insert into Users(UserName,PassWord,Privilege)" +
-                                        " values('" + TextBoxUserName.Text + "','" + TextBoxPassword.Text + "',2)";
+                                    cmd.CommandText = "insert into Users(UserName,PassWord,Privilege) values(@UN,@PW,2)";
+                                    cmd.Parameters.AddWithValue("@UN", TextBoxUserName.Text);
+                                    cmd.Parameters.AddWithValue("@PW", TextBoxPassword.Text);
                                     cmd.ExecuteNonQuery();
 
                                     cmd.CommandText = "select max(ID) as id from Users";
                                     da.Fill(dt);
                                     string userID = dt.Rows[0]["id"].ToString();
 
-                                    cmd.CommandText = "insert into UsersInfo(ID,FirstName,MiddleName,LastName,BirthDate,Email,Phone,Address,Gender)" +
-                                        " values('" + userID + "' ,'" + TextBoxFirstName.Text + "','" + TextBoxMidName.Text + "','" + TextBoxLastName.Text + "','" + TextBoxBirthDate.Text + "','" + TextBoxEmail.Text + "','" + p + "','" + TextBoxAddress.Text + "','" + g + "')";
+                                    cmd.CommandText = "insert into UsersInfo(ID,FirstName,MiddleName,LastName,BirthDate,Email,Phone,Address,Gender) values(@uID ,@FN,@MN,@LN,@BD,@EM,@P,@Add,@G)";
+                                    cmd.Parameters.AddWithValue("@uID",userID);
+                                    cmd.Parameters.AddWithValue("@FN",TextBoxFirstName.Text);
+                                    cmd.Parameters.AddWithValue("@MN", TextBoxMidName.Text);
+                                    cmd.Parameters.AddWithValue("@LN", TextBoxLastName.Text);
+                                    cmd.Parameters.AddWithValue("@BD", TextBoxBirthDate.Text);
+                                    cmd.Parameters.AddWithValue("@EM", TextBoxEmail.Text);
+                                    cmd.Parameters.AddWithValue("@P", p);
+                                    cmd.Parameters.AddWithValue("@Add", TextBoxAddress.Text);
+                                    cmd.Parameters.AddWithValue("@G",g);
                                     cmd.ExecuteNonQuery();
 
-                                    cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID)" +
-                                        " values('" + TextBoxBalance.Text + "','" + TextBoxPin.Text + "','" + Acctype + "', '" + userID + "')";
+                                    cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID) values(@Balance,@PIN,@AT, @uID)";
+                                    cmd.Parameters.AddWithValue("@Balance", TextBoxBalance.Text);
+                                    cmd.Parameters.AddWithValue("@PIN", TextBoxPin.Text);
+                                    cmd.Parameters.AddWithValue("@AT", Acctype);
+                                    cmd.Parameters.AddWithValue("@uID",userID);
                                     cmd.ExecuteNonQuery();
 
                                     ButtonReset_Click(sender, e);

@@ -29,7 +29,9 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                cmd.Parameters.AddWithValue("@uID", userID);
+
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
                 string balance = dt.Rows[0]["Balance"].ToString();

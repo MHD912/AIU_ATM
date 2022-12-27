@@ -30,7 +30,9 @@ namespace AIU_ATM
             {
                 userID = Session["User"].ToString();
 
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                cmd.Parameters.AddWithValue("@uID",userID);
+
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
                 string balance = dt.Rows[0]["Balance"].ToString();
@@ -54,7 +56,9 @@ namespace AIU_ATM
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                     double balance = 0;
-                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id='" + userID + "'";
+                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                    cmd.Parameters.AddWithValue("@uID", userID);
+
                     da.Fill(dt);
 
                     if (dt.Rows.Count > 0)
@@ -62,7 +66,10 @@ namespace AIU_ATM
                         balance = double.Parse(dt.Rows[0]["Balance"].ToString());
                         if (amount < balance)
                         {
-                            cmd.CommandText = "EXEC withdraw '" + dt.Rows[0]["AccountNo"] + "','" + TextBoxWithdrawAmount.Text + "'";
+                            cmd.CommandText = "EXEC withdraw @aNo, @Amount";
+                            cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
+                            cmd.Parameters.AddWithValue("@Amount", TextBoxWithdrawAmount.Text);
+
                             cmd.ExecuteNonQuery();
                             TextBoxWithdrawAmount.Text = "";
                             cusBal.Text = (balance - amount) + "$";
