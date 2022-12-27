@@ -145,20 +145,25 @@
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
                         <div style="margin: auto -100px 0 -60px;">
-                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="transactionsGridView" runat="server" DataSourceID="SqlDataSource1" Width="100%" AutoGenerateColumns="False">
-                                <Columns>
-                                    <asp:CommandField ShowHeader="false" CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" EditText="&lt;span class=&quot;fa fa-pencil&quot;&gt;&lt;/span&gt;" ShowEditButton="True" UpdateText="&lt;span class=&quot;fa fa-check&quot;&gt;&lt;/span&gt;" SelectText="&lt;a href=&quot;ViewUserDetail.aspx&quot;&gt;&lt;span class=&quot;fa fa-eye&quot;&gt;&lt;/span&gt;&lt;/a&gt;" ShowDeleteButton="True" ShowSelectButton="True" HeaderText="Action">
-                                        <ItemStyle HorizontalAlign="Justify" Wrap="False" />
-                                    </asp:CommandField>
+                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="transactionsGridView" runat="server" DataSourceID="SqlDataSource1" Width="100%" DataKeyNames="ID" AutoGenerateColumns="False">
+                               <Columns>
                                     <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                                     <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                                     <asp:BoundField DataField="FromAcc" HeaderText="FromAcc" SortExpression="FromAcc" />
                                     <asp:BoundField DataField="ToAcc" HeaderText="ToAcc" SortExpression="ToAcc" />
                                     <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
                                     <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Delete" ShowDeleteButton="True" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>" SelectCommand="SELECT * FROM [Transactions]"></asp:SqlDataSource>
+                            
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"                                
+                                SelectCommand="SELECT t.ID, tt.Type, t.FromAcc, t.ToAcc, t.Amount, t.Time FROM Transactions AS t INNER JOIN TransactionsTypes AS tt ON t.Type = tt.ID" 
+                                DeleteCommand="DELETE FROM Transactions WHERE (ID = @ID)">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="ID" type="Int32"/>
+                                </DeleteParameters>
+                            </asp:SqlDataSource>
                         </div>
 
                     </form>

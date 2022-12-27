@@ -17,7 +17,7 @@ namespace AIU_ATM
             {
                 userID = Session["User"].ToString();
             }
-            else { Response.Redirect("AdminLogin.aspx"); }
+            else { Response.Redirect("Login.aspx"); }
         }
 
         protected void LinkButtonCreate_Click(object sender, EventArgs e)
@@ -31,5 +31,6 @@ namespace AIU_ATM
             Session["User"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
+
     }
 }
