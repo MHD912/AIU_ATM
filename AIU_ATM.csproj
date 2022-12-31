@@ -108,6 +108,8 @@
     <Content Include="AdminDashboard.aspx" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome-4.7.0.min.css" />
+    <Content Include="Content\google-material-symbols-outlined.css" />
+    <Content Include="Content\google-material-symbols-rounded.css" />
     <Content Include="CustomerDashboard.aspx" />
     <Content Include="DepositMoney.aspx" />
     <Content Include="EditUserDetails.aspx" />
@@ -121,6 +123,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2" />
+    <Content Include="fonts\kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2" />
+    <None Include="Scripts\browser-polyfill.min.js.map" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\typed.min.js" />
@@ -306,6 +311,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.6.1.min.map" />
+    <Content Include="Scripts\typed.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

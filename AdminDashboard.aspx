@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
+    <script src="Scripts/browser-polyfill.min.js.map"></script>
     <style>
         .btn {
             font-family: 'Ubuntu', sans-serif;
@@ -100,7 +102,9 @@
                 <!-- Navigation bar menu -->
                 <ul class="menu">
                     <li>
-                        <asp:HyperLink ID="HyperLinkLogout" runat="server" NavigateUrl="~/Default.aspx">Logout</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLinkLogout" runat="server" NavigateUrl="~/Default.aspx">
+                            <i class="material-symbols-rounded" style="font-weight:700; transform: translateY(3px); font-size: 32px;">logout</i>
+                        </asp:HyperLink>
                     </li>
                 </ul>
             </div>
@@ -113,7 +117,7 @@
             <div class="max-width">
                 <div class="home-content">
                     <div class="text-2" style="color: #333;">
-                        <asp:Label ID="welS" runat="server"></asp:Label> <span style="color: rgb(52, 205, 133);">; )</span>
+                        <asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);">; )</span>
                     </div>
                     <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
                     <div class="actions-list">
