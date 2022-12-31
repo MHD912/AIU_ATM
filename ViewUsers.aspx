@@ -146,8 +146,7 @@
                         </div>
                         <div style="margin: auto -100px 0 -60px;">
                             <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover"
-                                ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="False"
-                                DataKeyNames="AccountNo" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged">
+                                ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged" DataKeyNames="UserName">
                                 <Columns>
                                     <asp:CommandField ShowHeader="false"
                                         CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" 
@@ -161,20 +160,17 @@
                                         HeaderText="Action" >
                                     <ItemStyle HorizontalAlign="Justify" Wrap="False" />
                                     </asp:CommandField>
-                                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                                    <asp:BoundField DataField="AccountNo" HeaderText="AccountNo" SortExpression="AccountNo" InsertVisible="False" ReadOnly="True" />
-                                    <asp:BoundField DataField="Balance" HeaderText="Balance" SortExpression="Balance" />
+                                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                                    <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                                    <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                                 </Columns>
                             </asp:GridView>
                             
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"                                
-                                SelectCommand="select ui.FirstName as Name,a.AccountNo,a.Balance
-                                                from Users as u join Accounts as a 
-                                                on u.ID=a.UserID 
-                                                join UsersInfo as ui on a.UserID=ui.ID 
-                                                where u.Privilege=2" 
+                                SelectCommand="select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=2" 
                                 DeleteCommand="delete from UsersInfo
-                                where ID = (select userID from Accounts where AccountNo = @AccountNo)">
+                                where ID = (select ID from Users where UserName = @UserName)">
                                 <DeleteParameters>
                                     <asp:Parameter Name="AccountNo"  type="Int32"/>
                                 </DeleteParameters>    

@@ -45,18 +45,18 @@ namespace AIU_ATM
         protected void usersGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             int rowIndex = usersGridView.SelectedIndex;
-            string AccountNo = usersGridView.Rows[rowIndex].Cells[2].Text;
+            string UN = usersGridView.Rows[rowIndex].Cells[1].Text;
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            cmd.CommandText = "select u.ID as UID from Users as u join Accounts as a on u.ID = a.UserID where a.AccountNo=@aNo";
-            cmd.Parameters.AddWithValue("@aNo", AccountNo);
+            cmd.CommandText = "select ID from Users where UserName=@UN";
+            cmd.Parameters.AddWithValue("@UN", UN);
 
             da.Fill(dt);
-            string cusID = dt.Rows[0]["UID"].ToString();
+            string cusID = dt.Rows[0][0].ToString();
 
             Session["ViewUser"] = cusID;
             Session["User"] = userID;
