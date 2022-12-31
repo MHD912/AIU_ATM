@@ -68,6 +68,7 @@
 
         .table-responsive {
             display: contents;
+            white-space: nowrap;
         }
 
         .btn-success {
