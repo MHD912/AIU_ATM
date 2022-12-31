@@ -83,7 +83,7 @@
 
         /*////////////////////////////////////*/
         .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+            padding: 8.75px 0;
         }
 
             .navbar.sticky .logo a {

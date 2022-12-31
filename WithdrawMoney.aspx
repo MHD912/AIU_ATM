@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
-
         .btn {
             font-family: 'Ubuntu', sans-serif;
             width: 8em;
@@ -35,25 +35,25 @@
             }
 
 
-        .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+        /*.navbar.sticky {
+            padding: 10.6px 0;
+        }*/
+
+        .navbar.sticky .logo a {
+            color: #333;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
+            .navbar.sticky .logo a:hover {
+                color: #fff;
             }
 
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
+            .navbar.sticky .logo a span {
+                color: #fff;
+            }
 
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
+            .navbar.sticky .logo a:hover span {
+                color: #333;
+            }
 
 
         .typing {
@@ -82,11 +82,19 @@
         <nav class="navbar sticky">
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
-                <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
-                    <a href="#home">AIU|<span class="typing"></span>
-                    </a>
+                    <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
+                        AIU|<span class="typing"></span> 
+                    </asp:HyperLink>
                 </div>
+                <!-- Navigation bar menu -->
+                <ul class="menu">
+                    <li>
+                        <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/CustomerDashboard.aspx" ForeColor="White">
+                            <span class="fas fa-home" style="font-size: 25px;"/>
+                        </asp:HyperLink>
+                    </li>
+                </ul>
             </div>
         </nav>
 

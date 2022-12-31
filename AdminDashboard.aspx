@@ -32,29 +32,25 @@
         }
 
             .btn:hover {
-                /*text-decoration-style: solid;*/
                 text-decoration-color: rgb(52, 205, 133);
             }
 
-        .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+
+        .navbar.sticky .logo a {
+            color: #333;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
+            .navbar.sticky .logo a:hover {
+                color: #fff;
             }
 
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
+            .navbar.sticky .logo a span {
+                color: #fff;
+            }
 
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
+            .navbar.sticky .logo a:hover span {
+                color: #333;
+            }
 
 
         .typing {
@@ -117,7 +113,7 @@
             <div class="max-width">
                 <div class="home-content">
                     <div class="text-2" style="color: #333;">
-                        <asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);">; )</span>
+                        <asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);"> ; )</span>
                     </div>
                     <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
                     <div class="actions-list">

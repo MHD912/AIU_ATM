@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
 
     <style>
         .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+            padding: 10.6px 0;
         }
 
             .navbar.sticky .logo a {
@@ -143,11 +144,11 @@
             <div class="max-width" style="margin: 0 50px; padding: 0;">
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
-                    <asp:LinkButton ID="LinkButtonBack" runat="server" CssClass="dropDownList">
-                            <span class="fas fa-arrow-left" style="font-size: 23px;" />
+                    <asp:LinkButton ID="LinkButtonBack" runat="server">
+                        <span class="material-symbols-rounded" style="font-size: 42px; font-weight: 300; transform: translate(-10px, 7px);" >arrow_circle_left</span>
                     </asp:LinkButton>
                     <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                    AIU|<span class="typing"></span> 
+                        AIU|<span class="typing"></span> 
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
