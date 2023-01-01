@@ -40,21 +40,21 @@ namespace AIU_ATM
                 welS.Text = "Hi there " + userName;
             }
             else { Response.Redirect("Login.aspx"); }
-        }
+        } 
 
-        protected void ButtonViewUsers_Click(object sender, EventArgs e)
+        protected void LinkButtonViewTransactions_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewUsers.aspx");
+            Response.Redirect("ViewTransactions.aspx");
         }
 
-        protected void ButtonAddUser_Click(object sender, EventArgs e)
+        protected void LinkButtonAddUser_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddUser.aspx");
         }
 
-        protected void ButtonViewTransactions_Click(object sender, EventArgs e)
+        protected void LinkButtonViewUsers_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ViewTransactions.aspx");
+            Response.Redirect("ViewUsers.aspx");
         }
     }
 }

@@ -15,27 +15,6 @@
     <script src="Scripts/typed.min.js"></script>
     <script src="Scripts/browser-polyfill.min.js.map"></script>
     <style>
-        .btn {
-            font-family: 'Ubuntu', sans-serif;
-            border: none;
-            background: none;
-            color: rgb(52, 205, 133);
-            font-size: 22px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-inline-end: 60px;
-            text-decoration-line: underline;
-            text-decoration-style: dashed;
-            text-decoration-color: #111;
-        }
-
-            .btn:hover {
-                text-decoration-color: rgb(52, 205, 133);
-            }
-
-
         .navbar.sticky .logo a {
             color: #333;
         }
@@ -57,8 +36,48 @@
             color: rgb(52, 205, 133);
         }
 
-        .actions-list {
-            margin-bottom: 1em;
+        .btn {
+            font-family: 'Poppins', sans-serif;
+            border: none;
+            background: none;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .home .home-content a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            border: none;
+            border-radius: 6px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            display: inline-flex;
+            cursor: pointer;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+
+            .home .home-content a:hover {
+                background-color: #218838;
+                color: #fff;
+            }
+
+        .home .home-content .actions-box span {
+            padding: 0 10px 0 0;
+            font-size: 35px;
+            font-weight: 400;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .home .home-content .actions-box a:hover span {
+            color: #fff;
+            transition: all 0.3s ease;
         }
 
         footer {
@@ -92,15 +111,19 @@
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
                     <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
+                        AIU|<span class="typing"></span>
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
-                <ul class="menu">
+                <ul class="menu" style="margin-right: -15%;">
                     <li>
-                        <asp:HyperLink ID="HyperLinkLogout" runat="server" NavigateUrl="~/Default.aspx">
-                            <i class="material-symbols-rounded" style="font-weight:700; transform: translateY(3px); font-size: 32px;">logout</i>
-                        </asp:HyperLink>
+                        <div class="tooltip">
+                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
+                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
+                            </asp:HyperLink>
+                            <span class="tooltiptext" style="width:60px; margin-left: -35px;">Logout</span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -116,19 +139,16 @@
                         <asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);"> ; )</span>
                     </div>
                     <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
-                    <div class="actions-list">
-                        <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewUsers" CssClass="btn" runat="server" Text="View Users" OnClick="ButtonViewUsers_Click" />
-                    </div>
-                    <br />
-                    <div class="actions-list">
-                        <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonViewTransactions" CssClass="btn" runat="server" Text="View Transactions" OnClick="ButtonViewTransactions_Click" />
-                    </div>
-                    <br />
-                    <div class="actions-list">
-                        <span class="fas fa-arrow-right" style="font-size: 20px;" />
-                        <asp:Button ID="ButtonAddUser" CssClass="btn" runat="server" Text="Add New User" OnClick="ButtonAddUser_Click" /><br />
+                    <div class="actions-box" style="width: 75%;">
+                        <asp:LinkButton ID="LinkButtonViewTransactions" runat="server" Style="width: 99.5%;" OnClick="LinkButtonViewTransactions_Click">
+                            <span class="material-symbols-rounded">receipt_long</span>View Transactions
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonAddUser" runat="server" Style="width: 49%; margin-right: 7px;" OnClick="LinkButtonAddUser_Click">
+                            <span class="material-symbols-rounded">person_add</span>Add New User
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonViewUsers" runat="server" Style="width: 48%;" OnClick="LinkButtonViewUsers_Click">
+                            <span class="material-symbols-rounded">groups</span>View Users
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>

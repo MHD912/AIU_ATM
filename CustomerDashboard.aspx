@@ -94,11 +94,15 @@
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
-                <ul class="menu">
+                <ul class="menu" style="margin-right: -15%;">
                     <li>
-                        <asp:HyperLink ID="HyperLinkLogout" runat="server" NavigateUrl="~/Default.aspx">
-                            <i class="material-symbols-rounded" style="font-weight:700; transform: translateY(3px); font-size: 32px;">logout</i>
-                        </asp:HyperLink>
+                        <div class="tooltip">
+                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
+                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
+                            </asp:HyperLink>
+                            <span class="tooltiptext" style="width:60px; margin-left: -35px;">Logout</span>
+                        </div>
                     </li>
                 </ul>
             </div>

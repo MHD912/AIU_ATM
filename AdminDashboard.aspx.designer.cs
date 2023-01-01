@@ -51,30 +51,30 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label welS;
 
         /// <summary>
-        /// ButtonViewUsers control.
+        /// LinkButtonViewTransactions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewUsers;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonViewTransactions;
 
         /// <summary>
-        /// ButtonViewTransactions control.
+        /// LinkButtonAddUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonViewTransactions;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonAddUser;
 
         /// <summary>
-        /// ButtonAddUser control.
+        /// LinkButtonViewUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUser;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonViewUsers;
     }
 }

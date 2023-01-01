@@ -55,5 +55,10 @@ namespace AIU_ATM
             Session["EditUser"] = userID;
             Response.Redirect("EditUserDetails.aspx");
         }
+
+        protected void LinkButtonBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewUsers.aspx");
+        }
     }
 }
