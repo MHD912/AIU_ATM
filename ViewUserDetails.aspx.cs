@@ -13,7 +13,10 @@ namespace AIU_ATM
     {
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
         string userID;
-
+        string[] accountTypeCurrent = {"","",""};
+        string[] accountTypeSaving = {"","",""};
+        string[] accountTypeSalary = {"","",""};
+        int sel = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Open)
@@ -28,7 +31,7 @@ namespace AIU_ATM
             if (Session["ViewUser"] != null)
             {
                 userID = Session["ViewUser"].ToString();
-                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
+                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
                 cmd.Parameters.AddWithValue("@uID", userID);
 
                 da.Fill(dt);
@@ -42,9 +45,49 @@ namespace AIU_ATM
                 TextBoxBirthDate.Text = dt.Rows[0]["BD"].ToString();
                 TextBoxGender.Text = dt.Rows[0]["G"].ToString();
                 TextBoxContact.Text = dt.Rows[0]["P"].ToString();
-                TextBoxBalance.Text = dt.Rows[0]["Bal"].ToString();
                 TextBoxAddress.Text = dt.Rows[0]["Addr"].ToString();
-                TextBoxPin.Text = dt.Rows[0]["PIN"].ToString();
+
+                for(int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (dt.Rows[i]["Type"].ToString().Equals("1"))
+                    {
+                        accountTypeCurrent[0] = "1";
+                        accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
+                        accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
+                    }else if (dt.Rows[i]["Type"].ToString().Equals("2"))
+                    {
+                        accountTypeSaving[0] = "2";
+                        accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
+                        accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
+                    }
+                    else if (dt.Rows[i]["Type"].ToString().Equals("3"))
+                    {
+                        accountTypeSalary[0] = "3";
+                        accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
+                        accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
+                    }
+                }
+                if(!IsPostBack)
+                {
+                    if (accountTypeCurrent[0] != "")
+                    {
+                        DropDownListAccountType.SelectedIndex = 0;
+                        TextBoxBalance.Text = accountTypeCurrent[1];
+                        TextBoxPin.Text = accountTypeCurrent[2];
+                    }
+                    else if (accountTypeSaving[0] != "")
+                    {
+                        DropDownListAccountType.SelectedIndex = 1;
+                        TextBoxBalance.Text = accountTypeSaving[1];
+                        TextBoxPin.Text = accountTypeSaving[2];
+                    }
+                    else if (accountTypeSalary[0] != "")
+                    {
+                        DropDownListAccountType.SelectedIndex = 2;
+                        TextBoxBalance.Text = accountTypeSalary[1];
+                        TextBoxPin.Text = accountTypeSalary[2];
+                    }
+                }       
 
             }
             else { Response.Redirect("ViewUsers.aspx"); }
@@ -59,6 +102,26 @@ namespace AIU_ATM
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("ViewUsers.aspx");
+        }
+
+        protected void DropDownListAccountType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sel = DropDownListAccountType.SelectedIndex;
+            if (sel == 0)
+            {
+                TextBoxBalance.Text = accountTypeCurrent[1];
+                TextBoxPin.Text = accountTypeCurrent[2];
+            }
+            else if(sel == 1)
+            {
+                TextBoxBalance.Text = accountTypeSaving[1];
+                TextBoxPin.Text = accountTypeSaving[2];
+            }
+            else if (sel == 2)
+            {
+                TextBoxBalance.Text = accountTypeSalary[1];
+                TextBoxPin.Text = accountTypeSalary[2];
+            }
         }
     }
 }
