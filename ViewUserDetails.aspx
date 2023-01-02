@@ -153,20 +153,20 @@
                 <!-- Navigation bar menu -->
                 <ul class="menu" style="margin-right: -13%;">
                     <li style="transform: translateY(-3px);">
-                        <div class="tooltip">
+                        <div class="tool-tip">
                             <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/AdminDashboard.aspx" ForeColor="White">
                                 <i class="fas fa-home" style="font-size: 26px;"></i>
                             </asp:HyperLink>
-                            <span class="tooltiptext" style="width: 80px; margin-left: -27px; top: 141%;">Dashboard</span>
+                            <span class="tool-tiptext" style="width: 80px; margin-left: -27px; top: 141%;">Dashboard</span>
                         </div>
                     </li>
                     <li>
-                        <div class="tooltip">
+                        <div class="tool-tip">
                             <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
                             </asp:HyperLink>
-                            <span class="tooltiptext" style="width: 60px; margin-left: -35px;">Logout</span>
+                            <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
                 </ul>

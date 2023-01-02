@@ -61,12 +61,6 @@
             transition: all 0.3s ease;
         }
 
-
-            .home .home-content a:hover {
-                background-color: #218838;
-                color: #fff;
-            }
-
         .home .home-content .actions-box span {
             padding: 0 10px 0 0;
             font-size: 35px;
@@ -117,12 +111,12 @@
                 <!-- Navigation bar menu -->
                 <ul class="menu" style="margin-right: -15%;">
                     <li>
-                        <div class="tooltip">
+                        <div class="tool-tip">
                             <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
-                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
                             </asp:HyperLink>
-                            <span class="tooltiptext" style="width:60px; margin-left: -35px;">Logout</span>
+                            <span class="tool-tiptext" style="width:60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
                 </ul>

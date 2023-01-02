@@ -14,45 +14,45 @@
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
-        .btn {
-            font-family: 'Ubuntu', sans-serif;
-            width: 8em;
-            height: 3em;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
-            font-size: 22px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-inline-end: 60px
+        .actions {
+            display: grid;
         }
 
-            .btn:hover {
-                color: rgb(52, 205, 133);
-                background: none;
+            .actions .btn span {
+                font-size: 34px;
+                font-weight: 500;
+                margin-right: 12px;
+                color: #333;
+                transition: all 0.3s ease;
             }
 
-        .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+        .btn {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            width: 550px;
         }
 
-            .navbar.sticky .logo a {
+            .btn:hover span {
+                color: #fff;
+            }
+
+
+        .navbar.sticky .logo a {
+            color: #333;
+        }
+
+            .navbar.sticky .logo a:hover {
+                color: #fff;
+            }
+
+            .navbar.sticky .logo a span {
+                color: #fff;
+            }
+
+            .navbar.sticky .logo a:hover span {
                 color: #333;
             }
-
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
 
 
         .typing {
@@ -96,12 +96,12 @@
                 <!-- Navigation bar menu -->
                 <ul class="menu" style="margin-right: -15%;">
                     <li>
-                        <div class="tooltip">
+                        <div class="tool-tip">
                             <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
                             </asp:HyperLink>
-                            <span class="tooltiptext" style="width:60px; margin-left: -35px;">Logout</span>
+                            <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
                 </ul>
@@ -115,14 +115,24 @@
             <div class="max-width">
                 <div class="home-content">
                     <div class="text-2" style="color: #333;">
-                        <asp:Label ID="welS" runat="server"></asp:Label> <span style="color: rgb(52, 205, 133);">; )</span>
+                        <asp:Label ID="welS" runat="server"></asp:Label>
+                        <span style="color: rgb(52, 205, 133);">; )</span>
                     </div>
-                    <div class="text-1" style="margin: 125px 0 40px;">
-                        -your balance is<span style="color: rgb(52, 205, 133);">:</span> <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
+                    <div class="text-1" style="margin: 3em 0 2em;">
+                        - Your balance is<span style="color: rgb(52, 205, 133);">:</span>
+                        <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
-                    <asp:Button Style="display: block; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonWithdraw" runat="server" Text="Withdraw Money" OnClick="ButtonWithdraw_Click" />
-                    <asp:Button Style="display: block; margin-bottom: 30px; width: 550px" class="btn" ID="ButtomDeposit" runat="server" Text="Deposit Money" OnClick="ButtomDeposit_Click" />
-                    <asp:Button Style="display: block; margin-bottom: 30px; width: 550px" class="btn" ID="ButtonTransfer" runat="server" Text="Transfer Money" OnClick="ButtonTransfer_Click" />
+                    <div class="actions">
+                        <asp:LinkButton ID="LinkButtonDeposit" CssClass="btn" runat="server" OnClick="LinkButtonDeposit_Click">
+                            <span class="material-symbols-rounded" style="margin-left: -27px">credit_score</span> Deposit Money
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonWithdraw" CssClass="btn" runat="server" OnClick="LinkButtonWithdraw_Click">
+                            <span class="material-symbols-rounded" style="margin-left: -2px">credit_card_off</span> Withdraw Money
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonTransfer" CssClass="btn" runat="server" OnClick="LinkButtonTransfer_Click">
+                            <span class="material-symbols-rounded" style="margin-left: -20px">repeat</span> Transfer Money
+                        </asp:LinkButton>
+                    </div>
                 </div>
             </div>
         </section>
