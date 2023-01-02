@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
@@ -92,12 +93,24 @@
                         AIU|<span class="typing"></span>
                     </asp:HyperLink>
                 </div>
+                <!-- Navigation bar menu -->
+                <ul class="menu" style="margin-right: -15%;">
+                    <li>
+                        <div class="tooltip">
+                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
+                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
+                            </asp:HyperLink>
+                            <span class="tooltiptext" style="width:60px; margin-left: -35px;">Logout</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
 
         <!-- Home section start -->
 
-        <section class="home" id="home">
+        <section class="home" id="home" style="height: 94vh;">
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">

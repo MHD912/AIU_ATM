@@ -135,19 +135,19 @@
 
                     <form id="form1" runat="server">
                         <div class="field name">
-                            <asp:TextBox ID="username" placeholder="Username" runat="server" Wrap="False"></asp:TextBox>
+                            <asp:TextBox ID="username" placeholder="Username" runat="server" Wrap="False" TabIndex="1"></asp:TextBox>
                             <div class="errors-block">
                             </div>
                         </div>
 
                         <div class="field">
-                            <asp:TextBox ID="password" placeholder="Password" runat="server" Wrap="False" type="password"></asp:TextBox>
+                            <asp:TextBox ID="password" placeholder="Password" runat="server" Wrap="False" type="password" TabIndex="2"></asp:TextBox>
                             <div class="errors-block">
                             </div>
                         </div>
 
                         <div class="button" style="width: 100%; height: 80px; display: flex; align-items: center; justify-content: center;">
-                            <asp:Button CssClass="btn" ID="btnLogin" runat="server" Text="Login" Height="53px" Width="98px" OnClick="btnLogin_Click" />
+                            <asp:Button CssClass="btn" ID="btnLogin" runat="server" Text="Login" Height="53px" Width="98px" OnClick="btnLogin_Click" TabIndex="3" />
                         </div>
 
                     </form>

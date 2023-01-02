@@ -168,5 +168,10 @@ namespace AIU_ATM
             CheckBoxUserType.Checked = false;
             DropDownListAccountType.SelectedIndex = 0;
         }
+
+        protected void LinkButtonBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminDashboard.aspx");
+        }
     }
 }

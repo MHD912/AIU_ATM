@@ -42,22 +42,22 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
-        /// DropDownListAccountType control.
+        /// homeHyperLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListAccountType;
+        protected global::System.Web.UI.WebControls.HyperLink homeHyperLink;
 
         /// <summary>
-        /// LinkButtonDashboard control.
+        /// HyperLinkLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDashboard;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
 
         /// <summary>
         /// Table1 control.
@@ -276,6 +276,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TableRow TableRowBalance;
 
         /// <summary>
+        /// DropDownListAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListAccountType;
+
+        /// <summary>
         /// LabelBalance control.
         /// </summary>
         /// <remarks>
@@ -319,6 +328,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPin;
+
+        /// <summary>
+        /// TableRowConfirmPin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowConfirmPin;
 
         /// <summary>
         /// LabelConfirmPin control.

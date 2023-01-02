@@ -73,5 +73,10 @@ namespace AIU_ATM
                 }
             }
         }
+
+        protected void LinkButtonBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerDashboard.aspx");
+        }
     }
 }
