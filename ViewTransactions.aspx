@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/font-awesome-4.7.0.min.css" />
+    <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
@@ -50,13 +51,6 @@
             margin-left: 0px;
         }
 
-
-        footer {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-        }
-
         .wrapper {
             width: 600px;
             margin: 0 auto;
@@ -83,7 +77,8 @@
 
         /*////////////////////////////////////*/
         .navbar.sticky {
-            background-color: rgb(52, 205, 133);
+            padding: 7.5px 0;
+            display: block
         }
 
             .navbar.sticky .logo a {
@@ -105,6 +100,18 @@
                     color: #333;
                     text-decoration: none;
                 }
+
+        /* Delete Column Styling */
+        .delete-column {
+            width: 10%;
+        }
+
+        /* footer styling */
+        footer {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
     </style>
     <script>
         $('document').ready(function () {
@@ -129,9 +136,21 @@
             <!-- Logo class returns the client to home page once clicked -->
             <div class="logo">
                 <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
+                    AIU|<span class="typing"></span> 
                 </asp:HyperLink>
             </div>
+            <!-- Navigation bar menu -->
+            <ul class="menu" style="margin-right: -15%; margin-bottom: 0;">
+                <li>
+                    <div class="tool-tip">
+                        <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
+                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
+                        </asp:HyperLink>
+                        <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -145,24 +164,23 @@
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> Add Transaction</asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
-                        <div style="margin: auto -100px 0 -60px;">
+                        <div style="margin: auto -100px 0 -75px; text-align-last: center;">
                             <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="transactionsGridView" runat="server" DataSourceID="SqlDataSource1" Width="100%" DataKeyNames="ID" AutoGenerateColumns="False">
-                               <Columns>
+                                <Columns>
                                     <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                                     <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                                     <asp:BoundField DataField="FromAcc" HeaderText="FromAcc" SortExpression="FromAcc" />
                                     <asp:BoundField DataField="ToAcc" HeaderText="ToAcc" SortExpression="ToAcc" />
                                     <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
                                     <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
-                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Delete" ShowDeleteButton="True" />
+                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Delete" HeaderStyle-CssClass="delete-column" ShowDeleteButton="True" />
                                 </Columns>
                             </asp:GridView>
-                            
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"                                
-                                SelectCommand="SELECT t.ID, tt.Type, t.FromAcc, t.ToAcc, t.Amount, t.Time FROM Transactions AS t INNER JOIN TransactionsTypes AS tt ON t.Type = tt.ID" 
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"
+                                SelectCommand="SELECT t.ID, tt.Type, t.FromAcc, t.ToAcc, t.Amount, t.Time FROM Transactions AS t INNER JOIN TransactionsTypes AS tt ON t.Type = tt.ID"
                                 DeleteCommand="DELETE FROM Transactions WHERE (ID = @ID)">
                                 <DeleteParameters>
-                                    <asp:Parameter Name="ID" type="Int32"/>
+                                    <asp:Parameter Name="ID" Type="Int32" />
                                 </DeleteParameters>
                             </asp:SqlDataSource>
                         </div>

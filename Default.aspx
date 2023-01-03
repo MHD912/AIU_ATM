@@ -15,25 +15,16 @@
     <style>
         
         /*button styling*/
-
         .btn {
-            font-family: 'Ubuntu', sans-serif;
-            width: 8em;
-            height: 3em;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
-            font-size: 22px;
+            width: 6em;
+            height: 2.5em;
             font-weight: 400;
-            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-inline-end: 60px
         }
 
             .btn:hover {
-                color: rgb(52, 205, 133);
-                background: none;
+                background-color: #218838;
+                color: #fff;
             }
 
         /*navigation bar styling*/
@@ -123,8 +114,9 @@
             <div class="max-width">
                 <div class="home-content">
                     <div class="text-2" style="margin-bottom: 2em">Welcome to AIU ATM System <span style="color: #111;">. . .</span></div>
-                    <div class="text-1" style="margin-bottom: 5em; color: rgb(52, 205, 133); font-weight: 600;"><span class="typing" style="font-weight: 300; color: #111;"></span></div>
-                    <asp:Button CssClass="btn" ID="ButtonLogin" runat="server" Text="Login" OnClick="ButtonLogin_Click" />
+                    <div class="text-1" style="margin-bottom: 4em; color: rgb(52, 205, 133); font-weight: 600;"><span class="typing" style="font-weight: 300; color: #111;"></span></div>
+                    <asp:LinkButton ID="LinkButtonLogin" CssClass="btn" runat="server" OnClick="LinkButtonLogin_Click">Login</asp:LinkButton>
+                    <%--<asp:Button CssClass="btn" ID="ButtonLogin" runat="server" Text="Login" OnClick="ButtonLogin_Click" />--%>
                 </div>
             </div>
         </section>

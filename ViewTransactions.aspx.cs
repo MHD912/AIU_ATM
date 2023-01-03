@@ -31,6 +31,5 @@ namespace AIU_ATM
             Session["User"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
-
     }
 }

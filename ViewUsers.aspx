@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/font-awesome-4.7.0.min.css" />
+    <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
@@ -50,13 +51,6 @@
             margin-left: 0px;
         }
 
-
-        footer {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-        }
-
         .wrapper {
             width: 600px;
             margin: 0 auto;
@@ -83,7 +77,8 @@
 
         /*////////////////////////////////////*/
         .navbar.sticky {
-            padding: 8.75px 0;
+            padding: 7.5px 0;
+            display: block
         }
 
             .navbar.sticky .logo a {
@@ -105,6 +100,13 @@
                     color: #333;
                     text-decoration: none;
                 }
+
+        /* footer styling */
+        footer {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
     </style>
     <script>
         $('document').ready(function () {
@@ -129,9 +131,21 @@
             <!-- Logo class returns the client to home page once clicked -->
             <div class="logo">
                 <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
-                        AIU|<span class="typing"></span> 
+                    AIU|<span class="typing"></span>
                 </asp:HyperLink>
             </div>
+            <!-- Navigation bar menu -->
+            <ul class="menu" style="margin-right: -15%; margin-bottom: 0;">
+                <li>
+                    <div class="tool-tip">
+                        <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
+                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
+                        </asp:HyperLink>
+                        <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -145,21 +159,21 @@
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> Add New User</asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
-                        <div style="margin: auto -100px 0 -60px;">
+                        <div style="margin: auto -100px 0 0; display: flex; justify-content: space-between;">
                             <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover"
                                 ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged" DataKeyNames="UserName">
                                 <Columns>
                                     <asp:CommandField ShowHeader="false"
-                                        CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;" 
+                                        CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;"
                                         DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;"
                                         EditText="&lt;span class=&quot;fa fa-pencil&quot;&gt;&lt;/span&gt;"
                                         UpdateText="&lt;span class=&quot;fa fa-check&quot;&gt;&lt;/span&gt;"
                                         SelectText="&lt;span class=&quot;fa fa-eye&quot;&gt;&lt;/span&gt;"
-                                        ShowEditButton="True" 
+                                        ShowEditButton="True"
                                         ShowDeleteButton="True"
                                         ShowSelectButton="True"
-                                        HeaderText="Action" >
-                                    <ItemStyle HorizontalAlign="Justify" Wrap="False" />
+                                        HeaderText="Action">
+                                        <ItemStyle HorizontalAlign="Justify" Wrap="False" />
                                     </asp:CommandField>
                                     <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
@@ -167,14 +181,14 @@
                                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                                 </Columns>
                             </asp:GridView>
-                            
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"                                
-                                SelectCommand="select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=2" 
+
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"
+                                SelectCommand="select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=2"
                                 DeleteCommand="delete from UsersInfo
                                 where ID = (select ID from Users where UserName = @UserName)">
                                 <DeleteParameters>
-                                    <asp:Parameter Name="AccountNo"  type="Int32"/>
-                                </DeleteParameters>    
+                                    <asp:Parameter Name="AccountNo" Type="Int32" />
+                                </DeleteParameters>
                             </asp:SqlDataSource>
                         </div>
                     </form>

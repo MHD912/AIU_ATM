@@ -42,19 +42,19 @@ namespace AIU_ATM
             else { Response.Redirect("Login.aspx"); }
         }
 
-        protected void ButtonWithdraw_Click(object sender, EventArgs e)
-        {
-            Session["User"] = userID;
-            Response.Redirect("WithdrawMoney.aspx");
-        }
-
-        protected void ButtomDeposit_Click(object sender, EventArgs e)
+        protected void LinkButtonDeposit_Click(object sender, EventArgs e)
         {
             Session["User"] = userID;
             Response.Redirect("DepositMoney.aspx");
         }
 
-        protected void ButtonTransfer_Click(object sender, EventArgs e)
+        protected void LinkButtonWithdraw_Click(object sender, EventArgs e)
+        {
+            Session["User"] = userID;
+            Response.Redirect("WithdrawMoney.aspx");
+        }
+
+        protected void LinkButtonTransfer_Click(object sender, EventArgs e)
         {
             Session["User"] = userID;
             Response.Redirect("TransferMoney.aspx");

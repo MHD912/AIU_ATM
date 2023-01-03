@@ -14,7 +14,7 @@ namespace AIU_ATM
 
         }
 
-        protected void ButtonLogin_Click(object sender, EventArgs e)
+        protected void LinkButtonLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
         }

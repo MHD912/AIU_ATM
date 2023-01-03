@@ -60,30 +60,30 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label cusBal;
 
         /// <summary>
-        /// ButtonWithdraw control.
+        /// LinkButtonDeposit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonWithdraw;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDeposit;
 
         /// <summary>
-        /// ButtomDeposit control.
+        /// LinkButtonWithdraw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtomDeposit;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonWithdraw;
 
         /// <summary>
-        /// ButtonTransfer control.
+        /// LinkButtonTransfer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonTransfer;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonTransfer;
     }
 }
