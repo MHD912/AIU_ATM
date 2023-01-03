@@ -104,9 +104,9 @@
             <!-- Max-width class helps in responsiveness of the website -->
             <div class="max-width">
                 <div class="home-content">
-                    <div class="text-2" style="color: #333;">Hi there customer <span style="color: rgb(52, 205, 133);">; )</span></div>
+                    <div class="text-2" style="color: #333;"><asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);">; )</span></div>
                     <div class="text-1" style="margin: 2em 0 2em;">
-                        - Your balance is<span style="color: rgb(52, 205, 133);">:</span> 0 S.P
+                        - Your balance is<span style="color: rgb(52, 205, 133);">:</span><asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
                     <div>
                         <asp:Table ID="TableActions" runat="server" CellSpacing="5">
