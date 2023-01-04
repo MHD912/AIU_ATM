@@ -51,6 +51,7 @@ namespace AIU_ATM
                 && RadioButtonFemale.Checked == false
                 && RadioButtonMale.Checked == false
                 && TextBoxBirthDate.Text == ""
+                && TextBoxBalance.Text == ""
                 ));
         }
 
@@ -171,6 +172,7 @@ namespace AIU_ATM
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
+            Session["User"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
     }

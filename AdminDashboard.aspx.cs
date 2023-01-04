@@ -44,16 +44,19 @@ namespace AIU_ATM
 
         protected void LinkButtonViewTransactions_Click(object sender, EventArgs e)
         {
+            Session["User"] = userID;
             Response.Redirect("ViewTransactions.aspx");
         }
 
         protected void LinkButtonAddUser_Click(object sender, EventArgs e)
         {
+            Session["User"] = userID;
             Response.Redirect("AddUser.aspx");
         }
 
         protected void LinkButtonViewUsers_Click(object sender, EventArgs e)
         {
+            Session["User"] = userID;
             Response.Redirect("ViewUsers.aspx");
         }
     }
