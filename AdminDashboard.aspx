@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
-    <script src="Scripts/browser-polyfill.min.js.map"></script>
     <style>
         .navbar.sticky .logo a {
             color: #333;
@@ -112,10 +111,10 @@
                 <ul class="menu" style="margin-right: -15%;">
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width:60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
@@ -132,7 +131,7 @@
                     <div class="text-2" style="color: #333;">
                         <asp:Label ID="welS" runat="server"></asp:Label><span style="color: rgb(52, 205, 133);"> ; )</span>
                     </div>
-                    <div class="text-1" style="margin: 5em 0 2em;">-Choose from the actions below :</div>
+                    <div class="text-1" style="margin: 5em 0 2em; color: #111;">-Choose from the actions below :</div>
                     <div class="actions-box" style="width: 75%;">
                         <asp:LinkButton ID="LinkButtonViewTransactions" runat="server" Style="width: 99.5%;" OnClick="LinkButtonViewTransactions_Click">
                             <span class="material-symbols-rounded">receipt_long</span>View Transactions

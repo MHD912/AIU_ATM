@@ -23,7 +23,7 @@ namespace AIU_ATM
         protected void LinkButtonCreate_Click(object sender, EventArgs e)
         {
             Session["User"] = userID;
-            Response.Redirect("CreateTransaction.aspx");
+            Response.Redirect("AddTransaction.aspx");
         }
 
         protected void LinkButtonDashboard_Click(object sender, EventArgs e)

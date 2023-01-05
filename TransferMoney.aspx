@@ -14,36 +14,32 @@
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
-        .btn {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            width: 550px;
-        }
-
+        
+        /* navbar styling */
         .navbar.sticky {
             padding: 10.6px 0;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
-            }
+        /* other styling */
+        .home {
+            color: #111;
+            margin-bottom: -3em
+        }
 
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
+        #TableActions .text-1 {
+            font-size: 20px;
+        }
 
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
+        .btn {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            width: 550px;
+        }
 
         .typing {
             color: rgb(52, 205, 133);
         }
+
     </style>
     <script>
         $('document').ready(function () {
@@ -87,10 +83,10 @@
                     </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
@@ -112,18 +108,26 @@
                         <asp:Table ID="TableActions" runat="server" CellSpacing="5">
                             <asp:TableRow>
                                 <asp:TableCell>
-                                    <asp:Label ID="LabelRecipient" CssClass="text-1" Style="font-size: 20px;" runat="server" Text="Recipient: "></asp:Label>
+                                    <asp:Label ID="LabelRecipient" CssClass="text-1" runat="server" Text="Recipient "></asp:Label>
                                 </asp:TableCell>
                                 <asp:TableCell>
-                                    <asp:TextBox ID="TextBoxRecipient" CssClass="input" Style="width: 285px; margin-top: 10px; margin-right: 5px; margin-bottom: 10px; height: 50px" placeholder="Account Number" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxRecipient" CssClass="input" Style="width: 225px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Account Number" runat="server"></asp:TextBox>
                                 </asp:TableCell>
                             </asp:TableRow>
                             <asp:TableRow>
                                 <asp:TableCell>
-                                    <asp:Label ID="LabelTransferValue" CssClass="text-1" Style="font-size: 20px;" runat="server" Text="Transfer Value: "></asp:Label>
+                                    <asp:Label ID="LabelTransferValue" CssClass="text-1" runat="server" Text="Transfer "></asp:Label>
                                 </asp:TableCell>
                                 <asp:TableCell>
-                                    <asp:TextBox ID="TextBoxTransferValue" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="150000" runat="server"></asp:TextBox>S.P
+                                    <asp:TextBox ID="TextBoxTransferValue" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server"></asp:TextBox>S.P
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <asp:Label ID="LabelPinCode" CssClass="text-1" runat="server" Text="Pin code"></asp:Label>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:TextBox ID="TextBoxPinCode" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####"></asp:TextBox>
                                 </asp:TableCell>
                             </asp:TableRow>
                         </asp:Table>
@@ -132,6 +136,11 @@
                 </div>
             </div>
         </section>
+        <footer>
+            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+                2022 All rights reserved.
+            </span>
+        </footer>
     </form>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
@@ -237,7 +237,7 @@ namespace AIU_ATM
                 ));
         }
 
-        protected void ButtonCancel_Click(object sender, EventArgs e)
+        protected void ButtonDiscard_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;

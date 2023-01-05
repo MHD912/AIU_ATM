@@ -23,13 +23,13 @@
                 color: #fff;
             }
 
+                .navbar.sticky .logo a:hover span {
+                    color: #333;
+                }
+
             .navbar.sticky .logo a span {
                 color: #fff;
-            }
-
-            .navbar.sticky .logo a:hover span {
-                color: #333;
-            }
+            }   
 
         .contact .right form .field,
         .contact .right form .fields .field {
@@ -60,11 +60,7 @@
         }
 
         .btn {
-            width: 100%;
-            height: 100%;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
+            border: none;
             font-size: 20px;
             font-weight: 500;
             border-radius: 6px;
@@ -74,8 +70,7 @@
         }
 
             .btn:hover {
-                color: rgb(52, 205, 133);
-                background: none;
+                background: #218838;
             }
 
         footer {

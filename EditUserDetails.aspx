@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditUserDetails.aspx.cs" Inherits="AIU_ATM.EditUserDetails" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditUserDetails.aspx.cs" Inherits="AIU_ATM.EditUserDetails" %>
 
 <!DOCTYPE html>
 
@@ -16,26 +16,12 @@
     <script src="Scripts/typed.min.js"></script>
 
     <style>
+        /* navbar styling */
         .navbar.sticky {
             padding: 10.6px 0;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
-            }
-
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
-
+        /* input table styling */
         .contact .right form .field,
         .contact .right form .fields .field {
             height: 45px;
@@ -47,13 +33,8 @@
             justify-content: center;
         }
 
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
-        }
-
-        section .title::before {
-            width: 380px;
+        .contact .title::before {
+            width: 300px;
         }
 
         .contact .title::after {
@@ -65,55 +46,24 @@
             margin-left: 0px;
         }
 
-        .input {
-            height: 100%;
-            width: 100%;
-            border: 1px solid lightgray;
-            border-radius: 6px;
-            outline: none;
-            padding: 4px 15px;
-            font-size: 17px;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        /* other content styling */
         .btn {
             padding: 8px;
             width: 35%;
             height: 100%;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
             font-size: 17px;
             font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
         }
 
-            .btn:hover {
-                color: rgb(52, 205, 133);
-                background: none;
-            }
-
-        .inputTable {
-            height: 100%;
-            width: 100%;
-            align-self: center;
-            align-items: center;
-            height: 350px;
-            margin: auto;
-            border-radius: 5px;
+        .errors-block {
+            color: crimson;
+            font-size: 14px;
         }
 
         .text {
             font-size: 17px;
             font-weight: 500;
-        }
-
-        footer {
-            width: 100%;
-            position: absolute;
         }
 
         .typing {
@@ -130,7 +80,7 @@
                     $("#contact").css("margin-bottom", "8em");
                 }
                 else {
-                    $("#contact").css("margin-bottom", "15em");
+                    $("#contact").css("margin-bottom", "16em");
                 }
             });
             var typed = new Typed(".typing", {
@@ -174,10 +124,10 @@
                     </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
@@ -187,7 +137,7 @@
 
         <%-- Input form --%>
 
-        <section class="contact" id="contact" style="margin-bottom: 15em;">
+        <section class="contact" id="contact" style="margin-bottom: 16em;">
             <div class="max-width">
                 <h2 class="title"></h2>
                 <div class="inputTable">
@@ -267,17 +217,10 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListCountryCode" CssClass="input" runat="server" Width="24%" Style="padding: 4px 0 4px 0;">
-                                    <asp:ListItem Selected="True">+963</asp:ListItem>
-                                    <asp:ListItem>+966</asp:ListItem>
-                                    <asp:ListItem>+1</asp:ListItem>
-                                    <asp:ListItem>+43</asp:ListItem>
-                                    <asp:ListItem>+56</asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="input" >
+                                </asp:TextBox>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="input" Width="75%" Style="transform: translateX(-109%);">
-                                </asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -329,24 +272,23 @@
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
                                 <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" OnClick="ButtonConfirm_Click"/>
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" CssClass="btn" OnClick="ButtonCancel_Click"/>
+                                <asp:Button ID="ButtonDiscard" runat="server" Text="Discard" CssClass="btn" OnClick="ButtonDiscard_Click"/>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
                 </div>
             </div>
         </section>
+        <footer>
+            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+                2022 All rights reserved.
+            </span>
+        </footer>
     </form>
-    <footer>
-        <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
-            2022 All rights reserved.
-        </span>
-    </footer>
 </body>
 </html>

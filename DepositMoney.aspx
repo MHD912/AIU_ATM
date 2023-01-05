@@ -14,32 +14,26 @@
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
-        .btn {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            width: 550px;
-        }
-
+        /* navbar styling */
         .navbar.sticky {
             padding: 10.6px 0;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
-            }
+        /* other styling */
+        .home {
+            color: #111;
+            margin-bottom: -3em
+        }
 
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
+        #TableActions .text-1 {
+            font-size: 20px;
+        }
 
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
+        .btn {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            width: 550px;
+        }
 
         .typing {
             color: rgb(52, 205, 133);
@@ -88,10 +82,10 @@
                     </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
@@ -113,12 +107,35 @@
                         - Your balance is<span style="color: rgb(52, 205, 133);">:</span>
                         <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
-                    <div class="text-1">Deposit: </div>
-                    <asp:TextBox runat="server" Style="width: 220px; margin-top: 10px; margin-right: 5px; height: 50px;" class="input" ID="TextBoxDepositAmount" type="text"></asp:TextBox>$<br />
-                    <asp:Button ID="ButtonDeposite" CssClass="btn" Style="display: block; margin-top: 30px; margin-bottom: 30px; font-size: 23px" runat="server" Text="Deposite Money" OnClick="ButtonDeposite_Click" />
+                    <div>
+                        <asp:Table ID="TableActions" runat="server" CellSpacing="5">
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <asp:Label ID="LabelDepositAmount" CssClass="text-1" runat="server" Text="Deposit "></asp:Label>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:TextBox ID="TextBoxDepositAmount" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server"></asp:TextBox>S.P
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <asp:Label ID="LabelPinCode" CssClass="text-1" runat="server" Text="Pin code"></asp:Label>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:TextBox ID="TextBoxPinCode" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####"></asp:TextBox>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                        <asp:Button ID="ButtonDeposite" CssClass="btn" Style="display: block; margin-top: 30px; margin-bottom: 30px; font-size: 23px" runat="server" Text="Deposite Money" OnClick="ButtonDeposite_Click" />
+                    </div>
                 </div>
             </div>
         </section>
+        <footer>
+            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+                2022 All rights reserved.
+            </span>
+        </footer>
     </form>
 </body>
 </html>
