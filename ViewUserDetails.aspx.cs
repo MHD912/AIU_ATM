@@ -101,6 +101,7 @@ namespace AIU_ATM
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
+            Session["ViewUser"] = null;
             Response.Redirect("ViewUsers.aspx");
         }
 

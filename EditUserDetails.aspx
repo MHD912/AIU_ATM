@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditUserDetails.aspx.cs" Inherits="AIU_ATM.EditUserDetails" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditUserDetails.aspx.cs" Inherits="AIU_ATM.EditUserDetails" %>
 
 <!DOCTYPE html>
 
@@ -235,7 +235,7 @@
                         <asp:TableRow runat="server" ID="TableRowBalance">
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;">
+                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" OnSelectedIndexChanged="DropDownListAccountType_SelectedIndexChanged" AutoPostBack="true">
                                     <asp:ListItem Text="Current Account" />
                                     <asp:ListItem Text="Saving Account" />
                                     <asp:ListItem Text="Salary Account" />
@@ -245,7 +245,7 @@
                                 <asp:Label ID="LabelBalance" runat="server" Text="Balance" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
@@ -274,10 +274,10 @@
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" />
+                                <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" OnClick="ButtonConfirm_Click"/>
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" CssClass="btn" OnClick="ButtonCancel_Click" />
+                                <asp:Button ID="ButtonDiscard" runat="server" Text="Discard" CssClass="btn" OnClick="ButtonDiscard_Click"/>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
