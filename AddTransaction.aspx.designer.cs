@@ -11,7 +11,7 @@ namespace AIU_ATM
 {
 
 
-    public partial class ViewTransactions
+    public partial class AddTransaction
     {
 
         /// <summary>
@@ -24,6 +24,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// LinkButtonBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonBack;
+
+        /// <summary>
         /// logoHyperLink control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
+
+        /// <summary>
+        /// homeHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink homeHyperLink;
 
         /// <summary>
         /// LinkButtonLogout control.
@@ -42,48 +60,75 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogout;
 
         /// <summary>
-        /// LinkButtonCreate control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCreate;
+        protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// LinkButtonDashboard control.
+        /// LabelSenderUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDashboard;
+        protected global::System.Web.UI.WebControls.Label LabelSenderUsername;
 
         /// <summary>
-        /// transactionsGridView control.
+        /// TextBoxSenderUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView transactionsGridView;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxSenderUsername;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// LabelRecipientUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label LabelRecipientUsername;
 
         /// <summary>
-        /// HyperLinkHYASoftware control.
+        /// TextBoxRecipientUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHYASoftware;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxRecipientUsername;
+
+        /// <summary>
+        /// LabelAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmount;
+
+        /// <summary>
+        /// TextBoxAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAmount;
+
+        /// <summary>
+        /// ButtonCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCreate;
     }
 }

@@ -51,13 +51,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink homeHyperLink;
 
         /// <summary>
-        /// HyperLinkLogout control.
+        /// LinkButtonLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogout;
 
         /// <summary>
         /// Table1 control.
@@ -231,15 +231,6 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label LabelContact;
 
         /// <summary>
-        /// DropDownListCountryCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCountryCode;
-
-        /// <summary>
         /// TextBoxContact control.
         /// </summary>
         /// <remarks>
@@ -357,15 +348,6 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmPin;
 
         /// <summary>
-        /// CheckBoxUserType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxUserType;
-
-        /// <summary>
         /// ButtonConfirm control.
         /// </summary>
         /// <remarks>
@@ -375,12 +357,21 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Button ButtonConfirm;
 
         /// <summary>
-        /// ButtonCancel control.
+        /// ButtonDiscard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCancel;
+        protected global::System.Web.UI.WebControls.Button ButtonDiscard;
+
+        /// <summary>
+        /// HyperLinkHYASoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHYASoftware;
     }
 }

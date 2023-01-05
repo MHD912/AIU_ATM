@@ -51,13 +51,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink homeHyperLink;
 
         /// <summary>
-        /// HyperLinkLogout control.
+        /// LinkButtonLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogout;
 
         /// <summary>
         /// Table1 control.

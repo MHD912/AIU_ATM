@@ -15,6 +15,15 @@ namespace AIU_ATM
     {
 
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// logoHyperLink control.
         /// </summary>
         /// <remarks>
@@ -24,22 +33,22 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
-        /// HyperLinkLogout control.
+        /// LinkButtonLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogout;
 
         /// <summary>
-        /// form1 control.
+        /// CheckBoxPrivilgeToggle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxPrivilgeToggle;
 
         /// <summary>
         /// LinkButtonCreate control.
@@ -76,5 +85,14 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// HyperLinkHYASoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHYASoftware;
     }
 }

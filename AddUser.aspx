@@ -16,26 +16,12 @@
     <script src="Scripts/typed.min.js"></script>
 
     <style>
+        /* navbar styling */
         .navbar.sticky {
             padding: 10.6px 0;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
-            }
-
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
-
+        /* content styling */
         .contact .right form .field,
         .contact .right form .fields .field {
             height: 45px;
@@ -47,63 +33,24 @@
             justify-content: center;
         }
 
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
-        }
-
-        section .title::before {
-            width: 380px;
-        }
-
         .contact .title::after {
             content: "user registration form";
-            color: rgb(52, 205, 133);
+        }
+
+        .contact .title::before {
+            width: 7em;
         }
 
         .contact .right form .email {
             margin-left: 0px;
         }
 
-        .input {
-            height: 100%;
-            width: 100%;
-            border: 1px solid lightgray;
-            border-radius: 6px;
-            outline: none;
-            padding: 4px 15px;
-            font-size: 17px;
-            font-family: 'Poppins', sans-serif;
-        }
-
         .btn {
             padding: 8px;
             width: 35%;
             height: 100%;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
             font-size: 17px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
-        }
-
-            .btn:hover {
-                color: rgb(52, 205, 133);
-                background: none;
-            }
-
-        .inputTable {
-            height: 100%;
-            width: 100%;
-            align-self: center;
-            align-items: center;
-            height: 350px;
-            margin: auto;
-            border-radius: 5px;
         }
 
         .text {
@@ -111,9 +58,9 @@
             font-weight: 500;
         }
 
-        footer {
-            width: 100%;
-            position: absolute;
+        .errors-block {
+            color: crimson;
+            font-size: 14px;
         }
 
         .typing {
@@ -129,7 +76,7 @@
                     $("#contact").css("margin-bottom", "8em");
                 }
                 else {
-                    $("#contact").css("margin-bottom", "11em");
+                    $("#contact").css("margin-bottom", "12em");
                 }
             });
             var typed = new Typed(".typing", {
@@ -172,10 +119,10 @@
                     </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
@@ -185,7 +132,7 @@
 
         <%-- Input form --%>
 
-        <section class="contact" id="contact" style="margin-bottom: 11em;">
+        <section class="contact" id="contact" style="margin-bottom: 12em;">
             <div class="max-width">
                 <h2 class="title"></h2>
                 <div class="inputTable">

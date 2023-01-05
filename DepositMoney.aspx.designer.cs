@@ -51,13 +51,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink homeHyperLink;
 
         /// <summary>
-        /// HyperLinkLogout control.
+        /// LinkButtonLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkLogout;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogout;
 
         /// <summary>
         /// welS control.
@@ -78,6 +78,24 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label cusBal;
 
         /// <summary>
+        /// TableActions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table TableActions;
+
+        /// <summary>
+        /// LabelDepositAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDepositAmount;
+
+        /// <summary>
         /// TextBoxDepositAmount control.
         /// </summary>
         /// <remarks>
@@ -87,6 +105,24 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxDepositAmount;
 
         /// <summary>
+        /// LabelPinCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPinCode;
+
+        /// <summary>
+        /// TextBoxPinCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPinCode;
+
+        /// <summary>
         /// ButtonDeposite control.
         /// </summary>
         /// <remarks>
@@ -94,5 +130,14 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonDeposite;
+
+        /// <summary>
+        /// HyperLinkHYASoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHYASoftware;
     }
 }

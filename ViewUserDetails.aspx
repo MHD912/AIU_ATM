@@ -15,26 +15,12 @@
     <script src="Scripts/typed.min.js"></script>
 
     <style>
+        /* navbar styling */
         .navbar.sticky {
             padding: 10.6px 0;
         }
 
-            .navbar.sticky .logo a {
-                color: #333;
-            }
-
-                .navbar.sticky .logo a:hover {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a span {
-                    color: #fff;
-                }
-
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
-
+        /* input table styling */
         .contact .right form .field,
         .contact .right form .fields .field {
             height: 45px;
@@ -46,13 +32,8 @@
             justify-content: center;
         }
 
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
-        }
-
-        section .title::before {
-            width: 270px;
+        .contact .title::before {
+            width: 250px;
         }
 
         .contact .title::after {
@@ -64,55 +45,23 @@
             margin-left: 0px;
         }
 
-        .input {
-            height: 100%;
-            width: 100%;
-            border: 1px solid lightgray;
-            border-radius: 6px;
-            outline: none;
-            padding: 4px 15px;
-            font-size: 17px;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        /* other content styling */
         .btn {
             padding: 8px;
             width: 35%;
             height: 100%;
-            border: 2px solid rgb(52, 205, 133);
-            background: rgb(52, 205, 133);
-            color: #fff;
             font-size: 17px;
-            font-weight: 400;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
         }
 
-            .btn:hover {
-                color: rgb(52, 205, 133);
-                background: none;
-            }
-
-        .inputTable {
-            height: 100%;
-            width: 100%;
-            align-self: center;
-            align-items: center;
-            height: 350px;
-            margin: auto;
-            border-radius: 5px;
+        .errors-block {
+            color: crimson;
+            font-size: 14px;
         }
 
         .text {
             font-size: 17px;
             font-weight: 500;
-        }
-
-        footer {
-            width: 100%;
-            position: absolute;
         }
 
         .typing {
@@ -143,7 +92,7 @@
             <div class="max-width" style="margin: 0 50px; padding: 0;">
                 <!-- Logo class returns the client to home page once clicked -->
                 <div class="logo">
-                    <asp:LinkButton ID="LinkButtonBack" runat="server" style="margin-right: 60px;" OnClick="LinkButtonBack_Click">
+                    <asp:LinkButton ID="LinkButtonBack" runat="server" Style="margin-right: 60px;" OnClick="LinkButtonBack_Click">
                         <span class="material-symbols-rounded" style="font-size: 42px; font-weight: 300; transform: translate(-10px, 7px);" >arrow_circle_left</span>
                     </asp:LinkButton>
                     <asp:HyperLink ID="logoHyperLink" runat="server" NavigateUrl="~/Default.aspx">
@@ -162,10 +111,10 @@
                     </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
@@ -175,7 +124,7 @@
 
         <%-- Input form --%>
 
-        <section class="contact" id="contact" style="margin-bottom: 12em;">
+        <section class="contact" id="contact" style="margin-bottom: 14em;">
             <div class="max-width">
                 <h2 class="title"></h2>
                 <div class="inputTable">
@@ -274,7 +223,7 @@
                                 <asp:Label ID="LabelBalance" runat="server" Text="Balance" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" ReadOnly="true" CssClass="input" style="transform: translateX(-60%);"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
@@ -285,7 +234,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxPin" placeholder="####" runat="server" ReadOnly="true" CssClass="input" style="transform: translateX(-60%);"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxPin" placeholder="####" runat="server" ReadOnly="true" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -304,12 +253,12 @@
                 </div>
             </div>
         </section>
+        <footer>
+            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+                2022 All rights reserved.
+            </span>
+        </footer>
     </form>
-    <footer>
-        <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
-            2022 All rights reserved.
-        </span>
-    </footer>
 </body>
 
 </html>

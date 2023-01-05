@@ -14,46 +14,43 @@
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
+        /* navbar styling */
+        .navbar.sticky {
+            padding: 15px 0;
+        }
+
+        .navbar.sticky .menu {
+            margin-right: -15%;
+            display: inline-flex
+        }
+
+        /* Buttons styling */
         .actions {
             display: grid;
         }
 
-            .actions .btn span {
-                font-size: 34px;
+            .actions .btn {
+                font-family: 'Poppins', sans-serif;
                 font-weight: 500;
-                margin-right: 12px;
-                color: #333;
-                transition: all 0.3s ease;
+                width: 550px;
             }
 
-        .btn {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            width: 550px;
+                .actions .btn span {
+                    font-size: 34px;
+                    font-weight: 500;
+                    margin-right: 12px;
+                    color: #333;
+                    transition: all 0.3s ease;
+                }
+
+                .actions .btn:hover span {
+                    color: #fff;
+                }
+
+        /* other styling */
+        .text-1, .text {
+            color: #111;
         }
-
-            .btn:hover span {
-                color: #fff;
-            }
-
-
-        .navbar.sticky .logo a {
-            color: #333;
-        }
-
-            .navbar.sticky .logo a:hover {
-                color: #fff;
-            }
-
-            .navbar.sticky .logo a span {
-                color: #fff;
-            }
-
-            .navbar.sticky .logo a:hover span {
-                color: #333;
-            }
-
 
         .typing {
             color: rgb(52, 205, 133);
@@ -94,13 +91,20 @@
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
-                <ul class="menu" style="margin-right: -15%;">
+                <ul class="menu" style="margin-right: -15%; display: inline-flex">
+                    <li>
+                        <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 75%; height: 40px; border: #fff; border-style: dashed; border-width: 2px; padding: 0 4px;">
+                            <asp:ListItem Text="Current Account" />
+                            <asp:ListItem Text="Saving Account" />
+                            <asp:ListItem Text="Salary Account" />
+                        </asp:DropDownList>
+                    </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:HyperLink ID="HyperLinkLogout" CssClass="logout-button" runat="server" NavigateUrl="~/Default.aspx">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
-                            </asp:HyperLink>
+                            </asp:LinkButton>
                             <span class="tool-tiptext" style="width: 60px; margin-left: -35px;">Logout</span>
                         </div>
                     </li>
