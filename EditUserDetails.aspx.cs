@@ -35,7 +35,7 @@ namespace AIU_ATM
             Response.Redirect("ViewUserDetails.aspx");
         }
 
-        protected void ButtonDiscard_Click(object sender, EventArgs e)
+        protected void ButtonCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("ViewUserDetails.aspx");
         }

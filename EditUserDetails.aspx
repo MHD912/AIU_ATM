@@ -277,7 +277,7 @@
                                 <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonDiscard" runat="server" Text="Discard" CssClass="btn" OnClick="ButtonDiscard_Click" />
+                                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" CssClass="btn" OnClick="ButtonCancel_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
