@@ -14,10 +14,10 @@ namespace AIU_ATM
     {
         string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
@@ -26,6 +26,19 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                if (CheckBoxPrivilgeToggle.Checked == false) { Session["view"] = "2"; tableText.Text = "Customers Details"; }
+                else if (CheckBoxPrivilgeToggle.Checked == true) { Session["view"] = "1"; tableText.Text = "Admins Details"; }
+                
+                
+                cmd.CommandText = "select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege='"+ Session["view"].ToString() + "'";
+                da.Fill(dt);
+                usersGridView.DataSource = dt;
+                usersGridView.DataBind();
             }
             else { Response.Redirect("Login.aspx"); }
         }
@@ -62,6 +75,5 @@ namespace AIU_ATM
             Session["User"] = userID;
             Response.Redirect("ViewUserDetails.aspx");
         }
-
     }
 }

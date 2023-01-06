@@ -15,10 +15,10 @@ namespace AIU_ATM
     {
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
         string userID;
-        string[] accountTypeCurrent = { "", "", "", "1" };
-        string[] accountTypeSaving = { "", "", "", "1" };
-        string[] accountTypeSalary = { "", "", "" , "1" };        
-        int selectedAccountType = -1;
+        string[] accountTypeCurrent = { "", "", "" };
+        string[] accountTypeSaving = { "", "", "" };
+        string[] accountTypeSalary = { "", "", "" };
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Open)
@@ -29,8 +29,69 @@ namespace AIU_ATM
             
             if (Session["EditUser"] != null)
             {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
                 userID = Session["EditUser"].ToString();
-                if (!IsPostBack){ ButtonDiscard_Click(sender, e); }
+                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
+                cmd.Parameters.AddWithValue("@uID", userID);
+
+                da.Fill(dt);
+
+                if (!IsPostBack){
+                    ButtonDiscard_Click(sender, e);
+                }
+                else
+                {
+                    DropDownListAccountType_SelectedIndexChanged(sender, e);
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        if (dt.Rows[i]["Type"].ToString().Equals("1"))
+                        {
+                            accountTypeCurrent[0] = "1";
+                            accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
+                            accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
+
+                        }
+                        else if (dt.Rows[i]["Type"].ToString().Equals("2"))
+                        {
+                            accountTypeSaving[0] = "2";
+                            accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
+                            accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
+
+                        }
+                        else if (dt.Rows[i]["Type"].ToString().Equals("3"))
+                        {
+                            accountTypeSalary[0] = "3";
+                            accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
+                            accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
+
+                        }
+                    }
+
+
+                    if (int.Parse(Session["sel"].ToString()) == 0)
+                    {
+                        TextBoxBalance.Text = accountTypeCurrent[1];
+                        TextBoxPin.Text = accountTypeCurrent[2];
+                        TextBoxConfirmPin.Text = accountTypeCurrent[2];
+                    }
+                    else if (int.Parse(Session["sel"].ToString()) == 1)
+                    {
+                        TextBoxBalance.Text = accountTypeSaving[1];
+                        TextBoxPin.Text = accountTypeSaving[2];
+                        TextBoxConfirmPin.Text = accountTypeSaving[2];
+                    }
+                    else if (int.Parse(Session["sel"].ToString()) == 2)
+                    {
+                        TextBoxBalance.Text = accountTypeSalary[1];
+                        TextBoxPin.Text = accountTypeSalary[2];
+                        TextBoxConfirmPin.Text = accountTypeSalary[2];
+                    }
+                }
             }
             else { Response.Redirect("Login.aspx"); }
         }
@@ -49,61 +110,56 @@ namespace AIU_ATM
                 {
                     if (TextBoxPin.Text == TextBoxConfirmPin.Text && TextBoxPin.Text.Length == 4)
                     {
-                        if (selectedAccountType == 0)
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                        int type = int.Parse(Session["sel"].ToString());
+                        cmd.CommandText = "select * from accounts where UserID = @userID and AccountType = @AT";
+                        cmd.Parameters.AddWithValue("@userID", userID);
+                        cmd.Parameters.AddWithValue("@AT", type + 1);
+                        da.Fill(dt);
+                        cmd.Parameters.Clear();
+
+                        if (dt.Rows.Count == 0)
                         {
-                            if (accountTypeCurrent[0] == "") { accountTypeCurrent[3] = "2"; }
-                            accountTypeCurrent[0] = "1";
-                            accountTypeCurrent[1] = TextBoxBalance.Text;
-                            accountTypeCurrent[2] = TextBoxPin.Text;
+                            cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID) values(@Balance,@PIN,@AT, @uID)";
+                            cmd.Parameters.AddWithValue("@Balance", TextBoxBalance.Text);
+                            cmd.Parameters.AddWithValue("@PIN", TextBoxPin.Text);
+                            cmd.Parameters.AddWithValue("@AT", type + 1);
+                            cmd.Parameters.AddWithValue("@uID",userID);
+                            cmd.ExecuteNonQuery();
+                            cmd.Parameters.Clear();
                         }
-                        else if (selectedAccountType == 1)
+                        else
                         {
-                            if (accountTypeSaving[0] == "") { accountTypeSaving[3] = "2"; }
-                            accountTypeSaving[0] = "2";
-                            accountTypeSaving[1] = TextBoxBalance.Text;
-                            accountTypeSaving[2] = TextBoxPin.Text;
+                            cmd.CommandText = "update Accounts set balance = @Balance, PIN=@PIN where UserID = @uID and AccountType = @AT";
+                            cmd.Parameters.AddWithValue("@Balance", TextBoxBalance.Text);
+                            cmd.Parameters.AddWithValue("@PIN", TextBoxPin.Text);
+                            cmd.Parameters.AddWithValue("@AT", type + 1);
+                            cmd.Parameters.AddWithValue("@uID", userID);
+                            cmd.ExecuteNonQuery();
+                            cmd.Parameters.Clear();
                         }
-                        else if (selectedAccountType == 2)
-                        {
-                            if (accountTypeSalary[0] == "") { accountTypeSalary[3] = "2"; }
-                            accountTypeSalary[0] = "3";
-                            accountTypeSalary[1] = TextBoxBalance.Text;
-                            accountTypeSalary[2] = TextBoxPin.Text;
-                        }
+
                     }
                     else
                     {
-                        DropDownListAccountType.SelectedIndex = selectedAccountType;
+                        DropDownListAccountType.SelectedIndex = int.Parse(Session["sel"].ToString());
                         TextBoxConfirmPin.Text = "";
                         TextBoxPin.Text = "";
                     }
                 }
                 else
                 {
-                    DropDownListAccountType.SelectedIndex = selectedAccountType;
+                    DropDownListAccountType.SelectedIndex = int.Parse(Session["sel"].ToString());
                     TextBoxBalance.Text = "";
                 }
             }
-
-            selectedAccountType = DropDownListAccountType.SelectedIndex;
-            if (selectedAccountType == 0)
-            {
-                TextBoxBalance.Text = accountTypeCurrent[1];
-                TextBoxPin.Text = accountTypeCurrent[2];
-                TextBoxConfirmPin.Text = accountTypeCurrent[2];
-            }
-            else if (selectedAccountType == 1)
-            {
-                TextBoxBalance.Text = accountTypeSaving[1];
-                TextBoxPin.Text = accountTypeSaving[2];
-                TextBoxConfirmPin.Text = accountTypeSaving[2];
-            }
-            else if (selectedAccountType == 2)
-            {
-                TextBoxBalance.Text = accountTypeSalary[1];
-                TextBoxPin.Text = accountTypeSalary[2];
-                TextBoxConfirmPin.Text = accountTypeSalary[2];
-            }
+            
+            Session["sel"] = DropDownListAccountType.SelectedIndex;
+                        
         }
 
         protected void ButtonConfirm_Click(object sender, EventArgs e)
@@ -113,72 +169,10 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            if (accountTypeCurrent[3] == "2")
-            {
-                cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID) values(@Balance,@PIN,@AT,@uID)";
-                cmd.Parameters.AddWithValue("@AT", accountTypeCurrent[0]);
-                cmd.Parameters.AddWithValue("@Balance", accountTypeCurrent[1]);
-                cmd.Parameters.AddWithValue("@PIN", accountTypeCurrent[2]);
-                cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            if (accountTypeSaving[3] == "2")
-            {
-                cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID) values(@Balance,@PIN,@AT,@uID)";
-                cmd.Parameters.AddWithValue("@AT", accountTypeSaving[0]);
-                cmd.Parameters.AddWithValue("@Balance", accountTypeSaving[1]);
-                cmd.Parameters.AddWithValue("@PIN", accountTypeSaving[2]);
-                cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-            if (accountTypeSalary[3] == "2")
-            {
-                cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID) values(@Balance,@PIN,@AT,@uID)";
-                cmd.Parameters.AddWithValue("@AT", accountTypeSalary[0]);
-                cmd.Parameters.AddWithValue("@Balance", accountTypeSalary[1]);
-                cmd.Parameters.AddWithValue("@PIN", accountTypeSalary[2]);
-                cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
-            cmd.CommandText = "update Accounts set Balance = @Bal, PIN = @PIN where UserID = @uID and AccountType = @AT";
-
-            if (accountTypeSalary[0] != "")
-            {
-                cmd.Parameters.AddWithValue("@AT", accountTypeSalary[0]);
-                cmd.Parameters.AddWithValue("@Balance", accountTypeSalary[1]);
-                cmd.Parameters.AddWithValue("@PIN", accountTypeSalary[2]);
-                cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
-            if (accountTypeSalary[0] != "")
-            {
-                cmd.Parameters.AddWithValue("@AT", accountTypeSaving[0]);
-                cmd.Parameters.AddWithValue("@Balance", accountTypeSaving[1]);
-                cmd.Parameters.AddWithValue("@PIN", accountTypeSaving[2]);
-                cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
-            if (accountTypeSalary[0] != "")
-            {
-                cmd.Parameters.AddWithValue("@AT", accountTypeCurrent[0]);
-                cmd.Parameters.AddWithValue("@Balance", accountTypeCurrent[1]);
-                cmd.Parameters.AddWithValue("@PIN", accountTypeCurrent[2]);
-                cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.ExecuteNonQuery();
-                cmd.Parameters.Clear();
-            }
-
             if (notEmpty()) {
                 if(TextBoxPassword.Text == TextBoxConfirmPassword.Text)
                 {
+                    DropDownListAccountType_SelectedIndexChanged(sender, e);
                     cmd.CommandText = "select * from users where username = @UN";
                     cmd.Parameters.AddWithValue("@UN",TextBoxUserName.Text);
                     da.Fill(dt);
@@ -209,6 +203,8 @@ namespace AIU_ATM
                         cmd.Parameters.AddWithValue("@uID", userID);
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
+
+                        Page_Load(sender, e);
                     }
                     else { TextBoxUserName.Text = ""; }
                 }
@@ -244,6 +240,7 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
+
             userID = Session["EditUser"].ToString();
             cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
             cmd.Parameters.AddWithValue("@uID", userID);
@@ -271,27 +268,27 @@ namespace AIU_ATM
                     accountTypeCurrent[0] = "1";
                     accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
                     accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
-                    accountTypeCurrent[3] = "0";
+
                 }
                 else if (dt.Rows[i]["Type"].ToString().Equals("2"))
                 {
                     accountTypeSaving[0] = "2";
                     accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
                     accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
-                    accountTypeSaving[3] = "0";
+
                 }
                 else if (dt.Rows[i]["Type"].ToString().Equals("3"))
                 {
                     accountTypeSalary[0] = "3";
                     accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
                     accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
-                    accountTypeSalary[3] = "0";
+
                 }
             }
 
             if (accountTypeCurrent[0] != "")
             {
-                selectedAccountType = 0;
+                Session["sel"] = 0;
                 DropDownListAccountType.SelectedIndex = 0;
                 TextBoxBalance.Text = accountTypeCurrent[1];
                 TextBoxPin.Text = accountTypeCurrent[2];
@@ -299,7 +296,7 @@ namespace AIU_ATM
             }
             else if (accountTypeSaving[0] != "")
             {
-                selectedAccountType = 1;
+                Session["sel"] = 1;
                 DropDownListAccountType.SelectedIndex = 1;
                 TextBoxBalance.Text = accountTypeSaving[1];
                 TextBoxPin.Text = accountTypeSaving[2];
@@ -307,12 +304,13 @@ namespace AIU_ATM
             }
             else if (accountTypeSalary[0] != "")
             {
-                selectedAccountType = 2;
+                Session["sel"] = 2;
                 DropDownListAccountType.SelectedIndex = 2;
                 TextBoxBalance.Text = accountTypeSalary[1];
                 TextBoxPin.Text = accountTypeSalary[2];
                 TextBoxConfirmPin.Text = accountTypeSalary[2];
             }
+
         }
     }
 }

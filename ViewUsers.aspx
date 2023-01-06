@@ -102,14 +102,7 @@
                 loop: true
             });
 
-            $('#CheckBoxPrivilgeToggle').click(function () {
-                if ($(this).prop("checked") === true) {
-                    $("#table_title").text("Admins Details");
-                }
-                else {
-                    $("#table_title").text("Customers Details");
-                }
-            });
+            
         });
     </script>
 </head>
@@ -147,9 +140,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="mt-5 mb-3 clearfix">
-                            <h2 class="pull-left" id="table_title">Customers Details</h2>
+                            <h2 class="pull-left" id="table_title"><asp:Label runat="server" ID="tableText" Text="Customers Details"></asp:Label></h2>
                             <label class="switch pull-left" style="margin: 10px 0 auto 20px;">
-                                <asp:CheckBox ID="CheckBoxPrivilgeToggle" runat="server" />
+                                <asp:CheckBox ID="CheckBoxPrivilgeToggle" runat="server" AutoPostBack="true"/>
                                 <span class="slider round"></span>
                             </label>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> Add New User</asp:LinkButton>
@@ -158,7 +151,7 @@
                     </div>
                     <div style="margin: auto; text-align-last: center; width: fit-content;">
                         <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover"
-                            ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged" DataKeyNames="UserName">
+                            ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="false" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged" DataKeyNames="UserName">
                             <Columns>
                                 <asp:CommandField ShowHeader="false"
                                     CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;"
@@ -191,7 +184,7 @@
                 </div>
             </div>
         </div>
-        </div>
+       
         <footer>
             <span>Designed By
                 <asp:HyperLink ID="HyperLinkHYASoftware" CssClass="footer-anchor" runat="server">HYA - Software</asp:HyperLink>
