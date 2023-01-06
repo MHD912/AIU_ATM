@@ -217,7 +217,7 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="input" >
+                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="input">
                                 </asp:TextBox>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
@@ -272,12 +272,13 @@
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
+                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" Style="display: none;" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" OnClick="ButtonConfirm_Click"/>
+                                <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" OnClick="ButtonConfirm_Click" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonDiscard" runat="server" Text="Discard" CssClass="btn" OnClick="ButtonDiscard_Click"/>
+                                <asp:Button ID="ButtonDiscard" runat="server" Text="Discard" CssClass="btn" OnClick="ButtonDiscard_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
@@ -285,7 +286,9 @@
             </div>
         </section>
         <footer>
-            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+            <span>Designed By
+                <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
+                | <span class="fas fa-copyright"></span>
                 2022 All rights reserved.
             </span>
         </footer>

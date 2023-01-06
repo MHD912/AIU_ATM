@@ -113,6 +113,7 @@
     <Content Include="Content\google-material-symbols-rounded.css" />
     <Content Include="Content\Images\default_location.jpg" />
     <Content Include="Content\Images\logo_en_350_43.png" />
+    <Content Include="Content\Images\invoice_logo.png" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="CustomerDashboard.aspx" />
     <Content Include="DepositMoney.aspx" />
@@ -129,9 +130,12 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2" />
     <Content Include="fonts\kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2" />
+    <Content Include="Receipt.aspx" />
     <Content Include="Scripts\jquery.waypoints.min.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\printReceipt.js" />
+    <Content Include="Scripts\printThis.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\typed.min.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
@@ -159,7 +163,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Content\font-awesome-5.15.4.min.css" />
-    <Content Include="Content\Images\default.jpg" />
+    <Content Include="Content\Images\default_person.jpg" />
     <Content Include="Content\Images\wallpaper.png" />
     <Content Include="fonts\fa-brands-400.svg" />
     <Content Include="fonts\fa-regular-400.svg" />
@@ -249,6 +253,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt.aspx.cs">
+      <DependentUpon>Receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receipt.aspx.designer.cs">
+      <DependentUpon>Receipt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TransferMoney.aspx.cs">
       <DependentUpon>TransferMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

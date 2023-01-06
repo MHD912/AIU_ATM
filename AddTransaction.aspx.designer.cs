@@ -69,6 +69,42 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
+        /// TableRowAccountUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowAccountUsername;
+
+        /// <summary>
+        /// LabelAccountUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAccountUsername;
+
+        /// <summary>
+        /// TextBoxAccountUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAccountUsername;
+
+        /// <summary>
+        /// TableRowSenderUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowSenderUsername;
+
+        /// <summary>
         /// LabelSenderUsername control.
         /// </summary>
         /// <remarks>
@@ -85,6 +121,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxSenderUsername;
+
+        /// <summary>
+        /// TableRowRecipientUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowRecipientUsername;
 
         /// <summary>
         /// LabelRecipientUsername control.
@@ -105,6 +150,24 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxRecipientUsername;
 
         /// <summary>
+        /// LabelType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelType;
+
+        /// <summary>
+        /// DropDownListTransactionType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListTransactionType;
+
+        /// <summary>
         /// LabelAmount control.
         /// </summary>
         /// <remarks>
@@ -123,12 +186,21 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxAmount;
 
         /// <summary>
-        /// ButtonCreate control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreate;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+
+        /// <summary>
+        /// ButtonSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonSubmit;
     }
 }
