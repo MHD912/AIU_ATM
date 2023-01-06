@@ -41,5 +41,89 @@ namespace AIU_ATM
         {
             Response.Redirect("Default.aspx");
         }
+
+        protected void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            int selTT = DropDownListTransactionType.SelectedIndex;
+            double amount = double.Parse(TextBoxAmount.Text);
+            if (amount > 0)
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                if (selTT == 2)
+                {
+                    if(TextBoxSenderNo.Text != "" && TextBoxRecipientNo.Text != "")
+                    {                        
+                        cmd.CommandText = "select * from Accounts where AccountNo=@aNo2";
+                        cmd.Parameters.AddWithValue("@aNo2", TextBoxRecipientNo.Text);
+                        da.Fill(dt);
+                        int ex = dt.Rows.Count;
+                        dt.Rows.Clear();
+
+                        double balance = 0;
+                        cmd.CommandText = "select * from Accounts where AccountNo=@AN";
+                        cmd.Parameters.AddWithValue("@AN", TextBoxSenderNo.Text);
+
+                        da.Fill(dt);
+
+                        if (ex <= 0) { TextBoxRecipientNo.Text = ""; }
+                        if (dt.Rows.Count > 0 && TextBoxRecipientNo.Text != "")
+                        {
+                            balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                            if (amount < balance)
+                            {
+                                cmd.CommandText = "EXEC transferM @aNo, @aNo2, @Amount";
+                                cmd.Parameters.AddWithValue("@aNo", TextBoxSenderNo.Text);
+                                cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
+
+                                cmd.ExecuteNonQuery();
+                                TextBoxAmount.Text = "";
+                                TextBoxSenderNo.Text = "";
+                                TextBoxRecipientNo.Text = "";
+                            }
+                        }
+                    }
+                    else { TextBoxRecipientNo.Text = TextBoxSenderNo.Text = ""; }
+                }
+                else
+                {
+                    double balance = 0;
+                    cmd.CommandText = "select * from Accounts where AccountNo=@AN";
+                    cmd.Parameters.AddWithValue("@AN", TextBoxAccountNo.Text);
+
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                        if(selTT == 1)
+                        {
+                            if (amount < balance)
+                            {
+                                cmd.CommandText = "EXEC withdraw @aNo, @Amount";
+                                cmd.Parameters.AddWithValue("@aNo", TextBoxAccountNo.Text);
+                                cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
+
+                                cmd.ExecuteNonQuery();
+                                TextBoxAmount.Text = "";
+                            }
+                        }else if(selTT == 0)
+                        {
+                            cmd.CommandText = "EXEC deposit @aNo, @Amount";
+                            cmd.Parameters.AddWithValue("@aNo", TextBoxAccountNo.Text);
+                            cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
+
+                            cmd.ExecuteNonQuery();
+                            TextBoxAmount.Text = "";
+                        }
+                        TextBoxAccountNo.Text = ""; TextBoxAmount.Text = "";
+                    }
+                    else { TextBoxAccountNo.Text = ""; }
+                }
+            }else { TextBoxAmount.Text = ""; }
+        }
     }
 }

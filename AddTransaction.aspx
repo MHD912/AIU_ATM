@@ -157,7 +157,7 @@
                                 <asp:Label ID="LabelAccountUsername" runat="server" Text="Account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxAccountUsername" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxAccountNo" placeholder="AccountNumber" runat="server" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowSenderUsername">
@@ -165,7 +165,7 @@
                                 <asp:Label ID="LabelSenderUsername" runat="server" Text="Sender account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxSenderUsername" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxSenderNo" placeholder="AccountNumber" runat="server" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowRecipientUsername">
@@ -173,7 +173,7 @@
                                 <asp:Label ID="LabelRecipientUsername" runat="server" Text="Recipient account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxRecipientUsername" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxRecipientNo" placeholder="AccountNumber" runat="server" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -204,7 +204,7 @@
                                 <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn" Style="transform: translateX(-10px);">
                                     <span class="material-symbols-rounded">print</span>
                                 </asp:LinkButton>
-                                <asp:Button ID="ButtonSubmit" runat="server" type="submit" Text="Submit" CssClass="btn" OnClick="LinkButtonBack_Click" />
+                                <asp:Button ID="ButtonSubmit" runat="server" type="submit" Text="Submit" CssClass="btn" OnClick="ButtonSubmit_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>

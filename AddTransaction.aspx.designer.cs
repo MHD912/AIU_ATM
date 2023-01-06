@@ -87,13 +87,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label LabelAccountUsername;
 
         /// <summary>
-        /// TextBoxAccountUsername control.
+        /// TextBoxAccountNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxAccountUsername;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAccountNo;
 
         /// <summary>
         /// TableRowSenderUsername control.
@@ -114,13 +114,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label LabelSenderUsername;
 
         /// <summary>
-        /// TextBoxSenderUsername control.
+        /// TextBoxSenderNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxSenderUsername;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxSenderNo;
 
         /// <summary>
         /// TableRowRecipientUsername control.
@@ -141,13 +141,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label LabelRecipientUsername;
 
         /// <summary>
-        /// TextBoxRecipientUsername control.
+        /// TextBoxRecipientNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRecipientUsername;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxRecipientNo;
 
         /// <summary>
         /// LabelType control.
