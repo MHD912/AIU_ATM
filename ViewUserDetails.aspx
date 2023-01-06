@@ -70,6 +70,16 @@
     </style>
     <script>
         $('document').ready(function () {
+            if ($('#CheckBoxUserType').prop("checked") === true) {
+                $("#TableRowBalance").hide();
+                $("#TableRowPinCode").hide();
+                $("#TableRowConfirmPin").hide();
+            }
+            else {
+                $("#TableRowBalance").show();
+                $("#TableRowPinCode").show();
+                $("#TableRowConfirmPin").show();
+            }
             var typed = new Typed(".typing", {
                 strings: ["Bank", "View Info."],
                 typeSpeed: 80,
@@ -228,7 +238,9 @@
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
                             <asp:TableCell runat="server"></asp:TableCell>
-                            <asp:TableCell runat="server"></asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:Button ID="ButtonThisAccount" runat="server" Text="Delete Account" CssClass="dropDownList" Style="font-size: 18px; width: 60%; height: 40px; background-color: crimson; border: none;" />
+                            </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelPin" runat="server" Text="Pin Code" CssClass="text">
                                 </asp:Label>
@@ -241,7 +253,7 @@
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" Style="display: none;" />
+                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Text="  Register as admin" Style="display: none;" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
                                 <asp:Button ID="ButtonDelete" runat="server" Text="Delete" CssClass="btn" />
@@ -255,7 +267,9 @@
             </div>
         </section>
         <footer>
-            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+            <span>Designed By
+                <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
+                | <span class="fas fa-copyright"></span>
                 2022 All rights reserved.
             </span>
         </footer>

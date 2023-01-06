@@ -72,17 +72,16 @@
     </style>
     <script>
         $('document').ready(function () {
-            $('#CheckBoxUserType').on("change", function () {
-                $("#TableRowBalance").toggle(!this.checked);
-                $("#TableRowPinCode").toggle(!this.checked);
-                $("#TableRowConfirmPin").toggle(!this.checked);
-                if ($(this).prop("checked") === true) {
-                    $("#contact").css("margin-bottom", "8em");
-                }
-                else {
-                    $("#contact").css("margin-bottom", "16em");
-                }
-            });
+            if ($('#CheckBoxUserType').prop("checked") === true) {
+                $("#TableRowBalance").hide();
+                $("#TableRowPinCode").hide();
+                $("#TableRowConfirmPin").hide();
+            }
+            else {
+                $("#TableRowBalance").show();
+                $("#TableRowPinCode").show();
+                $("#TableRowConfirmPin").show();
+            }
             var typed = new Typed(".typing", {
                 strings: ["Bank", "Edit Info."],
                 typeSpeed: 80,
@@ -235,7 +234,7 @@
                         <asp:TableRow runat="server" ID="TableRowBalance">
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;"  AutoPostBack="true">
+                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" AutoPostBack="true">
                                     <asp:ListItem Text="Current Account" />
                                     <asp:ListItem Text="Saving Account" />
                                     <asp:ListItem Text="Salary Account" />
@@ -272,7 +271,7 @@
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Checked="false" Text="  Register as admin" Style="display: none;" />
+                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Text="  Register as admin" Style="display: none;" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
                                 <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" OnClick="ButtonConfirm_Click" />
