@@ -26,6 +26,19 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                if (CheckBoxPrivilgeToggle.Checked == false) { Session["view"] = "2"; tableText.Text = "Customers Details"; }
+                else if (CheckBoxPrivilgeToggle.Checked == true) { Session["view"] = "1"; tableText.Text = "Admins Details"; }
+                
+                
+                cmd.CommandText = "select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege='"+ Session["view"].ToString() + "'";
+                da.Fill(dt);
+                usersGridView.DataSource = dt;
+                usersGridView.DataBind();
             }
             else { Response.Redirect("Login.aspx"); }
         }
@@ -61,22 +74,6 @@ namespace AIU_ATM
             Session["ViewUser"] = cusID;
             Session["User"] = userID;
             Response.Redirect("ViewUserDetails.aspx");
-        }
-
-        protected void CheckBoxPrivilgeToggle_CheckedChanged(object sender, EventArgs e)
-        {
-            string selCus = "select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=2";
-            if (SqlDataSource1.SelectCommand == selCus)
-            {
-                SqlDataSource1.SelectCommand = "select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=1";
-                usersGridView.DataSourceID = "SqlDataSource1";
-
-            }
-            else
-            {
-                SqlDataSource1.SelectCommand = selCus;
-                usersGridView.DataSourceID = "SqlDataSource1";
-            }
         }
     }
 }
