@@ -235,7 +235,7 @@
                         <asp:TableRow runat="server" ID="TableRowBalance">
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" OnSelectedIndexChanged="DropDownListAccountType_SelectedIndexChanged" AutoPostBack="true">
+                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;"  AutoPostBack="true">
                                     <asp:ListItem Text="Current Account" />
                                     <asp:ListItem Text="Saving Account" />
                                     <asp:ListItem Text="Salary Account" />

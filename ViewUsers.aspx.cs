@@ -14,10 +14,10 @@ namespace AIU_ATM
     {
         string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
@@ -63,5 +63,20 @@ namespace AIU_ATM
             Response.Redirect("ViewUserDetails.aspx");
         }
 
+        protected void CheckBoxPrivilgeToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            string selCus = "select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=2";
+            if (SqlDataSource1.SelectCommand == selCus)
+            {
+                SqlDataSource1.SelectCommand = "select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=1";
+                usersGridView.DataSourceID = "SqlDataSource1";
+
+            }
+            else
+            {
+                SqlDataSource1.SelectCommand = selCus;
+                usersGridView.DataSourceID = "SqlDataSource1";
+            }
+        }
     }
 }
