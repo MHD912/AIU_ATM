@@ -39,6 +39,7 @@ namespace AIU_ATM
                 da.Fill(dt);
                 usersGridView.DataSource = dt;
                 usersGridView.DataBind();
+                
             }
             else { Response.Redirect("Login.aspx"); }
         }

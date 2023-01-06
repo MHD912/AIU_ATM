@@ -35,63 +35,73 @@ namespace AIU_ATM
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 userID = Session["EditUser"].ToString();
-                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
-                cmd.Parameters.AddWithValue("@uID", userID);
 
-                da.Fill(dt);
+                if (Session["view"].ToString() == "2")
+                {
+                    cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
+                    cmd.Parameters.AddWithValue("@uID", userID);
 
-                if (!IsPostBack){
+                    da.Fill(dt);
+
+                    if (!IsPostBack)
+                    {
+                        ButtonDiscard_Click(sender, e);
+                    }
+                    else
+                    {
+                        DropDownListAccountType_SelectedIndexChanged(sender, e);
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            if (dt.Rows[i]["Type"].ToString().Equals("1"))
+                            {
+                                accountTypeCurrent[0] = "1";
+                                accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
+                                accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
+
+                            }
+                            else if (dt.Rows[i]["Type"].ToString().Equals("2"))
+                            {
+                                accountTypeSaving[0] = "2";
+                                accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
+                                accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
+
+                            }
+                            else if (dt.Rows[i]["Type"].ToString().Equals("3"))
+                            {
+                                accountTypeSalary[0] = "3";
+                                accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
+                                accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
+
+                            }
+                        }
+
+
+                        if (int.Parse(Session["sel"].ToString()) == 0)
+                        {
+                            TextBoxBalance.Text = accountTypeCurrent[1];
+                            TextBoxPin.Text = accountTypeCurrent[2];
+                            TextBoxConfirmPin.Text = accountTypeCurrent[2];
+                        }
+                        else if (int.Parse(Session["sel"].ToString()) == 1)
+                        {
+                            TextBoxBalance.Text = accountTypeSaving[1];
+                            TextBoxPin.Text = accountTypeSaving[2];
+                            TextBoxConfirmPin.Text = accountTypeSaving[2];
+                        }
+                        else if (int.Parse(Session["sel"].ToString()) == 2)
+                        {
+                            TextBoxBalance.Text = accountTypeSalary[1];
+                            TextBoxPin.Text = accountTypeSalary[2];
+                            TextBoxConfirmPin.Text = accountTypeSalary[2];
+                        }
+                    }
+                }
+                else if (Session["view"].ToString() == "1")
+                {
                     ButtonDiscard_Click(sender, e);
                 }
-                else
-                {
-                    DropDownListAccountType_SelectedIndexChanged(sender, e);
-
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        if (dt.Rows[i]["Type"].ToString().Equals("1"))
-                        {
-                            accountTypeCurrent[0] = "1";
-                            accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
-                            accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
-
-                        }
-                        else if (dt.Rows[i]["Type"].ToString().Equals("2"))
-                        {
-                            accountTypeSaving[0] = "2";
-                            accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
-                            accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
-
-                        }
-                        else if (dt.Rows[i]["Type"].ToString().Equals("3"))
-                        {
-                            accountTypeSalary[0] = "3";
-                            accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
-                            accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
-
-                        }
-                    }
-
-
-                    if (int.Parse(Session["sel"].ToString()) == 0)
-                    {
-                        TextBoxBalance.Text = accountTypeCurrent[1];
-                        TextBoxPin.Text = accountTypeCurrent[2];
-                        TextBoxConfirmPin.Text = accountTypeCurrent[2];
-                    }
-                    else if (int.Parse(Session["sel"].ToString()) == 1)
-                    {
-                        TextBoxBalance.Text = accountTypeSaving[1];
-                        TextBoxPin.Text = accountTypeSaving[2];
-                        TextBoxConfirmPin.Text = accountTypeSaving[2];
-                    }
-                    else if (int.Parse(Session["sel"].ToString()) == 2)
-                    {
-                        TextBoxBalance.Text = accountTypeSalary[1];
-                        TextBoxPin.Text = accountTypeSalary[2];
-                        TextBoxConfirmPin.Text = accountTypeSalary[2];
-                    }
-                }
+                
             }
             else { Response.Redirect("Login.aspx"); }
         }
@@ -240,75 +250,102 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-
             userID = Session["EditUser"].ToString();
-            cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
-            cmd.Parameters.AddWithValue("@uID", userID);
 
-            da.Fill(dt);
-
-            TextBoxFirstName.Text = dt.Rows[0]["FN"].ToString();
-            TextBoxMidName.Text = dt.Rows[0]["MN"].ToString();
-            TextBoxLastName.Text = dt.Rows[0]["LN"].ToString();
-            TextBoxUserName.Text = dt.Rows[0]["UN"].ToString();
-            TextBoxPassword.Text = dt.Rows[0]["PW"].ToString();
-            TextBoxConfirmPassword.Text = dt.Rows[0]["PW"].ToString();
-            TextBoxEmail.Text = dt.Rows[0]["EM"].ToString();
-            TextBoxBirthDate.Text = dt.Rows[0]["BD"].ToString();
-            RadioButtonFemale.Checked = true;
-            string g = dt.Rows[0]["G"].ToString();
-            if (g.Equals("Male")) { RadioButtonFemale.Checked = false; RadioButtonMale.Checked = true; }
-            TextBoxContact.Text = dt.Rows[0]["P"].ToString();
-            TextBoxAddress.Text = dt.Rows[0]["Addr"].ToString();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (Session["view"].ToString() == "2")
             {
-                if (dt.Rows[i]["Type"].ToString().Equals("1"))
+                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr,a.AccountType as Type,a.Balance as Bal,a.PIN as PIN from Users as u join usersInfo as ui on (u.id = ui.id) join Accounts as a on (a.userID = ui.id) where u.id= @uID";
+                cmd.Parameters.AddWithValue("@uID", userID);
+
+                da.Fill(dt);
+
+                TextBoxFirstName.Text = dt.Rows[0]["FN"].ToString();
+                TextBoxMidName.Text = dt.Rows[0]["MN"].ToString();
+                TextBoxLastName.Text = dt.Rows[0]["LN"].ToString();
+                TextBoxUserName.Text = dt.Rows[0]["UN"].ToString();
+                TextBoxPassword.Text = dt.Rows[0]["PW"].ToString();
+                TextBoxConfirmPassword.Text = dt.Rows[0]["PW"].ToString();
+                TextBoxEmail.Text = dt.Rows[0]["EM"].ToString();
+                TextBoxBirthDate.Text = dt.Rows[0]["BD"].ToString();
+                RadioButtonFemale.Checked = true;
+                string g = dt.Rows[0]["G"].ToString();
+                if (g.Equals("Male")) { RadioButtonFemale.Checked = false; RadioButtonMale.Checked = true; }
+                TextBoxContact.Text = dt.Rows[0]["P"].ToString();
+                TextBoxAddress.Text = dt.Rows[0]["Addr"].ToString();
+
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    accountTypeCurrent[0] = "1";
-                    accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
-                    accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
+                    if (dt.Rows[i]["Type"].ToString().Equals("1"))
+                    {
+                        accountTypeCurrent[0] = "1";
+                        accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
+                        accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
 
+                    }
+                    else if (dt.Rows[i]["Type"].ToString().Equals("2"))
+                    {
+                        accountTypeSaving[0] = "2";
+                        accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
+                        accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
+
+                    }
+                    else if (dt.Rows[i]["Type"].ToString().Equals("3"))
+                    {
+                        accountTypeSalary[0] = "3";
+                        accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
+                        accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
+
+                    }
                 }
-                else if (dt.Rows[i]["Type"].ToString().Equals("2"))
+
+                if (accountTypeCurrent[0] != "")
                 {
-                    accountTypeSaving[0] = "2";
-                    accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
-                    accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
-
+                    Session["sel"] = 0;
+                    DropDownListAccountType.SelectedIndex = 0;
+                    TextBoxBalance.Text = accountTypeCurrent[1];
+                    TextBoxPin.Text = accountTypeCurrent[2];
+                    TextBoxConfirmPin.Text = accountTypeCurrent[2];
                 }
-                else if (dt.Rows[i]["Type"].ToString().Equals("3"))
+                else if (accountTypeSaving[0] != "")
                 {
-                    accountTypeSalary[0] = "3";
-                    accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
-                    accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
-
+                    Session["sel"] = 1;
+                    DropDownListAccountType.SelectedIndex = 1;
+                    TextBoxBalance.Text = accountTypeSaving[1];
+                    TextBoxPin.Text = accountTypeSaving[2];
+                    TextBoxConfirmPin.Text = accountTypeSaving[2];
                 }
-            }
+                else if (accountTypeSalary[0] != "")
+                {
+                    Session["sel"] = 2;
+                    DropDownListAccountType.SelectedIndex = 2;
+                    TextBoxBalance.Text = accountTypeSalary[1];
+                    TextBoxPin.Text = accountTypeSalary[2];
+                    TextBoxConfirmPin.Text = accountTypeSalary[2];
+                }
 
-            if (accountTypeCurrent[0] != "")
-            {
-                Session["sel"] = 0;
-                DropDownListAccountType.SelectedIndex = 0;
-                TextBoxBalance.Text = accountTypeCurrent[1];
-                TextBoxPin.Text = accountTypeCurrent[2];
-                TextBoxConfirmPin.Text = accountTypeCurrent[2];
             }
-            else if (accountTypeSaving[0] != "")
+            else if (Session["view"].ToString() == "1")
             {
-                Session["sel"] = 1;
-                DropDownListAccountType.SelectedIndex = 1;
-                TextBoxBalance.Text = accountTypeSaving[1];
-                TextBoxPin.Text = accountTypeSaving[2];
-                TextBoxConfirmPin.Text = accountTypeSaving[2];
-            }
-            else if (accountTypeSalary[0] != "")
-            {
-                Session["sel"] = 2;
-                DropDownListAccountType.SelectedIndex = 2;
-                TextBoxBalance.Text = accountTypeSalary[1];
-                TextBoxPin.Text = accountTypeSalary[2];
-                TextBoxConfirmPin.Text = accountTypeSalary[2];
+                CheckBoxUserType.Checked = true;
+                cmd.CommandText = "select ui.FirstName as FN, ui.MiddleName as MN, ui.LastName as LN, u.UserName as UN, u.PassWord as PW, ui.Email as EM, ui.BirthDate as BD,ui.Gender as G,ui.Phone as P,ui.Address as Addr from Users as u join usersInfo as ui on (u.id = ui.id) where u.id= @uID";
+                cmd.Parameters.AddWithValue("@uID", userID);
+
+                da.Fill(dt);
+
+                TextBoxFirstName.Text = dt.Rows[0]["FN"].ToString();
+                TextBoxMidName.Text = dt.Rows[0]["MN"].ToString();
+                TextBoxLastName.Text = dt.Rows[0]["LN"].ToString();
+                TextBoxUserName.Text = dt.Rows[0]["UN"].ToString();
+                TextBoxPassword.Text = dt.Rows[0]["PW"].ToString();
+                TextBoxConfirmPassword.Text = dt.Rows[0]["PW"].ToString();
+                TextBoxEmail.Text = dt.Rows[0]["EM"].ToString();
+                TextBoxBirthDate.Text = dt.Rows[0]["BD"].ToString();
+                RadioButtonFemale.Checked = true;
+                string g = dt.Rows[0]["G"].ToString();
+                if (g.Equals("Male")) { RadioButtonFemale.Checked = false; RadioButtonMale.Checked = true; }
+                TextBoxContact.Text = dt.Rows[0]["P"].ToString();
+                TextBoxAddress.Text = dt.Rows[0]["Addr"].ToString();
+
             }
 
         }
