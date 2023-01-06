@@ -30,7 +30,7 @@ namespace AIU_ATM
             if (Session["EditUser"] != null)
             {
                 userID = Session["EditUser"].ToString();
-                if (!IsPostBack){ ButtonCancel_Click(sender, e); }
+                if (!IsPostBack){ ButtonDiscard_Click(sender, e); }
             }
             else { Response.Redirect("Login.aspx"); }
         }

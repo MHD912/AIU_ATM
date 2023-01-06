@@ -20,6 +20,13 @@
             padding: 10.6px 0;
         }
 
+        /* input table styling */
+        .contact .inputTable {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
         /* content styling */
         .contact .right form .field,
         .contact .right form .fields .field {
@@ -33,7 +40,7 @@
         }
 
         .contact .title::after {
-            content: "user registration form";
+            content: "create new transaction";
         }
 
         .contact .title::before {
@@ -68,18 +75,26 @@
     </style>
     <script>
         $('document').ready(function () {
-            $('#CheckBoxUserType').click(function () {
-                $("#TableRowBalance").toggle(!this.checked);
-                $("#TableRowPinCode").toggle(!this.checked);
-                if ($(this).prop("checked") === true) {
-                    $("#contact").css("margin-bottom", "8em");
-                }
-                else {
-                    $("#contact").css("margin-bottom", "12em");
-                }
-            });
+            $("select").change(function () {
+                $(this).find("option:selected").each(function () {
+                    var optionValue = $(this).attr("value");
+                    if (optionValue === "Deposit") {
+                        $("#TableRowSenderUsername").hide();
+                        $("#TableRowRecipientUsername").hide();
+                        $("#TableRowAccountUsername").show();
+                    } else if (optionValue === "Withdraw") {
+                        $("#TableRowSenderUsername").hide();
+                        $("#TableRowRecipientUsername").hide();
+                        $("#TableRowAccountUsername").show();
+                    } else if (optionValue === "Transfer") {
+                        $("#TableRowSenderUsername").show();
+                        $("#TableRowRecipientUsername").show();
+                        $("#TableRowAccountUsername").hide();
+                    }
+                });
+            }).change();
             var typed = new Typed(".typing", {
-                strings: ["Bank", "New Transactions"],
+                strings: ["Bank", "New Transaction"],
                 typeSpeed: 80,
                 backSpeed: 60,
                 backDelay: 3600,
@@ -132,12 +147,20 @@
 
         <%-- Input form --%>
 
-        <section class="contact" id="contact" style="margin-bottom: 12em;">
+        <section class="contact" id="contact" style="margin-bottom: 8em;">
             <div class="max-width">
                 <h2 class="title"></h2>
                 <div class="inputTable">
-                    <asp:Table ID="Table1" runat="server" CellSpacing="5">
-                        <asp:TableRow runat="server">
+                    <asp:Table ID="Table1" runat="server" CellSpacing="20" Width="45%">
+                        <asp:TableRow runat="server" ID="TableRowAccountUsername">
+                            <asp:TableCell runat="server">
+                                <asp:Label ID="LabelAccountUsername" runat="server" Text="Account" CssClass="text"></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:TextBox ID="TextBoxAccountUsername" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow runat="server" ID="TableRowSenderUsername">
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelSenderUsername" runat="server" Text="Sender account" CssClass="text"></asp:Label>
                             </asp:TableCell>
@@ -145,7 +168,7 @@
                                 <asp:TextBox ID="TextBoxSenderUsername" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
-                        <asp:TableRow runat="server">
+                        <asp:TableRow runat="server" ID="TableRowRecipientUsername">
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelRecipientUsername" runat="server" Text="Recipient account" CssClass="text"></asp:Label>
                             </asp:TableCell>
@@ -155,17 +178,33 @@
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
+                                <asp:Label ID="LabelType" runat="server" Text="Transaction type" CssClass="text"></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell runat="server">
+                                <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="input" Style="width: 70%;">
+                                    <asp:ListItem>Deposit</asp:ListItem>
+                                    <asp:ListItem>Withdraw</asp:ListItem>
+                                    <asp:ListItem>Transfer</asp:ListItem>
+                                </asp:DropDownList>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow runat="server">
+                            <asp:TableCell runat="server">
                                 <asp:Label ID="LabelAmount" runat="server" Text="Amount" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxAmount" placeholder="Amount" runat="server" CssClass="input"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxAmount" placeholder="Value" runat="server" CssClass="input" Style="width: 70%;"></asp:TextBox>
+                                S.P
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:Button ID="ButtonCreate" runat="server" type="submit" Text="Submit" CssClass="btn" />
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn" Style="transform: translateX(-10px);">
+                                    <span class="material-symbols-rounded">print</span>
+                                </asp:LinkButton>
+                                <asp:Button ID="ButtonSubmit" runat="server" type="submit" Text="Submit" CssClass="btn" OnClick="LinkButtonBack_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>

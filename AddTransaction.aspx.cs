@@ -34,12 +34,12 @@ namespace AIU_ATM
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("ViewTransactions.aspx");
         }
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Default.aspx");
         }
     }
 }
