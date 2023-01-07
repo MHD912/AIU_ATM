@@ -142,6 +142,7 @@ input:checked + .slider:before {
 
     /* Tooltip text */
     .tool-tip .tool-tiptext {
+        visibility: hidden;
         font-size: 13px;
         background-color: #333333e8;
         color: #fff;
@@ -157,7 +158,7 @@ input:checked + .slider:before {
         position: absolute;
         /* Fade in tool-tip - takes 1 second to go from 0% to 100% opacity: */
         opacity: 0;
-        transition: opacity 0.5s ease;
+        transition: all 0.5s ease;
     }
         /* Tooltop Arrow Styling */
         .tool-tip .tool-tiptext::after {
@@ -173,6 +174,7 @@ input:checked + .slider:before {
 
     /* Show the tool-tip text when you hover over the tool-tip container */
     .tool-tip:hover .tool-tiptext {
+        visibility:visible;
         opacity: 1;
         transition: all 0.5s ease;
     }
