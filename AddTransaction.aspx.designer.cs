@@ -186,13 +186,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxAmount;
 
         /// <summary>
-        /// LinkButton1 control.
+        /// LinkButtonPrint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonPrint;
 
         /// <summary>
         /// ButtonSubmit control.
@@ -202,5 +202,14 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonSubmit;
+
+        /// <summary>
+        /// HyperLinkHYASoftware control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHYASoftware;
     }
 }

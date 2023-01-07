@@ -55,8 +55,8 @@ namespace AIU_ATM
 
                 if (selTT == 2)
                 {
-                    if(TextBoxSenderNo.Text != "" && TextBoxRecipientNo.Text != "")
-                    {                        
+                    if (TextBoxSenderNo.Text != "" && TextBoxRecipientNo.Text != "")
+                    {
                         cmd.CommandText = "select * from Accounts where AccountNo=@aNo2";
                         cmd.Parameters.AddWithValue("@aNo2", TextBoxRecipientNo.Text);
                         da.Fill(dt);
@@ -99,7 +99,7 @@ namespace AIU_ATM
                     if (dt.Rows.Count > 0)
                     {
                         balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                        if(selTT == 1)
+                        if (selTT == 1)
                         {
                             if (amount < balance)
                             {
@@ -110,7 +110,8 @@ namespace AIU_ATM
                                 cmd.ExecuteNonQuery();
                                 TextBoxAmount.Text = "";
                             }
-                        }else if(selTT == 0)
+                        }
+                        else if (selTT == 0)
                         {
                             cmd.CommandText = "EXEC deposit @aNo, @Amount";
                             cmd.Parameters.AddWithValue("@aNo", TextBoxAccountNo.Text);
@@ -123,7 +124,15 @@ namespace AIU_ATM
                     }
                     else { TextBoxAccountNo.Text = ""; }
                 }
-            }else { TextBoxAmount.Text = ""; }
+            }
+            else { TextBoxAmount.Text = ""; }
+        }
+
+        protected void LinkButtonPrint_Click(object sender, EventArgs e)
+        {
+            Page.ClientScript.RegisterStartupScript(
+            this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
+            //Response.Redirect("Receipt.aspx");
         }
     }
 }
