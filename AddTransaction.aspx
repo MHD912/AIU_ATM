@@ -64,6 +64,12 @@
             font-weight: 500;
         }
 
+        .note {
+            font-size: 14px;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
         .errors-block {
             color: crimson;
             font-size: 14px;
@@ -78,18 +84,14 @@
             $("select").change(function () {
                 $(this).find("option:selected").each(function () {
                     var optionValue = $(this).attr("value");
-                    if (optionValue === "Deposit") {
-                        $("#TableRowSenderUsername").hide();
-                        $("#TableRowRecipientUsername").hide();
-                        $("#TableRowAccountUsername").show();
-                    } else if (optionValue === "Withdraw") {
-                        $("#TableRowSenderUsername").hide();
-                        $("#TableRowRecipientUsername").hide();
-                        $("#TableRowAccountUsername").show();
-                    } else if (optionValue === "Transfer") {
+                    if (optionValue === "Transfer") {
                         $("#TableRowSenderUsername").show();
                         $("#TableRowRecipientUsername").show();
                         $("#TableRowAccountUsername").hide();
+                    } else {
+                        $("#TableRowSenderUsername").hide();
+                        $("#TableRowRecipientUsername").hide();
+                        $("#TableRowAccountUsername").show();
                     }
                 });
             }).change();
@@ -199,11 +201,19 @@
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
+                                <div class="tool-tip">
+                                    <span class="material-symbols-rounded" style="font-weight: 700; color: rgb(52, 205, 133); transform: translateY(8px);">info</span>
+                                    <span class="tool-tiptext" style="width: 300px; margin-left: -150px;">To enable printing. Please make sure your browser allows pop-ups for this website</span>
+                                </div>
+                                <span class="note">Note</span>
                             </asp:TableCell>
-                            <asp:TableCell runat="server" Style="text-align: end;">
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn" Style="transform: translateX(-10px);">
+                            <asp:TableCell runat="server" Style="display: flex; justify-content: flex-end;">
+                                <div class="tool-tip">
+                                    <asp:LinkButton ID="LinkButtonPrint" runat="server" CssClass="btn" Style="transform: translateX(-10px); width: 47px; height: 40.8px;" OnClick="LinkButtonPrint_Click">
                                     <span class="material-symbols-rounded">print</span>
-                                </asp:LinkButton>
+                                    </asp:LinkButton>
+                                    <span class="tool-tiptext" style="width: 100px; margin-left: -60px;">Print receipt</span>
+                                </div>
                                 <asp:Button ID="ButtonSubmit" runat="server" type="submit" Text="Submit" CssClass="btn" OnClick="ButtonSubmit_Click" />
                             </asp:TableCell>
                         </asp:TableRow>
@@ -213,7 +223,9 @@
         </section>
     </form>
     <footer>
-        <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
+        <span>Designed By
+            <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
+            | <span class="fas fa-copyright"></span>
             2022 All rights reserved.
         </span>
     </footer>

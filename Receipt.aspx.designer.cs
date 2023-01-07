@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AIU_ATM.Scripts
+namespace AIU_ATM
 {
 
 
-    public partial class Invoice
+    public partial class Receipt
     {
 
         /// <summary>
@@ -42,6 +42,15 @@ namespace AIU_ATM.Scripts
         protected global::System.Web.UI.WebControls.Table Table2;
 
         /// <summary>
+        /// LabelDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDate;
+
+        /// <summary>
         /// Table3 control.
         /// </summary>
         /// <remarks>
@@ -51,12 +60,147 @@ namespace AIU_ATM.Scripts
         protected global::System.Web.UI.WebControls.Table Table3;
 
         /// <summary>
-        /// LabelValue control.
+        /// LabelAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelValue;
+        protected global::System.Web.UI.WebControls.Label LabelAddress;
+
+        /// <summary>
+        /// LabelCustomerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCustomerName;
+
+        /// <summary>
+        /// LabelEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelEmail;
+
+        /// <summary>
+        /// LabelAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAccountType;
+
+        /// <summary>
+        /// LabelTransactionType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTransactionType;
+
+        /// <summary>
+        /// LabelTransactionID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTransactionID;
+
+        /// <summary>
+        /// TableRowSenderAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowSenderAccount;
+
+        /// <summary>
+        /// LabelSenderAccountID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelSenderAccountID;
+
+        /// <summary>
+        /// TableRowReceipientAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowReceipientAccount;
+
+        /// <summary>
+        /// LabelReceipientAccountID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelReceipientAccountID;
+
+        /// <summary>
+        /// TableRowCustomerAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRowCustomerAccount;
+
+        /// <summary>
+        /// LabelCustomerAccountID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCustomerAccountID;
+
+        /// <summary>
+        /// LabelTransactionValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTransactionValue;
+
+        /// <summary>
+        /// RadioButtonDeposit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonDeposit;
+
+        /// <summary>
+        /// RadioButtonWithdraw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonWithdraw;
+
+        /// <summary>
+        /// RadioButtonTransfer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonTransfer;
     }
 }

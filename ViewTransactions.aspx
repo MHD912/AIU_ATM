@@ -83,8 +83,21 @@
         }
 
         /* Delete Column Styling */
-        .delete-column {
+        .action-column {
             width: 10%;
+        }
+
+        /* note tooltip styling */
+        #note {
+            margin: 3px;
+        }
+        #note.tool-tip .tool-tiptext {
+            top: -170%;
+        }
+        #note.tool-tip .tool-tiptext::after {
+            top: 100%;
+            bottom: 0;
+            border-color: #333333e8 transparent transparent transparent; /* At the top of the tool-tip */
         }
 
         /* footer styling */
@@ -146,6 +159,10 @@
                     <div class="col-md-12">
                         <div class="mt-5 mb-3 clearfix">
                             <h2 class="pull-left">Transactions Details</h2>
+                            <div id="note" class="tool-tip pull-left">
+                                <span class="material-symbols-rounded" style="font-weight: 700; color: rgb(52, 205, 133); transform: translateY(8px);">info</span>
+                                <span class="tool-tiptext" style="width: 300px; margin-left: -150px;">To enable printing. Please make sure your browser allows pop-ups for this website</span>
+                            </div>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonCreate" runat="server" OnClick="LinkButtonCreate_Click"><i class="fa fa-plus"></i> New Transaction</asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
@@ -158,7 +175,9 @@
                                     <asp:BoundField DataField="ToAcc" HeaderText="ToAcc" SortExpression="ToAcc" />
                                     <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
                                     <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
-                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Delete" HeaderStyle-CssClass="delete-column" ShowDeleteButton="True" />
+                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Actions" HeaderStyle-CssClass="action-column" ShowDeleteButton="True" NewText="&lt;span class=&quot;fa fa-print&quot;&gt;&lt;/span&gt;" ShowInsertButton="True">
+                                        <HeaderStyle CssClass="action-column"></HeaderStyle>
+                                    </asp:CommandField>
                                 </Columns>
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"
