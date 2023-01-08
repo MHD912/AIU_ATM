@@ -13,6 +13,7 @@ namespace AIU_ATM
     {
         String userID;
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
+        string PIN = "0";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,12 +30,14 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                 cmd.Parameters.AddWithValue("@uID", userID);
+                cmd.Parameters.AddWithValue("@AT", int.Parse(Session["ST"].ToString()));
 
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
                 string balance = dt.Rows[0]["Balance"].ToString();
+                PIN = dt.Rows[0]["PIN"].ToString();
 
                 welS.Text = "Hi there " + userName;
                 cusBal.Text = balance + "$";
@@ -44,34 +47,39 @@ namespace AIU_ATM
 
         protected void ButtonDeposite_Click(object sender, EventArgs e)
         {
-            if (TextBoxDepositAmount.Text != "")
-            {
-                double amount = double.Parse(TextBoxDepositAmount.Text);
-                if (amount > 0)
+            if( PIN == TextBoxPinCode.Text) {
+                if (TextBoxDepositAmount.Text != "")
                 {
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandType = CommandType.Text;
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-                    double Balance = 0;
-                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
-                    cmd.Parameters.AddWithValue("@uID", userID);
-
-                    da.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
+                    double amount = double.Parse(TextBoxDepositAmount.Text);
+                    if (amount > 0)
                     {
-                        Balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                        cmd.CommandText = "EXEC deposit @aNo, @Amount";
-                        cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
-                        cmd.Parameters.AddWithValue("@Amount", TextBoxDepositAmount.Text);
-                        cmd.ExecuteNonQuery();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                        double Balance = 0;
+                        cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
+                        cmd.Parameters.AddWithValue("@uID", userID);
+                        cmd.Parameters.AddWithValue("@AT", int.Parse(Session["ST"].ToString()));
+
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            Balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                            cmd.CommandText = "EXEC deposit @aNo, @Amount";
+                            cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
+                            cmd.Parameters.AddWithValue("@Amount", TextBoxDepositAmount.Text);
+                            cmd.ExecuteNonQuery();
+                        }
+                        TextBoxDepositAmount.Text = "";
+                        cusBal.Text = (amount + Balance) + "$";
                     }
-                    TextBoxDepositAmount.Text = "";
-                    cusBal.Text = (amount + Balance) + "$";
                 }
             }
+            else { TextBoxPinCode.Text = ""; }
+            
         }
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)

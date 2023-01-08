@@ -93,10 +93,10 @@
                 <!-- Navigation bar menu -->
                 <ul class="menu" style="margin-right: -15%; display: inline-flex">
                     <li>
-                        <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 75%; height: 40px; border: #fff; border-style: dashed; border-width: 2px; padding: 0 4px;">
-                            <asp:ListItem Text="Current Account" />
-                            <asp:ListItem Text="Saving Account" />
-                            <asp:ListItem Text="Salary Account" />
+                        <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 75%; height: 40px; border: #fff; border-style: dashed; border-width: 2px; padding: 0 4px;" OnSelectedIndexChanged="DropDownListAccountType_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:ListItem Text="Current Account" id="li1" Enabled="false"/>
+                            <asp:ListItem Text="Saving Account" id="li2" Enabled="false"/>
+                            <asp:ListItem Text="Salary Account" id="li3" Enabled="false"/>
                         </asp:DropDownList>
                     </li>
                     <li>

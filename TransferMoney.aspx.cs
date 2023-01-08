@@ -13,6 +13,7 @@ namespace AIU_ATM
     {
         string userID;
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
+        string PIN = "0";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,12 +31,14 @@ namespace AIU_ATM
             {
                 userID = Session["User"].ToString();
 
-                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+                cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                 cmd.Parameters.AddWithValue("@uID", userID);
+                cmd.Parameters.AddWithValue("@AT", int.Parse(Session["ST"].ToString()));
 
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
                 string balance = dt.Rows[0]["Balance"].ToString();
+                PIN = dt.Rows[0]["PIN"].ToString();
 
                 welS.Text = "Hi there " + userName;
                 cusBal.Text = balance + "$";
@@ -45,6 +48,11 @@ namespace AIU_ATM
 
         protected void ButtonTransfer_Click(object sender, EventArgs e)
         {
+            if (PIN == TextBoxPinCode.Text)
+            {
+
+            }
+            else { TextBoxPinCode.Text = ""; }
             if (TextBoxTransferValue.Text != "")
             {
                 double amount = double.Parse(TextBoxTransferValue.Text);
@@ -62,8 +70,10 @@ namespace AIU_ATM
                     dt.Rows.Clear();
 
                     double balance = 0;
-                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
+
+                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                     cmd.Parameters.AddWithValue("@uID", userID);
+                    cmd.Parameters.AddWithValue("@AT", int.Parse(Session["ST"].ToString()));
 
                     da.Fill(dt);
 
