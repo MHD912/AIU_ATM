@@ -249,6 +249,33 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.DropDownList DropDownListAccountType;
 
         /// <summary>
+        /// li1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem li1;
+
+        /// <summary>
+        /// li2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem li2;
+
+        /// <summary>
+        /// li3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem li3;
+
+        /// <summary>
         /// LabelBalance control.
         /// </summary>
         /// <remarks>

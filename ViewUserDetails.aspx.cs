@@ -57,18 +57,21 @@ namespace AIU_ATM
                             accountTypeCurrent[0] = "1";
                             accountTypeCurrent[1] = dt.Rows[i]["Bal"].ToString();
                             accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
+                            li1.Enabled = true;
                         }
                         else if (dt.Rows[i]["Type"].ToString().Equals("2"))
                         {
                             accountTypeSaving[0] = "2";
                             accountTypeSaving[1] = dt.Rows[i]["Bal"].ToString();
                             accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
+                            li2.Enabled = true;
                         }
                         else if (dt.Rows[i]["Type"].ToString().Equals("3"))
                         {
                             accountTypeSalary[0] = "3";
                             accountTypeSalary[1] = dt.Rows[i]["Bal"].ToString();
                             accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
+                            li3.Enabled = true;
                         }
                     }
                     if (!IsPostBack)
@@ -150,5 +153,38 @@ namespace AIU_ATM
             }
         }
 
+        protected void ButtonThisAccount_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            cmd.CommandText = "select * from Accounts where userID = @uID and AccountType=@AT";
+            cmd.Parameters.AddWithValue("@uID", userID);
+            cmd.Parameters.AddWithValue("@AT", DropDownListAccountType.SelectedIndex + 1); ;
+            da.Fill(dt);
+            cmd.Parameters.Clear();
+
+            String aNo = dt.Rows[0]["AccountNo"].ToString();
+
+            cmd.CommandText = "delAccount @aNo";
+            cmd.Parameters.AddWithValue("@aNo",aNo);
+            cmd.ExecuteNonQuery();
+
+            Response.Redirect("ViewUserDetails.aspx");
+        }
+
+        protected void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+
+            cmd.CommandText = "delete from UsersInfo where ID = (select ID from Users where UserName = @UserName)";
+            cmd.Parameters.AddWithValue("@UserName", TextBoxUserName.Text);
+            cmd.ExecuteNonQuery();
+
+            Response.Redirect("ViewUsers.aspx");
+        }
     }
 }

@@ -224,9 +224,9 @@
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" OnSelectedIndexChanged="DropDownListAccountType_SelectedIndexChanged" AutoPostBack="true">
-                                    <asp:ListItem Text="Current Account" />
-                                    <asp:ListItem Text="Saving Account" />
-                                    <asp:ListItem Text="Salary Account" />
+                                    <asp:ListItem Text="Current Account" id="li1" Enabled="false"/>
+                                    <asp:ListItem Text="Saving Account" id="li2" Enabled="false"/>
+                                    <asp:ListItem Text="Salary Account" id="li3" Enabled="false"/>
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
@@ -239,7 +239,7 @@
                         <asp:TableRow runat="server" ID="TableRowPinCode">
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:Button ID="ButtonThisAccount" runat="server" Text="Delete Account" CssClass="dropDownList" Style="font-size: 18px; width: 60%; height: 40px; background-color: crimson; border: none;" />
+                                <asp:Button ID="ButtonThisAccount" runat="server" Text="Delete Account" CssClass="dropDownList" Style="font-size: 18px; width: 60%; height: 40px; background-color: crimson; border: none;" OnClick="ButtonThisAccount_Click"/>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelPin" runat="server" Text="Pin Code" CssClass="text">
@@ -256,7 +256,7 @@
                                 <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Text="  Register as admin" Style="display: none;" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" CssClass="btn" />
+                                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" CssClass="btn" OnClick="ButtonDelete_Click"/>
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
                                 <asp:Button ID="ButtonEdit" runat="server" Text="Edit" CssClass="btn" OnClick="ButtonEdit_Click" />

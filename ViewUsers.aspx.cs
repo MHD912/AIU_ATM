@@ -86,6 +86,8 @@ namespace AIU_ATM
             cmd.CommandText = "delete from UsersInfo where ID = (select ID from Users where UserName = @UserName)";
             cmd.Parameters.AddWithValue("@UserName", un);
             cmd.ExecuteNonQuery();
+
+            Response.Redirect("ViewUsers.aspx");
         }
     }
 }
