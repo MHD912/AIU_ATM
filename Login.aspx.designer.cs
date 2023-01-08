@@ -51,6 +51,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox username;
 
         /// <summary>
+        /// LabelUsernameFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUsernameFeedback;
+
+        /// <summary>
         /// password control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
+
+        /// <summary>
+        /// LabelPasswordFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPasswordFeedback;
 
         /// <summary>
         /// btnLogin control.

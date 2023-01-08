@@ -8,29 +8,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
 
     <style>
-        .navbar.sticky .logo a {
-            color: #333;
+        /* navbar styling */
+        .navbar.sticky {
+            padding: 8.75px 0;
+            display: block
         }
 
-            .navbar.sticky .logo a:hover {
-                color: #fff;
+            .navbar.sticky a:hover {
+                text-decoration: none;
             }
 
-                .navbar.sticky .logo a:hover span {
-                    color: #333;
-                }
-
-            .navbar.sticky .logo a span {
-                color: #fff;
-            }   
-
+        /* input styling */
         .contact .right form .field,
         .contact .right form .fields .field {
             height: 45px;
@@ -42,10 +38,9 @@
             justify-content: center;
         }
 
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
-        }
+            .contact .contact-content .column {
+                width: calc(45% - 30px);
+            }
 
         .section .title::before {
             width: 250px;
@@ -108,7 +103,7 @@
                 </asp:HyperLink>
             </div>
             <!-- Navigation bar menu -->
-            <ul class="menu">
+            <ul class="menu" style="margin-bottom: 0;">
                 <li>
                     <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/Default.aspx" ForeColor="White">
                         <span class="fas fa-home" style="font-size: 25px;"/>
@@ -121,36 +116,31 @@
 
     <!-- Login section -->
 
-    <section class="contact" id="contact" style="margin-bottom: 5em;">
-        <div class="max-width">
+    <section class="contact" id="contact" style="margin-bottom: 8em;">
+        <div class="max-width" style="">
             <h2 class="title" style="margin-bottom: 3em;">Login</h2>
             <div class="contact-content">
                 <div class="column right">
                     <div class="text">Enter your information:</div>
 
                     <form id="form1" runat="server">
-                        <div class="field name">
-                            <asp:TextBox ID="username" placeholder="Username" runat="server" Wrap="False" TabIndex="1"></asp:TextBox>
-                            <div class="errors-block">
-                            </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="username" CssClass="form-control" placeholder="Username" runat="server" Wrap="False" TabIndex="1" required="true"></asp:TextBox>
+                            <asp:Label ID="LabelUsernameFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                         </div>
 
-                        <div class="field">
-                            <asp:TextBox ID="password" placeholder="Password" runat="server" Wrap="False" type="password" TabIndex="2"></asp:TextBox>
-                            <div class="errors-block">
-                            </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="password" CssClass="form-control" placeholder="Password" runat="server" Wrap="False" type="password" TabIndex="2" required="true"></asp:TextBox>
+                            <asp:Label ID="LabelPasswordFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                         </div>
-
-                        <div class="button" style="width: 100%; height: 80px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 100%; display: flex; justify-content: center;">
                             <asp:Button CssClass="btn" ID="btnLogin" runat="server" Text="Login" Height="53px" Width="98px" OnClick="btnLogin_Click" TabIndex="3" />
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </section>
-
     <footer>
         <span>Designed By <a href="#">HYA - Software</a> | <span class="fas fa-copyright"></span>
             2022 All rights reserved.

@@ -105,6 +105,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxDepositAmount;
 
         /// <summary>
+        /// LabelDepositAmountFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDepositAmountFeedback;
+
+        /// <summary>
         /// LabelPinCode control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPinCode;
+
+        /// <summary>
+        /// LabelPinCodeFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPinCodeFeedback;
 
         /// <summary>
         /// ButtonDeposite control.

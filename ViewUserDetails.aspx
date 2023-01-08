@@ -74,11 +74,13 @@
                 $("#TableRowBalance").hide();
                 $("#TableRowPinCode").hide();
                 $("#TableRowConfirmPin").hide();
+                $("#contact").css("margin-bottom", "8em");
             }
             else {
                 $("#TableRowBalance").show();
                 $("#TableRowPinCode").show();
                 $("#TableRowConfirmPin").show();
+                $("#contact").css("margin-bottom", "14em");
             }
             var typed = new Typed(".typing", {
                 strings: ["Bank", "View Info."],

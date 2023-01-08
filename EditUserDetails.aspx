@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
@@ -18,10 +19,24 @@
     <style>
         /* navbar styling */
         .navbar.sticky {
-            padding: 10.6px 0;
+            padding: 7.55px 0;
+            display: block;
+            position: fixed;
         }
 
+            .navbar.sticky a:hover {
+                text-decoration: none;
+            }
+
         /* input table styling */
+        table {
+            border-collapse: separate;
+        }
+
+            table tr {
+                vertical-align: -webkit-baseline-middle;
+            }
+
         .contact .right form .field,
         .contact .right form .fields .field {
             height: 45px;
@@ -46,24 +61,42 @@
             margin-left: 0px;
         }
 
+        /* invalid-feedback styling */
+        .form-group {
+            margin-bottom: 2px;
+        }
+
+        .invalid-feedback {
+            margin: -9.6px 0;
+            transform: translateY(9.6px);
+        }
+
         /* other content styling */
         .btn {
             padding: 8px;
             width: 35%;
             height: 100%;
             font-size: 17px;
-            font-weight: 400;
             font-family: 'Poppins', sans-serif;
+            background: rgb(52, 205, 133);
+            color: #fff;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.3s ease;
         }
 
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
-        }
+            .btn:hover {
+                background-color: #218838;
+                color: #fff;
+            }
 
         .text {
             font-size: 17px;
             font-weight: 500;
+        }
+
+        footer span a:hover {
+            color: rgb(52, 205, 133);
         }
 
         .typing {
@@ -76,11 +109,13 @@
                 $("#TableRowBalance").hide();
                 $("#TableRowPinCode").hide();
                 $("#TableRowConfirmPin").hide();
+                $("#contact").css("margin-bottom", "8em");
             }
             else {
                 $("#TableRowBalance").show();
                 $("#TableRowPinCode").show();
                 $("#TableRowConfirmPin").show();
+                $("#contact").css("margin-bottom", "20em");
             }
             var typed = new Typed(".typing", {
                 strings: ["Bank", "Edit Info."],
@@ -112,7 +147,7 @@
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
-                <ul class="menu" style="margin-right: -13%;">
+                <ul class="menu" style="margin-right: -13%; margin-bottom: 0;">
                     <li style="transform: translateY(-3px);">
                         <div class="tool-tip">
                             <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/AdminDashboard.aspx" ForeColor="White">
@@ -136,7 +171,7 @@
 
         <%-- Input form --%>
 
-        <section class="contact" id="contact" style="margin-bottom: 16em;">
+        <section class="contact" id="contact" style="margin-bottom: 20em;">
             <div class="max-width">
                 <h2 class="title"></h2>
                 <div class="inputTable">
@@ -147,13 +182,22 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxFirstName" placeholder="First" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxFirstName" placeholder="First" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelFirstNameFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxMidName" placeholder="Middle" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxMidName" placeholder="Middle" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelMidNameFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxLastName" placeholder="Last" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxLastName" placeholder="Last" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelLastNameFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -162,7 +206,10 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxUserName" placeholder="Username" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxUserName" placeholder="Username" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelUserNameFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -171,13 +218,19 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxPassword" placeholder="Password" type="password" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxPassword" placeholder="Password" type="password" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelPasswordFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelConfirmPassword" runat="server" Text="Confirm Password" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxConfirmPassword" placeholder="Confirm Password" runat="server" type="password" CssClass="input" Style="transform: translateX(-50%);"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxConfirmPassword" placeholder="Confirm Password" runat="server" type="password" CssClass="form-control" Style="transform: translateX(-50%);" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelConfirmPasswordFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -186,7 +239,10 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxEmail" placeholder="Email" type="email" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxEmail" placeholder="Email" type="email" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelEmailFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -195,7 +251,10 @@
                                 </asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxBirthDate" placeholder="dd/mm/yyyy" type="date" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxBirthDate" placeholder="dd/mm/yyyy" type="date" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelBirthDateFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -212,39 +271,46 @@
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
-                                <asp:Label ID="LabelContact" runat="server" Text="Contact" CssClass="text">
-                                </asp:Label>
+                                <asp:Label ID="LabelContact" runat="server" Text="Contact" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="input">
-                                </asp:TextBox>
-                            </asp:TableCell>
-                            <asp:TableCell runat="server">
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxContact" placeholder="Phone Number" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelContactFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
-                                <asp:Label ID="LabelAddress" runat="server" Text="Address/City" CssClass="text">
-                                </asp:Label>
+                                <asp:Label ID="LabelAddress" runat="server" Text="Address/City" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxAddress" placeholder="Mazzeh Damascus, Syria" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxAddress" placeholder="Mazzeh Damascus, Syria" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelAddressFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowBalance">
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" AutoPostBack="true">
-                                    <asp:ListItem Text="Current Account" />
-                                    <asp:ListItem Text="Saving Account" />
-                                    <asp:ListItem Text="Salary Account" />
-                                </asp:DropDownList>
+                                <div class="form-group">
+                                    <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" AutoPostBack="true">
+                                        <asp:ListItem Text="Current Account" />
+                                        <asp:ListItem Text="Saving Account" />
+                                        <asp:ListItem Text="Salary Account" />
+                                    </asp:DropDownList>
+                                    <asp:Label ID="LabelAccountTypeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelBalance" runat="server" Text="Balance" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxBalance" placeholder="$" runat="server" CssClass="form-control" Style="transform: translateX(-60%);" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelBalanceFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
@@ -254,7 +320,10 @@
                                 <asp:Label ID="LabelPin" runat="server" Text="Pin Code" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxPin" placeholder="####" runat="server" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxPin" placeholder="####" runat="server" CssClass="form-control" Style="transform: translateX(-60%);" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelPinFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowConfirmPin">
@@ -264,16 +333,19 @@
                                 <asp:Label ID="LabelConfirmPin" runat="server" Text="Confirm Pin" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxConfirmPin" placeholder="####" runat="server" CssClass="input" Style="transform: translateX(-60%);"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxConfirmPin" placeholder="####" runat="server" CssClass="form-control" Style="transform: translateX(-60%);" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelConfirmPinFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
                             <asp:TableCell runat="server">
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Text="  Register as admin" Style="display: none;" />
+                                <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Text="Register as admin" Style="display: none;" />
                             </asp:TableCell>
-                            <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
+                            <asp:TableCell runat="server" Style="text-align: end; transform: translateX(65%);">
                                 <asp:Button ID="ButtonConfirm" runat="server" type="submit" Text="Confirm" CssClass="btn" OnClick="ButtonConfirm_Click" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
@@ -285,9 +357,8 @@
             </div>
         </section>
         <footer>
-            <span>Designed By
-                <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
-                | <span class="fas fa-copyright"></span>
+            <span>
+                Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server" NavigateUrl="#">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
                 2022 All rights reserved.
             </span>
         </footer>

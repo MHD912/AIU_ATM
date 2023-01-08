@@ -10,14 +10,30 @@
     <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
     <style>
         /* navbar styling */
         .navbar.sticky {
-            padding: 10.6px 0;
+            padding: 7.5px 0;
+            display: block;
+            position: fixed;
         }
+
+            .navbar.sticky a:hover {
+                text-decoration: none;
+            }
+
+        /* input table styling */
+        table {
+            border-collapse: separate;
+        }
+
+            table tr {
+                vertical-align: -webkit-baseline-middle;
+            }
 
         /* other styling */
         .home {
@@ -29,11 +45,29 @@
             font-size: 20px;
         }
 
-        .btn {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            width: 550px;
+        .form-group {
+            margin-bottom: 10px;
         }
+
+        .invalid-feedback {
+            margin: -9.6px 0;
+            transform: translateY(9.6px);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 8px;
+            font-size: 17px;
+            font-family: 'Poppins', sans-serif;
+            background: rgb(52, 205, 133);
+            color: #fff;
+            border-radius: 6px;
+        }
+
+            .btn:hover {
+                background-color: #218838;
+                color: #fff;
+            }
 
         .typing {
             color: rgb(52, 205, 133);
@@ -70,7 +104,7 @@
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
-                <ul class="menu" style="margin-right: -13%;">
+                <ul class="menu" style="margin-right: -13%; margin-bottom: 0;">
                     <li style="transform: translateY(-3px);">
                         <div class="tool-tip">
                             <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/AdminDashboard.aspx" ForeColor="White">
@@ -112,7 +146,10 @@
                                     <asp:Label ID="LabelWithdrawAmount" CssClass="text-1" runat="server" Text="Withdraw "></asp:Label>
                                 </asp:TableCell>
                                 <asp:TableCell>
-                                    <asp:TextBox ID="TextBoxWithdrawAmount" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server"></asp:TextBox>S.P
+                                    <div class="form-group">
+                                        <asp:TextBox ID="TextBoxWithdrawAmount" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server" required="true"></asp:TextBox>
+                                        <asp:Label ID="LabelWithdrawAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                    </div>
                                 </asp:TableCell>
                             </asp:TableRow>
                             <asp:TableRow>
@@ -120,7 +157,10 @@
                                     <asp:Label ID="LabelPinCode" CssClass="text-1" runat="server" Text="Pin code"></asp:Label>
                                 </asp:TableCell>
                                 <asp:TableCell>
-                                    <asp:TextBox ID="TextBoxPinCode" CssClass="input" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####"></asp:TextBox>
+                                    <div class="form-group">
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####" required="true"></asp:TextBox>
+                                        <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                    </div>
                                 </asp:TableCell>
                             </asp:TableRow>
                         </asp:Table>

@@ -87,6 +87,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxFirstName;
 
         /// <summary>
+        /// LabelFirstNameFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelFirstNameFeedback;
+
+        /// <summary>
         /// TextBoxMidName control.
         /// </summary>
         /// <remarks>
@@ -96,6 +105,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxMidName;
 
         /// <summary>
+        /// LabelMidNameFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMidNameFeedback;
+
+        /// <summary>
         /// TextBoxLastName control.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxLastName;
+
+        /// <summary>
+        /// LabelLastNameFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelLastNameFeedback;
 
         /// <summary>
         /// LabelUserName control.
@@ -123,6 +150,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxUserName;
 
         /// <summary>
+        /// LabelUserNameFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUserNameFeedback;
+
+        /// <summary>
         /// LabelPassword control.
         /// </summary>
         /// <remarks>
@@ -139,6 +175,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
+
+        /// <summary>
+        /// LabelPasswordFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPasswordFeedback;
 
         /// <summary>
         /// LabelConfirmPassword control.
@@ -159,6 +204,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmPassword;
 
         /// <summary>
+        /// LabelConfirmPasswordFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelConfirmPasswordFeedback;
+
+        /// <summary>
         /// LabelEmail control.
         /// </summary>
         /// <remarks>
@@ -177,6 +231,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
 
         /// <summary>
+        /// LabelEmailFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelEmailFeedback;
+
+        /// <summary>
         /// LabelBirthDate control.
         /// </summary>
         /// <remarks>
@@ -193,6 +256,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxBirthDate;
+
+        /// <summary>
+        /// LabelBirthDateFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelBirthDateFeedback;
 
         /// <summary>
         /// LabelGender control.
@@ -240,6 +312,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCountryCode;
 
         /// <summary>
+        /// LabelCountryCodeFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCountryCodeFeedback;
+
+        /// <summary>
         /// TextBoxContact control.
         /// </summary>
         /// <remarks>
@@ -247,6 +328,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxContact;
+
+        /// <summary>
+        /// LabelContactFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelContactFeedback;
 
         /// <summary>
         /// LabelAddress control.
@@ -265,6 +355,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxAddress;
+
+        /// <summary>
+        /// LabelAddressFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAddressFeedback;
 
         /// <summary>
         /// TableRowBalance control.
@@ -294,6 +393,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxBalance;
 
         /// <summary>
+        /// LabelBalanceFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelBalanceFeedback;
+
+        /// <summary>
         /// LabelAccountType control.
         /// </summary>
         /// <remarks>
@@ -310,6 +418,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListAccountType;
+
+        /// <summary>
+        /// LabelAccounttypeFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAccounttypeFeedback;
 
         /// <summary>
         /// TableRowPinCode control.
@@ -339,6 +456,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxPin;
 
         /// <summary>
+        /// LabelPinFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPinFeedback;
+
+        /// <summary>
         /// LabelConfirmPin control.
         /// </summary>
         /// <remarks>
@@ -355,6 +481,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmPin;
+
+        /// <summary>
+        /// LabelConfirmPinFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelConfirmPinFeedback;
 
         /// <summary>
         /// CheckBoxUserType control.

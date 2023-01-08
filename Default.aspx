@@ -18,7 +18,6 @@
     <script src="Scripts/typed.min.js"></script>
     <script src="Scripts/script.js"></script>
     <style>
-       
         /* button styling */
         .btn {
             width: 6em;
@@ -29,7 +28,6 @@
         }
 
         /* navigation bar styling */
-
         .navbar .logo a {
             color: #333;
         }
@@ -53,12 +51,33 @@
             margin-right: -170px;
         }
 
+        /* cardAbout styling */
+
+
+        #cardAbout {
+            height: 400px;
+            width: 400px;
+            border-radius: 25px;
+            padding: 10px;
+            transition: all 0.5s ease;
+        }
+        
+        #cardAbout .box {
+            background: image();
+            transition: all 0.5s ease;
+        }
+
+            #cardAbout .box:hover {
+                transform: rotateY(180deg);
+                background-image: url(Content/Images/logo_en_350_43.png);
+                transition: all 0.5s ease;
+            }
+
         /* typed script styling */
 
         .typing {
             color: rgb(52, 205, 133);
         }
-
     </style>
     <script>
         $('document').ready(function () {
@@ -92,7 +111,7 @@
                         AIU|<span> Bank</span> 
                     </asp:HyperLink>
                 </div>
-                <!-- Navigation bar menu -->
+                <!--Navigation bar menu -->
                 <ul class="menu">
                     <li><a href="#about" class="menu-btn">About</a></li>
                     <li><a href="#services" class="menu-btn">Services</a></li>
@@ -132,7 +151,10 @@
                 <h2 class="title">About Us</h2>
                 <div class="about-content">
                     <div class="column left">
-                        <img src="Content/Images/logo_en_350_43.png" alt="">
+                        <div class="card" id="cardAbout">
+                            <div class="box">
+                            </div>
+                        </div>
                     </div>
                     <div class="column right">
                         <div class="text" id="text">
@@ -275,17 +297,17 @@
                         <div class="text">Message us</div>
                         <div class="fields">
                             <div class="field name">
-                                <asp:TextBox ID="TextBoxName" runat="server" placeholder="Name"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxName" runat="server" placeholder="Name" required="true"></asp:TextBox>
                             </div>
                             <div class="field email">
-                                <asp:TextBox ID="TextBoxEmail" CssClass="input" runat="server" placeholder="Email"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxEmail" CssClass="input" runat="server" placeholder="Email" required="true"></asp:TextBox>
                             </div>
                         </div>
                         <div class="field">
-                            <asp:TextBox ID="TextBoxSubject" CssClass="input" runat="server" placeholder="Subject"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxSubject" CssClass="input" runat="server" placeholder="Subject" required="true"></asp:TextBox>
                         </div>
                         <div class="field textarea">
-                            <asp:TextBox ID="TextBoxDescription" CssClass="input" Columns="30" Rows="10" runat="server" placeholder="Description" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxDescription" CssClass="input" Columns="30" Rows="10" runat="server" placeholder="Description" TextMode="MultiLine" required="true"></asp:TextBox>
                         </div>
                         <div class="button">
                             <asp:Button ID="ButtonSend" CssClass="button" runat="server" Text="Send message" />
@@ -296,7 +318,9 @@
         </section>
 
         <footer>
-            <span>Designed By <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink> | <span class="fas fa-copyright"></span>
+            <span>Designed By
+                <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
+                | <span class="fas fa-copyright"></span>
                 2022 All rights reserved.
             </span>
         </footer>

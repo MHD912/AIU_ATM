@@ -105,6 +105,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxRecipient;
 
         /// <summary>
+        /// LabelRecipientFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelRecipientFeedback;
+
+        /// <summary>
         /// LabelTransferValue control.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxTransferValue;
 
         /// <summary>
+        /// LabelTransferValueFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTransferValueFeedback;
+
+        /// <summary>
         /// LabelPinCode control.
         /// </summary>
         /// <remarks>
@@ -139,6 +157,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPinCode;
+
+        /// <summary>
+        /// LabelPinCodeFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPinCodeFeedback;
 
         /// <summary>
         /// ButtonTransfer control.
