@@ -32,7 +32,7 @@ namespace AIU_ATM
                 userID = Session["User"].ToString();
                 cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                 cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.Parameters.AddWithValue("@AT", int.Parse(Session["ST"].ToString()));
+                cmd.Parameters.AddWithValue("@AT", 1+int.Parse(Session["ST"].ToString()));
 
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
@@ -61,7 +61,7 @@ namespace AIU_ATM
                         double Balance = 0;
                         cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                         cmd.Parameters.AddWithValue("@uID", userID);
-                        cmd.Parameters.AddWithValue("@AT", int.Parse(Session["ST"].ToString()));
+                        cmd.Parameters.AddWithValue("@AT", 1 + int.Parse(Session["ST"].ToString()));
 
                         da.Fill(dt);
 

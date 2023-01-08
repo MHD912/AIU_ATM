@@ -103,13 +103,14 @@ namespace AIU_ATM
                                     cmd.Parameters.AddWithValue("@P", p);
                                     cmd.Parameters.AddWithValue("@Add", TextBoxAddress.Text);
                                     cmd.Parameters.AddWithValue("@G",g);
-                                    cmd.ExecuteNonQuery();                                    
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Parameters.Clear();
 
                                     cmd.CommandText = "insert into Accounts(Balance,PIN,AccountType,UserID) values(@Balance,@PIN,@AT, @uID)";
                                     cmd.Parameters.AddWithValue("@Balance", TextBoxBalance.Text);
                                     cmd.Parameters.AddWithValue("@PIN", TextBoxPin.Text);
                                     cmd.Parameters.AddWithValue("@AT", Acctype);
-                                    //cmd.Parameters.AddWithValue("@uID",userID);
+                                    cmd.Parameters.AddWithValue("@uID",userID);
                                     cmd.ExecuteNonQuery();
                                     
 

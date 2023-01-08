@@ -151,7 +151,7 @@
                     </div>
                     <div style="margin: auto; text-align-last: center; width: fit-content;">
                         <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover"
-                            ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="false" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged" DataKeyNames="UserName">
+                            ID="usersGridView" runat="server" Width="100%" AutoGenerateColumns="false" OnSelectedIndexChanged="usersGridView_SelectedIndexChanged" DataKeyNames="UserName" OnRowDeleting="usersGridView_RowDeleting">
                             <Columns>
                                 <asp:CommandField ShowHeader="false"
                                     CancelText="&lt;span class=&quot;fa fa-close&quot;&gt;&lt;/span&gt;"
@@ -173,12 +173,10 @@
                         </asp:GridView>
 
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"
-                            SelectCommand="select u.UserName,ui.Email,ui.BirthDate,ui.Gender from Users as u join UsersInfo as ui on u.ID=ui.ID where u.Privilege=2"
+                            
                             DeleteCommand="delete from UsersInfo
                                 where ID = (select ID from Users where UserName = @UserName)">
-                            <DeleteParameters>
-                                <asp:Parameter Name="AccountNo" Type="Int32" />
-                            </DeleteParameters>
+                            
                         </asp:SqlDataSource>
                     </div>
                 </div>
