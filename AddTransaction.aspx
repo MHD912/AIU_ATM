@@ -7,9 +7,10 @@
     <title>Create Transaction</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/font-face.css" />
     <link rel="stylesheet" href="Content/font-awesome-5.15.4.min.css" />
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
     <link rel="stylesheet" href="Content/google-material-symbols-rounded.css" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/typed.min.js"></script>
@@ -17,8 +18,13 @@
     <style>
         /* navbar styling */
         .navbar.sticky {
-            padding: 10.6px 0;
+            padding: 7.5px 0;
+            display: block
         }
+
+            .navbar.sticky a:hover {
+                text-decoration: none;
+            }
 
         /* input table styling */
         .contact .inputTable {
@@ -28,6 +34,14 @@
         }
 
         /* content styling */
+        table {
+            border-collapse: separate;
+        }
+
+            table tr {
+                vertical-align: -webkit-baseline-middle;
+            }
+
         .contact .right form .field,
         .contact .right form .fields .field {
             height: 45px;
@@ -51,6 +65,17 @@
             margin-left: 0px;
         }
 
+        /* invalid-feedback styling */
+        .form-group {
+            margin-bottom: 2px;
+        }
+
+        .invalid-feedback {
+            margin: -9.6px 0;
+            transform: translateY(9.6px);
+        }
+
+        /* other styling */
         .btn {
             padding: 8px;
             width: 35%;
@@ -70,9 +95,8 @@
             text-decoration: underline;
         }
 
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
+        footer span a:hover {
+            color: rgb(52, 205, 133);
         }
 
         .typing {
@@ -125,7 +149,7 @@
                     </asp:HyperLink>
                 </div>
                 <!-- Navigation bar menu -->
-                <ul class="menu" style="margin-right: -13%;">
+                <ul class="menu" style="margin-right: -13%; margin-bottom: 0;">
                     <li style="transform: translateY(-3px);">
                         <div class="tool-tip">
                             <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/AdminDashboard.aspx" ForeColor="White">
@@ -159,7 +183,10 @@
                                 <asp:Label ID="LabelAccountUsername" runat="server" Text="Account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxAccountNo" placeholder="AccountNumber" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="AccountNumber" runat="server" CssClass="form-control" required="true" ></asp:TextBox>
+                                    <asp:Label ID="LabelAccountNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowSenderUsername">
@@ -167,7 +194,10 @@
                                 <asp:Label ID="LabelSenderUsername" runat="server" Text="Sender account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxSenderNo" placeholder="AccountNumber" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxSenderNo" placeholder="AccountNumber" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelSenderNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowRecipientUsername">
@@ -175,7 +205,10 @@
                                 <asp:Label ID="LabelRecipientUsername" runat="server" Text="Recipient account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxRecipientNo" placeholder="AccountNumber" runat="server" CssClass="input"></asp:TextBox>
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxRecipientNo" placeholder="AccountNumber" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelRecipientNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -183,11 +216,14 @@
                                 <asp:Label ID="LabelType" runat="server" Text="Transaction type" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="input" Style="width: 70%;">
-                                    <asp:ListItem>Deposit</asp:ListItem>
-                                    <asp:ListItem>Withdraw</asp:ListItem>
-                                    <asp:ListItem>Transfer</asp:ListItem>
-                                </asp:DropDownList>
+                                <div class="form-group">
+                                    <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="form-control" Style="width: 70%;">
+                                        <asp:ListItem>Deposit</asp:ListItem>
+                                        <asp:ListItem>Withdraw</asp:ListItem>
+                                        <asp:ListItem>Transfer</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:Label ID="LabelTransactionTypeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -195,8 +231,10 @@
                                 <asp:Label ID="LabelAmount" runat="server" Text="Amount" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <asp:TextBox ID="TextBoxAmount" placeholder="Value" runat="server" CssClass="input" Style="width: 70%;"></asp:TextBox>
-                                S.P
+                                <div class="form-group">
+                                    <asp:TextBox ID="TextBoxAmount" placeholder="Value" runat="server" CssClass="form-control" Style="width: 70%;" required="true"></asp:TextBox>
+                                    <asp:Label ID="LabelAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
+                                </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
@@ -224,7 +262,7 @@
     </form>
     <footer>
         <span>Designed By
-            <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
+            <asp:HyperLink ID="HyperLinkHYASoftware" runat="server" NavigateUrl="#">HYA - Software</asp:HyperLink>
             | <span class="fas fa-copyright"></span>
             2022 All rights reserved.
         </span>

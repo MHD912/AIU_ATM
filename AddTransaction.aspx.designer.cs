@@ -96,6 +96,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxAccountNo;
 
         /// <summary>
+        /// LabelAccountNoFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAccountNoFeedback;
+
+        /// <summary>
         /// TableRowSenderUsername control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxSenderNo;
+
+        /// <summary>
+        /// LabelSenderNoFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelSenderNoFeedback;
 
         /// <summary>
         /// TableRowRecipientUsername control.
@@ -150,6 +168,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TextBox TextBoxRecipientNo;
 
         /// <summary>
+        /// LabelRecipientNoFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelRecipientNoFeedback;
+
+        /// <summary>
         /// LabelType control.
         /// </summary>
         /// <remarks>
@@ -168,6 +195,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.DropDownList DropDownListTransactionType;
 
         /// <summary>
+        /// LabelTransactionTypeFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTransactionTypeFeedback;
+
+        /// <summary>
         /// LabelAmount control.
         /// </summary>
         /// <remarks>
@@ -184,6 +220,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxAmount;
+
+        /// <summary>
+        /// LabelAmountFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountFeedback;
 
         /// <summary>
         /// LinkButtonPrint control.
