@@ -99,6 +99,10 @@ namespace AIU_ATM
                 }
                 else if (Session["view"].ToString() == "1")
                 {
+                    CheckBoxUserType.Checked = true;
+                    TextBoxBalance.Enabled = false;
+                    TextBoxPin.Enabled = false;
+                    TextBoxConfirmPin.Enabled = false;
                     ButtonDiscard_Click(sender, e);
                 }
                 
@@ -214,7 +218,7 @@ namespace AIU_ATM
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
 
-                        Page_Load(sender, e);
+                        Response.Redirect("ViewUserDetails.aspx");
                     }
                     else { TextBoxUserName.Text = ""; }
                 }
@@ -348,6 +352,14 @@ namespace AIU_ATM
 
             }
 
+        }
+
+        protected void LinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Session["EditUser"] = null;
+            Session["ViewUser"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

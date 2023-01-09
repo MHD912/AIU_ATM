@@ -114,7 +114,7 @@ namespace AIU_ATM
                     TextBoxContact.Text = dt.Rows[0]["P"].ToString();
                     TextBoxAddress.Text = dt.Rows[0]["Addr"].ToString();
 
-                    
+                    CheckBoxUserType.Checked = true;
                 }   
 
             }
@@ -185,6 +185,14 @@ namespace AIU_ATM
             cmd.ExecuteNonQuery();
 
             Response.Redirect("ViewUsers.aspx");
+        }
+
+        protected void LinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Session["EditUser"] = null;
+            Session["ViewUser"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

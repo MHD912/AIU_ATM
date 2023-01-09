@@ -154,7 +154,7 @@
                     </li>
                     <li>
                         <div class="tool-tip">
-                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server" OnClick="LinkButtonLogout_Click">
                             <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600;  font-size: 32px;">logout</i>
                             <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
                             </asp:LinkButton>

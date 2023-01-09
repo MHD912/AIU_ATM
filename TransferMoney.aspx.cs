@@ -101,5 +101,12 @@ namespace AIU_ATM
             Session["User"] = userID;
             Response.Redirect("CustomerDashboard.aspx");
         }
+
+        protected void LinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Session["ST"] = null;
+            Response.Redirect("Login.aspx");
+        }
     }
 }
