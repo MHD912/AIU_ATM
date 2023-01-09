@@ -33,6 +33,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.HyperLink logoHyperLink;
 
         /// <summary>
+        /// LinkButtonLogoutAsText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogoutAsText;
+
+        /// <summary>
         /// LinkButtonLogout control.
         /// </summary>
         /// <remarks>
