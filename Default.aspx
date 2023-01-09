@@ -209,35 +209,35 @@
                 <div class="carousel owl-carousel">
                     <div class="card">
                         <div class="box">
-                            <img src="Content/Images/default_location.jpg" alt="">
+                            <img src="Content/Images/default_page.jpg" alt="">
                             <div class="text">Kafar Souseh</div>
                             <p>The main branch with next to Sham City Center mall.</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="box">
-                            <img src="Content/Images/default_location.jpg" alt="">
+                            <img src="Content/Images/default_page.jpg" alt="">
                             <div class="text">Al-Mazzah</div>
                             <p>Our latest branch is ready to provide services to our curomters. Next to AIU university HQ.</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="box">
-                            <img src="Content/Images/default_location.jpg" alt="">
+                            <img src="Content/Images/default_page.jpg" alt="">
                             <div class="text">Bab Tuma</div>
                             <p>A three story building behind Bab Tuma square.</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="box">
-                            <img src="Content/Images/default_location.jpg" alt="">
+                            <img src="Content/Images/default_page.jpg" alt="">
                             <div class="text">Jaramanah</div>
                             <p>Located next to Jaramanah mall.</p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="box">
-                            <img src="Content/Images/default_location.jpg" alt="">
+                            <img src="Content/Images/default_page.jpg" alt="">
                             <div class="text">Al-Zahra</div>
                             <p>Coming Soon...</p>
                         </div>

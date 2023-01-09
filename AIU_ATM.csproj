@@ -113,6 +113,7 @@
     <Content Include="Content\google-material-symbols-rounded.css" />
     <Content Include="Content\Images\aiu-5.jpg" />
     <Content Include="Content\Images\default_location.jpg" />
+    <Content Include="Content\Images\default_page.jpg" />
     <Content Include="Content\Images\logo_en_350_43.png" />
     <Content Include="Content\Images\invoice_logo.png" />
     <Content Include="Content\owl.carousel.min.css" />
