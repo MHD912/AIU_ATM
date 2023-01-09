@@ -220,7 +220,7 @@
         </div>
         <div style="display: none;">
             <asp:RadioButton ID="RadioButtonDeposit" runat="server" GroupName="TransactionType" />
-            <asp:RadioButton ID="RadioButtonWithdraw" runat="server" GroupName="TransactionType" Checked="True" />
+            <asp:RadioButton ID="RadioButtonWithdraw" runat="server" GroupName="TransactionType" />
             <asp:RadioButton ID="RadioButtonTransfer" runat="server" GroupName="TransactionType"  />
         </div>
     </form>
