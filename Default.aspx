@@ -51,28 +51,6 @@
             margin-right: -170px;
         }
 
-        /* cardAbout styling */
-
-
-        #cardAbout {
-            height: 400px;
-            width: 400px;
-            border-radius: 25px;
-            padding: 10px;
-            transition: all 0.5s ease;
-        }
-        
-        #cardAbout .box {
-            background: image();
-            transition: all 0.5s ease;
-        }
-
-            #cardAbout .box:hover {
-                transform: rotateY(180deg);
-                background-image: url(Content/Images/logo_en_350_43.png);
-                transition: all 0.5s ease;
-            }
-
         /* typed script styling */
 
         .typing {
@@ -111,12 +89,17 @@
                         AIU|<span> Bank</span> 
                     </asp:HyperLink>
                 </div>
+                <!-- Animated 3-bars menu icon -->
+                <label for="menu-hamburger" class="menu-btn">
+                    <div class="menu-hamburger"></div>
+                </label>
                 <!--Navigation bar menu -->
                 <ul class="menu">
                     <li><a href="#about" class="menu-btn">About</a></li>
                     <li><a href="#services" class="menu-btn">Services</a></li>
                     <li><a href="#branches" class="menu-btn">Branches</a></li>
                     <li><a href="#contact" class="menu-btn">Contact</a></li>
+                    <li><asp:LinkButton ID="LinkButtonLogoutAsText" CssClass="menu-btn" runat="server">Logout</asp:LinkButton></li>
                     <li style="margin-left: 70px">
                         <div class="tool-tip">
                             <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server" TabIndex="-1">
@@ -151,8 +134,14 @@
                 <h2 class="title">About Us</h2>
                 <div class="about-content">
                     <div class="column left">
-                        <div class="card" id="cardAbout">
-                            <div class="box">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="Content/Images/aiu-5.jpg" alt="Avatar" style="width: 400px; height: 400px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <img src="Content/Images/logo_en_350_43.png" alt="Avatar" style="width: 400px; height: 400px;">
+                                </div>
                             </div>
                         </div>
                     </div>
