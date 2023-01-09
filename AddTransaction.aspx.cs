@@ -39,7 +39,10 @@ namespace AIU_ATM
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            Session["User"] = null;
+            Session["EditUser"] = null;
+            Session["ViewUser"] = null;
+            Response.Redirect("Login.aspx");
         }
 
         protected void ButtonSubmit_Click(object sender, EventArgs e)
@@ -134,5 +137,7 @@ namespace AIU_ATM
             this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
             //Response.Redirect("Receipt.aspx");
         }
+
+        
     }
 }

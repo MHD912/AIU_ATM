@@ -31,5 +31,15 @@ namespace AIU_ATM
             Session["User"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
+
+        protected void LinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Session["ST"] = null;
+            Session["EditUser"] = null;
+            Session["ViewUser"] = null;
+            Response.Redirect("Login.aspx");
+        }
     }
+
 }

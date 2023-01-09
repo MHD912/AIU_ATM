@@ -111,11 +111,11 @@
                 <ul class="menu" style="margin-right: -15%;">
                     <li>
                         <div class="tool-tip">
-                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server">
-                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">logout</i>
-                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server" OnClick="LinkButtonLogout_Click">
+                            <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;" >logout</i>
+                            <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;" >door_open</i>
                             </asp:LinkButton>
-                            <span class="tool-tiptext" style="width:60px; margin-left: -35px;">Logout</span>
+                            <span class="tool-tiptext" style="width:60px; margin-left: -35px;">Logout</span>                            
                         </div>
                     </li>
                 </ul>

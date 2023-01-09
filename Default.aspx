@@ -119,7 +119,7 @@
                     <li><a href="#contact" class="menu-btn">Contact</a></li>
                     <li style="margin-left: 70px">
                         <div class="tool-tip">
-                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server" TabIndex="-1">
+                            <asp:LinkButton ID="LinkButtonLogout" CssClass="logout-button" runat="server" TabIndex="-1" OnClick="LinkButtonLogout_Click">
                                 <i id="logout-icon1" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">logout</i>
                                 <i id="logout-icon2" class="material-symbols-rounded" style="font-weight:600; font-size: 32px;">door_open</i>
                             </asp:LinkButton>

@@ -136,5 +136,12 @@ namespace AIU_ATM
             }
             cusBal.Text = balance + "$";
         }
+
+        protected void LinkButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Session["ST"] = null;            
+            Response.Redirect("Login.aspx");
+        }
     }
 }
