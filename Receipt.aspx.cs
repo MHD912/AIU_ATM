@@ -41,6 +41,7 @@ namespace AIU_ATM
                     cmd.Parameters.Clear();
 
                     string tID = dt.Rows[0][0].ToString();
+                    dt.Clear();
 
                     cmd.CommandText = "select * from Transactions where ID=@tID";
                     cmd.Parameters.AddWithValue("@tID", tID);
@@ -72,17 +73,19 @@ namespace AIU_ATM
                         LabelReceipientAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
                         
                     }
+                    dt.Clear();
 
                     cmd.CommandText = "select * from Accounts where AccountNo=@aNo";
                     cmd.Parameters.AddWithValue("@aNo", aNo);
                     da.Fill(dt);
                     string cusID = dt.Rows[0]["userID"].ToString();
+                    dt.Clear();
 
                     cmd.CommandText = "select * from UsersInfo where ID=@uID";
                     cmd.Parameters.AddWithValue("@uID", cusID);
                     da.Fill(dt);
 
-                    LabelCustomerName.Text = dt.Rows[0]["FirstName"].ToString() + " " + dt.Rows[0]["LastName"];
+                    LabelCustomerName.Text = dt.Rows[0]["FirstName"].ToString() + " " + dt.Rows[0]["LastName"].ToString();
                     LabelEmail.Text = dt.Rows[0]["Email"].ToString();
                 }
                 else { Response.Redirect("Default.aspx"); }

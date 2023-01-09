@@ -104,37 +104,46 @@
                 }
     </style>
     <script>
-        function close_window(url) {
-            var newWindow = window.open('', '_self', ''); //open the current window
-            newWindow.close(url);
-        }
-        $('document').ready(function () {
-            $('body').printThis({
-                printDelay: 10,
-                pageTitle: "Transaction Invoice",
-                beforePrint: function () {
-                    $('.print-section').css('display', '');
-                    if ($('#RadioButtonTransfer').prop("checked") === true) {
-                        $("#TableRowSenderAccount").show();
-                        $("#TableRowReceipientAccount").show();
-                        $("#TableRowCustomerAccount").hide();
-                    }
-                    else {
-                        $("#TableRowSenderAccount").hide();
-                        $("#TableRowReceipientAccount").hide();
-                        $("#TableRowCustomerAccount").show();
-                    }
-                },
-                afterPrint: function () {
-                    close_window('Receipt.aspx');
-                }
-            });
-        });
+        //function close_window(url) {
+        //    var newWindow = window.open('', '_self', ''); //open the current window
+        //    newWindow.close(url);
+        //}
+        //$('document').ready(function () {
+        //    $('body').printThis({
+        //        printDelay: 2000,
+        //        pageTitle: "Transaction Receipt",
+        //        beforePrint: function () {
+        //            $('.print-section').css('display', '');
+        //            if ($('#RadioButtonTransfer').prop("checked") === true) {
+        //                $("#LabelTransactionType").text("Transfer");
+        //                $("#TableRowSenderAccount").show();
+        //                $("#TableRowReceipientAccount").show();
+        //                $("#TableRowCustomerAccount").hide();
+        //            }
+        //            else if ($('#RadioButtonDeposit').prop("checked") === true) {
+        //                $("#LabelTransactionType").text("Deposit");
+        //                $("#TableRowSenderAccount").hide();
+        //                $("#TableRowReceipientAccount").hide();
+        //                $("#TableRowCustomerAccount").show();
+        //            }
+        //            else {
+        //                $("#LabelTransactionType").text("Withdraw");
+        //                $("#TableRowSenderAccount").hide();
+        //                $("#TableRowReceipientAccount").hide();
+        //                $("#TableRowCustomerAccount").show();
+        //            }
+
+        //        },
+        //        afterPrint: function () {
+        //            close_window('Receipt.aspx');
+        //        }
+        //    });
+        //});
     </script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="print-section" style="margin-top: 9%; display: none;">
+        <div class="print-section" style="margin-top: 9%; ">
             <div class="invoice-box">
                 <asp:Table ID="Table1" runat="server" CellPadding="0" CellSpacing="0">
                     <asp:TableRow CssClass="top">
