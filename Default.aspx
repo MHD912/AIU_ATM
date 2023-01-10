@@ -59,6 +59,9 @@
     </style>
     <script>
         $('document').ready(function () {
+            if ($("#LinkButtonLogin").text() === "Dashboard") {
+                $("#LinkButtonLogin").css("width", "8em");
+            }
             var typed = new Typed(".typing", {
                 strings: ["Your first choice for monetary needs", "Reliable and trustworthy", "Creating banking trust", "Let us help you invest in your future !!"],
                 typeSpeed: 30,

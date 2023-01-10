@@ -131,7 +131,6 @@
                         $("#TableRowReceipientAccount").hide();
                         $("#TableRowCustomerAccount").show();
                     }
-
                 },
                 afterPrint: function () {
                     close_window('Receipt.aspx');

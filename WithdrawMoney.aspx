@@ -27,6 +27,13 @@
             }
 
         /* input table styling */
+        .form-control {
+            width: 205px;
+            margin-top: 10px;
+            margin-right: 5px;
+            height: 50px
+        }
+
         table {
             border-collapse: separate;
         }
@@ -55,9 +62,8 @@
         }
 
         .btn {
-            width: 100%;
-            padding: 8px;
-            font-size: 17px;
+            padding: 8px 15px;
+            font-size: 20px;
             font-family: 'Poppins', sans-serif;
             background: rgb(52, 205, 133);
             color: #fff;
@@ -65,9 +71,12 @@
         }
 
             .btn:hover {
-                background-color: #218838;
                 color: #fff;
             }
+
+        footer span a:hover {
+            color: rgb(52, 205, 133);
+        }
 
         .typing {
             color: rgb(52, 205, 133);
@@ -163,15 +172,25 @@
                                     </div>
                                 </asp:TableCell>
                             </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell ColumnSpan="2">
+                                    <asp:Button ID="ButtonWithdraw" CssClass="btn" runat="server" Text="Withdraw Money" OnClick="ButtonWithdraw_Click" />
+                                    <div class="tool-tip">
+                                        <asp:LinkButton ID="LinkButtonPrint" runat="server" CssClass="btn" Style="transform: translateX(10px); padding: 12px 15px" OnClick="LinkButtonPrint_Click">
+                                    <span class="material-symbols-rounded">print</span>
+                                        </asp:LinkButton>
+                                        <span class="tool-tiptext" style="width: 100px; margin-left: -40px;">Print receipt</span>
+                                    </div>
+                                </asp:TableCell>
+                            </asp:TableRow>
                         </asp:Table>
-                        <asp:Button ID="ButtonWithdraw" CssClass="btn" Style="display: block; margin-top: 30px; margin-bottom: 30px; font-size: 23px" runat="server" Text="Withdraw Money" OnClick="ButtonWithdraw_Click" />
                     </div>
                 </div>
             </div>
         </section>
         <footer>
             <span>Designed By
-                <asp:HyperLink ID="HyperLinkHYASoftware" runat="server">HYA - Software</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinkHYASoftware" runat="server" NavigateUrl="#">HYA - Software</asp:HyperLink>
                 | <span class="fas fa-copyright"></span>
                 2022 All rights reserved.
             </span>

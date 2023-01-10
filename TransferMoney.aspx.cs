@@ -108,5 +108,10 @@ namespace AIU_ATM
             Session["ST"] = null;
             Response.Redirect("Login.aspx");
         }
+
+        protected void LinkButtonPrint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
