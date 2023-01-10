@@ -159,9 +159,6 @@ namespace AIU_ATM
                     //Response.Redirect("Receipt.aspx");
                 }
             }
-            
-        }
-
-        
+        }   
     }
 }

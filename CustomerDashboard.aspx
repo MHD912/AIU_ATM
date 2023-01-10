@@ -136,6 +136,9 @@
                         <asp:LinkButton ID="LinkButtonTransfer" CssClass="btn" runat="server" OnClick="LinkButtonTransfer_Click">
                             <span class="material-symbols-rounded" style="margin-left: -20px">repeat</span> Transfer Money
                         </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonViewTransactions" CssClass="btn" runat="server" OnClick="LinkButtonViewTransactions_Click">
+                            <span class="material-symbols-rounded" style="margin-left: -20px">Receipt</span> View Transactions
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
