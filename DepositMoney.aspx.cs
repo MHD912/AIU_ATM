@@ -75,7 +75,7 @@ namespace AIU_ATM
 
                             Session["Transaction"] = 1;
                             Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
-                            Response.Redirect("Receipt.aspx");
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
                         }
                         TextBoxDepositAmount.Text = "";
                         cusBal.Text = (amount + Balance) + "$";
