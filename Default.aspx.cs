@@ -52,7 +52,7 @@ namespace AIU_ATM
             Session["ST"] = null;
             Session["EditUser"] = null;
             Session["ViewUser"] = null;
-            Response.Redirect("Login.aspx");
+            Response.Redirect("Default.aspx");
         }
     }
 }

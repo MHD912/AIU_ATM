@@ -27,6 +27,13 @@
             }
 
         /* input table styling */
+        .form-control {
+            width: 205px;
+            margin-top: 10px;
+            margin-right: 5px;
+            height: 50px
+        }
+
         table {
             border-collapse: separate;
         }
@@ -56,9 +63,8 @@
         }
 
         .btn {
-            width: 100%;
-            padding: 8px;
-            font-size: 17px;
+            padding: 8px 15px;
+            font-size: 20px;
             font-family: 'Poppins', sans-serif;
             background: rgb(52, 205, 133);
             color: #fff;
@@ -66,9 +72,12 @@
         }
 
             .btn:hover {
-                background-color: #218838;
                 color: #fff;
             }
+
+        footer span a:hover {
+            color: rgb(52, 205, 133);
+        }
 
         .typing {
             color: rgb(52, 205, 133);
@@ -150,7 +159,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxDepositAmount" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxDepositAmount" CssClass="form-control" placeholder="Amount" runat="server" required="true"></asp:TextBox>
                                         <asp:Label ID="LabelDepositAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -161,13 +170,23 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####" required="true"></asp:TextBox>
                                         <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
                             </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell ColumnSpan="2">
+                                    <asp:Button ID="ButtonDeposite" CssClass="btn" runat="server" Text="Deposite Money" OnClick="ButtonDeposite_Click" />
+                                    <div class="tool-tip">
+                                        <asp:LinkButton ID="LinkButtonPrint" runat="server" CssClass="btn" Style="transform: translateX(10px); padding: 12px 15px" OnClick="LinkButtonPrint_Click">
+                                    <span class="material-symbols-rounded">print</span>
+                                        </asp:LinkButton>
+                                        <span class="tool-tiptext" style="width: 100px; margin-left: -40px;">Print receipt</span>
+                                    </div>
+                                </asp:TableCell>
+                            </asp:TableRow>
                         </asp:Table>
-                        <asp:Button ID="ButtonDeposite" CssClass="btn" Style="display: block; margin-top: 30px; margin-bottom: 30px; font-size: 23px" runat="server" Text="Deposite Money" OnClick="ButtonDeposite_Click" />
                     </div>
                 </div>
             </div>

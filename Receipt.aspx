@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Receipt.aspx.cs" Inherits="AIU_ATM.Receipt" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Receipt.aspx.cs" Inherits="AIU_ATM.Receipt" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,6 @@
     <meta charset="UTF-8" />
     <script src="Scripts/jquery-3.6.1.min.js"></script>
     <script src="Scripts/printThis.js"></script>
-    <script src="Scripts/printReceipt.js"></script>
     <style>
         /* invoice styling */
         .invoice-box {
@@ -104,41 +103,40 @@
                 }
     </style>
     <script>
-        //function close_window(url) {
-        //    var newWindow = window.open('', '_self', ''); //open the current window
-        //    newWindow.close(url);
-        //}
-        //$('document').ready(function () {
-        //    $('body').printThis({
-        //        printDelay: 2000,
-        //        pageTitle: "Transaction Receipt",
-        //        beforePrint: function () {
-        //            $('.print-section').css('display', '');
-        //            if ($('#RadioButtonTransfer').prop("checked") === true) {
-        //                $("#LabelTransactionType").text("Transfer");
-        //                $("#TableRowSenderAccount").show();
-        //                $("#TableRowReceipientAccount").show();
-        //                $("#TableRowCustomerAccount").hide();
-        //            }
-        //            else if ($('#RadioButtonDeposit').prop("checked") === true) {
-        //                $("#LabelTransactionType").text("Deposit");
-        //                $("#TableRowSenderAccount").hide();
-        //                $("#TableRowReceipientAccount").hide();
-        //                $("#TableRowCustomerAccount").show();
-        //            }
-        //            else {
-        //                $("#LabelTransactionType").text("Withdraw");
-        //                $("#TableRowSenderAccount").hide();
-        //                $("#TableRowReceipientAccount").hide();
-        //                $("#TableRowCustomerAccount").show();
-        //            }
-
-        //        },
-        //        afterPrint: function () {
-        //            close_window('Receipt.aspx');
-        //        }
-        //    });
-        //});
+        function close_window(url) {
+            var newWindow = window.open('', '_self', ''); //open the current window
+            newWindow.close(url);
+        }
+        $('document').ready(function () {
+            $('body').printThis({
+                printDelay: 10,
+                pageTitle: "Transaction Receipt",
+                beforePrint: function () {
+                    $('.print-section').css('display', '');
+                    if ($('#RadioButtonTransfer').prop("checked") === true) {
+                        $("#LabelTransactionType").text("Transfer");
+                        $("#TableRowSenderAccount").show();
+                        $("#TableRowReceipientAccount").show();
+                        $("#TableRowCustomerAccount").hide();
+                    }
+                    else if ($('#RadioButtonDeposit').prop("checked") === true) {
+                        $("#LabelTransactionType").text("Deposit");
+                        $("#TableRowSenderAccount").hide();
+                        $("#TableRowReceipientAccount").hide();
+                        $("#TableRowCustomerAccount").show();
+                    }
+                    else {
+                        $("#LabelTransactionType").text("Withdraw");
+                        $("#TableRowSenderAccount").hide();
+                        $("#TableRowReceipientAccount").hide();
+                        $("#TableRowCustomerAccount").show();
+                    }
+                },
+                afterPrint: function () {
+                    close_window('Receipt.aspx');
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -155,7 +153,7 @@
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <br />
-                                        Invoice #: 123<br />
+                                        Receipt #: 123<br />
                                         Created:
                                         <asp:Label ID="LabelDate" runat="server" Text="January 1, 2015"></asp:Label>
                                     </asp:TableCell>
@@ -169,8 +167,7 @@
                                 <asp:TableRow>
                                     <asp:TableCell>
                                         AIU| Bank, Group.<br />
-                                        12345
-                                        <asp:Label ID="LabelAddress" runat="server" Text="Tanzim Kafar Souseh"></asp:Label><br />
+                                        12345 Tanzim Kafar Souseh<br />
                                         Damascus, SY 12345
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -230,7 +227,7 @@
         <div style="display: none;">
             <asp:RadioButton ID="RadioButtonDeposit" runat="server" GroupName="TransactionType" />
             <asp:RadioButton ID="RadioButtonWithdraw" runat="server" GroupName="TransactionType" />
-            <asp:RadioButton ID="RadioButtonTransfer" runat="server" GroupName="TransactionType"  />
+            <asp:RadioButton ID="RadioButtonTransfer" runat="server" GroupName="TransactionType" />
         </div>
     </form>
 </body>
