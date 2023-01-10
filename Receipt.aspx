@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Receipt.aspx.cs" Inherits="AIU_ATM.Receipt" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Receipt.aspx.cs" Inherits="AIU_ATM.Receipt" %>
 
 <!DOCTYPE html>
 
@@ -141,7 +141,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="print-section" style="margin-top: 9%; display: none;">
+        <div class="print-section" style="margin-top: 9%; ">
             <div class="invoice-box">
                 <asp:Table ID="Table1" runat="server" CellPadding="0" CellSpacing="0">
                     <asp:TableRow CssClass="top">
@@ -227,7 +227,7 @@
         <div style="display: none;">
             <asp:RadioButton ID="RadioButtonDeposit" runat="server" GroupName="TransactionType" />
             <asp:RadioButton ID="RadioButtonWithdraw" runat="server" GroupName="TransactionType" />
-            <asp:RadioButton ID="RadioButtonTransfer" runat="server" GroupName="TransactionType" Checked="True" />
+            <asp:RadioButton ID="RadioButtonTransfer" runat="server" GroupName="TransactionType" />
         </div>
     </form>
 </body>

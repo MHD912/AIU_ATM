@@ -72,9 +72,15 @@ namespace AIU_ATM
                             cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
                             cmd.Parameters.AddWithValue("@Amount", TextBoxDepositAmount.Text);
                             cmd.ExecuteNonQuery();
+
+                            Session["Transaction"] = 1;
+                            Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
+                            Response.Redirect("Receipt.aspx");
                         }
                         TextBoxDepositAmount.Text = "";
                         cusBal.Text = (amount + Balance) + "$";
+
+                        
                     }
                 }
             }

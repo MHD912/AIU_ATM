@@ -25,6 +25,8 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
+                LinkButtonPrint.Enabled = false;
+                if (Session["Transaction"] != null && Session["transUser"] != null) { LinkButtonPrint.Enabled = true; DropDownListTransactionType.SelectedIndex = int.Parse(Session["Transaction"].ToString())-1; }
             }
             else
             {
@@ -34,6 +36,9 @@ namespace AIU_ATM
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
+
+            Session["Transaction"] = null;
+            Session["transUser"] = null;
             Response.Redirect("ViewTransactions.aspx");
         }
 
@@ -64,7 +69,7 @@ namespace AIU_ATM
                         cmd.Parameters.AddWithValue("@aNo2", TextBoxRecipientNo.Text);
                         da.Fill(dt);
                         int ex = dt.Rows.Count;
-                        dt.Rows.Clear();
+                        dt.Clear();
 
                         double balance = 0;
                         cmd.CommandText = "select * from Accounts where AccountNo=@AN";
@@ -83,6 +88,9 @@ namespace AIU_ATM
                                 cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
 
                                 cmd.ExecuteNonQuery();
+                                Session["Transaction"] = 3;
+                                Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
+                                Response.Redirect("AddTransaction.aspx");
                                 TextBoxAmount.Text = "";
                                 TextBoxSenderNo.Text = "";
                                 TextBoxRecipientNo.Text = "";
@@ -91,7 +99,7 @@ namespace AIU_ATM
                     }
                     else { TextBoxRecipientNo.Text = TextBoxSenderNo.Text = ""; }
                 }
-                else
+                else if(selTT == 0 || selTT == 1)
                 {
                     double balance = 0;
                     cmd.CommandText = "select * from Accounts where AccountNo=@AN";
@@ -111,31 +119,47 @@ namespace AIU_ATM
                                 cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
 
                                 cmd.ExecuteNonQuery();
+                                Session["Transaction"] = 2;
+                                Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
+                                Response.Redirect("AddTransaction.aspx");
                                 TextBoxAmount.Text = "";
                             }
                         }
                         else if (selTT == 0)
                         {
-                            cmd.CommandText = "EXEC deposit @aNo, @Amount";
-                            cmd.Parameters.AddWithValue("@aNo", TextBoxAccountNo.Text);
-                            cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
+                            if(double.Parse(TextBoxAmount.Text) > 0)
+                            {
+                                cmd.CommandText = "EXEC deposit @aNo, @Amount";
+                                cmd.Parameters.AddWithValue("@aNo", TextBoxAccountNo.Text);
+                                cmd.Parameters.AddWithValue("@Amount", TextBoxAmount.Text);
 
-                            cmd.ExecuteNonQuery();
-                            TextBoxAmount.Text = "";
+                                cmd.ExecuteNonQuery();
+                                Session["Transaction"] = 1;
+                                Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
+                                Response.Redirect("AddTransaction.aspx");
+                                TextBoxAmount.Text = "";
+                            }                            
                         }
                         TextBoxAccountNo.Text = ""; TextBoxAmount.Text = "";
                     }
                     else { TextBoxAccountNo.Text = ""; }
-                }
+                }                
             }
             else { TextBoxAmount.Text = ""; }
         }
 
         protected void LinkButtonPrint_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(
-            this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
-            //Response.Redirect("Receipt.aspx");
+            Response.Redirect("Receipt.aspx");
+            if (Session["Transaction"] != null)
+            {
+                if (Session["transUser"] != null)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
+                    //Response.Redirect("Receipt.aspx");
+                }
+            }
+            
         }
 
         

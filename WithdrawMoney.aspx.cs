@@ -76,6 +76,10 @@ namespace AIU_ATM
                                 cmd.Parameters.AddWithValue("@Amount", TextBoxWithdrawAmount.Text);
 
                                 cmd.ExecuteNonQuery();
+
+                                Session["Transaction"] = 2;
+                                Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
+                                Response.Redirect("Receipt.aspx");
                                 TextBoxWithdrawAmount.Text = "";
                                 cusBal.Text = (balance - amount) + "$";
                             }
