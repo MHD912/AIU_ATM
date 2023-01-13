@@ -32,7 +32,7 @@ namespace AIU_ATM
                 userID = Session["User"].ToString();
                 cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                 cmd.Parameters.AddWithValue("@uID", userID);
-                cmd.Parameters.AddWithValue("@AT", 1+int.Parse(Session["ST"].ToString()));
+                cmd.Parameters.AddWithValue("@AT", 1 + int.Parse(Session["ST"].ToString()));
 
                 da.Fill(dt);
                 string userName = dt.Rows[0]["username"].ToString();
@@ -41,13 +41,15 @@ namespace AIU_ATM
 
                 welS.Text = "Hi there " + userName;
                 cusBal.Text = balance + "$";
+                LinkButtonPrint.Visible = false;
             }
             else { Response.Redirect("Login.aspx"); }
         }
 
         protected void ButtonDeposite_Click(object sender, EventArgs e)
         {
-            if( PIN == TextBoxPinCode.Text) {
+            if (PIN == TextBoxPinCode.Text)
+            {
                 if (TextBoxDepositAmount.Text != "")
                 {
                     double amount = double.Parse(TextBoxDepositAmount.Text);
@@ -75,17 +77,17 @@ namespace AIU_ATM
 
                             Session["Transaction"] = 1;
                             Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
+                            LinkButtonPrint.Visible = true;
                         }
                         TextBoxDepositAmount.Text = "";
                         cusBal.Text = (amount + Balance) + "$";
 
-                        
+
                     }
                 }
             }
             else { TextBoxPinCode.Text = ""; }
-            
+
         }
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
@@ -103,7 +105,7 @@ namespace AIU_ATM
 
         protected void LinkButtonPrint_Click(object sender, EventArgs e)
         {
-
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
         }
     }
 }
