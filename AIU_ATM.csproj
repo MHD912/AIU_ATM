@@ -117,6 +117,7 @@
     <Content Include="Content\Images\logo_en_350_43.png" />
     <Content Include="Content\Images\invoice_logo.png" />
     <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\ReceiptStyling.css" />
     <Content Include="CustomerDashboard.aspx" />
     <Content Include="DepositMoney.aspx" />
     <Content Include="EditUserDetails.aspx" />
