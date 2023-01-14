@@ -20,7 +20,7 @@
         }
         $('document').ready(function () {
             $('.print-section').printThis({
-                printDelay: 10,
+                printDelay: 500,
                 loadCSS: "Content/ReceiptStyling.css",
                 pageTitle: "Transaction Receipt",
                 beforePrint: function () {

@@ -109,16 +109,23 @@
                 $(this).find("option:selected").each(function () {
                     var optionValue = $(this).attr("value");
                     if (optionValue === "Transfer") {
+                        $("#TextBoxSenderNo").prop("required", true)
                         $("#TableRowSenderUsername").show();
+                        $("#TextBoxRecipientNo").prop("required", true)
                         $("#TableRowRecipientUsername").show();
+                        $("#TextBoxAccountNo").prop("required", false)
                         $("#TableRowAccountUsername").hide();
                     } else {
+                        $("#TextBoxSenderNo").prop("required", false)
                         $("#TableRowSenderUsername").hide();
+                        $("#TextBoxRecipientNo").prop("required", false)
                         $("#TableRowRecipientUsername").hide();
+                        $("#TextBoxAccountNo").prop("required", true)
                         $("#TableRowAccountUsername").show();
                     }
                 });
             }).change();
+
             var typed = new Typed(".typing", {
                 strings: ["Bank", "New Transaction"],
                 typeSpeed: 80,
@@ -184,7 +191,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="AccountNumber" runat="server" CssClass="form-control" required="true" ></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="AccountNumber" runat="server" CssClass="form-control" ></asp:TextBox>
                                     <asp:Label ID="LabelAccountNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>
@@ -195,7 +202,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxSenderNo" placeholder="AccountNumber" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxSenderNo" placeholder="AccountNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="LabelSenderNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>
@@ -206,7 +213,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxRecipientNo" placeholder="AccountNumber" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxRecipientNo" placeholder="AccountNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="LabelRecipientNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>
@@ -217,7 +224,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="form-control" Style="width: 70%;" OnSelectedIndexChanged="DropDownListTransactionType_SelectedIndexChanged">
+                                    <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="form-control" Style="width: 70%;">
                                         <asp:ListItem>Deposit</asp:ListItem>
                                         <asp:ListItem>Withdraw</asp:ListItem>
                                         <asp:ListItem>Transfer</asp:ListItem>

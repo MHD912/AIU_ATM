@@ -26,8 +26,11 @@ namespace AIU_ATM
             {
                 userID = Session["User"].ToString();
                 LinkButtonPrint.Visible = false;
-                if (Session["Transaction"] != null && Session["transUser"] != null) { LinkButtonPrint.Visible = true; DropDownListTransactionType.SelectedIndex = int.Parse(Session["Transaction"].ToString())-1; }
-                toggleInputs();
+                if (Session["Transaction"] != null && Session["transUser"] != null)
+                {
+                    LinkButtonPrint.Visible = true;
+                    DropDownListTransactionType.SelectedIndex = int.Parse(Session["Transaction"].ToString()) - 1;
+                }
             }
             else
             {
@@ -100,7 +103,7 @@ namespace AIU_ATM
                     }
                     else { TextBoxRecipientNo.Text = TextBoxSenderNo.Text = ""; }
                 }
-                else if(selTT == 0 || selTT == 1)
+                else if (selTT == 0 || selTT == 1)
                 {
                     double balance = 0;
                     cmd.CommandText = "select * from Accounts where AccountNo=@AN";
@@ -128,7 +131,7 @@ namespace AIU_ATM
                         }
                         else if (selTT == 0)
                         {
-                            if(double.Parse(TextBoxAmount.Text) > 0)
+                            if (double.Parse(TextBoxAmount.Text) > 0)
                             {
                                 cmd.CommandText = "EXEC deposit @aNo, @Amount";
                                 cmd.Parameters.AddWithValue("@aNo", TextBoxAccountNo.Text);
@@ -139,12 +142,12 @@ namespace AIU_ATM
                                 Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
                                 Response.Redirect("AddTransaction.aspx");
                                 TextBoxAmount.Text = "";
-                            }                            
+                            }
                         }
                         TextBoxAccountNo.Text = ""; TextBoxAmount.Text = "";
                     }
                     else { TextBoxAccountNo.Text = ""; }
-                }                
+                }
             }
             else { TextBoxAmount.Text = ""; }
         }
@@ -158,38 +161,6 @@ namespace AIU_ATM
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
                 }
             }
-        }
-        
-        protected void toggleInputs()
-        {
-            if(DropDownListTransactionType.SelectedValue == "Transfer")
-            {
-                TextBoxAccountNo.Enabled = false;
-                TextBoxAccountNo.Visible = false;
-
-                TextBoxSenderNo.Enabled = true;
-                TextBoxSenderNo.Visible = true;
-
-                TextBoxRecipientNo.Enabled = true;
-                TextBoxRecipientNo.Visible = true;
-
-            }
-            else
-            {
-                TextBoxAccountNo.Enabled = true;
-                TextBoxAccountNo.Visible = true;
-
-                TextBoxSenderNo.Enabled = false;
-                TextBoxSenderNo.Visible = false;
-
-                TextBoxRecipientNo.Enabled = false;
-                TextBoxRecipientNo.Visible = false;
-            }
-        }
-
-        protected void DropDownListTransactionType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            toggleInputs();
         }
     }
 }
