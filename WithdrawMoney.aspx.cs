@@ -40,7 +40,7 @@ namespace AIU_ATM
                 PIN = dt.Rows[0]["PIN"].ToString();
 
                 welS.Text = "Hi there " + userName;
-                cusBal.Text = balance + "$";
+                cusBal.Text = balance + " SP";
                 LinkButtonPrint.Visible = false;
             }
             else { Response.Redirect("Login.aspx"); }

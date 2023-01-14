@@ -129,7 +129,7 @@
                         <span style="color: rgb(52, 205, 133);">; )</span>
                     </div>
                     <div class="text-1" style="margin: 1em 0 1em;">
-                        - Account number:<span style="color: rgb(52, 205, 133);"> #</span><asp:Label runat="server" Text="" ID="accNum"></asp:Label>
+                        - Account number<span style="color: rgb(52, 205, 133);"> #</span><asp:Label runat="server" Text="" ID="accNum"></asp:Label>
                     </div>
                     <div class="text-1" style="margin: 3em 0 2em;">
                         - Your balance is<span style="color: rgb(52, 205, 133);">:</span>

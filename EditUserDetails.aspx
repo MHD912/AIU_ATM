@@ -105,15 +105,21 @@
     </style>
     <script>
         $('document').ready(function () {
-            if ($('#CheckBoxUserType').prop("checked") === true) {
+            if ($("#CheckBoxUserType").prop("checked") === true) {
+                $("#TextBoxBalance").prop("required", false);
                 $("#TableRowBalance").hide();
+                $("#TextBoxPin").prop("required", false);
                 $("#TableRowPinCode").hide();
+                $("#TextBoxConfirmPin").prop("required", false);
                 $("#TableRowConfirmPin").hide();
                 $("#contact").css("margin-bottom", "8em");
             }
             else {
+                $("#TextBoxBalance").prop("required", true);
                 $("#TableRowBalance").show();
+                $("#TextBoxPin").prop("required", true);
                 $("#TableRowPinCode").show();
+                $("#TextBoxConfirmPin").prop("required", true);
                 $("#TableRowConfirmPin").show();
                 $("#contact").css("margin-bottom", "20em");
             }

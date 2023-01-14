@@ -153,7 +153,7 @@ namespace AIU_ATM
             }
         }
 
-        protected void ButtonThisAccount_Click(object sender, EventArgs e)
+        protected void LinkButtonDeleteThisAccount_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
