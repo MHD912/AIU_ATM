@@ -75,6 +75,12 @@
                 color: #fff;
             }
 
+        .note {
+            font-size: 14px;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
         footer span a:hover {
             color: rgb(52, 205, 133);
         }
@@ -184,6 +190,15 @@
                                         </asp:LinkButton>
                                         <span class="tool-tiptext" style="width: 100px; margin-left: -40px;">Print receipt</span>
                                     </div>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell Style="display: flex; justify-content: flex-end;">
+                                    <div class="tool-tip">
+                                        <span class="material-symbols-rounded" style="font-weight: 700; color: rgb(52, 205, 133); transform: translateY(8px);">info</span>
+                                        <span class="tool-tiptext" style="width: 270px; margin-left: -135px;">To enable printing. Please make sure your browser allows pop-ups for this website</span>
+                                    </div>
+                                    <span class="note">Note</span>
                                 </asp:TableCell>
                             </asp:TableRow>
                         </asp:Table>

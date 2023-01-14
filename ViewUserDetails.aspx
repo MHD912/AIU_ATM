@@ -45,6 +45,15 @@
             margin-left: 0px;
         }
 
+        /* risk button styling */
+        .btn.risk {
+            background-color: #fb8d58;
+        }
+
+            .btn.risk:hover {
+                background-color: #d27649;
+            }
+
         /* other content styling */
         .btn {
             padding: 8px;
@@ -52,11 +61,6 @@
             height: 100%;
             font-size: 17px;
             font-family: 'Poppins', sans-serif;
-        }
-
-        .errors-block {
-            color: crimson;
-            font-size: 14px;
         }
 
         .text {
@@ -226,9 +230,9 @@
                             <asp:TableCell runat="server"></asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 60%; height: 40px;" OnSelectedIndexChanged="DropDownListAccountType_SelectedIndexChanged" AutoPostBack="true">
-                                    <asp:ListItem Text="Current Account" id="li1" Enabled="false"/>
-                                    <asp:ListItem Text="Saving Account" id="li2" Enabled="false"/>
-                                    <asp:ListItem Text="Salary Account" id="li3" Enabled="false"/>
+                                    <asp:ListItem Text="Current Account" id="li1" Enabled="false" />
+                                    <asp:ListItem Text="Saving Account" id="li2" Enabled="false" />
+                                    <asp:ListItem Text="Salary Account" id="li3" Enabled="false" />
                                 </asp:DropDownList>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
@@ -240,8 +244,13 @@
                         </asp:TableRow>
                         <asp:TableRow runat="server" ID="TableRowPinCode">
                             <asp:TableCell runat="server"></asp:TableCell>
-                            <asp:TableCell runat="server">
-                                <asp:Button ID="ButtonThisAccount" runat="server" Text="Delete Account" CssClass="dropDownList" Style="font-size: 18px; width: 60%; height: 40px; background-color: crimson; border: none;" OnClick="ButtonThisAccount_Click"/>
+                            <asp:TableCell runat="server" Style="display: flex; justify-content: flex-end;">
+                                <div class="tool-tip">
+                                    <asp:LinkButton ID="LinkButtonDeleteThisAccount" runat="server" CssClass="btn risk" Style="margin-top: 0; width: 50px; height: 100%; transform: translate(-55px,-60px);" OnClick="LinkButtonDeleteThisAccount_Click">
+                                    <span class="material-symbols-rounded">delete</span>
+                                    </asp:LinkButton>
+                                    <span class="tool-tiptext" style="width: 146px; margin-left: -73px;  transform: translate(-55px,-60px);">Delete this account</span>
+                                </div>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelPin" runat="server" Text="Pin Code" CssClass="text">
@@ -258,7 +267,7 @@
                                 <asp:CheckBox ID="CheckBoxUserType" runat="server" CssClass="text" Text="  Register as admin" Style="display: none;" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end; transform: translateX(70%);">
-                                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" CssClass="btn" OnClick="ButtonDelete_Click"/>
+                                <asp:Button ID="ButtonDelete" runat="server" Text="Delete All" CssClass="btn risk" OnClick="ButtonDelete_Click" />
                             </asp:TableCell>
                             <asp:TableCell runat="server" Style="text-align: end;">
                                 <asp:Button ID="ButtonEdit" runat="server" Text="Edit" CssClass="btn" OnClick="ButtonEdit_Click" />

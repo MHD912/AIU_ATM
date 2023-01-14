@@ -303,13 +303,13 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.TableRow TableRowPinCode;
 
         /// <summary>
-        /// ButtonThisAccount control.
+        /// LinkButtonDeleteThisAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonThisAccount;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDeleteThisAccount;
 
         /// <summary>
         /// LabelPin control.

@@ -91,7 +91,7 @@ namespace AIU_ATM
                         account_number = accountTypeSalary[3];
                         Session["ST"] = 2;
                     }
-                    cusBal.Text = balance + "SP";
+                    cusBal.Text = balance + " SP";
                     accNum.Text = account_number;
                 }
 

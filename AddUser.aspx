@@ -109,10 +109,15 @@
                 $("#TableRowPinCode").toggle(!this.checked);
                 if ($(this).prop("checked") === true) {
                     $("#contact").css("margin-bottom", "8em");
+                    $("#TextBoxBalance").prop("required", false);
+                    $("#TextBoxPin").prop("required", false);
+                    $("#TextBoxConfirmPin").prop("required", false);
                 }
                 else {
                     $("#contact").css("margin-bottom", "16em");
-                }
+                    $("#TextBoxBalance").prop("required", true);
+                    $("#TextBoxPin").prop("required", true);
+                    $("#TextBoxConfirmPin").prop("required", true);                }
             });
             var typed = new Typed(".typing", {
                 strings: ["Bank", "Create User"],
@@ -295,7 +300,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxAddress" placeholder="Mazzeh Damascus, Syria" runat="server" CssClass="form-control" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxAddress" placeholder="Mazzeh, Damascus, Syria" runat="server" CssClass="form-control" required="true"></asp:TextBox>
                                     <asp:Label ID="LabelAddressFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>
