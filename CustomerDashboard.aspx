@@ -19,26 +19,32 @@
             padding: 15px 0;
         }
 
-        .navbar.sticky .menu {
-            margin-right: -15%;
-            display: inline-flex
-        }
+            .navbar.sticky .menu {
+                margin-right: -15%;
+                display: inline-flex
+            }
 
         /* Buttons styling */
+        .home .home-content a, .btn {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
         .actions {
-            display: grid;
+            width: 54%;
+            display: block;
         }
 
             .actions .btn {
                 font-family: 'Poppins', sans-serif;
                 font-weight: 500;
-                width: 550px;
+                width: 280px;
             }
 
                 .actions .btn span {
-                    font-size: 34px;
+                    font-size: 31px;
                     font-weight: 500;
-                    margin-right: 12px;
+                    margin-right: 10px;
                     color: #333;
                     transition: all 0.3s ease;
                 }
@@ -94,9 +100,9 @@
                 <ul class="menu" style="margin-right: -15%; display: inline-flex">
                     <li>
                         <asp:DropDownList ID="DropDownListAccountType" CssClass="dropDownList" runat="server" Style="font-size: 18px; width: 75%; height: 40px; border: #fff; border-style: dashed; border-width: 2px; padding: 0 4px;" OnSelectedIndexChanged="DropDownListAccountType_SelectedIndexChanged" AutoPostBack="true">
-                            <asp:ListItem Text="Current Account" id="li1" Enabled="false"/>
-                            <asp:ListItem Text="Saving Account" id="li2" Enabled="false"/>
-                            <asp:ListItem Text="Salary Account" id="li3" Enabled="false"/>
+                            <asp:ListItem Text="Current Account" id="li1" Enabled="false" />
+                            <asp:ListItem Text="Saving Account" id="li2" Enabled="false" />
+                            <asp:ListItem Text="Salary Account" id="li3" Enabled="false" />
                         </asp:DropDownList>
                     </li>
                     <li>
@@ -122,18 +128,24 @@
                         <asp:Label ID="welS" runat="server"></asp:Label>
                         <span style="color: rgb(52, 205, 133);">; )</span>
                     </div>
+                    <div class="text-1" style="margin: 1em 0 1em;">
+                        - Account number:<span style="color: rgb(52, 205, 133);"> #</span><asp:Label runat="server" Text="" ID="accNum"></asp:Label>
+                    </div>
                     <div class="text-1" style="margin: 3em 0 2em;">
                         - Your balance is<span style="color: rgb(52, 205, 133);">:</span>
                         <asp:Label runat="server" Text="0$" ID="cusBal"></asp:Label>
                     </div>
                     <div class="actions">
-                        <asp:LinkButton ID="LinkButtonDeposit" CssClass="btn" runat="server" OnClick="LinkButtonDeposit_Click">
-                            <span class="material-symbols-rounded" style="margin-left: -27px">credit_score</span> Deposit Money
+                        <asp:LinkButton ID="LinkButtonViewTransactions" CssClass="btn" Style="width: 99.5%;" runat="server" OnClick="LinkButtonViewTransactions_Click">
+                            <span class="material-symbols-rounded" style="margin-left: -20px">receipt_long</span> View Transactions
                         </asp:LinkButton>
-                        <asp:LinkButton ID="LinkButtonWithdraw" CssClass="btn" runat="server" OnClick="LinkButtonWithdraw_Click">
+                        <asp:LinkButton ID="LinkButtonDeposit" CssClass="btn" Style="width: 49%; margin-right: 6px;" runat="server" OnClick="LinkButtonDeposit_Click">
+                            <span class="material-symbols-rounded" style="margin-left: -10px">credit_score</span> Deposit Money
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="LinkButtonWithdraw" CssClass="btn" Style="width: 49%;" runat="server" OnClick="LinkButtonWithdraw_Click">
                             <span class="material-symbols-rounded" style="margin-left: -2px">credit_card_off</span> Withdraw Money
                         </asp:LinkButton>
-                        <asp:LinkButton ID="LinkButtonTransfer" CssClass="btn" runat="server" OnClick="LinkButtonTransfer_Click">
+                        <asp:LinkButton ID="LinkButtonTransfer" CssClass="btn" Style="width: 99.5%;" runat="server" OnClick="LinkButtonTransfer_Click">
                             <span class="material-symbols-rounded" style="margin-left: -20px">repeat</span> Transfer Money
                         </asp:LinkButton>
                     </div>

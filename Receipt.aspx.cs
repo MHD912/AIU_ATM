@@ -54,19 +54,16 @@ namespace AIU_ATM
                     if (transType == 1)
                     {
                         LabelCustomerAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
-                        LabelAccountType.Text = "Deposit";
                         RadioButtonDeposit.Checked = true;
                     }
                     else if(transType == 2)
                     {
                         LabelCustomerAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
-                        LabelAccountType.Text = "Withdraw";
                         RadioButtonWithdraw.Checked = true;
                     }
                     else if (transType == 3)
                     {
                         LabelCustomerAccountID.Text = "";
-                        LabelAccountType.Text = "Transfer";
                         RadioButtonTransfer.Checked = true;
 
                         LabelSenderAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
@@ -79,6 +76,20 @@ namespace AIU_ATM
                     cmd.Parameters.AddWithValue("@aNo", aNo);
                     da.Fill(dt);
                     string cusID = dt.Rows[0]["userID"].ToString();
+                    string accType = dt.Rows[0]["AccountType"].ToString();
+                    switch (accType)
+                    {
+                        case "1":
+                            LabelAccountType.Text = "Current Account";
+                            break;
+                        case "2":
+                            LabelAccountType.Text = "Savings Account";
+                            break;
+                        case "3":
+                            LabelAccountType.Text = "Salary Account";
+                            break;
+                    }
+
                     dt.Clear();
 
                     cmd.CommandText = "select * from UsersInfo where ID=@uID";

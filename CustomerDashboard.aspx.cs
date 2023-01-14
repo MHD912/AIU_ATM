@@ -13,9 +13,9 @@ namespace AIU_ATM
     {
         string userID = null;
         SqlConnection con = new SqlConnection(@"Data Source=LOCALHOST;Initial Catalog=ATM-Bank;Integrated Security=True");
-        string[] accountTypeCurrent = {"","",""};
-        string[] accountTypeSaving = {"","",""};
-        string[] accountTypeSalary = {"","",""};
+        string[] accountTypeCurrent = {"","","",""};
+        string[] accountTypeSaving = {"","","",""};
+        string[] accountTypeSalary = {"","","",""};
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,6 +39,7 @@ namespace AIU_ATM
                 if(dt.Rows.Count == 0) { Response.Redirect("Login.aspx"); }
                 string userName = dt.Rows[0]["username"].ToString();
                 string balance = "0" ;
+                string account_number = "?";
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -48,6 +49,7 @@ namespace AIU_ATM
                         accountTypeCurrent[0] = "1";
                         accountTypeCurrent[1] = dt.Rows[i]["Balance"].ToString();
                         accountTypeCurrent[2] = dt.Rows[i]["PIN"].ToString();
+                        accountTypeCurrent[3] = dt.Rows[i]["AccountNo"].ToString();
                     }
                     else if (dt.Rows[i]["AccountType"].ToString().Equals("2"))
                     {
@@ -55,6 +57,7 @@ namespace AIU_ATM
                         accountTypeSaving[0] = "2";
                         accountTypeSaving[1] = dt.Rows[i]["Balance"].ToString();
                         accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
+                        accountTypeCurrent[3] = dt.Rows[i]["AccountNo"].ToString();
                     }
                     else if (dt.Rows[i]["AccountType"].ToString().Equals("3"))
                     {
@@ -62,6 +65,7 @@ namespace AIU_ATM
                         accountTypeSalary[0] = "3";
                         accountTypeSalary[1] = dt.Rows[i]["Balance"].ToString();
                         accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
+                        accountTypeCurrent[3] = dt.Rows[i]["AccountNo"].ToString();
                     }
                 }
                 if (!IsPostBack)
@@ -70,26 +74,28 @@ namespace AIU_ATM
                     {
                         DropDownListAccountType.SelectedIndex = 0;
                         balance = accountTypeCurrent[1];
+                        account_number = accountTypeCurrent[3];
                         Session["ST"] = 0;
                     }
                     else if (accountTypeSaving[0] != "")
                     {
                         DropDownListAccountType.SelectedIndex = 1;
                         balance = accountTypeSaving[1];
+                        account_number = accountTypeCurrent[3];
                         Session["ST"] = 1;
                     }
                     else if (accountTypeSalary[0] != "")
                     {
                         DropDownListAccountType.SelectedIndex = 2;
                         balance = accountTypeSalary[1];
+                        account_number = accountTypeCurrent[3];
                         Session["ST"] = 2;
                     }
-                    cusBal.Text = balance + "$";
+                    cusBal.Text = balance + "SP";
+                    accNum.Text = account_number;
                 }
-                
 
                 welS.Text = "Hi there " + userName;
-                
             }
             else { Response.Redirect("Login.aspx"); }
         }
@@ -142,6 +148,12 @@ namespace AIU_ATM
             Session["User"] = null;
             Session["ST"] = null;            
             Response.Redirect("Login.aspx");
+        }
+
+        protected void LinkButtonViewTransactions_Click(object sender, EventArgs e)
+        {
+            Session["User"] = userID;
+            Response.Redirect("ViewTransactions.aspx");
         }
     }
 }

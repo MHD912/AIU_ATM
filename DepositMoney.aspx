@@ -118,7 +118,7 @@
                 <ul class="menu" style="margin-right: -13%; margin-bottom: 0;">
                     <li style="transform: translateY(-3px);">
                         <div class="tool-tip">
-                            <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/AdminDashboard.aspx" ForeColor="White">
+                            <asp:HyperLink ID="homeHyperLink" runat="server" NavigateUrl="~/CuDashboard.aspx" ForeColor="White">
                                 <i class="fas fa-home" style="font-size: 26px;"></i>
                             </asp:HyperLink>
                             <span class="tool-tiptext" style="width: 80px; margin-left: -27px; top: 141%;">Dashboard</span>

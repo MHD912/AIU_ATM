@@ -41,6 +41,7 @@ namespace AIU_ATM
 
                 welS.Text = "Hi there " + userName;
                 cusBal.Text = balance + "$";
+                LinkButtonPrint.Visible = false;
             }
             else { Response.Redirect("Login.aspx"); }
         }
@@ -79,7 +80,7 @@ namespace AIU_ATM
 
                                 Session["Transaction"] = 2;
                                 Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
-                                Response.Redirect("Receipt.aspx");
+                                LinkButtonPrint.Visible = true;
                                 TextBoxWithdrawAmount.Text = "";
                                 cusBal.Text = (balance - amount) + "$";
                             }
@@ -107,7 +108,7 @@ namespace AIU_ATM
 
         protected void LinkButtonPrint_Click(object sender, EventArgs e)
         {
-
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
         }
     }
 }

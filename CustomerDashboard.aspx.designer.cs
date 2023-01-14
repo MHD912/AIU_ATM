@@ -87,6 +87,15 @@ namespace AIU_ATM
         protected global::System.Web.UI.WebControls.Label welS;
 
         /// <summary>
+        /// accNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label accNum;
+
+        /// <summary>
         /// cusBal control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace AIU_ATM
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label cusBal;
+
+        /// <summary>
+        /// LinkButtonViewTransactions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonViewTransactions;
 
         /// <summary>
         /// LinkButtonDeposit control.

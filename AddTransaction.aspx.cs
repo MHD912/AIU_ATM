@@ -150,18 +150,13 @@ namespace AIU_ATM
 
         protected void LinkButtonPrint_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Receipt.aspx");
             if (Session["Transaction"] != null)
             {
                 if (Session["transUser"] != null)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
-                    //Response.Redirect("Receipt.aspx");
                 }
             }
-            
-        }
-
-        
+        }   
     }
 }
