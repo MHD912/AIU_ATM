@@ -217,7 +217,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="form-control" Style="width: 70%;">
+                                    <asp:DropDownList ID="DropDownListTransactionType" runat="server" CssClass="form-control" Style="width: 70%;" OnSelectedIndexChanged="DropDownListTransactionType_SelectedIndexChanged">
                                         <asp:ListItem>Deposit</asp:ListItem>
                                         <asp:ListItem>Withdraw</asp:ListItem>
                                         <asp:ListItem>Transfer</asp:ListItem>

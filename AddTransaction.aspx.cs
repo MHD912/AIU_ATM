@@ -25,8 +25,9 @@ namespace AIU_ATM
             if (Session["User"] != null)
             {
                 userID = Session["User"].ToString();
-                LinkButtonPrint.Enabled = false;
-                if (Session["Transaction"] != null && Session["transUser"] != null) { LinkButtonPrint.Enabled = true; DropDownListTransactionType.SelectedIndex = int.Parse(Session["Transaction"].ToString())-1; }
+                LinkButtonPrint.Visible = false;
+                if (Session["Transaction"] != null && Session["transUser"] != null) { LinkButtonPrint.Visible = true; DropDownListTransactionType.SelectedIndex = int.Parse(Session["Transaction"].ToString())-1; }
+                toggleInputs();
             }
             else
             {
@@ -78,7 +79,7 @@ namespace AIU_ATM
                         da.Fill(dt);
 
                         if (ex <= 0) { TextBoxRecipientNo.Text = ""; }
-                        if (dt.Rows.Count > 0 && TextBoxRecipientNo.Text != "")
+                        else if (dt.Rows.Count > 0 && TextBoxRecipientNo.Text != "")
                         {
                             balance = double.Parse(dt.Rows[0]["Balance"].ToString());
                             if (amount < balance)
@@ -157,6 +158,38 @@ namespace AIU_ATM
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
                 }
             }
-        }   
+        }
+        
+        protected void toggleInputs()
+        {
+            if(DropDownListTransactionType.SelectedValue == "Transfer")
+            {
+                TextBoxAccountNo.Enabled = false;
+                TextBoxAccountNo.Visible = false;
+
+                TextBoxSenderNo.Enabled = true;
+                TextBoxSenderNo.Visible = true;
+
+                TextBoxRecipientNo.Enabled = true;
+                TextBoxRecipientNo.Visible = true;
+
+            }
+            else
+            {
+                TextBoxAccountNo.Enabled = true;
+                TextBoxAccountNo.Visible = true;
+
+                TextBoxSenderNo.Enabled = false;
+                TextBoxSenderNo.Visible = false;
+
+                TextBoxRecipientNo.Enabled = false;
+                TextBoxRecipientNo.Visible = false;
+            }
+        }
+
+        protected void DropDownListTransactionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            toggleInputs();
+        }
     }
 }
