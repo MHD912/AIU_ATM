@@ -69,8 +69,8 @@ namespace AIU_ATM
                         LabelAccountType.Text = "Transfer";
                         RadioButtonTransfer.Checked = true;
 
-                        LabelSenderAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
-                        LabelReceipientAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
+                        LabelSenderAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
+                        LabelReceipientAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
                         
                     }
                     dt.Clear();
