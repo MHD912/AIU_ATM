@@ -22,6 +22,21 @@ namespace AIU_ATM
                 con.Close();
             }
             con.Open();
+
+            if (Session["User"] != null)
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                cmd.CommandText = "select * from users where ID=@ID";
+                cmd.Parameters.AddWithValue("@ID", Session["User"].ToString());
+                da.Fill(dt);
+                String privilege = dt.Rows[0]["privilege"].ToString();
+                if (privilege == "1") Response.Redirect("AdminDashboard.aspx");
+                if (privilege == "2") Response.Redirect("CustomerDashboard.aspx");
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

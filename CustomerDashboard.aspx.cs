@@ -57,7 +57,7 @@ namespace AIU_ATM
                         accountTypeSaving[0] = "2";
                         accountTypeSaving[1] = dt.Rows[i]["Balance"].ToString();
                         accountTypeSaving[2] = dt.Rows[i]["PIN"].ToString();
-                        accountTypeCurrent[3] = dt.Rows[i]["AccountNo"].ToString();
+                        accountTypeSaving[3] = dt.Rows[i]["AccountNo"].ToString();
                     }
                     else if (dt.Rows[i]["AccountType"].ToString().Equals("3"))
                     {
@@ -65,7 +65,7 @@ namespace AIU_ATM
                         accountTypeSalary[0] = "3";
                         accountTypeSalary[1] = dt.Rows[i]["Balance"].ToString();
                         accountTypeSalary[2] = dt.Rows[i]["PIN"].ToString();
-                        accountTypeCurrent[3] = dt.Rows[i]["AccountNo"].ToString();
+                        accountTypeSalary[3] = dt.Rows[i]["AccountNo"].ToString();
                     }
                 }
                 if (!IsPostBack)
@@ -81,14 +81,14 @@ namespace AIU_ATM
                     {
                         DropDownListAccountType.SelectedIndex = 1;
                         balance = accountTypeSaving[1];
-                        account_number = accountTypeCurrent[3];
+                        account_number = accountTypeSaving[3];
                         Session["ST"] = 1;
                     }
                     else if (accountTypeSalary[0] != "")
                     {
                         DropDownListAccountType.SelectedIndex = 2;
                         balance = accountTypeSalary[1];
-                        account_number = accountTypeCurrent[3];
+                        account_number = accountTypeSalary[3];
                         Session["ST"] = 2;
                     }
                     cusBal.Text = balance + "SP";
@@ -121,26 +121,31 @@ namespace AIU_ATM
         protected void DropDownListAccountType_SelectedIndexChanged(object sender, EventArgs e)
         {
             string balance = "0";
+            string account_number = "0";
             Session["ST"] = DropDownListAccountType.SelectedIndex;
             if (Session["ST"].ToString() == "0")
             {
                 DropDownListAccountType.SelectedIndex = 0;
                 balance = accountTypeCurrent[1];
+                account_number = accountTypeCurrent[3];
                 Session["ST"] = 0;
             }
             else if (Session["ST"].ToString() == "1")
             {
                 DropDownListAccountType.SelectedIndex = 1;
                 balance = accountTypeSaving[1];
+                account_number = accountTypeSaving[3];
                 Session["ST"] = 1;
             }
             else if (Session["ST"].ToString() == "2")
             {
                 DropDownListAccountType.SelectedIndex = 2;
                 balance = accountTypeSalary[1];
+                account_number = accountTypeSalary[3];
                 Session["ST"] = 2;
             }
-            cusBal.Text = balance + "$";
+            cusBal.Text = balance + "SP";
+            accNum.Text = account_number;
         }
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
