@@ -65,6 +65,14 @@ namespace AIU_ATM
             Session["AccountTransactions"] = null;
             Response.Redirect("Login.aspx");
         }
+
+        protected void transactionsGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int rowIndex = transactionsGridView.SelectedIndex;
+            string tID = transactionsGridView.Rows[rowIndex].Cells[0].Text;
+            Session["tID"] = tID;
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('Receipt.aspx','_blank');", true);
+        }
     }
 
 }

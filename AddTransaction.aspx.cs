@@ -22,7 +22,7 @@ namespace AIU_ATM
             }
             con.Open();
 
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 userID = Session["User"].ToString();
                 LinkButtonPrint.Visible = false;

@@ -167,7 +167,7 @@
                             <asp:LinkButton CssClass="btn btn-success pull-right" ID="LinkButtonDashboard" runat="server" OnClick="LinkButtonDashboard_Click"><i class="fa fa-home"></i> Dashboard</asp:LinkButton>
                         </div>
                         <div style="margin: auto; text-align-last: center; width: fit-content">
-                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="transactionsGridView" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="ID" AutoGenerateColumns="False">
+                            <asp:GridView CssClass="table table-bordered table-condensed table-responsive table-hover" ID="transactionsGridView" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="ID" AutoGenerateColumns="False" OnSelectedIndexChanged="transactionsGridView_SelectedIndexChanged">
                                 <Columns>
                                     <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                                     <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />

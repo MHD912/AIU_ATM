@@ -101,7 +101,80 @@ namespace AIU_ATM
                 }
                 else { Response.Redirect("Default.aspx"); }
             }
+            else if (Session["tID"] != null)
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                string tID = Session["tID"].ToString();
+
+                cmd.CommandText = "select * from Transactions where ID=@tID";
+                cmd.Parameters.AddWithValue("@tID", tID);
+                da.Fill(dt);
+
+                int transType = int.Parse(dt.Rows[0]["Type"].ToString());
+                string aNo="-1";
+
+                LabelDate.Text = dt.Rows[0]["Time"].ToString();
+                LabelTransactionID.Text = tID;
+                LabelTransactionValue.Text = dt.Rows[0]["Amount"].ToString();
+
+                if (transType == 1)
+                {
+                    LabelCustomerAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
+                    aNo = dt.Rows[0]["ToAcc"].ToString();
+                    RadioButtonDeposit.Checked = true;
+                }
+                else if (transType == 2)
+                {
+                    LabelCustomerAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
+                    aNo = dt.Rows[0]["FromAcc"].ToString();
+                    RadioButtonWithdraw.Checked = true;
+                }
+                else if (transType == 3)
+                {
+                    LabelCustomerAccountID.Text = "";
+                    RadioButtonTransfer.Checked = true;
+
+                    aNo = dt.Rows[0]["FromAcc"].ToString();
+                    LabelSenderAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
+                    LabelReceipientAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
+
+                }
+                dt.Clear();
+
+                cmd.CommandText = "select * from Accounts where AccountNo=@aNo";
+                cmd.Parameters.AddWithValue("@aNo", aNo);
+                da.Fill(dt);
+                string cusID = dt.Rows[0]["userID"].ToString();
+                string accType = dt.Rows[0]["AccountType"].ToString();
+                switch (accType)
+                {
+                    case "1":
+                        LabelAccountType.Text = "Current Account";
+                        break;
+                    case "2":
+                        LabelAccountType.Text = "Savings Account";
+                        break;
+                    case "3":
+                        LabelAccountType.Text = "Salary Account";
+                        break;
+                }
+
+                dt.Clear();
+
+                cmd.CommandText = "select * from UsersInfo where ID=@uID";
+                cmd.Parameters.AddWithValue("@uID", cusID);
+                da.Fill(dt);
+
+                LabelCustomerName.Text = dt.Rows[0]["FirstName"].ToString() + " " + dt.Rows[0]["LastName"].ToString();
+                LabelEmail.Text = dt.Rows[0]["Email"].ToString();
+            }
             else { Response.Redirect("Default.aspx"); }
+
+            
         }
     }
 }
