@@ -29,9 +29,9 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            if (Session["User"] != null)
+            if (Session["Customer"] != null)
             {
-                userID = Session["User"].ToString();
+                userID = Session["Customer"].ToString();
                 cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID";
                 cmd.Parameters.AddWithValue("@uID", userID);
 
@@ -102,19 +102,19 @@ namespace AIU_ATM
 
         protected void LinkButtonDeposit_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Customer"] = userID;
             Response.Redirect("DepositMoney.aspx");
         }
 
         protected void LinkButtonWithdraw_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Customer"] = userID;
             Response.Redirect("WithdrawMoney.aspx");
         }
 
         protected void LinkButtonTransfer_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Customer"] = userID;
             Response.Redirect("TransferMoney.aspx");
         }
 
@@ -150,14 +150,16 @@ namespace AIU_ATM
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Session["User"] = null;
-            Session["ST"] = null;            
+            Session["Customer"] = null;
+            Session["ST"] = null;
+            Session["AccountTransactions"] = null;
             Response.Redirect("Login.aspx");
         }
 
         protected void LinkButtonViewTransactions_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Customer"] = userID;
+            Session["AccountTransactions"] = accNum.Text;
             Response.Redirect("ViewTransactions.aspx");
         }
     }

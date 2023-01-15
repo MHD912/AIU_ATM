@@ -24,9 +24,9 @@ namespace AIU_ATM
             }
             con.Open();
 
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
-                userID = Session["User"].ToString();
+                userID = Session["Admin"].ToString();
             }
             else
             {
@@ -173,15 +173,16 @@ namespace AIU_ATM
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Session["User"] = null;
+            Session["Admin"] = null;
             Session["EditUser"] = null;
             Session["ViewUser"] = null;
+            Session["AccountTransactions"] = null;
             Response.Redirect("Login.aspx");
         }
     }
