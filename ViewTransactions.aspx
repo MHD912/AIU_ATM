@@ -181,7 +181,6 @@
                                 </Columns>
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ATM-BankConnectionString %>"
-                                SelectCommand="SELECT t.ID, tt.Type, t.FromAcc, t.ToAcc, t.Amount, t.Time FROM Transactions AS t INNER JOIN TransactionsTypes AS tt ON t.Type = tt.ID"
                                 DeleteCommand="DELETE FROM Transactions WHERE (ID = @ID)">
                                 <DeleteParameters>
                                     <asp:Parameter Name="ID" Type="Int32" />

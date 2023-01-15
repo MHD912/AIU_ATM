@@ -356,9 +356,10 @@ namespace AIU_ATM
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Session["User"] = null;
+            Session["Admin"] = null;
             Session["EditUser"] = null;
             Session["ViewUser"] = null;
+            Session["AccountTransactions"] = null;
             Response.Redirect("Login.aspx");
         }
     }

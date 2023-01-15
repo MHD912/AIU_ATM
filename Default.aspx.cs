@@ -17,12 +17,24 @@ namespace AIU_ATM
         protected void Page_Load(object sender, EventArgs e)
         {
             LinkButtonLogout.Enabled = false;
-            if (Session["User"] != null) { LinkButtonLogout.Enabled = true; LinkButtonLogin.Text = "Dashboard"; }
+            LinkButtonLogout.Visible = false;
+            if (Session["Admin"] != null)
+            {
+                LinkButtonLogout.Visible = true;
+                LinkButtonLogout.Enabled = true;
+                LinkButtonLogin.Text = "Dashboard";
+            }
+            else if (Session["Customer"] != null)
+            {
+                LinkButtonLogout.Visible = true;
+                LinkButtonLogout.Enabled = true;
+                LinkButtonLogin.Text = "Dashboard";
+            }
         }
 
         protected void LinkButtonLogin_Click(object sender, EventArgs e)
         {
-            if (Session["User"] == null)
+            if (Session["Admin"] == null && Session["Customer"] == null)
                 Response.Redirect("Login.aspx");
             else
             {
@@ -30,28 +42,39 @@ namespace AIU_ATM
                 cmd.CommandType = CommandType.Text;
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-                cmd.CommandText = "select * from Users where UserName=@UN";
-                cmd.Parameters.AddWithValue("@UN", Session["User"].ToString());
-
-                da.Fill(dt);
-                if(dt.Rows.Count > 0)
+                if (Session["Admin"] != null)
                 {
-                    string pre = dt.Rows[0]["Privilege"].ToString();
-                    if (pre == "1") Response.Redirect("AdminDashboard.aspx");
-                    else if (pre == "2") Response.Redirect("CustomerDashboard.aspx");
-                    else Response.Redirect("Login.aspx");
+                    cmd.CommandText = "select * from Users where UserName=@UN";
+                    cmd.Parameters.AddWithValue("@UN", Session["Admin"].ToString());
+
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                        Response.Redirect("AdminDashboard.aspx");
+                    else
+                        Response.Redirect("Login.aspx");
                 }
-                else { Response.Redirect("Login.aspx"); }
+                else if (Session["Customer"] != null)
+                {
+                    cmd.CommandText = "select * from Users where UserName=@UN";
+                    cmd.Parameters.AddWithValue("@UN", Session["Customer"].ToString());
+
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                        Response.Redirect("CustomerDashboard.aspx");
+                    else
+                        Response.Redirect("Login.aspx");
+                }
             }
         }
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Session["User"] = null;
+            Session["Admin"] = null;
+            Session["Customer"] = null;
             Session["ST"] = null;
             Session["EditUser"] = null;
             Session["ViewUser"] = null;
+            Session["AccountTransactions"] = null;
             Response.Redirect("Default.aspx");
         }
     }

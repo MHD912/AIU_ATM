@@ -23,7 +23,7 @@ namespace AIU_ATM
             }
             con.Open();
 
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -31,12 +31,23 @@ namespace AIU_ATM
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
                 cmd.CommandText = "select * from users where ID=@ID";
-                cmd.Parameters.AddWithValue("@ID", Session["User"].ToString());
+                cmd.Parameters.AddWithValue("@ID", Session["Admin"].ToString());
                 da.Fill(dt);
-                String privilege = dt.Rows[0]["privilege"].ToString();
-                if (privilege == "1") Response.Redirect("AdminDashboard.aspx");
-                if (privilege == "2") Response.Redirect("CustomerDashboard.aspx");
+                Response.Redirect("AdminDashboard.aspx");
             }
+            else if (Session["Customer"] != null)
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                cmd.CommandText = "select * from users where ID=@ID";
+                cmd.Parameters.AddWithValue("@ID", Session["Customer"].ToString());
+                da.Fill(dt);
+                Response.Redirect("CustomerDashboard.aspx");
+            }
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -57,13 +68,15 @@ namespace AIU_ATM
                 string passWord = dt.Rows[0]["password"].ToString();
                 if (passWord == password.Text)
                 {
-                    Session["User"] = userID;
+                    //Session["User"] = userID;
                     if (privilege == "1")
                     {
+                        Session["Admin"] = userID;
                         Response.Redirect("AdminDashboard.aspx");
                     }
                     else if (privilege == "2")
                     {
+                        Session["Customer"] = userID;
                         Response.Redirect("CustomerDashboard.aspx");
                     }
                 }

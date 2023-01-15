@@ -23,9 +23,9 @@ namespace AIU_ATM
             }
             con.Open();
 
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
-                userID = Session["User"].ToString();
+                userID = Session["Admin"].ToString();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 DataTable dt = new DataTable();
@@ -46,13 +46,13 @@ namespace AIU_ATM
 
         protected void LinkButtonDashboard_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("AdminDashboard.aspx");
         }
 
         protected void LinkButtonCreate_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("AddUser.aspx");
         }
 
@@ -73,7 +73,7 @@ namespace AIU_ATM
             string cusID = dt.Rows[0][0].ToString();
 
             Session["ViewUser"] = cusID;
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("ViewUserDetails.aspx");
         }
 
@@ -92,9 +92,11 @@ namespace AIU_ATM
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Session["User"] = null;
+            Session["Admin"] = null;
+            Session["Customer"] = null;
             Session["EditUser"] = null;
             Session["ViewUser"] = null;
+            Session["AccountTransactions"] = null;
             Response.Redirect("Login.aspx");
         }
     }

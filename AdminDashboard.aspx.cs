@@ -28,9 +28,9 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
-                userID = Session["User"].ToString();
+                userID = Session["Admin"].ToString();
                 cmd.CommandText = "select * from Users where id=@uID";
                 cmd.Parameters.AddWithValue("@uID", userID);
 
@@ -44,27 +44,28 @@ namespace AIU_ATM
 
         protected void LinkButtonViewTransactions_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("ViewTransactions.aspx");
         }
 
         protected void LinkButtonAddUser_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("AddUser.aspx");
         }
 
         protected void LinkButtonViewUsers_Click(object sender, EventArgs e)
         {
-            Session["User"] = userID;
+            Session["Admin"] = userID;
             Response.Redirect("ViewUsers.aspx");
         }
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)
         {
-            Session["User"] = null;
+            Session["Admin"] = null;
             Session["EditUser"] = null;
             Session["ViewUser"] = null;
+            Session["AccountTransactions"] = null;
             Response.Redirect("Login.aspx");
         }
     }
