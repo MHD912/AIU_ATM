@@ -68,7 +68,6 @@ namespace AIU_ATM
                 string passWord = dt.Rows[0]["password"].ToString();
                 if (passWord == password.Text)
                 {
-                    //Session["User"] = userID;
                     if (privilege == "1")
                     {
                         Session["Admin"] = userID;

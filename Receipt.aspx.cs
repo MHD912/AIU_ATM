@@ -24,7 +24,7 @@ namespace AIU_ATM
             {
                 if (Session["transUser"] != null)
                 {
-                    int transType=int.Parse( Session["Transaction"].ToString());
+                    int transType = int.Parse(Session["Transaction"].ToString());
                     string aNo = Session["transUser"].ToString();
 
                     SqlCommand cmd = con.CreateCommand();
@@ -34,7 +34,7 @@ namespace AIU_ATM
 
 
                     cmd.CommandText = "select max(ID) as ID from Transactions where Type = @TT and FromAcc = @aNo";
-                    if(transType == 1) { cmd.CommandText = "select max(ID) as ID from Transactions where Type = @TT and ToAcc = @aNo"; }
+                    if (transType == 1) { cmd.CommandText = "select max(ID) as ID from Transactions where Type = @TT and ToAcc = @aNo"; }
                     cmd.Parameters.AddWithValue("@TT", transType);
                     cmd.Parameters.AddWithValue("@aNo", aNo);
                     da.Fill(dt);
@@ -56,7 +56,7 @@ namespace AIU_ATM
                         LabelCustomerAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
                         RadioButtonDeposit.Checked = true;
                     }
-                    else if(transType == 2)
+                    else if (transType == 2)
                     {
                         LabelCustomerAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
                         RadioButtonWithdraw.Checked = true;
@@ -68,7 +68,7 @@ namespace AIU_ATM
 
                         LabelSenderAccountID.Text = dt.Rows[0]["FromAcc"].ToString();
                         LabelReceipientAccountID.Text = dt.Rows[0]["ToAcc"].ToString();
-                        
+
                     }
                     dt.Clear();
 
@@ -115,7 +115,7 @@ namespace AIU_ATM
                 da.Fill(dt);
 
                 int transType = int.Parse(dt.Rows[0]["Type"].ToString());
-                string aNo="-1";
+                string aNo = "-1";
 
                 LabelDate.Text = dt.Rows[0]["Time"].ToString();
                 LabelTransactionID.Text = tID;
@@ -173,8 +173,6 @@ namespace AIU_ATM
                 LabelEmail.Text = dt.Rows[0]["Email"].ToString();
             }
             else { Response.Redirect("Default.aspx"); }
-
-            
         }
     }
 }
