@@ -175,7 +175,7 @@
                                     <asp:BoundField DataField="ToAcc" HeaderText="ToAcc" SortExpression="ToAcc" />
                                     <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
                                     <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
-                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Actions" HeaderStyle-CssClass="action-column" ShowDeleteButton="True" NewText="&lt;span class=&quot;fa fa-print&quot;&gt;&lt;/span&gt;" ShowInsertButton="True">
+                                    <asp:CommandField DeleteText="&lt;span class=&quot;fa fa-trash&quot;&gt;&lt;/span&gt;" HeaderText="Actions" HeaderStyle-CssClass="action-column" ShowDeleteButton="True" SelectText="&lt;span class=&quot;fa fa-print&quot;&gt;&lt;/span&gt;" ShowSelectButton="True">
                                         <HeaderStyle CssClass="action-column"></HeaderStyle>
                                     </asp:CommandField>
                                 </Columns>

@@ -191,7 +191,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="AccountNumber" runat="server" CssClass="form-control" ></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="Account Number" runat="server" CssClass="form-control" ></asp:TextBox>
                                     <asp:Label ID="LabelAccountNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>
@@ -252,7 +252,7 @@
                                 </div>
                                 <span class="note">Note</span>
                             </asp:TableCell>
-                            <asp:TableCell runat="server" Style="display: flex; justify-content: flex-end;">
+                            <asp:TableCell runat="server" Style="display: flex; justify-content: flex-end; align-items: baseline;">
                                 <div class="tool-tip">
                                     <asp:LinkButton ID="LinkButtonPrint" runat="server" CssClass="btn" Style="transform: translateX(-10px); width: 47px; height: 40.8px;" OnClick="LinkButtonPrint_Click">
                                     <span class="material-symbols-rounded">print</span>
