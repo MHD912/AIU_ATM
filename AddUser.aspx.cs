@@ -127,12 +127,12 @@ namespace AIU_ATM
             }
             if (TextBoxEmail.Text != "")
             {
-                Regex reg = new Regex("/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6})*$/");
-                TextBoxEmail.Text = TextBoxEmail.Text.ToString().Trim();
-                bool r = reg.IsMatch(TextBoxEmail.Text);
-                TextBoxEmail.CssClass = "form-control";
-                if (!r) { LabelEmailFeedback.Text = "Invalid email"; TextBoxEmail.CssClass = "form-control is-invalid"; }
-                res = res && r;
+                //Regex reg = new Regex("/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6})*$/");
+                //TextBoxEmail.Text = TextBoxEmail.Text.ToString().Trim();
+                //bool r = reg.IsMatch(TextBoxEmail.Text);
+                //TextBoxEmail.CssClass = "form-control";
+                //if (!r) { LabelEmailFeedback.Text = "Invalid email"; TextBoxEmail.CssClass = "form-control is-invalid"; }
+                //res = res && r;
             }
             else
             {
@@ -148,9 +148,18 @@ namespace AIU_ATM
             }
             if (TextBoxContact.Text != "")
             {
-                Regex reg = new Regex("/^[1-9][0-9]{8}$/");
+                bool r = true;
                 TextBoxContact.Text = TextBoxContact.Text.ToString().Trim();
-                bool r = reg.IsMatch(TextBoxContact.Text);
+                try
+                {
+                    string s = TextBoxContact.Text;
+                    float number = float.Parse(TextBoxContact.Text);
+                    if(s.Length != 9) { r = false; }
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
                 TextBoxContact.CssClass = "form-control";
                 if (!r) { LabelContactFeedback.Text = "Invalid phone number"; TextBoxContact.CssClass = "form-control is-invalid"; }
                 res = res && r;
@@ -171,9 +180,18 @@ namespace AIU_ATM
             {
                 if (TextBoxPin.Text != "")
                 {
-                    Regex reg = new Regex("/^[0-9]{4,}$/");
+                    bool r = true;
                     TextBoxPin.Text = TextBoxPin.Text.ToString().Trim();
-                    bool r = reg.IsMatch(TextBoxPin.Text);
+                    try
+                    {
+                        string s = TextBoxPin.Text;
+                        float number = float.Parse(TextBoxPin.Text);
+                        if(s.Length < 4) { r = false; }
+                    }
+                    catch (Exception ex)
+                    {
+                        r = false;
+                    }
                     TextBoxPin.CssClass = "form-control";
                     if (!r) { LabelPinFeedback.Text = "PIN code must contain numbers only with at least 4-Digits"; TextBoxPin.CssClass = "form-control is-invalid"; }
                     res = res && r;
@@ -198,9 +216,16 @@ namespace AIU_ATM
                 }
                 if (TextBoxBalance.Text != "")
                 {
-                    Regex reg = new Regex("/^[0-9]+$/");
+                    bool r = true;
                     TextBoxBalance.Text = TextBoxBalance.Text.ToString().Trim();
-                    bool r = reg.IsMatch(TextBoxBalance.Text);
+                    try
+                    {                        
+                        float number = float.Parse(TextBoxBalance.Text);                        
+                    }
+                    catch (Exception ex)
+                    {
+                        r = false;
+                    }
                     TextBoxBalance.CssClass = "form-control";
                     if (!r) { LabelBalanceFeedback.Text = "Balance must contain numbers only"; TextBoxBalance.CssClass = "form-control is-invalid"; }
                     res = res && r;

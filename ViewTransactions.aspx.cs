@@ -31,6 +31,7 @@ namespace AIU_ATM
 
                 SqlDataSource1.SelectParameters.Add("accID", accID);
                 SqlDataSource1.SelectCommand = "SELECT t.ID, tt.Type, t.FromAcc, t.ToAcc, t.Amount, t.Time FROM Transactions AS t INNER JOIN TransactionsTypes AS tt ON t.Type = tt.ID WHERE t.FromAcc = @accID OR t.ToAcc = @accID";
+                //SqlDataSource1.SelectParameters.Clear();
             }
             else { Response.Redirect("Login.aspx"); }
         }

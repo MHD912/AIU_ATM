@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Security.AccessControl;
+using System.Text.RegularExpressions;
 
 namespace AIU_ATM
 {
@@ -229,22 +230,208 @@ namespace AIU_ATM
 
         protected bool notEmpty()
         {
-            return (!(
-                TextBoxFirstName.Text == ""
-                && TextBoxLastName.Text == ""
-                && TextBoxMidName.Text == ""
-                && TextBoxUserName.Text == ""
-                && TextBoxPassword.Text == ""
-                && TextBoxConfirmPassword.Text == ""
-                && TextBoxEmail.Text == ""
-                && TextBoxContact.Text == ""
-                && TextBoxAddress.Text == ""
-                
-                
-                && RadioButtonFemale.Checked == false
-                && RadioButtonMale.Checked == false
-                && TextBoxBirthDate.Text == ""
-                ));
+            Boolean res = true;
+            if (TextBoxFirstName.Text != "")
+            {
+                Regex reg = new Regex("^[A-Za-z ]{3,20}$");
+                TextBoxFirstName.Text = TextBoxFirstName.Text.Trim();
+                bool r = reg.IsMatch(TextBoxFirstName.Text);
+                TextBoxFirstName.CssClass = "form-control";
+                if (!r) { LabelFirstNameFeedback.Text = "Name must only contain letters"; TextBoxFirstName.CssClass = "form-control is-invalid"; }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelFirstNameFeedback.Text = "Required";
+                TextBoxFirstName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxMidName.Text != "")
+            {
+                Regex reg = new Regex("^[A-Za-z ]{3,20}$");
+                TextBoxMidName.Text = TextBoxMidName.Text.ToString().Trim();
+                bool r = reg.IsMatch(TextBoxMidName.Text);
+                TextBoxMidName.CssClass = "form-control";
+                if (!r) { LabelMidNameFeedback.Text = "Name must only contain letters"; TextBoxMidName.CssClass = "form-control is-invalid"; }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelMidNameFeedback.Text = "Required";
+                TextBoxMidName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxLastName.Text != "")
+            {
+                Regex reg = new Regex("^[A-Za-z ]{3,20}$");
+                TextBoxLastName.Text = TextBoxLastName.Text.ToString().Trim();
+                bool r = reg.IsMatch(TextBoxLastName.Text);
+                TextBoxLastName.CssClass = "form-control";
+                if (!r) { LabelLastNameFeedback.Text = "Name must only contain letters"; TextBoxLastName.CssClass = "form-control is-invalid"; }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelLastNameFeedback.Text = "Required";
+                TextBoxLastName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxUserName.Text != "")
+            {
+                Regex reg = new Regex("/^[a-z0-9_-]{3,16}$/");
+                TextBoxUserName.Text = TextBoxUserName.Text.ToString().Trim();
+                bool r = reg.IsMatch(TextBoxUserName.Text);
+                TextBoxUserName.CssClass = "form-control";
+                if (!r) { LabelUserNameFeedback.Text = "Username can only contain letters and (_,-) with length of 3-16"; TextBoxUserName.CssClass = "form-control is-invalid"; }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelUserNameFeedback.Text = "Required";
+                TextBoxUserName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxPassword.Text != "")
+            {
+                Regex reg = new Regex("/(?=(.*[0-9]))(?=.*[\\!@#$%^&*()\\\\[\\]{}\\-_+=~`|:;\"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/");
+                TextBoxPassword.Text = TextBoxPassword.Text.ToString().Trim();
+                bool r = reg.IsMatch(TextBoxPassword.Text);
+                TextBoxPassword.CssClass = "form-control";
+                if (!r) { LabelPasswordFeedback.Text = "Password Should have 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and be at least 8 characters long"; TextBoxPassword.CssClass = "form-control is-invalid"; }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelPasswordFeedback.Text = "Required";
+                TextBoxPassword.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxConfirmPassword.Text == "")
+            {
+                res = false;
+                LabelConfirmPasswordFeedback.Text = "Required";
+                TextBoxConfirmPassword.CssClass = "form-control is-invalid";
+            }
+            else if (TextBoxPassword.Text != TextBoxConfirmPassword.Text)
+            {
+                res = false;
+                TextBoxConfirmPassword.CssClass = "form-control is-invalid";
+                LabelConfirmPasswordFeedback.Text = "Passwords doesn't match";
+            }
+            if (TextBoxEmail.Text != "")
+            {
+                //Regex reg = new Regex("/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6})*$/");
+                //TextBoxEmail.Text = TextBoxEmail.Text.ToString().Trim();
+                //bool r = reg.IsMatch(TextBoxEmail.Text);
+                //TextBoxEmail.CssClass = "form-control";
+                //if (!r) { LabelEmailFeedback.Text = "Invalid email"; TextBoxEmail.CssClass = "form-control is-invalid"; }
+                //res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelEmailFeedback.Text = "Required";
+                TextBoxEmail.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxBirthDate.Text == "")
+            {
+                res = false;
+                LabelBirthDateFeedback.Text = "Required";
+                TextBoxBirthDate.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxContact.Text != "")
+            {
+                bool r = true;
+                TextBoxContact.Text = TextBoxContact.Text.ToString().Trim();
+                try
+                {
+                    string s = TextBoxContact.Text;
+                    float number = float.Parse(TextBoxContact.Text);
+                    if (s.Length != 9) { r = false; }
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxContact.CssClass = "form-control";
+                if (!r) { LabelContactFeedback.Text = "Invalid phone number"; TextBoxContact.CssClass = "form-control is-invalid"; }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelContactFeedback.Text = "Required";
+                TextBoxContact.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxAddress.Text == "")
+            {
+                res = false;
+                LabelAddressFeedback.Text = "Required";
+                TextBoxAddress.CssClass = "form-control is-invalid";
+            }
+            if (!CheckBoxUserType.Checked)
+            {
+                if (TextBoxPin.Text != "")
+                {
+                    bool r = true;
+                    TextBoxPin.Text = TextBoxPin.Text.ToString().Trim();
+                    try
+                    {
+                        string s = TextBoxPin.Text;
+                        float number = float.Parse(TextBoxPin.Text);
+                        if (s.Length < 4) { r = false; }
+                    }
+                    catch (Exception ex)
+                    {
+                        r = false;
+                    }
+                    TextBoxPin.CssClass = "form-control";
+                    if (!r) { LabelPinFeedback.Text = "PIN code must contain numbers only with at least 4-Digits"; TextBoxPin.CssClass = "form-control is-invalid"; }
+                    res = res && r;
+                }
+                else
+                {
+                    res = false;
+                    LabelPinFeedback.Text = "Required";
+                    TextBoxPin.CssClass = "form-control is-invalid";
+                }
+                if (TextBoxConfirmPin.Text == "")
+                {
+                    res = false;
+                    LabelConfirmPinFeedback.Text = "Required";
+                    TextBoxConfirmPin.CssClass = "form-control is-invalid";
+                }
+                else if (TextBoxPin.Text != TextBoxConfirmPin.Text)
+                {
+                    res = false;
+                    TextBoxConfirmPin.CssClass = "form-control is-invalid";
+                    LabelConfirmPinFeedback.Text = "PIN code doesn't match";
+                }
+                if (TextBoxBalance.Text != "")
+                {
+                    bool r = true;
+                    TextBoxBalance.Text = TextBoxBalance.Text.ToString().Trim();
+                    try
+                    {
+                        float number = float.Parse(TextBoxBalance.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        r = false;
+                    }
+                    TextBoxBalance.CssClass = "form-control";
+                    if (!r) { LabelBalanceFeedback.Text = "Balance must contain numbers only"; TextBoxBalance.CssClass = "form-control is-invalid"; }
+                    res = res && r;
+                }
+                else
+                {
+                    res = false;
+                    LabelBalanceFeedback.Text = "Required";
+                    TextBoxBalance.CssClass = "form-control is-invalid";
+                }
+            }
+
+            return res;
         }
 
         protected void ButtonDiscard_Click(object sender, EventArgs e)
