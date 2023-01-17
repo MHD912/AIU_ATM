@@ -130,15 +130,9 @@
                 $("#TableRowPinCode").toggle(!this.checked);
                 if ($(this).prop("checked") === true) {
                     $("#contact").css("margin-bottom", "8em");
-                    $("#TextBoxBalance").prop("required", false);
-                    $("#TextBoxPin").prop("required", false);
-                    $("#TextBoxConfirmPin").prop("required", false);
                 }
                 else {
                     $("#contact").css("margin-bottom", "16em");
-                    $("#TextBoxBalance").prop("required", true);
-                    $("#TextBoxPin").prop("required", true);
-                    $("#TextBoxConfirmPin").prop("required", true);
                 }
             });
             var typed = new Typed(".typing", {
