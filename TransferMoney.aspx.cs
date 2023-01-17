@@ -47,14 +47,103 @@ namespace AIU_ATM
             else { Response.Redirect("Login.aspx"); }
         }
 
+        protected bool notEmpty()
+        {
+            bool res = true;
+            if (TextBoxTransferValue.Text != "")
+            {
+                bool r = true;
+                TextBoxTransferValue.Text = TextBoxTransferValue.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxTransferValue.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxTransferValue.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelTransferValueFeedback.Text = "Value can contain numbers only";
+                    TextBoxTransferValue.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelTransferValueFeedback.Text = "Required";
+                TextBoxTransferValue.CssClass = "form-control is-invalid";
+            }
+
+            if (TextBoxRecipient.Text != "")
+            {
+                bool r = true;
+                TextBoxRecipient.Text = TextBoxRecipient.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxRecipient.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxRecipient.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelRecipientFeedback.Text = "Recipient ID can contain numbers only";
+                    TextBoxRecipient.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelRecipientFeedback.Text = "Required";
+                TextBoxRecipient.CssClass = "form-control is-invalid";
+            }
+
+            if (TextBoxPinCode.Text != "")
+            {
+                bool r = true;
+                TextBoxPinCode.Text = TextBoxPinCode.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxPinCode.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxPinCode.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelPinCodeFeedback.Text = "PIN code only contain numbers";
+                    TextBoxPinCode.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelPinCodeFeedback.Text = "Required";
+                TextBoxPinCode.CssClass = "form-control is-invalid";
+            }
+            return res;
+        }
+
         protected void ButtonTransfer_Click(object sender, EventArgs e)
         {
-            if (PIN == TextBoxPinCode.Text)
-            {
 
+            if (!notEmpty()) { return; }
+            if (PIN != TextBoxPinCode.Text)
+            {
+                TextBoxPinCode.Text = "";
+                TextBoxPinCode.CssClass = "form-control is-invalid";
+                LabelPinCodeFeedback.Text = "PIN code is incorrect";
             }
-            else { TextBoxPinCode.Text = ""; }
-            if (TextBoxTransferValue.Text != "")
+            else
             {
                 double amount = double.Parse(TextBoxTransferValue.Text);
                 if (amount > 0)
@@ -78,8 +167,14 @@ namespace AIU_ATM
 
                     da.Fill(dt);
 
-                    if(ex <= 0) { TextBoxRecipient.Text = ""; }
-                    if (dt.Rows.Count > 0 && TextBoxRecipient.Text != "")
+                    if (ex <= 0)
+                    {
+                        TextBoxRecipient.Text = "";
+                        TextBoxRecipient.CssClass = "form-control is-invalid";
+                        LabelRecipientFeedback.Text = "Recipient account not found";
+                        return;
+                    }
+                    if (dt.Rows.Count > 0)
                     {
                         balance = double.Parse(dt.Rows[0]["Balance"].ToString());
                         if (amount < balance)
@@ -93,8 +188,22 @@ namespace AIU_ATM
                             Session["Transaction"] = 3;
                             Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
                             LinkButtonPrint.Visible = true;
+
                             TextBoxTransferValue.Text = "";
-                            cusBal.Text = (balance - amount) + "$";
+                            TextBoxTransferValue.CssClass = "form-control";
+                            TextBoxRecipient.Text = "";
+                            TextBoxRecipient.CssClass = "form-control";
+                            TextBoxPinCode.Text = "";
+                            TextBoxPinCode.CssClass = "form-control";
+                            cusBal.Text = (balance - amount) + "SP";
+                        }
+                        else
+                        {
+                            TextBoxTransferValue.Text = "";
+                            TextBoxTransferValue.CssClass = "form-control";
+                            LabelTransferValueFeedback.Text = "Your balance is not sufficient";
+                            TextBoxPinCode.Text = "";
+                            TextBoxPinCode.CssClass = "form-control";
                         }
                     }
                     else { TextBoxTransferValue.Text = ""; }

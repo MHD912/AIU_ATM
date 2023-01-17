@@ -52,14 +52,20 @@
             font-size: 20px;
         }
 
+        /* invalid-feedback styling */
         .form-group {
             margin-bottom: 10px;
         }
 
+        .form-control.is-invalid {
+            padding-right: 0.75em;
+        }
+
         .invalid-feedback {
             margin: -9.6px 0;
-            transform: translateY(9.6px);
+            transform: translate(5px,9.6px);
         }
+
 
         .btn {
             padding: 8px 15px;
@@ -90,6 +96,9 @@
     </style>
     <script>
         $('document').ready(function () {
+            $('input').click(function () {
+                $(this).removeClass('is-invalid');
+            });
             var typed = new Typed(".typing", {
                 strings: ["Bank", "Dashboard"],
                 typeSpeed: 100,
@@ -162,7 +171,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxRecipient" CssClass="form-control" Style="width: 225px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Account Number" runat="server" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxRecipient" CssClass="form-control" Style="width: 225px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Account Number" runat="server"  ></asp:TextBox>
                                         <asp:Label ID="LabelRecipientFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -173,7 +182,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxTransferValue" CssClass="form-control" placeholder="Amount" runat="server" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxTransferValue" CssClass="form-control" placeholder="Amount" runat="server" ></asp:TextBox>
                                         <asp:Label ID="LabelTransferValueFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -184,7 +193,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####"  ></asp:TextBox>
                                         <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>

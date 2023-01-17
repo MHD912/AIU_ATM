@@ -46,51 +46,124 @@ namespace AIU_ATM
             else { Response.Redirect("Login.aspx"); }
         }
 
+        protected bool notEmpty()
+        {
+            bool res = true;
+            if (TextBoxWithdrawAmount.Text != "")
+            {
+                bool r = true;
+                TextBoxWithdrawAmount.Text = TextBoxWithdrawAmount.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxWithdrawAmount.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxWithdrawAmount.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelWithdrawAmountFeedback.Text = "Amount can contain numbers only";
+                    TextBoxWithdrawAmount.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelWithdrawAmountFeedback.Text = "Required";
+                TextBoxWithdrawAmount.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxPinCode.Text != "")
+            {
+                bool r = true;
+                TextBoxPinCode.Text = TextBoxPinCode.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxPinCode.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxPinCode.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelPinCodeFeedback.Text = "PIN code only contain numbers";
+                    TextBoxPinCode.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelPinCodeFeedback.Text = "Required";
+                TextBoxPinCode.CssClass = "form-control is-invalid";
+            }
+            return res;
+        }
+
         protected void ButtonWithdraw_Click(object sender, EventArgs e)
         {
-            if(PIN == TextBoxPinCode.Text)
+            if (!notEmpty()) { return; }
+            if (PIN != TextBoxPinCode.Text)
             {
-                if (TextBoxWithdrawAmount.Text != "")
+                TextBoxPinCode.Text = "";
+                TextBoxPinCode.CssClass = "form-control is-invalid";
+                LabelPinCodeFeedback.Text = "PIN code is incorrect";
+            }
+            else
+            {
+                double amount = double.Parse(TextBoxWithdrawAmount.Text);
+                if (amount > 0)
                 {
-                    double amount = double.Parse(TextBoxWithdrawAmount.Text);
-                    if (amount > 0)
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                    double balance = 0;
+                    cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
+                    cmd.Parameters.AddWithValue("@uID", userID);
+                    cmd.Parameters.AddWithValue("@AT", 1 + int.Parse(Session["ST"].ToString()));
+
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
                     {
-                        SqlCommand cmd = con.CreateCommand();
-                        cmd.CommandType = CommandType.Text;
-                        DataTable dt = new DataTable();
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-                        double balance = 0;
-                        cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
-                        cmd.Parameters.AddWithValue("@uID", userID);
-                        cmd.Parameters.AddWithValue("@AT", 1 + int.Parse(Session["ST"].ToString()));
-
-                        da.Fill(dt);
-
-                        if (dt.Rows.Count > 0)
+                        balance = double.Parse(dt.Rows[0]["Balance"].ToString());
+                        if (amount < balance)
                         {
-                            balance = double.Parse(dt.Rows[0]["Balance"].ToString());
-                            if (amount < balance)
-                            {
-                                cmd.CommandText = "EXEC withdraw @aNo, @Amount";
-                                cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
-                                cmd.Parameters.AddWithValue("@Amount", TextBoxWithdrawAmount.Text);
+                            cmd.CommandText = "EXEC withdraw @aNo, @Amount";
+                            cmd.Parameters.AddWithValue("@aNo", dt.Rows[0]["AccountNo"]);
+                            cmd.Parameters.AddWithValue("@Amount", TextBoxWithdrawAmount.Text);
 
-                                cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
 
-                                Session["Transaction"] = 2;
-                                Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
-                                LinkButtonPrint.Visible = true;
-                                TextBoxWithdrawAmount.Text = "";
-                                cusBal.Text = (balance - amount) + "$";
-                            }
+                            Session["Transaction"] = 2;
+                            Session["transUser"] = dt.Rows[0]["AccountNo"].ToString();
+                            LinkButtonPrint.Visible = true;
+
+                            TextBoxWithdrawAmount.Text = "";
+                            TextBoxWithdrawAmount.CssClass = "form-control";
+                            TextBoxPinCode.Text = "";
+                            TextBoxPinCode.CssClass = "form-control";
+                            cusBal.Text = (balance - amount) + "SP";
                         }
-                        else { TextBoxWithdrawAmount.Text = ""; }
+                        else
+                        {
+                            TextBoxWithdrawAmount.Text = "";
+                            TextBoxWithdrawAmount.CssClass = "form-control is-invalid";
+                            LabelWithdrawAmountFeedback.Text = "Your balance is not sufficient";
+                            TextBoxPinCode.Text = "";
+                            TextBoxPinCode.CssClass = "form-control";
+                        }
                     }
                 }
+
             }
-            else { TextBoxPinCode.Text = ""; }
-            
+
         }
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
