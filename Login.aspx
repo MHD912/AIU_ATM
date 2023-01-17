@@ -54,6 +54,25 @@
             margin-left: 0px;
         }
 
+        /* invalid-feedback styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control.is-invalid {
+            padding-right: 0.75em;
+        }
+
+        #TextBoxBirthDate {
+            background-position: right calc(1.8em + 0.1875rem) center;
+        }
+
+        .invalid-feedback {
+            margin: -9.6px 0;
+            transform: translate(5px,9.6px);
+        }
+            
+        /* other */
         .btn {
             border: none;
             font-size: 20px;
@@ -76,6 +95,9 @@
     </style>
     <script>
         $('document').ready(function () {
+            $('input').click(function () {
+                $(this).removeClass('is-invalid');
+            });
             var typed = new Typed(".typing", {
                 strings: ["Bank", "Login"],
                 typeSpeed: 100,
@@ -125,12 +147,12 @@
 
                     <form id="form1" runat="server">
                         <div class="form-group">
-                            <asp:TextBox ID="username" CssClass="form-control" placeholder="Username" runat="server" Wrap="False" TabIndex="1" required="true"></asp:TextBox>
+                            <asp:TextBox ID="username" CssClass="form-control" placeholder="Username" runat="server" Wrap="False" TabIndex="1" ></asp:TextBox>
                             <asp:Label ID="LabelUsernameFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                         </div>
 
                         <div class="form-group">
-                            <asp:TextBox ID="password" CssClass="form-control" placeholder="Password" runat="server" Wrap="False" type="password" TabIndex="2" required="true"></asp:TextBox>
+                            <asp:TextBox ID="password" CssClass="form-control" placeholder="Password" runat="server" Wrap="False" type="password" TabIndex="2" ></asp:TextBox>
                             <asp:Label ID="LabelPasswordFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                         </div>
                         <div style="width: 100%; display: flex; justify-content: center;">

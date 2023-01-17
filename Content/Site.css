@@ -432,19 +432,19 @@ Menu btn styling
     font-size: 23px;
 }
 
-    #LinkButtonLogoutAsText {
-        display: none;
-    }
+#LinkButtonLogoutAsText {
+    display: none;
+}
 
-    .menu-hamburger {
-        display: none;
-        width: 20px;
-        height: 2px;
-        background-color: #fff;
-        border-radius: 5px;
-        z-index: 101;
-        transition: all 0.2s ease;
-    }
+.menu-hamburger {
+    display: none;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 5px;
+    z-index: 101;
+    transition: all 0.2s ease;
+}
 
     .menu-hamburger::before,
     .menu-hamburger::after {
@@ -927,7 +927,7 @@ Contact section styling
     }
 
 /* //////////////////////// 
-     Footer section styling
+     footer section styling
  //////////////////////// */
 
 footer {

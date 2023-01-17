@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace AIU_ATM
 {
@@ -47,11 +48,39 @@ namespace AIU_ATM
                 da.Fill(dt);
                 Response.Redirect("CustomerDashboard.aspx");
             }
+        }
 
+        protected bool notEmpty()
+        {
+            bool res = true;
+
+            if (username.Text == "")
+            {
+                res = false;
+                LabelUsernameFeedback.Text = "Required";
+                username.CssClass = "form-control is-invalid";
+            }
+            else
+            {
+                username.CssClass = "form-control";
+            }
+            if (password.Text == "")
+            {
+                res = false;
+                LabelPasswordFeedback.Text = "Required";
+                password.CssClass = "form-control is-invalid";
+            }
+            else
+            {
+                password.CssClass = "form-control";
+            }
+            return res;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!notEmpty()) { return; }
+
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             DataTable dt = new DataTable();
@@ -66,7 +95,14 @@ namespace AIU_ATM
                 string userID = dt.Rows[0]["id"].ToString();
                 string privilege = dt.Rows[0]["privilege"].ToString();
                 string passWord = dt.Rows[0]["password"].ToString();
-                if (passWord == password.Text)
+
+                if (passWord != password.Text)
+                {
+                    LabelPasswordFeedback.Text = "Incorrect password";
+                    password.CssClass = "form-control is-invalid";
+                    password.Text = "";
+                }
+                else
                 {
                     if (privilege == "1")
                     {
@@ -79,9 +115,15 @@ namespace AIU_ATM
                         Response.Redirect("CustomerDashboard.aspx");
                     }
                 }
-                else { password.Text = ""; }
             }
-            else { username.Text = ""; password.Text = ""; }
+            else
+            {
+                LabelUsernameFeedback.Text = "Username not found";
+                username.Text = ""; 
+                username.CssClass = "form-control is-invalid"; 
+                password.Text = "";
+                password.CssClass = "form-control";
+            }
         }
     }
 }
