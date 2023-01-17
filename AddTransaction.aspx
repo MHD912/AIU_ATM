@@ -67,12 +67,18 @@
 
         /* invalid-feedback styling */
         .form-group {
-            margin-bottom: 2px;
+            margin-bottom: 10px;
+        }
+
+        .form-control.is-invalid {
+            padding-right: 0.75em;
         }
 
         .invalid-feedback {
             margin: -9.6px 0;
-            transform: translateY(9.6px);
+            transform: translate(5px,9.6px);
+        }
+
         }
 
         /* other styling */
@@ -105,6 +111,9 @@
     </style>
     <script>
         $('document').ready(function () {
+            $('input').click(function () {
+                $(this).removeClass('is-invalid');
+            });
             $("select").change(function () {
                 $(this).find("option:selected").each(function () {
                     var optionValue = $(this).attr("value");
@@ -191,7 +200,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="Account Number" runat="server" CssClass="form-control" ></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxAccountNo" placeholder="Account Number" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="LabelAccountNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>

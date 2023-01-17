@@ -42,6 +42,20 @@
                 vertical-align: -webkit-baseline-middle;
             }
 
+        /* invalid-feedback styling */
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-control.is-invalid {
+            padding-right: 0.75em;
+        }
+
+        .invalid-feedback {
+            margin: -9.6px 0;
+            transform: translate(5px,9.6px);
+        }
+
         /* other styling */
         .home {
             color: #111;
@@ -90,6 +104,9 @@
     </style>
     <script>
         $('document').ready(function () {
+            $('input').click(function () {
+                $(this).removeClass('is-invalid');
+            });
             var typed = new Typed(".typing", {
                 strings: ["Bank", "Withdraw"],
                 typeSpeed: 100,
@@ -162,7 +179,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxWithdrawAmount" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxWithdrawAmount" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server"></asp:TextBox>
                                         <asp:Label ID="LabelWithdrawAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -173,7 +190,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####" required="true"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####" ></asp:TextBox>
                                         <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>

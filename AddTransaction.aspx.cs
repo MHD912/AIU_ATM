@@ -38,6 +38,92 @@ namespace AIU_ATM
             }
         }
 
+        protected bool notEmpty()
+        {
+            bool res = true;
+            if (TextBoxAccountNo.Text != "")
+            {
+                bool r = true;
+                TextBoxAccountNo.Text = TextBoxAccountNo.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxAccountNo.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxAccountNo.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelAccountNoFeedback.Text = "Account number can contain numbers only";
+                    TextBoxAccountNo.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelAccountNoFeedback.Text = "Required";
+                TextBoxAccountNo.CssClass = "form-control is-invalid";
+            }
+
+            if (TextBoxAmount.Text != "")
+            {
+                bool r = true;
+                TextBoxAmount.Text = TextBoxAmount.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxAmount.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxAmount.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelAmountFeedback.Text = "Amount can contain numbers only";
+                    TextBoxAmount.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelAmountFeedback.Text = "Required";
+                TextBoxAmount.CssClass = "form-control is-invalid";
+            }
+
+            if (TextBoxRecipientNo.Text != "")
+            {
+                bool r = true;
+                TextBoxRecipientNo.Text = TextBoxRecipientNo.Text.ToString().Trim();
+                try
+                {
+                    float number = float.Parse(TextBoxRecipientNo.Text);
+                }
+                catch (Exception ex)
+                {
+                    r = false;
+                }
+                TextBoxRecipientNo.CssClass = "form-control";
+                if (!r)
+                {
+                    LabelRecipientNoFeedback.Text = "PIN code only contain numbers";
+                    TextBoxRecipientNo.CssClass = "form-control is-invalid";
+                }
+                res = res && r;
+            }
+            else
+            {
+                res = false;
+                LabelRecipientNoFeedback.Text = "Required";
+                TextBoxRecipientNo.CssClass = "form-control is-invalid";
+            }
+            return res;
+        }
+
         protected void LinkButtonBack_Click(object sender, EventArgs e)
         {
 
