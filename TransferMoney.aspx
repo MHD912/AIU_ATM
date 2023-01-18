@@ -171,7 +171,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxRecipient" CssClass="form-control" Style="width: 225px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Account Number" runat="server"  ></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxRecipient" CssClass="form-control" Style="width: 225px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Account Number" runat="server"  TabIndex="1"></asp:TextBox>
                                         <asp:Label ID="LabelRecipientFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -182,7 +182,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxTransferValue" CssClass="form-control" placeholder="Amount" runat="server" ></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxTransferValue" CssClass="form-control" placeholder="Amount" runat="server" TabIndex="2"></asp:TextBox>
                                         <asp:Label ID="LabelTransferValueFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -193,7 +193,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####"  ></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####"  TabIndex="3"></asp:TextBox>
                                         <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>

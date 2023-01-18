@@ -173,7 +173,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxDepositAmount" CssClass="form-control" placeholder="Amount" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxDepositAmount" CssClass="form-control" placeholder="Amount" runat="server" TabIndex="1"></asp:TextBox>
                                         <asp:Label ID="LabelDepositAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -184,7 +184,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" runat="server" TextMode="Password" placeholder="####" TabIndex="2"></asp:TextBox>
                                         <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>

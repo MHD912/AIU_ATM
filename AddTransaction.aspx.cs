@@ -51,6 +51,7 @@ namespace AIU_ATM
             }
             else
             {
+                TextBoxAmount.Text = TextBoxAmount.Text.Trim();
                 TextBoxAmount.CssClass = "form-control";
                 bool isNumber = true;
                 try
@@ -89,7 +90,7 @@ namespace AIU_ATM
                 {
                     TextBoxSenderNo.CssClass = "form-control";
                     bool isNumber = true;
-                    TextBoxSenderNo.Text = TextBoxSenderNo.Text.ToString().Trim();
+                    TextBoxSenderNo.Text = TextBoxSenderNo.Text.Trim();
                     try
                     {
                         double number = double.Parse(TextBoxSenderNo.Text);
@@ -118,7 +119,7 @@ namespace AIU_ATM
                 {
                     TextBoxRecipientNo.CssClass = "form-control";
                     bool isNumber = true;
-                    TextBoxRecipientNo.Text = TextBoxRecipientNo.Text.ToString().Trim();
+                    TextBoxRecipientNo.Text = TextBoxRecipientNo.Text.Trim();
                     try
                     {
                         double number = double.Parse(TextBoxRecipientNo.Text);
@@ -150,7 +151,7 @@ namespace AIU_ATM
                 {
                     TextBoxAccountNo.CssClass = "form-control";
                     bool isNumber = true;
-                    TextBoxAccountNo.Text = TextBoxAccountNo.Text.ToString().Trim();
+                    TextBoxAccountNo.Text = TextBoxAccountNo.Text.Trim();
                     try
                     {
                         double number = double.Parse(TextBoxAccountNo.Text);
@@ -276,7 +277,7 @@ namespace AIU_ATM
                         }
                         else
                         {
-                            LabelAmountFeedback.Text = "Your current balance is not enough";
+                            LabelAmountFeedback.Text = "Sender account balance is not sufficient";
                             TextBoxAmount.CssClass = "form-control is-invalid";
                         }
                     }
