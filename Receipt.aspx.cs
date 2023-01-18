@@ -98,6 +98,9 @@ namespace AIU_ATM
 
                     LabelCustomerName.Text = dt.Rows[0]["FirstName"].ToString() + " " + dt.Rows[0]["LastName"].ToString();
                     LabelEmail.Text = dt.Rows[0]["Email"].ToString();
+                    
+                    Session["Transaction"] = null;
+                    Session["transUser"] = null;
                 }
                 else { Response.Redirect("Default.aspx"); }
             }

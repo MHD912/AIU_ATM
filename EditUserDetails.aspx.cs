@@ -349,7 +349,7 @@ namespace AIU_ATM
                     float number = float.Parse(TextBoxContact.Text);
                     if (s.Length != 9) { r = false; }
                 }
-                catch (Exception ex)
+                catch 
                 {
                     r = false;
                 }
@@ -381,7 +381,7 @@ namespace AIU_ATM
                         float number = float.Parse(TextBoxPin.Text);
                         if (s.Length < 4) { r = false; }
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         r = false;
                     }
@@ -415,7 +415,7 @@ namespace AIU_ATM
                     {
                         float number = float.Parse(TextBoxBalance.Text);
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         r = false;
                     }

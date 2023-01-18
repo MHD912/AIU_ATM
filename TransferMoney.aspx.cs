@@ -58,7 +58,7 @@ namespace AIU_ATM
                 {
                     float number = float.Parse(TextBoxTransferValue.Text);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     r = false;
                 }
@@ -85,7 +85,7 @@ namespace AIU_ATM
                 {
                     float number = float.Parse(TextBoxRecipient.Text);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     r = false;
                 }
@@ -112,7 +112,7 @@ namespace AIU_ATM
                 {
                     float number = float.Parse(TextBoxPinCode.Text);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     r = false;
                 }
@@ -159,7 +159,7 @@ namespace AIU_ATM
                     int ex = dt.Rows.Count;
                     dt.Rows.Clear();
 
-                    double balance = 0;
+                    double balance;
 
                     cmd.CommandText = "select * from Users as u join Accounts as a on u.ID = a.UserID where u.id=@uID and a.AccountType=@AT";
                     cmd.Parameters.AddWithValue("@uID", userID);

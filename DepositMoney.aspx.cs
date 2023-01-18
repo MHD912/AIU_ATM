@@ -57,7 +57,7 @@ namespace AIU_ATM
                 try
                 {
                     float number = float.Parse(TextBoxDepositAmount.Text);
-                }catch(Exception ex)
+                }catch
                 {
                     r = false;
                 }
@@ -83,7 +83,7 @@ namespace AIU_ATM
                 {
                     float number = float.Parse(TextBoxPinCode.Text);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     r = false;
                 }
