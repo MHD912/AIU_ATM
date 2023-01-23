@@ -59,12 +59,11 @@ namespace AIU_ATM
             }
             else
             {
-                TextBoxDepositAmount.Text = TextBoxDepositAmount.Text.Trim();
                 TextBoxDepositAmount.CssClass = "form-control";
                 bool isNumber = true;
                 try
                 {
-                    double amount = double.Parse(TextBoxDepositAmount.Text);
+                    double amount = double.Parse(TextBoxDepositAmount.Text.Trim());
                     if (amount < 0)
                     {
                         LabelDepositAmountFeedback.Text = "Amount can't be negative";
