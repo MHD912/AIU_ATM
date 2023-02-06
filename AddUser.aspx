@@ -257,7 +257,7 @@
                             </asp:TableCell>
                             <asp:TableCell runat="server" CssClass="contain-textbox">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxEmail" placeholder="Email" type="email" runat="server" CssClass="form-control" TextMode="email"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxEmail" placeholder="Email" runat="server" CssClass="form-control" TextMode="email"></asp:TextBox>
                                     <asp:Label ID="LabelEmailFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>

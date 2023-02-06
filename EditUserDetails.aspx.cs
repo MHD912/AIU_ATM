@@ -27,7 +27,7 @@ namespace AIU_ATM
                 con.Close();
             }
             con.Open();
-            
+
             if (Session["EditUser"] != null)
             {
                 SqlCommand cmd = con.CreateCommand();
@@ -106,9 +106,238 @@ namespace AIU_ATM
                     TextBoxConfirmPin.Enabled = false;
                     ButtonDiscard_Click(sender, e);
                 }
-                
+
             }
             else { Response.Redirect("Login.aspx"); }
+        }
+
+
+        protected bool notEmpty()
+        {
+            bool res = true;
+            Regex capitalizeRegex = new Regex(@"^[a-z]|(?<=\s)[a-z]", RegexOptions.IgnoreCase);
+
+            if (TextBoxFirstName.Text != "")
+            {
+                Regex reg = new Regex(@"^[A-Za-z ]{3,20}$");
+                TextBoxFirstName.Text = TextBoxFirstName.Text.Trim();
+                bool isValid = reg.IsMatch(TextBoxFirstName.Text);
+                TextBoxFirstName.CssClass = "form-control";
+                if (!isValid)
+                {
+                    LabelFirstNameFeedback.Text = "Name must only contain letters";
+                    TextBoxFirstName.CssClass = "form-control is-invalid";
+                }
+                else
+                {
+                    TextBoxFirstName.Text = capitalizeRegex.Replace(TextBoxFirstName.Text, m => m.Value.ToUpper());
+                }
+                res = res && isValid;
+            }
+            else
+            {
+                res = false;
+                LabelFirstNameFeedback.Text = "Required";
+                TextBoxFirstName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxMidName.Text != "")
+            {
+                Regex reg = new Regex(@"^[A-Za-z ]{3,20}$");
+                TextBoxMidName.Text = TextBoxMidName.Text.Trim();
+                bool isValid = reg.IsMatch(TextBoxMidName.Text);
+                TextBoxMidName.CssClass = "form-control";
+                if (!isValid)
+                {
+                    LabelMidNameFeedback.Text = "Name must only contain letters";
+                    TextBoxMidName.CssClass = "form-control is-invalid";
+                }
+                else
+                {
+                    TextBoxMidName.Text = capitalizeRegex.Replace(TextBoxMidName.Text, m => m.Value.ToUpper());
+                }
+                res = res && isValid;
+            }
+            else
+            {
+                res = false;
+                LabelMidNameFeedback.Text = "Required";
+                TextBoxMidName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxLastName.Text != "")
+            {
+                Regex reg = new Regex(@"^[A-Za-z ]{3,20}$");
+                TextBoxLastName.Text = TextBoxLastName.Text.Trim();
+                bool isValid = reg.IsMatch(TextBoxLastName.Text);
+                TextBoxLastName.CssClass = "form-control";
+                if (!isValid)
+                {
+                    LabelLastNameFeedback.Text = "Name must only contain letters";
+                    TextBoxLastName.CssClass = "form-control is-invalid";
+                }
+                else
+                {
+                    TextBoxLastName.Text = capitalizeRegex.Replace(TextBoxLastName.Text, m => m.Value.ToUpper());
+                }
+                res = res && isValid;
+            }
+            else
+            {
+                res = false;
+                LabelLastNameFeedback.Text = "Required";
+                TextBoxLastName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxUserName.Text != "")
+            {
+                Regex reg = new Regex(@"^[a-z0-9]{3,16}$");
+                TextBoxUserName.Text = TextBoxUserName.Text.Trim();
+                bool isValid = reg.IsMatch(TextBoxUserName.Text);
+                TextBoxUserName.CssClass = "form-control";
+                if (!isValid) { LabelUserNameFeedback.Text = "Username can only contain lower case letters and numbers with length of 3-16"; TextBoxUserName.CssClass = "form-control is-invalid"; }
+                res = res && isValid;
+            }
+            else
+            {
+                res = false;
+                LabelUserNameFeedback.Text = "Required";
+                TextBoxUserName.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxPassword.Text != "")
+            {
+                Regex reg = new Regex(@"^(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d])[A-Z\d$@$!%*?&]{8,}$");
+                TextBoxPassword.Text = TextBoxPassword.Text.Trim();
+                bool isVaild = reg.IsMatch(TextBoxPassword.Text);
+                TextBoxPassword.CssClass = "form-control";
+                if (!isVaild) { LabelPasswordFeedback.Text = "Password must start start with an upper-case letter, contains at least one special character, and be at least 8 characters long"; TextBoxPassword.CssClass = "form-control is-invalid"; }
+                res = res && isVaild;
+            }
+            else
+            {
+                res = false;
+                LabelPasswordFeedback.Text = "Required";
+                TextBoxPassword.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxConfirmPassword.Text == "")
+            {
+                res = false;
+                LabelConfirmPasswordFeedback.Text = "Required";
+                TextBoxConfirmPassword.CssClass = "form-control is-invalid";
+            }
+            else if (TextBoxPassword.Text != TextBoxConfirmPassword.Text)
+            {
+                res = false;
+                TextBoxConfirmPassword.CssClass = "form-control is-invalid";
+                LabelConfirmPasswordFeedback.Text = "Passwords doesn't match";
+            }
+            if (TextBoxEmail.Text != "")
+            {
+                Regex reg = new Regex(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z]{2,})+$");
+                TextBoxEmail.Text = TextBoxEmail.Text.Trim();
+                bool isValid = reg.IsMatch(TextBoxEmail.Text);
+                TextBoxEmail.CssClass = "form-control";
+                if (!isValid) { LabelEmailFeedback.Text = "Invalid email"; TextBoxEmail.CssClass = "form-control is-invalid"; }
+                res = res && isValid;
+            }
+            else
+            {
+                res = false;
+                LabelEmailFeedback.Text = "Required";
+                TextBoxEmail.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxBirthDate.Text == "")
+            {
+                res = false;
+                LabelBirthDateFeedback.Text = "Required";
+                TextBoxBirthDate.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxContact.Text != "")
+            {
+                Regex reg = new Regex(@"^[0-9]{7,12}$");
+                TextBoxContact.Text = Regex.Replace(TextBoxContact.Text.Trim(), @"^0*", "");
+                bool isValid = reg.IsMatch(TextBoxContact.Text);
+                TextBoxContact.CssClass = "form-control";
+                if (!isValid) { LabelContactFeedback.Text = "Invalid phone number"; TextBoxContact.CssClass = "form-control is-invalid"; }
+                res = res && isValid;
+            }
+            else
+            {
+                res = false;
+                LabelContactFeedback.Text = "Required";
+                TextBoxContact.CssClass = "form-control is-invalid";
+            }
+            if (TextBoxAddress.Text == "")
+            {
+                res = false;
+                LabelAddressFeedback.Text = "Required";
+                TextBoxAddress.CssClass = "form-control is-invalid";
+            }
+            if (!CheckBoxUserType.Checked)
+            {
+                if (TextBoxPin.Text != "")
+                {
+                    Regex reg = new Regex(@"^[0-9]{4,12}$");
+                    TextBoxContact.Text = TextBoxContact.Text.Trim();
+                    bool isValid = reg.IsMatch(TextBoxContact.Text);
+                    TextBoxPin.CssClass = "form-control";
+                    if (!isValid) { LabelPinFeedback.Text = "PIN code must contain numbers only with 4-12 digits"; TextBoxPin.CssClass = "form-control is-invalid"; }
+                    res = res && isValid;
+                }
+                else
+                {
+                    res = false;
+                    LabelPinFeedback.Text = "Required";
+                    TextBoxPin.CssClass = "form-control is-invalid";
+                }
+                if (TextBoxConfirmPin.Text == "")
+                {
+                    res = false;
+                    LabelConfirmPinFeedback.Text = "Required";
+                    TextBoxConfirmPin.CssClass = "form-control is-invalid";
+                }
+                else if (TextBoxPin.Text != TextBoxConfirmPin.Text)
+                {
+                    res = false;
+                    TextBoxConfirmPin.CssClass = "form-control is-invalid";
+                    LabelConfirmPinFeedback.Text = "PIN code doesn't match";
+                }
+
+                if (TextBoxBalance.Text == "")
+                {
+                    TextBoxBalance.CssClass = "form-control is-invalid";
+                    LabelBalanceFeedback.Text = "Required";
+                    res = false;
+                }
+                else
+                {
+                    TextBoxBalance.Text = TextBoxBalance.Text.Trim();
+                    TextBoxBalance.CssClass = "form-control";
+                    bool isValid = true;
+                    try
+                    {
+                        double amount = double.Parse(TextBoxBalance.Text);
+                        if (amount < 0)
+                        {
+                            LabelBalanceFeedback.Text = "Balance can't be negative";
+                            TextBoxBalance.CssClass = "form-control is-invalid";
+                            res = false;
+                        }
+                        else if (amount < 500)
+                        {
+                            LabelBalanceFeedback.Text = "Balance must be at least 500 SP";
+                            TextBoxBalance.CssClass = "form-control is-invalid";
+                            res = false;
+                        }
+                    }
+                    catch
+                    {
+                        isValid = false;
+                        LabelBalanceFeedback.Text = "Balance can't contain letters";
+                        TextBoxBalance.CssClass = "form-control is-invalid";
+                    }
+                    res = res && isValid;
+                }
+            }
+
+            return res;
         }
 
         protected void LinkButtonBack_Click(object sender, EventArgs e)
@@ -143,7 +372,7 @@ namespace AIU_ATM
                             cmd.Parameters.AddWithValue("@Balance", TextBoxBalance.Text);
                             cmd.Parameters.AddWithValue("@PIN", TextBoxPin.Text);
                             cmd.Parameters.AddWithValue("@AT", type + 1);
-                            cmd.Parameters.AddWithValue("@uID",userID);
+                            cmd.Parameters.AddWithValue("@uID", userID);
                             cmd.ExecuteNonQuery();
                             cmd.Parameters.Clear();
                         }
@@ -172,9 +401,9 @@ namespace AIU_ATM
                     TextBoxBalance.Text = "";
                 }
             }
-            
+
             Session["sel"] = DropDownListAccountType.SelectedIndex;
-                        
+
         }
 
         protected void ButtonConfirm_Click(object sender, EventArgs e)
@@ -184,255 +413,47 @@ namespace AIU_ATM
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            if (notEmpty()) {
-                if(TextBoxPassword.Text == TextBoxConfirmPassword.Text)
+            if (notEmpty())
+            {
+                DropDownListAccountType_SelectedIndexChanged(sender, e);
+                cmd.CommandText = "select * from users where username = @UN";
+                cmd.Parameters.AddWithValue("@UN", TextBoxUserName.Text);
+                da.Fill(dt);
+                cmd.Parameters.Clear();
+                bool updateUN = true;
+                if (dt.Rows.Count > 0 && !(dt.Rows[0]["ID"].ToString().Equals(userID))) { updateUN = false; }
+                if (updateUN)
                 {
-                    DropDownListAccountType_SelectedIndexChanged(sender, e);
-                    cmd.CommandText = "select * from users where username = @UN";
-                    cmd.Parameters.AddWithValue("@UN",TextBoxUserName.Text);
-                    da.Fill(dt);
+                    cmd.CommandText = "update Users set UserName = @UN,PassWord=@PW where id = @uID";
+                    cmd.Parameters.AddWithValue("@UN", TextBoxUserName.Text);
+                    cmd.Parameters.AddWithValue("@PW", TextBoxPassword.Text);
+                    cmd.Parameters.AddWithValue("@uID", userID);
+                    cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
-                    bool updateUN = true;
-                    if (dt.Rows.Count > 0 && !(dt.Rows[0]["ID"].ToString().Equals(userID)) ) { updateUN = false; }
-                    if (updateUN)
-                    {
-                        cmd.CommandText = "update Users set UserName = @UN,PassWord=@PW where id = @uID";
-                        cmd.Parameters.AddWithValue("@UN", TextBoxUserName.Text);
-                        cmd.Parameters.AddWithValue("@PW", TextBoxPassword.Text);
-                        cmd.Parameters.AddWithValue("@uID", userID);
-                        cmd.ExecuteNonQuery();
-                        cmd.Parameters.Clear();
 
-                        string g = "Male";
-                        if (RadioButtonFemale.Checked == true) { g = "FeMale"; }
+                    string g = "Male";
+                    if (RadioButtonFemale.Checked == true) { g = "FeMale"; }
 
-                        cmd.CommandText = "update UsersInfo set FirstName = @FN, LastName = @LN, MiddleName=@MN, Email=@EM, BirthDate=@BD,Gender=@G,Phone=@P,Address=@Add where id = @uID";
-                        cmd.Parameters.AddWithValue("@FN", TextBoxFirstName.Text);
-                        cmd.Parameters.AddWithValue("@MN", TextBoxMidName.Text);
-                        cmd.Parameters.AddWithValue("@LN", TextBoxLastName.Text);
-                        cmd.Parameters.AddWithValue("@BD", TextBoxBirthDate.Text);
-                        cmd.Parameters.AddWithValue("@EM", TextBoxEmail.Text);
-                        cmd.Parameters.AddWithValue("@P", TextBoxContact.Text);
-                        cmd.Parameters.AddWithValue("@Add", TextBoxAddress.Text);
-                        cmd.Parameters.AddWithValue("@G", g);
-                        cmd.Parameters.AddWithValue("@uID", userID);
-                        cmd.ExecuteNonQuery();
-                        cmd.Parameters.Clear();
+                    cmd.CommandText = "update UsersInfo set FirstName = @FN, LastName = @LN, MiddleName=@MN, Email=@EM, BirthDate=@BD,Gender=@G,Phone=@P,Address=@Add where id = @uID";
+                    cmd.Parameters.AddWithValue("@FN", TextBoxFirstName.Text);
+                    cmd.Parameters.AddWithValue("@MN", TextBoxMidName.Text);
+                    cmd.Parameters.AddWithValue("@LN", TextBoxLastName.Text);
+                    cmd.Parameters.AddWithValue("@BD", TextBoxBirthDate.Text);
+                    cmd.Parameters.AddWithValue("@EM", TextBoxEmail.Text);
+                    cmd.Parameters.AddWithValue("@P", TextBoxContact.Text);
+                    cmd.Parameters.AddWithValue("@Add", TextBoxAddress.Text);
+                    cmd.Parameters.AddWithValue("@G", g);
+                    cmd.Parameters.AddWithValue("@uID", userID);
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
 
-                        Response.Redirect("ViewUserDetails.aspx");
-                    }
-                    else { TextBoxUserName.Text = ""; }
+                    Response.Redirect("ViewUserDetails.aspx");
                 }
-                else { TextBoxConfirmPassword.Text = TextBoxPassword.Text = ""; }
+                else { TextBoxUserName.Text = ""; }
             }
-                        
+
         }
 
-        protected bool notEmpty()
-        {
-            Boolean res = true;
-            if (TextBoxFirstName.Text != "")
-            {
-                Regex reg = new Regex("^[A-Za-z ]{3,20}$");
-                TextBoxFirstName.Text = TextBoxFirstName.Text.Trim();
-                bool r = reg.IsMatch(TextBoxFirstName.Text);
-                TextBoxFirstName.CssClass = "form-control";
-                if (!r) { LabelFirstNameFeedback.Text = "Name must only contain letters"; TextBoxFirstName.CssClass = "form-control is-invalid"; }
-                res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelFirstNameFeedback.Text = "Required";
-                TextBoxFirstName.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxMidName.Text != "")
-            {
-                Regex reg = new Regex("^[A-Za-z ]{3,20}$");
-                TextBoxMidName.Text = TextBoxMidName.Text.ToString().Trim();
-                bool r = reg.IsMatch(TextBoxMidName.Text);
-                TextBoxMidName.CssClass = "form-control";
-                if (!r) { LabelMidNameFeedback.Text = "Name must only contain letters"; TextBoxMidName.CssClass = "form-control is-invalid"; }
-                res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelMidNameFeedback.Text = "Required";
-                TextBoxMidName.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxLastName.Text != "")
-            {
-                Regex reg = new Regex("^[A-Za-z ]{3,20}$");
-                TextBoxLastName.Text = TextBoxLastName.Text.ToString().Trim();
-                bool r = reg.IsMatch(TextBoxLastName.Text);
-                TextBoxLastName.CssClass = "form-control";
-                if (!r) { LabelLastNameFeedback.Text = "Name must only contain letters"; TextBoxLastName.CssClass = "form-control is-invalid"; }
-                res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelLastNameFeedback.Text = "Required";
-                TextBoxLastName.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxUserName.Text != "")
-            {
-                Regex reg = new Regex("/^[a-z0-9_-]{3,16}$/");
-                TextBoxUserName.Text = TextBoxUserName.Text.ToString().Trim();
-                bool r = reg.IsMatch(TextBoxUserName.Text);
-                TextBoxUserName.CssClass = "form-control";
-                if (!r) { LabelUserNameFeedback.Text = "Username can only contain letters and (_,-) with length of 3-16"; TextBoxUserName.CssClass = "form-control is-invalid"; }
-                res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelUserNameFeedback.Text = "Required";
-                TextBoxUserName.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxPassword.Text != "")
-            {
-                Regex reg = new Regex("/(?=(.*[0-9]))(?=.*[\\!@#$%^&*()\\\\[\\]{}\\-_+=~`|:;\"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/");
-                TextBoxPassword.Text = TextBoxPassword.Text.ToString().Trim();
-                bool r = reg.IsMatch(TextBoxPassword.Text);
-                TextBoxPassword.CssClass = "form-control";
-                if (!r) { LabelPasswordFeedback.Text = "Password Should have 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and be at least 8 characters long"; TextBoxPassword.CssClass = "form-control is-invalid"; }
-                res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelPasswordFeedback.Text = "Required";
-                TextBoxPassword.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxConfirmPassword.Text == "")
-            {
-                res = false;
-                LabelConfirmPasswordFeedback.Text = "Required";
-                TextBoxConfirmPassword.CssClass = "form-control is-invalid";
-            }
-            else if (TextBoxPassword.Text != TextBoxConfirmPassword.Text)
-            {
-                res = false;
-                TextBoxConfirmPassword.CssClass = "form-control is-invalid";
-                LabelConfirmPasswordFeedback.Text = "Passwords doesn't match";
-            }
-            if (TextBoxEmail.Text != "")
-            {
-                //Regex reg = new Regex("/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6})*$/");
-                //TextBoxEmail.Text = TextBoxEmail.Text.ToString().Trim();
-                //bool r = reg.IsMatch(TextBoxEmail.Text);
-                //TextBoxEmail.CssClass = "form-control";
-                //if (!r) { LabelEmailFeedback.Text = "Invalid email"; TextBoxEmail.CssClass = "form-control is-invalid"; }
-                //res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelEmailFeedback.Text = "Required";
-                TextBoxEmail.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxBirthDate.Text == "")
-            {
-                res = false;
-                LabelBirthDateFeedback.Text = "Required";
-                TextBoxBirthDate.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxContact.Text != "")
-            {
-                bool r = true;
-                TextBoxContact.Text = TextBoxContact.Text.ToString().Trim();
-                try
-                {
-                    string s = TextBoxContact.Text;
-                    float number = float.Parse(TextBoxContact.Text);
-                    if (s.Length != 9) { r = false; }
-                }
-                catch (Exception ex)
-                {
-                    r = false;
-                }
-                TextBoxContact.CssClass = "form-control";
-                if (!r) { LabelContactFeedback.Text = "Invalid phone number"; TextBoxContact.CssClass = "form-control is-invalid"; }
-                res = res && r;
-            }
-            else
-            {
-                res = false;
-                LabelContactFeedback.Text = "Required";
-                TextBoxContact.CssClass = "form-control is-invalid";
-            }
-            if (TextBoxAddress.Text == "")
-            {
-                res = false;
-                LabelAddressFeedback.Text = "Required";
-                TextBoxAddress.CssClass = "form-control is-invalid";
-            }
-            if (!CheckBoxUserType.Checked)
-            {
-                if (TextBoxPin.Text != "")
-                {
-                    bool r = true;
-                    TextBoxPin.Text = TextBoxPin.Text.ToString().Trim();
-                    try
-                    {
-                        string s = TextBoxPin.Text;
-                        float number = float.Parse(TextBoxPin.Text);
-                        if (s.Length < 4) { r = false; }
-                    }
-                    catch (Exception ex)
-                    {
-                        r = false;
-                    }
-                    TextBoxPin.CssClass = "form-control";
-                    if (!r) { LabelPinFeedback.Text = "PIN code must contain numbers only with at least 4-Digits"; TextBoxPin.CssClass = "form-control is-invalid"; }
-                    res = res && r;
-                }
-                else
-                {
-                    res = false;
-                    LabelPinFeedback.Text = "Required";
-                    TextBoxPin.CssClass = "form-control is-invalid";
-                }
-                if (TextBoxConfirmPin.Text == "")
-                {
-                    res = false;
-                    LabelConfirmPinFeedback.Text = "Required";
-                    TextBoxConfirmPin.CssClass = "form-control is-invalid";
-                }
-                else if (TextBoxPin.Text != TextBoxConfirmPin.Text)
-                {
-                    res = false;
-                    TextBoxConfirmPin.CssClass = "form-control is-invalid";
-                    LabelConfirmPinFeedback.Text = "PIN code doesn't match";
-                }
-                if (TextBoxBalance.Text != "")
-                {
-                    bool r = true;
-                    TextBoxBalance.Text = TextBoxBalance.Text.ToString().Trim();
-                    try
-                    {
-                        float number = float.Parse(TextBoxBalance.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        r = false;
-                    }
-                    TextBoxBalance.CssClass = "form-control";
-                    if (!r) { LabelBalanceFeedback.Text = "Balance must contain numbers only"; TextBoxBalance.CssClass = "form-control is-invalid"; }
-                    res = res && r;
-                }
-                else
-                {
-                    res = false;
-                    LabelBalanceFeedback.Text = "Required";
-                    TextBoxBalance.CssClass = "form-control is-invalid";
-                }
-            }
-
-            return res;
-        }
 
         protected void ButtonDiscard_Click(object sender, EventArgs e)
         {
@@ -536,9 +557,7 @@ namespace AIU_ATM
                 if (g.Equals("Male")) { RadioButtonFemale.Checked = false; RadioButtonMale.Checked = true; }
                 TextBoxContact.Text = dt.Rows[0]["P"].ToString();
                 TextBoxAddress.Text = dt.Rows[0]["Addr"].ToString();
-
             }
-
         }
 
         protected void LinkButtonLogout_Click(object sender, EventArgs e)

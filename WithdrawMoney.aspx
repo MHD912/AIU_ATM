@@ -179,7 +179,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxWithdrawAmount" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxWithdrawAmount" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" placeholder="Amount" runat="server" TabIndex="1"></asp:TextBox>
                                         <asp:Label ID="LabelWithdrawAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>
@@ -190,7 +190,7 @@
                                 </asp:TableCell>
                                 <asp:TableCell>
                                     <div class="form-group">
-                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####" ></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPinCode" CssClass="form-control" Style="width: 205px; margin-top: 10px; margin-right: 5px; height: 50px" runat="server" TextMode="Password" placeholder="####" TabIndex="2"></asp:TextBox>
                                         <asp:Label ID="LabelPinCodeFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </asp:TableCell>

@@ -53,7 +53,7 @@ namespace AIU_ATM
         protected bool notEmpty()
         {
             bool res = true;
-
+            
             if (username.Text == "")
             {
                 res = false;
@@ -62,6 +62,7 @@ namespace AIU_ATM
             }
             else
             {
+                username.Text = username.Text.Trim();
                 username.CssClass = "form-control";
             }
             if (password.Text == "")
@@ -72,6 +73,7 @@ namespace AIU_ATM
             }
             else
             {
+                password.Text = password.Text.Trim();
                 password.CssClass = "form-control";
             }
             return res;
@@ -118,11 +120,11 @@ namespace AIU_ATM
             }
             else
             {
-                LabelUsernameFeedback.Text = "Username not found";
-                username.Text = ""; 
                 username.CssClass = "form-control is-invalid"; 
-                password.Text = "";
+                LabelUsernameFeedback.Text = "Account not found";
+                username.Text = ""; 
                 password.CssClass = "form-control";
+                password.Text = "";
             }
         }
     }

@@ -79,7 +79,6 @@
             transform: translate(5px,9.6px);
         }
 
-        }
 
         /* other styling */
         .btn {
@@ -118,18 +117,12 @@
                 $(this).find("option:selected").each(function () {
                     var optionValue = $(this).attr("value");
                     if (optionValue === "Transfer") {
-                        $("#TextBoxSenderNo").prop("required", true)
                         $("#TableRowSenderUsername").show();
-                        $("#TextBoxRecipientNo").prop("required", true)
                         $("#TableRowRecipientUsername").show();
-                        $("#TextBoxAccountNo").prop("required", false)
                         $("#TableRowAccountUsername").hide();
                     } else {
-                        $("#TextBoxSenderNo").prop("required", false)
                         $("#TableRowSenderUsername").hide();
-                        $("#TextBoxRecipientNo").prop("required", false)
                         $("#TableRowRecipientUsername").hide();
-                        $("#TextBoxAccountNo").prop("required", true)
                         $("#TableRowAccountUsername").show();
                     }
                 });
@@ -198,7 +191,7 @@
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelAccountUsername" runat="server" Text="Account" CssClass="text"></asp:Label>
                             </asp:TableCell>
-                            <asp:TableCell runat="server">
+                            <asp:TableCell runat="server" Style="width: 61.115%;">
                                 <div class="form-group">
                                     <asp:TextBox ID="TextBoxAccountNo" placeholder="Account Number" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="LabelAccountNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
@@ -210,7 +203,7 @@
                                 <asp:Label ID="LabelSenderUsername" runat="server" Text="Sender account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <div class="form-group">
+                                <div class="form-group" Style="width: 61.115%;">
                                     <asp:TextBox ID="TextBoxSenderNo" placeholder="AccountNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="LabelSenderNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
@@ -221,7 +214,7 @@
                                 <asp:Label ID="LabelRecipientUsername" runat="server" Text="Recipient account" CssClass="text"></asp:Label>
                             </asp:TableCell>
                             <asp:TableCell runat="server">
-                                <div class="form-group">
+                                <div class="form-group" Style="width: 61.115%;">
                                     <asp:TextBox ID="TextBoxRecipientNo" placeholder="AccountNumber" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="LabelRecipientNoFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
@@ -246,22 +239,22 @@
                             <asp:TableCell runat="server">
                                 <asp:Label ID="LabelAmount" runat="server" Text="Amount" CssClass="text"></asp:Label>
                             </asp:TableCell>
-                            <asp:TableCell runat="server">
+                            <asp:TableCell runat="server" Style="width: 61.115%;">
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBoxAmount" placeholder="Value" runat="server" CssClass="form-control" Style="width: 70%;" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxAmount" placeholder="Value" runat="server" CssClass="form-control" Style="width: 70%;" ></asp:TextBox>
                                     <asp:Label ID="LabelAmountFeedback" CssClass="invalid-feedback" runat="server" Text="Label"></asp:Label>
                                 </div>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow runat="server">
-                            <asp:TableCell runat="server">
+                            <asp:TableCell runat="server" Style="vertical-align: middle;">
                                 <div class="tool-tip">
                                     <span class="material-symbols-rounded" style="font-weight: 700; color: rgb(52, 205, 133); transform: translateY(8px);">info</span>
                                     <span class="tool-tiptext" style="width: 300px; margin-left: -150px;">To enable printing. Please make sure your browser allows pop-ups for this website</span>
                                 </div>
                                 <span class="note">Note</span>
                             </asp:TableCell>
-                            <asp:TableCell runat="server" Style="display: flex; justify-content: flex-end; align-items: baseline;">
+                            <asp:TableCell runat="server" Style="display: flex; justify-content: flex-end;">
                                 <div class="tool-tip">
                                     <asp:LinkButton ID="LinkButtonPrint" runat="server" CssClass="btn" Style="transform: translateX(-10px); width: 47px; height: 40.8px;" OnClick="LinkButtonPrint_Click">
                                     <span class="material-symbols-rounded">print</span>
